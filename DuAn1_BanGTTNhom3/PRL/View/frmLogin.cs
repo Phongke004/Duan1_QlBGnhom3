@@ -41,7 +41,7 @@ namespace PRL.View
             if (!result) { return; }
             try
             {
-                frmHoaDon login = new frmHoaDon();
+                frmDoiTra login = new frmDoiTra();
                 this.Hide();
                 login.ShowDialog();
                 if (login.DialogResult == DialogResult.Yes)
