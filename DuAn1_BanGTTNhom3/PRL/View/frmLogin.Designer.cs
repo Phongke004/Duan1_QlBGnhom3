@@ -137,7 +137,6 @@
             btnThoat = new Button();
 
 
-            label4 = new Label();
             SuspendLayout();
             // 
             // btnLogin
@@ -170,9 +169,9 @@
             label1.Size = new Size(260, 61);
             label1.TabIndex = 2;
             label1.Text = "Đăng nhập";
-=======
+
             btnLogin = new Button();
-            button2 = new Button();
+          
             SuspendLayout();
             // 
             // label1
@@ -216,22 +215,11 @@
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-
-            txtPassword.Location = new Point(215, 205);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(503, 44);
-            txtPassword.TabIndex = 6;
+       
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(608, 391);
-            label4.Name = "label4";
-            label4.Size = new Size(159, 27);
-            label4.TabIndex = 7;
-            label4.Text = "Quên mật khẩu";
+           
 
             // 
             // frmLogin
@@ -240,9 +228,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
 
-            Controls.Add(label4);
-
-            Controls.Add(txtPassword);
+            
             Controls.Add(txtUser);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -269,17 +255,10 @@
         private Label lbQuenMk;
 
 
-        private Button btnLogin;
-        private Button btnThoat;
+        
+       
 
-
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox txtUser;
-        private TextBox txtPassword;
-
-        private Label label4;
+        
 
        
     }
