@@ -29,6 +29,26 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            panel2 = new Panel();
+            radioButtonHD = new RadioButton();
+            radioButtonKHD = new RadioButton();
+            panel1 = new Panel();
+            radioButtonNam = new RadioButton();
+            radioButtonNu = new RadioButton();
+            dtpNgaySinh = new DateTimePicker();
+            txtPasswork = new TextBox();
+            txtCaLam = new TextBox();
+            txtCV = new TextBox();
+            txtDiaChi = new TextBox();
+            txtEmail = new TextBox();
+            txtSDT = new TextBox();
+            txtTen = new TextBox();
+            txtMa = new TextBox();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -40,6 +60,7 @@
             btnSua = new Button();
             btnThem = new Button();
             groupBox2 = new GroupBox();
+            dgvNhanVien = new DataGridView();
             label1 = new Label();
             menuStrip1 = new MenuStrip();
             mENUQuảnLýToolStripMenuItem = new ToolStripMenuItem();
@@ -49,33 +70,16 @@
             quảnLýBánHàngToolStripMenuItem = new ToolStripMenuItem();
             quảnLýHóaĐơnToolStripMenuItem = new ToolStripMenuItem();
             quảnLýThốngKêToolStripMenuItem = new ToolStripMenuItem();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            txtMa = new TextBox();
-            txtTen = new TextBox();
-            txtSDT = new TextBox();
-            txtEmail = new TextBox();
-            txtDiaChi = new TextBox();
-            txtCV = new TextBox();
-            txtCaLam = new TextBox();
-            txtPasswork = new TextBox();
-            radioButtonNam = new RadioButton();
-            radioButtonNu = new RadioButton();
-            radioButtonHD = new RadioButton();
-            radioButtonKHD = new RadioButton();
-            dtpNgaySinh = new DateTimePicker();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            dgvNhanVien = new DataGridView();
+            thêmHóaĐơnToolStripMenuItem = new ToolStripMenuItem();
+            userToolStripMenuItem = new ToolStripMenuItem();
+            đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
+            đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            menuStrip1.SuspendLayout();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -112,6 +116,177 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin Nhân Viên";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(radioButtonHD);
+            panel2.Controls.Add(radioButtonKHD);
+            panel2.Location = new Point(580, 103);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(320, 37);
+            panel2.TabIndex = 29;
+            // 
+            // radioButtonHD
+            // 
+            radioButtonHD.AutoSize = true;
+            radioButtonHD.Location = new Point(3, 6);
+            radioButtonHD.Name = "radioButtonHD";
+            radioButtonHD.Size = new Size(102, 24);
+            radioButtonHD.TabIndex = 25;
+            radioButtonHD.TabStop = true;
+            radioButtonHD.Text = "Hoạt động";
+            radioButtonHD.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonKHD
+            // 
+            radioButtonKHD.AutoSize = true;
+            radioButtonKHD.Location = new Point(171, 6);
+            radioButtonKHD.Name = "radioButtonKHD";
+            radioButtonKHD.Size = new Size(146, 24);
+            radioButtonKHD.TabIndex = 26;
+            radioButtonKHD.TabStop = true;
+            radioButtonKHD.Text = "Không hoạt động";
+            radioButtonKHD.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(radioButtonNam);
+            panel1.Controls.Add(radioButtonNu);
+            panel1.Location = new Point(118, 234);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(259, 37);
+            panel1.TabIndex = 28;
+            // 
+            // radioButtonNam
+            // 
+            radioButtonNam.AutoSize = true;
+            radioButtonNam.Location = new Point(20, 7);
+            radioButtonNam.Name = "radioButtonNam";
+            radioButtonNam.Size = new Size(62, 24);
+            radioButtonNam.TabIndex = 23;
+            radioButtonNam.TabStop = true;
+            radioButtonNam.Text = "Nam";
+            radioButtonNam.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNu
+            // 
+            radioButtonNu.AutoSize = true;
+            radioButtonNu.Location = new Point(194, 7);
+            radioButtonNu.Name = "radioButtonNu";
+            radioButtonNu.Size = new Size(50, 24);
+            radioButtonNu.TabIndex = 24;
+            radioButtonNu.TabStop = true;
+            radioButtonNu.Text = "Nữ";
+            radioButtonNu.UseVisualStyleBackColor = true;
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.Format = DateTimePickerFormat.Short;
+            dtpNgaySinh.Location = new Point(580, 193);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(320, 27);
+            dtpNgaySinh.TabIndex = 27;
+            // 
+            // txtPasswork
+            // 
+            txtPasswork.Location = new Point(578, 152);
+            txtPasswork.Name = "txtPasswork";
+            txtPasswork.Size = new Size(322, 27);
+            txtPasswork.TabIndex = 22;
+            // 
+            // txtCaLam
+            // 
+            txtCaLam.Location = new Point(578, 65);
+            txtCaLam.Name = "txtCaLam";
+            txtCaLam.Size = new Size(322, 27);
+            txtCaLam.TabIndex = 21;
+            // 
+            // txtCV
+            // 
+            txtCV.Location = new Point(578, 27);
+            txtCV.Name = "txtCV";
+            txtCV.Size = new Size(322, 27);
+            txtCV.TabIndex = 20;
+            // 
+            // txtDiaChi
+            // 
+            txtDiaChi.Location = new Point(88, 198);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(324, 27);
+            txtDiaChi.TabIndex = 19;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(88, 157);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(324, 27);
+            txtEmail.TabIndex = 18;
+            // 
+            // txtSDT
+            // 
+            txtSDT.Location = new Point(88, 113);
+            txtSDT.Name = "txtSDT";
+            txtSDT.Size = new Size(324, 27);
+            txtSDT.TabIndex = 17;
+            // 
+            // txtTen
+            // 
+            txtTen.Location = new Point(88, 70);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(324, 27);
+            txtTen.TabIndex = 16;
+            // 
+            // txtMa
+            // 
+            txtMa.Location = new Point(88, 32);
+            txtMa.Name = "txtMa";
+            txtMa.Size = new Size(324, 27);
+            txtMa.TabIndex = 15;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(494, 68);
+            label12.Name = "label12";
+            label12.Size = new Size(58, 20);
+            label12.TabIndex = 14;
+            label12.Text = "Ca Làm";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(496, 30);
+            label11.Name = "label11";
+            label11.Size = new Size(63, 20);
+            label11.TabIndex = 13;
+            label11.Text = "Chức Vụ";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(494, 111);
+            label10.Name = "label10";
+            label10.Size = new Size(78, 20);
+            label10.TabIndex = 12;
+            label10.Text = "Trạng Thái";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(494, 155);
+            label9.Name = "label9";
+            label9.Size = new Size(72, 20);
+            label9.TabIndex = 11;
+            label9.Text = "Mật Khẩu";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(25, 201);
+            label8.Name = "label8";
+            label8.Size = new Size(55, 20);
+            label8.TabIndex = 10;
+            label8.Text = "Địa chỉ";
             // 
             // label7
             // 
@@ -213,6 +388,17 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Data Nhân Viên";
             // 
+            // dgvNhanVien
+            // 
+            dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNhanVien.Location = new Point(6, 37);
+            dgvNhanVien.Name = "dgvNhanVien";
+            dgvNhanVien.RowHeadersWidth = 51;
+            dgvNhanVien.RowTemplate.Height = 29;
+            dgvNhanVien.Size = new Size(1185, 188);
+            dgvNhanVien.TabIndex = 0;
+            dgvNhanVien.CellClick += dgvNhanVien_CellClick;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -228,7 +414,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mENUQuảnLýToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mENUQuảnLýToolStripMenuItem, thêmHóaĐơnToolStripMenuItem, userToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1221, 28);
@@ -278,187 +464,32 @@
             quảnLýThốngKêToolStripMenuItem.Size = new Size(224, 26);
             quảnLýThốngKêToolStripMenuItem.Text = "Quản lý thống kê";
             // 
-            // label8
+            // thêmHóaĐơnToolStripMenuItem
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(25, 201);
-            label8.Name = "label8";
-            label8.Size = new Size(55, 20);
-            label8.TabIndex = 10;
-            label8.Text = "Địa chỉ";
+            thêmHóaĐơnToolStripMenuItem.Name = "thêmHóaĐơnToolStripMenuItem";
+            thêmHóaĐơnToolStripMenuItem.Size = new Size(119, 24);
+            thêmHóaĐơnToolStripMenuItem.Text = "Thêm hóa đơn";
             // 
-            // label9
+            // userToolStripMenuItem
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(494, 155);
-            label9.Name = "label9";
-            label9.Size = new Size(72, 20);
-            label9.TabIndex = 11;
-            label9.Text = "Mật Khẩu";
+            userToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            userToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đổiMậtKhẩuToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            userToolStripMenuItem.Margin = new Padding(0, 0, 170, 0);
+            userToolStripMenuItem.Name = "userToolStripMenuItem";
+            userToolStripMenuItem.Size = new Size(63, 24);
+            userToolStripMenuItem.Text = "User : ";
             // 
-            // label10
+            // đổiMậtKhẩuToolStripMenuItem
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(494, 111);
-            label10.Name = "label10";
-            label10.Size = new Size(78, 20);
-            label10.TabIndex = 12;
-            label10.Text = "Trạng Thái";
+            đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(224, 26);
+            đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
-            // label11
+            // đăngXuấtToolStripMenuItem
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(496, 30);
-            label11.Name = "label11";
-            label11.Size = new Size(63, 20);
-            label11.TabIndex = 13;
-            label11.Text = "Chức Vụ";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(494, 68);
-            label12.Name = "label12";
-            label12.Size = new Size(58, 20);
-            label12.TabIndex = 14;
-            label12.Text = "Ca Làm";
-            // 
-            // txtMa
-            // 
-            txtMa.Location = new Point(88, 32);
-            txtMa.Name = "txtMa";
-            txtMa.Size = new Size(324, 27);
-            txtMa.TabIndex = 15;
-            // 
-            // txtTen
-            // 
-            txtTen.Location = new Point(88, 70);
-            txtTen.Name = "txtTen";
-            txtTen.Size = new Size(324, 27);
-            txtTen.TabIndex = 16;
-            // 
-            // txtSDT
-            // 
-            txtSDT.Location = new Point(88, 113);
-            txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(324, 27);
-            txtSDT.TabIndex = 17;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(88, 157);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(324, 27);
-            txtEmail.TabIndex = 18;
-            // 
-            // txtDiaChi
-            // 
-            txtDiaChi.Location = new Point(88, 198);
-            txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(324, 27);
-            txtDiaChi.TabIndex = 19;
-            // 
-            // txtCV
-            // 
-            txtCV.Location = new Point(578, 27);
-            txtCV.Name = "txtCV";
-            txtCV.Size = new Size(322, 27);
-            txtCV.TabIndex = 20;
-            // 
-            // txtCaLam
-            // 
-            txtCaLam.Location = new Point(578, 65);
-            txtCaLam.Name = "txtCaLam";
-            txtCaLam.Size = new Size(322, 27);
-            txtCaLam.TabIndex = 21;
-            // 
-            // txtPasswork
-            // 
-            txtPasswork.Location = new Point(578, 152);
-            txtPasswork.Name = "txtPasswork";
-            txtPasswork.Size = new Size(322, 27);
-            txtPasswork.TabIndex = 22;
-            // 
-            // radioButtonNam
-            // 
-            radioButtonNam.AutoSize = true;
-            radioButtonNam.Location = new Point(20, 7);
-            radioButtonNam.Name = "radioButtonNam";
-            radioButtonNam.Size = new Size(62, 24);
-            radioButtonNam.TabIndex = 23;
-            radioButtonNam.TabStop = true;
-            radioButtonNam.Text = "Nam";
-            radioButtonNam.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonNu
-            // 
-            radioButtonNu.AutoSize = true;
-            radioButtonNu.Location = new Point(194, 7);
-            radioButtonNu.Name = "radioButtonNu";
-            radioButtonNu.Size = new Size(50, 24);
-            radioButtonNu.TabIndex = 24;
-            radioButtonNu.TabStop = true;
-            radioButtonNu.Text = "Nữ";
-            radioButtonNu.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonHD
-            // 
-            radioButtonHD.AutoSize = true;
-            radioButtonHD.Location = new Point(3, 6);
-            radioButtonHD.Name = "radioButtonHD";
-            radioButtonHD.Size = new Size(102, 24);
-            radioButtonHD.TabIndex = 25;
-            radioButtonHD.TabStop = true;
-            radioButtonHD.Text = "Hoạt động";
-            radioButtonHD.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonKHD
-            // 
-            radioButtonKHD.AutoSize = true;
-            radioButtonKHD.Location = new Point(171, 6);
-            radioButtonKHD.Name = "radioButtonKHD";
-            radioButtonKHD.Size = new Size(146, 24);
-            radioButtonKHD.TabIndex = 26;
-            radioButtonKHD.TabStop = true;
-            radioButtonKHD.Text = "Không hoạt động";
-            radioButtonKHD.UseVisualStyleBackColor = true;
-            // 
-            // dtpNgaySinh
-            // 
-            dtpNgaySinh.Format = DateTimePickerFormat.Short;
-            dtpNgaySinh.Location = new Point(580, 193);
-            dtpNgaySinh.Name = "dtpNgaySinh";
-            dtpNgaySinh.Size = new Size(320, 27);
-            dtpNgaySinh.TabIndex = 27;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(radioButtonNam);
-            panel1.Controls.Add(radioButtonNu);
-            panel1.Location = new Point(118, 234);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(259, 37);
-            panel1.TabIndex = 28;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(radioButtonHD);
-            panel2.Controls.Add(radioButtonKHD);
-            panel2.Location = new Point(580, 103);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(320, 37);
-            panel2.TabIndex = 29;
-            // 
-            // dgvNhanVien
-            // 
-            dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNhanVien.Location = new Point(6, 37);
-            dgvNhanVien.Name = "dgvNhanVien";
-            dgvNhanVien.RowHeadersWidth = 51;
-            dgvNhanVien.RowTemplate.Height = 29;
-            dgvNhanVien.Size = new Size(1185, 188);
-            dgvNhanVien.TabIndex = 0;
-            dgvNhanVien.CellClick += dgvNhanVien_CellClick;
+            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            đăngXuấtToolStripMenuItem.Size = new Size(224, 26);
+            đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // frmQLNV
             // 
@@ -474,14 +505,14 @@
             Text = "frmQLNV";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -530,5 +561,9 @@
         private Panel panel2;
         private Panel panel1;
         private DataGridView dgvNhanVien;
+        private ToolStripMenuItem thêmHóaĐơnToolStripMenuItem;
+        private ToolStripMenuItem userToolStripMenuItem;
+        private ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
+        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }
