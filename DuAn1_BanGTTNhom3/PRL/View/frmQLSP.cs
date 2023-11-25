@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace PRL.View
 {
-    public partial class frmHoaDon : Form
+    public partial class frmQLSP : Form
     {
-        public frmHoaDon()
+        public frmQLSP()
         {
             InitializeComponent();
         }
-
-
     }
 }

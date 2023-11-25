@@ -20,6 +20,7 @@ namespace PRL.View
         private bool isExitApplication = false;
         public frmLogin()
         {
+            _service = new NhanVienServices();
             InitializeComponent();
         }
         private void btnLogin_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace PRL.View
         private bool check()
         {
             user = txtUser.Text.Trim();
-            pass = txtPassword.Text.Trim();
+            pass = txtPassWord.Text.Trim();
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ tài khoản và mật khẩu!");
@@ -90,7 +91,7 @@ namespace PRL.View
         private bool checkText()
         {
             var user = txtUser.Text.Trim();
-            var pass = txtPassword.Text.Trim();
+            var pass = txtPassWord.Text.Trim();
             return string.IsNullOrEmpty(user) && string.IsNullOrEmpty(pass);
         }
 
@@ -104,11 +105,11 @@ namespace PRL.View
                     isExitApplication = true;
                     this.Close();
                 }
-               
+
             }
             catch (Exception ex)
             {
-               MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
