@@ -80,8 +80,7 @@ namespace PRL.View
         }
         private bool check()
         {
-            user = txtUser.Text.Trim();
-            pass = txtPassWord.Text.Trim();
+            
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ tài khoản và mật khẩu!");
@@ -91,8 +90,7 @@ namespace PRL.View
         }
         private bool checkText()
         {
-            var user = txtUser.Text.Trim();
-            var pass = txtPassWord.Text.Trim();
+           
             return string.IsNullOrEmpty(user) && string.IsNullOrEmpty(pass);
         }
 
