@@ -1,6 +1,6 @@
-﻿
-using BUS.Services;
+﻿using BUS.Services;
 using DAL.DomainClass;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +23,6 @@ namespace PRL.View
             _service = new NhanVienServices();  
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -80,7 +79,8 @@ namespace PRL.View
         }
         private bool check()
         {
-            
+            user = txtUser.Text.Trim();
+            pass = txtPassword.Text.Trim();
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ tài khoản và mật khẩu!");
@@ -90,9 +90,27 @@ namespace PRL.View
         }
         private bool checkText()
         {
-           
+            var user = txtUser.Text.Trim();
+            var pass = txtPassword.Text.Trim();
             return string.IsNullOrEmpty(user) && string.IsNullOrEmpty(pass);
         }
 
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn thoát chương trình không!", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    isExitApplication = true;
+                    this.Close();
+                }
+               
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
