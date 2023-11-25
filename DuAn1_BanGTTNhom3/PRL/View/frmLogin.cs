@@ -20,7 +20,7 @@ namespace PRL.View
         private bool isExitApplication = false;
         public frmLogin()
         {
-            _service = new NhanVienServices();  
+            _service = new NhanVienServices();
             InitializeComponent();
         }
         private void btnLogin_Click(object sender, EventArgs e)
@@ -105,11 +105,11 @@ namespace PRL.View
                     isExitApplication = true;
                     this.Close();
                 }
-               
+
             }
             catch (Exception ex)
             {
-               MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
