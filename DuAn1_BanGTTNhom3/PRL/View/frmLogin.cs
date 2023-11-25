@@ -20,6 +20,7 @@ namespace PRL.View
         private bool isExitApplication = false;
         public frmLogin()
         {
+            _service = new NhanVienServices();  
             InitializeComponent();
         }
         private void btnLogin_Click(object sender, EventArgs e)
