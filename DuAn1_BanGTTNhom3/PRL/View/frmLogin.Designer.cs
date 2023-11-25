@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             btnLogin = new Button();
             btnThoat = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            txtUser = new TextBox();
-            txtPassword = new TextBox();
+
+
             label4 = new Label();
             SuspendLayout();
             // 
@@ -68,38 +66,54 @@
             label1.Size = new Size(260, 61);
             label1.TabIndex = 2;
             label1.Text = "Đăng nhập";
+=======
+            btnLogin = new Button();
+            button2 = new Button();
+            SuspendLayout();
             // 
-            // label2
+            // label1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(258, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(285, 61);
+            label1.TabIndex = 0;
+            label1.Text = "Đăng nhập ";
+
             label2.Location = new Point(24, 123);
             label2.Name = "label2";
             label2.Size = new Size(158, 36);
             label2.TabIndex = 3;
             label2.Text = "Tài khoản :";
+
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+
             label3.Location = new Point(34, 208);
             label3.Name = "label3";
             label3.Size = new Size(151, 36);
             label3.TabIndex = 4;
             label3.Text = "Mật khẩu :";
+
             // 
             // txtUser
             // 
             txtUser.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+
             txtUser.Location = new Point(215, 120);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(500, 44);
             txtUser.TabIndex = 5;
+
             // 
             // txtPassword
             // 
             txtPassword.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+
             txtPassword.Location = new Point(215, 205);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(503, 44);
@@ -114,20 +128,25 @@
             label4.Size = new Size(159, 27);
             label4.TabIndex = 7;
             label4.Text = "Quên mật khẩu";
+
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+
             Controls.Add(label4);
+
             Controls.Add(txtPassword);
             Controls.Add(txtUser);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+
             Controls.Add(btnThoat);
             Controls.Add(btnLogin);
+
             Name = "frmLogin";
             Text = "frmLogin";
             ResumeLayout(false);
@@ -136,13 +155,19 @@
 
         #endregion
 
+
         private Button btnLogin;
         private Button btnThoat;
+
+
         private Label label1;
         private Label label2;
         private Label label3;
         private TextBox txtUser;
         private TextBox txtPassword;
+
         private Label label4;
+
+       
     }
 }
