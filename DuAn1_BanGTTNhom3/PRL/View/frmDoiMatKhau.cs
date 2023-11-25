@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PRL.View
 {
-    public partial class frmHoaDon : Form
+    public partial class frmDoiMatKhau : Form
     {
-        public frmHoaDon()
+        public frmDoiMatKhau()
         {
             InitializeComponent();
         }
