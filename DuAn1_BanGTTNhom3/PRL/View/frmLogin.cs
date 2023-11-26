@@ -43,8 +43,11 @@ namespace PRL.View
             if (!result) { return; }
             try
             {
+
                 NhanVien nhanVien = _service.GetNhanVienByUserNameAndPasswords(userName, passWord);
                 if (nhanVien != null)
+
+                
                 {
                     // Kiểm tra mã chức vụ của nhân viên
                     if (nhanVien.MaChucVu == new Guid("00000000-0000-0000-0000-000000000001"))
