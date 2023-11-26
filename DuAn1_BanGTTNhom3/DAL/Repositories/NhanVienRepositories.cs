@@ -36,7 +36,10 @@ namespace DAL.Repoistories
             }
 
         }
-
+        public NhanVien GetNhanVienByUserNameAndPassword(string userName, string password)
+        {
+            return _dbContext.NhanViens.FirstOrDefault(nv => nv.MaNv == userName && nv.MatKhau == password);
+        }
         public bool CheckExists(string userName, string passWord)
         {
             return _dbContext.NhanViens.Any(i => i.MaNv == userName && i.MatKhau == passWord);
