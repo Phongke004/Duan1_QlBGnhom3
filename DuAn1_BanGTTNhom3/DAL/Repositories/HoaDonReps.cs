@@ -25,5 +25,15 @@ namespace DAL.Repositories
         {
             return _connect.HoaDons.ToList();
         }
+
+        public List<NhanVien> GetNhanViens()
+        {
+           return _connect.NhanViens.ToList();
+        }
+
+        public List<SanPham> GetSanPhams()
+        {
+          return _connect.SanPhams.ToList();
+        }
     }
 }

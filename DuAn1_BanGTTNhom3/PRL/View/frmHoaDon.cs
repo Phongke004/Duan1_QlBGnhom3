@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace PRL.View
 {
     public partial class frmHoaDon : Form
     {
+        HoaDonServices _hoaDonServices;
+        Guid _idClick;
         public frmHoaDon()
         {
             InitializeComponent();
+            _hoaDonServices = new HoaDonServices();
+
         }
 
 
