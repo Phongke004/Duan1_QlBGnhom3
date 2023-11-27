@@ -32,6 +32,14 @@ namespace BUS.Service
           return _hoadon.GetHoaDonChiTiets();
         }
 
+        public List<NhanVien> GetNhanViens()
+        {
+          return _hoadon.GetNhanViens();
+        }
 
+        public List<SanPham> GetSanPhams()
+        {
+            return _hoadon.GetSanPhams();
+        }
     }
 }
