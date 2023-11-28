@@ -401,8 +401,9 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { mnStripUser, quảnLýToolStripMenuItem, thêmNhânViênToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(4, 1, 0, 1);
-            menuStrip1.Size = new Size(1105, 24);
+
+            menuStrip1.Size = new Size(1795, 42);
+
             menuStrip1.TabIndex = 9;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -413,19 +414,28 @@
             mnStripUser.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             mnStripUser.Margin = new Padding(0, 0, 290, 0);
             mnStripUser.Name = "mnStripUser";
-            mnStripUser.Size = new Size(58, 24);
+
+            mnStripUser.Size = new Size(94, 38);
+
             mnStripUser.Text = "User :";
             // 
             // mnStripDoiMk
             // 
             mnStripDoiMk.Name = "mnStripDoiMk";
-            mnStripDoiMk.Size = new Size(224, 26);
+
+            mnStripDoiMk.Size = new Size(359, 44);
+
+           
             mnStripDoiMk.Text = "Đổi mật khẩu";
+            mnStripDoiMk.Click += mnStripDoiMk_Click;
             // 
             // MnStripDangXuat
             // 
             MnStripDangXuat.Name = "MnStripDangXuat";
-            MnStripDangXuat.Size = new Size(224, 26);
+
+            MnStripDangXuat.Size = new Size(359, 44);
+
+          
             MnStripDangXuat.Text = "Đăng Xuất";
             // 
             // quảnLýToolStripMenuItem

@@ -1,4 +1,8 @@
-﻿using BUS.Service;
+
+﻿using DAL.DomainClass;
+
+
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +26,13 @@ namespace PRL.View
 
         }
 
+        private void mnStripDoiMk_Click(object sender, EventArgs e)
+        {
+            frmDoiMatKhau frmDoiMatKhau = new frmDoiMatKhau();
+            this.Hide();
 
+            frmDoiMatKhau.ShowDialog();
+
+        }
     }
 }
