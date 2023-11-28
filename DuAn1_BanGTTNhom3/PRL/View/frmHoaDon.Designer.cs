@@ -386,6 +386,7 @@
             MnStripDangXuat.Name = "MnStripDangXuat";
             MnStripDangXuat.Size = new Size(359, 44);
             MnStripDangXuat.Text = "Đăng Xuất";
+            MnStripDangXuat.Click += MnStripDangXuat_Click;
             // 
             // frmHoaDon
             // 

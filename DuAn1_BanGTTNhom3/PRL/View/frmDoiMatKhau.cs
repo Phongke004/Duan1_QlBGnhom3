@@ -17,6 +17,7 @@ namespace PRL.View
     public partial class frmDoiMatKhau : Form
     {
         private NhanVienServices _service;
+        private bool isExitApplication = false;
         public frmDoiMatKhau()
         {
             _service = new NhanVienServices();
@@ -29,7 +30,7 @@ namespace PRL.View
             {
                 Save();
             }
-            catch (Exception )
+            catch (Exception)
             {
 
                 MessageBox.Show("Đổi mật khẩu thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -52,7 +53,7 @@ namespace PRL.View
             {
                 // Hiển thị thông báo lỗi nếu mật khẩu mới và xác nhận mật khẩu không khớp nhau
                 MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu không khớp nhau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; 
+                return;
             }
             bool rs = new NhanVienServices().UpdatePassWordNV(User, passConfirm);
             if (!rs)
@@ -64,10 +65,30 @@ namespace PRL.View
             {
                 MessageBox.Show("Mật khẩu đã được đổi thành công!", "Thông Báo", MessageBoxButtons.OK);
             }
-            
-                this.Close();
-            
-           
+
+            this.Close();
+
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn quay lại  không!", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    isExitApplication = true;
+                    frmHoaDon frmHoaDon = new frmHoaDon();
+                    this.Hide();
+                    frmHoaDon.ShowDialog();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

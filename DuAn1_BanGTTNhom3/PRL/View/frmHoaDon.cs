@@ -13,6 +13,7 @@ namespace PRL.View
 {
     public partial class frmHoaDon : Form
     {
+        private bool isExitApplication = false;
         public frmHoaDon()
         {
             InitializeComponent();
@@ -25,6 +26,26 @@ namespace PRL.View
 
             frmDoiMatKhau.ShowDialog();
 
+        }
+
+        private void MnStripDangXuat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn đăng xuất không!", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    isExitApplication = true;
+                    frmLogin frmLogin = new frmLogin();
+                    this.Hide();
+                    frmLogin.ShowDialog();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
