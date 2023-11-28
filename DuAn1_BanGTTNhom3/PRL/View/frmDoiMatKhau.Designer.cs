@@ -36,7 +36,7 @@
             txtPassCu = new TextBox();
             txtPassMoi = new TextBox();
             btnXacNhanDoiMK = new Button();
-            thoát = new Button();
+            btnBack = new Button();
             label5 = new Label();
             txtPassXacNhan = new TextBox();
             SuspendLayout();
@@ -84,7 +84,7 @@
             // txtUser
             // 
             txtUser.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtUser.Location = new Point(313, 111);
+            txtUser.Location = new Point(344, 110);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(443, 41);
             txtUser.TabIndex = 4;
@@ -92,7 +92,7 @@
             // txtPassCu
             // 
             txtPassCu.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassCu.Location = new Point(314, 199);
+            txtPassCu.Location = new Point(345, 198);
             txtPassCu.Name = "txtPassCu";
             txtPassCu.Size = new Size(442, 41);
             txtPassCu.TabIndex = 5;
@@ -100,7 +100,7 @@
             // txtPassMoi
             // 
             txtPassMoi.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassMoi.Location = new Point(316, 282);
+            txtPassMoi.Location = new Point(347, 281);
             txtPassMoi.Name = "txtPassMoi";
             txtPassMoi.Size = new Size(440, 41);
             txtPassMoi.TabIndex = 6;
@@ -116,15 +116,16 @@
             btnXacNhanDoiMK.UseVisualStyleBackColor = true;
             btnXacNhanDoiMK.Click += btnXacNhanDoiMK_Click;
             // 
-            // thoát
+            // btnBack
             // 
-            thoát.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            thoát.Location = new Point(606, 468);
-            thoát.Name = "thoát";
-            thoát.Size = new Size(150, 46);
-            thoát.TabIndex = 8;
-            thoát.Text = "Thoát";
-            thoát.UseVisualStyleBackColor = true;
+            btnBack.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBack.Location = new Point(606, 468);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(150, 46);
+            btnBack.TabIndex = 8;
+            btnBack.Text = "Quay lại";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // label5
             // 
@@ -139,7 +140,7 @@
             // txtPassXacNhan
             // 
             txtPassXacNhan.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassXacNhan.Location = new Point(320, 371);
+            txtPassXacNhan.Location = new Point(351, 370);
             txtPassXacNhan.Name = "txtPassXacNhan";
             txtPassXacNhan.Size = new Size(436, 41);
             txtPassXacNhan.TabIndex = 10;
@@ -151,7 +152,7 @@
             ClientSize = new Size(920, 564);
             Controls.Add(txtPassXacNhan);
             Controls.Add(label5);
-            Controls.Add(thoát);
+            Controls.Add(btnBack);
             Controls.Add(btnXacNhanDoiMK);
             Controls.Add(txtPassMoi);
             Controls.Add(txtPassCu);
@@ -176,7 +177,7 @@
         private TextBox txtPassCu;
         private TextBox txtPassMoi;
         private Button btnXacNhanDoiMK;
-        private Button thoát;
+        private Button btnBack;
         private Label label5;
         private TextBox txtPassXacNhan;
     }

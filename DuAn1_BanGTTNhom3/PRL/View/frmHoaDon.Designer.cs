@@ -437,6 +437,7 @@
 
           
             MnStripDangXuat.Text = "Đăng Xuất";
+            MnStripDangXuat.Click += MnStripDangXuat_Click;
             // 
             // quảnLýToolStripMenuItem
             // 
