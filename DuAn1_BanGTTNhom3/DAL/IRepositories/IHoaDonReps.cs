@@ -11,6 +11,8 @@ namespace DAL.IRepositories
     {
         public List<HoaDon> GetHoaDons();
         public List<HoaDonChiTiet> GetHoaDonChiTiets();
+        public List<NhanVien> GetNhanViens();
+        public List<SanPham> GetSanPhams();
 
     }
 }
