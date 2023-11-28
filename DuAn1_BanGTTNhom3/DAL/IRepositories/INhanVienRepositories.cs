@@ -24,6 +24,7 @@ namespace DAL.IRepoistories
 
         public int GetCount(string text);
         public IEnumerable<NhanVien> GetList(string text);
+        public NhanVien GetNhanVienByUserNameAndPassword(string userName, string password);
 
 
     }

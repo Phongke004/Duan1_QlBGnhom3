@@ -36,13 +36,14 @@
             txtUser = new TextBox();
             txtPassWord = new TextBox();
             lbQuenMk = new Label();
+            ckbShowPass = new CheckBox();
             SuspendLayout();
             // 
             // btnLogin
             // 
             btnLogin.BackColor = SystemColors.ActiveCaption;
             btnLogin.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLogin.Location = new Point(218, 308);
+            btnLogin.Location = new Point(229, 324);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(187, 46);
             btnLogin.TabIndex = 0;
@@ -54,7 +55,7 @@
             // 
             btnThoat.BackColor = SystemColors.ActiveCaption;
             btnThoat.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnThoat.Location = new Point(479, 308);
+            btnThoat.Location = new Point(490, 324);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(170, 46);
             btnThoat.TabIndex = 1;
@@ -102,11 +103,13 @@
             // 
             // txtPassWord
             // 
+            txtPassWord.Cursor = Cursors.IBeam;
             txtPassWord.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassWord.Location = new Point(213, 192);
+            txtPassWord.Location = new Point(215, 203);
             txtPassWord.Name = "txtPassWord";
             txtPassWord.Size = new Size(489, 41);
             txtPassWord.TabIndex = 6;
+            txtPassWord.UseSystemPasswordChar = true;
             // 
             // lbQuenMk
             // 
@@ -118,11 +121,24 @@
             lbQuenMk.TabIndex = 7;
             lbQuenMk.Text = "Quên mật khẩu";
             // 
+            // ckbShowPass
+            // 
+            ckbShowPass.AutoSize = true;
+            ckbShowPass.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ckbShowPass.Location = new Point(219, 267);
+            ckbShowPass.Name = "ckbShowPass";
+            ckbShowPass.Size = new Size(203, 28);
+            ckbShowPass.TabIndex = 8;
+            ckbShowPass.Text = "Hiển thị mật khẩu";
+            ckbShowPass.UseVisualStyleBackColor = true;
+            ckbShowPass.CheckedChanged += ckbShowPass_CheckedChanged;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ckbShowPass);
             Controls.Add(lbQuenMk);
             Controls.Add(txtPassWord);
             Controls.Add(txtUser);
@@ -147,13 +163,6 @@
         private TextBox txtUser;
         private TextBox txtPassWord;
         private Label lbQuenMk;
-
-
-
-
-
-
-
-
+        private CheckBox ckbShowPass;
     }
 }

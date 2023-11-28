@@ -23,5 +23,6 @@ namespace BUS.IServiecs
 
         public int GetCountNV(string text);
         public IEnumerable<NhanVien> GetListNV(string text);
+        public NhanVien GetNhanVienByUserNameAndPasswords(string userName, string password);
     }
 }

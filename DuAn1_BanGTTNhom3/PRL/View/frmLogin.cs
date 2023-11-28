@@ -1,6 +1,7 @@
 ﻿using BUS.Services;
 using DAL.DomainClass;
 using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace PRL.View
     public partial class frmLogin : Form
     {
         private NhanVienServices _service;
-        private string user, pass;
+        private string userName, passWord;
         private bool isExitApplication = false;
         public frmLogin()
         {
@@ -32,7 +33,7 @@ namespace PRL.View
             catch (Exception)
             {
 
-                MessageBox.Show("Đăng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập  thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -42,29 +43,58 @@ namespace PRL.View
             if (!result) { return; }
             try
             {
-                frmHoaDon login = new frmHoaDon();
-                this.Hide();
-                login.ShowDialog();
-                if (login.DialogResult == DialogResult.Yes)
+
+                NhanVien nhanVien = _service.GetNhanVienByUserNameAndPasswords(userName, passWord);
+                if (nhanVien != null)
+
+
                 {
-                    isExitApplication = true;
-                    this.Close();
+                    // Kiểm tra mã chức vụ của nhân viên
+                    if (nhanVien.MaChucVu == new Guid("00000000-0000-0000-0000-000000000001"))
+                    {
+                        // Mở màn hình quản lý
+                        frmQLNV quanLyForm = new frmQLNV();
+                        // Gắn sự kiện đăng xuất
+                        this.Hide();
+                        quanLyForm.ShowDialog();
+                        if (quanLyForm.DialogResult == DialogResult.Yes)
+                        {
+                            isExitApplication = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            this.Show();
+                        }
+                    }
+                    else
+                    {
+                        frmHoaDon login = new frmHoaDon();
+                        this.Hide();
+                        login.ShowDialog();
+                        if (login.DialogResult == DialogResult.Yes)
+                        {
+                            isExitApplication = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            this.Show();
+                        }
+                    }
                 }
-                else
-                {
-                    this.Show();
-                }
+
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Đăng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private bool checkAccount()
         {
             bool rs = check();
-            var checkAD = _service.CheckExistsNV(user, pass);
+            var checkAD = _service.CheckExistsNV(userName, passWord);
 
             if (!checkAD)
             {
@@ -79,21 +109,16 @@ namespace PRL.View
         }
         private bool check()
         {
-            user = txtUser.Text.Trim();
-            pass = txtPassWord.Text.Trim();
-            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
+            userName = txtUser.Text.Trim();
+            passWord = txtPassWord.Text.Trim();
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(passWord))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ tài khoản và mật khẩu!");
                 return false;
             }
             return true;
         }
-        private bool checkText()
-        {
-            var user = txtUser.Text.Trim();
-            var pass = txtPassWord.Text.Trim();
-            return string.IsNullOrEmpty(user) && string.IsNullOrEmpty(pass);
-        }
+
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -111,6 +136,11 @@ namespace PRL.View
             {
                 MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void ckbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassWord.UseSystemPasswordChar = !ckbShowPass.Checked;
         }
     }
 }

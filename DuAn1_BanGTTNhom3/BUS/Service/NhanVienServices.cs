@@ -18,7 +18,10 @@ namespace BUS.Services
         {
             repo = new NhanVienRepositories();
         }
-
+        public NhanVien GetNhanVienByUserNameAndPasswords(string userName, string password)
+        {
+            return repo.GetNhanVienByUserNameAndPassword(userName, password);
+        }
         public bool AddNV(NhanVien nv)
         {
             return repo.Add(nv);
