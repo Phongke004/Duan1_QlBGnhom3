@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.DomainClass;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,13 @@ namespace PRL.View
             InitializeComponent();
         }
 
+        private void mnStripDoiMk_Click(object sender, EventArgs e)
+        {
+            frmDoiMatKhau frmDoiMatKhau = new frmDoiMatKhau();
+            this.Hide();
 
+            frmDoiMatKhau.ShowDialog();
+
+        }
     }
 }

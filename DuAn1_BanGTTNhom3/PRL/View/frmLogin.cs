@@ -33,7 +33,7 @@ namespace PRL.View
             catch (Exception)
             {
 
-                MessageBox.Show("Đăng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập  thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -47,7 +47,7 @@ namespace PRL.View
                 NhanVien nhanVien = _service.GetNhanVienByUserNameAndPasswords(userName, passWord);
                 if (nhanVien != null)
 
-                
+
                 {
                     // Kiểm tra mã chức vụ của nhân viên
                     if (nhanVien.MaChucVu == new Guid("00000000-0000-0000-0000-000000000001"))
@@ -83,12 +83,12 @@ namespace PRL.View
                         }
                     }
                 }
-                
+
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Đăng thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private bool checkAccount()
@@ -118,12 +118,7 @@ namespace PRL.View
             }
             return true;
         }
-        private bool checkText()
-        {
-            var user = txtUser.Text.Trim();
-            var pass = txtPassWord.Text.Trim();
-            return string.IsNullOrEmpty(user) && string.IsNullOrEmpty(pass);
-        }
+
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -141,6 +136,11 @@ namespace PRL.View
             {
                 MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void ckbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassWord.UseSystemPasswordChar = !ckbShowPass.Checked;
         }
     }
 }
