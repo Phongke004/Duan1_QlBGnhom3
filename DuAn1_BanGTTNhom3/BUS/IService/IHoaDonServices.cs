@@ -13,7 +13,12 @@ namespace BUS.IService
         public List<HoaDonChiTiet> GetHoaDonChiTiets();
         public List <NhanVien > GetNhanViens();
         public List<SanPham> GetSanPhams();
+        public string UpdatesHD(HoaDon hd);
+        public string DeletesHD(HoaDon hd);
+        public string AddsHD(HoaDon hd);
+        public string UpdatesHDCT(HoaDonChiTiet hdct);
+        public string DeletesHDCT(HoaDonChiTiet hdct);
+        public string AddsHDCT(HoaDonChiTiet hdct);
 
-        
     }
 }
