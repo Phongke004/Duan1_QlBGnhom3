@@ -39,6 +39,7 @@
             btnBack = new Button();
             label5 = new Label();
             txtPassXacNhan = new TextBox();
+            cbHienThiMk = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -96,6 +97,7 @@
             txtPassCu.Name = "txtPassCu";
             txtPassCu.Size = new Size(442, 41);
             txtPassCu.TabIndex = 5;
+            txtPassCu.UseSystemPasswordChar = true;
             // 
             // txtPassMoi
             // 
@@ -104,11 +106,12 @@
             txtPassMoi.Name = "txtPassMoi";
             txtPassMoi.Size = new Size(440, 41);
             txtPassMoi.TabIndex = 6;
+            txtPassMoi.UseSystemPasswordChar = true;
             // 
             // btnXacNhanDoiMK
             // 
             btnXacNhanDoiMK.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXacNhanDoiMK.Location = new Point(316, 468);
+            btnXacNhanDoiMK.Location = new Point(215, 478);
             btnXacNhanDoiMK.Name = "btnXacNhanDoiMK";
             btnXacNhanDoiMK.Size = new Size(150, 46);
             btnXacNhanDoiMK.TabIndex = 7;
@@ -119,7 +122,7 @@
             // btnBack
             // 
             btnBack.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBack.Location = new Point(606, 468);
+            btnBack.Location = new Point(505, 478);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(150, 46);
             btnBack.TabIndex = 8;
@@ -144,12 +147,26 @@
             txtPassXacNhan.Name = "txtPassXacNhan";
             txtPassXacNhan.Size = new Size(436, 41);
             txtPassXacNhan.TabIndex = 10;
+            txtPassXacNhan.UseSystemPasswordChar = true;
+            // 
+            // cbHienThiMk
+            // 
+            cbHienThiMk.AutoSize = true;
+            cbHienThiMk.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            cbHienThiMk.Location = new Point(347, 426);
+            cbHienThiMk.Name = "cbHienThiMk";
+            cbHienThiMk.Size = new Size(203, 28);
+            cbHienThiMk.TabIndex = 11;
+            cbHienThiMk.Text = "Hiển thị mật khẩu";
+            cbHienThiMk.UseVisualStyleBackColor = true;
+            cbHienThiMk.CheckedChanged += cbHienThiMk_CheckedChanged;
             // 
             // frmDoiMatKhau
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(920, 564);
+            Controls.Add(cbHienThiMk);
             Controls.Add(txtPassXacNhan);
             Controls.Add(label5);
             Controls.Add(btnBack);
@@ -162,7 +179,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmDoiMatKhau";
-            Text = "frmDoiMatKhau";
+            Text = "Đổi mật khẩu";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,5 +197,6 @@
         private Button btnBack;
         private Label label5;
         private TextBox txtPassXacNhan;
+        private CheckBox cbHienThiMk;
     }
 }

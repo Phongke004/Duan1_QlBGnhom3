@@ -42,11 +42,11 @@ namespace PRL.View
             int stt = 1;
             foreach (var item in _hoaDonServiecs.GetHoaDon(find))
             {
-                var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.IdSanPham == item.MaSp);
-                var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.IdNhanVien == item.MaNv);
-                var query = _hoaDonServiecs.GetHoaDonChiTiets().FirstOrDefault(x => x.IdHoaDonCt == item.IdHoaDon);
+                var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.MaSp == item.MaSp);
+                var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.MaNv == item.MaNv);
+                var query = _hoaDonServiecs.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHdct == item.MaHd);
                 dgtView.Rows.Add(stt++, item.MaHd, item.NgayTao, query.SoLuong, query.DonGia, item.TongTien
-                    , queryProduct.MaSp, queryStaff.MaNv, item.IdHoaDon);
+                    , queryProduct.MaSp, queryStaff.MaNv, item.MaHd);
             }
 
         }

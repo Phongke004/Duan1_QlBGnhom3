@@ -10,18 +10,15 @@ namespace DAL.DomainClass;
 public partial class Size
 {
     [Key]
-    [Column("idSize")]
-    public Guid IdSize { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaSize { get; set; } = null!;
 
     [StringLength(50)]
-    public string KichThuoc { get; set; } = null!;
+    public string? KichThuoc { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [InverseProperty("MaSizeNavigation")]
     public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();

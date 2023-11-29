@@ -10,18 +10,15 @@ namespace DAL.DomainClass;
 public partial class ChatLieu
 {
     [Key]
-    [Column("idChatlieu")]
-    public Guid IdChatlieu { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaChatLieu { get; set; } = null!;
 
     [StringLength(50)]
-    public string LoaiChatLieu { get; set; } = null!;
+    public string? LoaiChatLieu { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [InverseProperty("MaChatLieuNavigation")]
     public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();

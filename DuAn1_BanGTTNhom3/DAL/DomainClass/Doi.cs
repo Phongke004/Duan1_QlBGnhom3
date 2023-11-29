@@ -10,27 +10,26 @@ namespace DAL.DomainClass;
 public partial class Doi
 {
     [Key]
-    [Column("idDoi")]
-    public Guid IdDoi { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaDoi { get; set; } = null!;
 
     [StringLength(10)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [Column(TypeName = "date")]
-    public DateTime NgayDoi { get; set; }
+    public DateTime? NgayDoi { get; set; }
 
     [StringLength(250)]
-    public string LyDo { get; set; } = null!;
+    public string? LyDo { get; set; }
 
     [StringLength(100)]
-    public string DoiSangSp { get; set; } = null!;
+    public string? DoiSangSp { get; set; }
 
     [Column("MaHDCT")]
-    public Guid? MaHdct { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaHdct { get; set; }
 
     [ForeignKey("MaHdct")]
     [InverseProperty("Dois")]

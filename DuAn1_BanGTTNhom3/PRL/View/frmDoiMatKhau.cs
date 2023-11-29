@@ -90,5 +90,10 @@ namespace PRL.View
                 MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void cbHienThiMk_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassCu.UseSystemPasswordChar = txtPassMoi.UseSystemPasswordChar = txtPassXacNhan.UseSystemPasswordChar = !cbHienThiMk.Checked;
+        }
     }
 }

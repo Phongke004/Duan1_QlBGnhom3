@@ -10,25 +10,27 @@ namespace DAL.DomainClass;
 public partial class Rank
 {
     [Key]
-    [Column("RankID")]
     [StringLength(10)]
     [Unicode(false)]
-    public string RankId { get; set; } = null!;
+    public string MaRank { get; set; } = null!;
 
     [StringLength(100)]
-    public string DieuKien { get; set; } = null!;
+    public string? DieuKien { get; set; }
 
     [StringLength(100)]
     [Unicode(false)]
-    public string MucUuDai { get; set; } = null!;
+    public string? MucUuDai { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [StringLength(250)]
-    public string MoTa { get; set; } = null!;
+    public string? MoTa { get; set; }
 
-    public Guid? MaKh { get; set; }
+    [Column("MaKH")]
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaKh { get; set; }
 
     [ForeignKey("MaKh")]
     [InverseProperty("Ranks")]

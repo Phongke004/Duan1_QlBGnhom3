@@ -1,5 +1,6 @@
 
-﻿using DAL.DomainClass;
+using BUS.Service;
+using DAL.DomainClass;
 
 
 
@@ -12,12 +13,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace PRL.View
 {
     public partial class frmHoaDon : Form
     {
-        HoaDonServices _hoaDonServices;
+        private HoaDonServices _hoaDonServices;
+        private bool isExitApplication = false;
         Guid _idClick;
         public frmHoaDon()
         {
@@ -47,6 +50,25 @@ namespace PRL.View
                     this.Hide();
                     frmLogin.ShowDialog();
                 }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn thoát không không!", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    isExitApplication = true;
+                    this.Close();
+                }
+               
 
             }
             catch (Exception ex)

@@ -10,28 +10,27 @@ namespace DAL.DomainClass;
 public partial class Voucher
 {
     [Key]
-    [Column("idVouCher")]
-    public Guid IdVouCher { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaVoucher { get; set; } = null!;
 
     [StringLength(50)]
-    public string TenVoucher { get; set; } = null!;
+    public string? TenVoucher { get; set; }
+
+    public double? GiaTri { get; set; }
 
     [StringLength(250)]
-    public string MoTa { get; set; } = null!;
+    public string? MoTa { get; set; }
 
     [StringLength(30)]
     [Unicode(false)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [Column(TypeName = "date")]
-    public DateTime NgayBatDau { get; set; }
+    public DateTime? NgayBatDau { get; set; }
 
     [Column(TypeName = "date")]
-    public DateTime NgayKetThuc { get; set; }
+    public DateTime? NgayKetThuc { get; set; }
 
     [InverseProperty("MaVoucherNavigation")]
     public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
