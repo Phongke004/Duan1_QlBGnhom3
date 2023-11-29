@@ -10,18 +10,15 @@ namespace DAL.DomainClass;
 public partial class MauSac
 {
     [Key]
-    [Column("idMauSac")]
-    public Guid IdMauSac { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaMau { get; set; } = null!;
 
     [StringLength(50)]
-    public string TenMau { get; set; } = null!;
+    public string? TenMau { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [InverseProperty("MaMauNavigation")]
     public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();

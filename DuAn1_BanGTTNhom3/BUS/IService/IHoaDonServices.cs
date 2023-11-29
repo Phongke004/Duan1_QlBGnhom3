@@ -13,5 +13,7 @@ namespace BUS.IService
         public List<HoaDonChiTiet> GetHoaDonChiTiets();
         public List <NhanVien > GetNhanViens();
         public List<SanPham> GetSanPhams();
+
+        
     }
 }

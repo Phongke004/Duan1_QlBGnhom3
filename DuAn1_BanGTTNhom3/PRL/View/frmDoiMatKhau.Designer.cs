@@ -179,7 +179,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmDoiMatKhau";
-            Text = "frmDoiMatKhau";
+            Text = "Đổi mật khẩu";
             ResumeLayout(false);
             PerformLayout();
         }
