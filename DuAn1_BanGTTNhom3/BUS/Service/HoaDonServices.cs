@@ -12,34 +12,123 @@ namespace BUS.Service
 {
     public class HoaDonServices : IHoaDonServices
     {
-        HoaDonReps _hoadon;
+        HoaDonReps _repos;
         public HoaDonServices()
         {
-            _hoadon = new HoaDonReps();
+            _repos = new HoaDonReps();
+        }
+
+        public string AddsHD(HoaDon hd)
+        {
+            if (_repos.AddHD(hd) == true)
+            {
+                return "Thêm thành công";
+
+            }
+            else
+            {
+                return "Thêm thất bại";
+            }
+        }
+
+        public string AddsHDCT(HoaDonChiTiet hdct)
+        {
+            if (_repos.AddHDCT(hdct) == true)
+            {
+                return "thêm thành công";
+
+            }
+            else
+            {
+                return "thêm thất bại";
+            }
+        }
+
+        public string DeletesHD(HoaDon hd)
+        {
+            var clone = _repos.GetHoaDons().FirstOrDefault(s => s.MaNv == hd.MaNv);
+            
+            if (_repos.DeleteHD(clone) == true)
+            {
+                return " Xóa thành công";
+            }
+            else
+            {
+                return " Xóa thất bại";
+            }
+        }
+
+        public string DeletesHDCT(HoaDonChiTiet hdct)
+        {
+            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHd == hdct.MaHd);
+
+            if (_repos.DeleteHDCT(clone) == true)
+            {
+                return " Xóa thành công";
+            }
+            else
+            {
+                return " Xóa thất bại";
+            }
         }
 
         public List<HoaDon> GetHoaDon(string find)
         {
             if (find == null)
             {
-                return _hoadon.GetHoaDons();
+                return _repos.GetHoaDons();
             }
-            return _hoadon.GetHoaDons().Where(x => x.MaHd.Trim().ToLower().Contains(find.ToLower())).ToList();
+            return _repos.GetHoaDons().Where(x => x.MaHd.Trim().ToLower().Contains(find.ToLower())).ToList();
         }
 
         public List<HoaDonChiTiet> GetHoaDonChiTiets()
         {
-          return _hoadon.GetHoaDonChiTiets();
+          return _repos.GetHoaDonChiTiets();
         }
 
         public List<NhanVien> GetNhanViens()
         {
-          return _hoadon.GetNhanViens();
+          return _repos.GetNhanViens();
         }
 
         public List<SanPham> GetSanPhams()
         {
-            return _hoadon.GetSanPhams();
+            return _repos.GetSanPhams();
+        }
+
+        public string UpdatesHD(HoaDon hd)
+        {
+            var clone = _repos.GetHoaDons().FirstOrDefault(s => s.MaNv == hd.MaNv);
+            clone.NgayTao = hd.NgayTao;
+            clone.TrangThai = hd.TrangThai;
+            clone.TongTien = hd.TongTien;
+            clone.TongTienSauVoucher = hd.TongTienSauVoucher;
+
+            if (_repos.UpdateHD(hd) == true)
+            {
+                return " sửa thành công";
+            }
+            else
+            {
+                return " sửa thất bại";
+            }
+        }
+
+        public string UpdatesHDCT(HoaDonChiTiet hdct)
+        {
+            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHd == hdct.MaHd);
+            clone.SoLuong = hdct.SoLuong;
+            clone.DonGia = hdct.DonGia;
+            clone.GhiChu = hdct.GhiChu;
+
+            if (_repos.UpdateHDCT(hdct) == true)
+            {
+                return " sửa thành công";
+            }
+            else
+            {
+                return " sửa thất bại";
+            }
         }
     }
 }

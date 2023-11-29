@@ -1,6 +1,7 @@
 ﻿using DAL.Context;
 using DAL.DomainClass;
 using DAL.IRepositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,35 @@ namespace DAL.Repositories
         {
             _connect = new MyContext();
         }
+
+        public bool AddHD(HoaDon hd)
+        {
+            _connect.Add(hd);
+            _connect.SaveChanges();
+            return true;
+        }
+
+        public bool AddHDCT(HoaDonChiTiet hdct)
+        {
+            _connect.Add(hdct);
+            _connect.SaveChanges();
+            return true;
+        }
+
+        public bool DeleteHD(HoaDon hd)
+        {
+            _connect.Remove(hd);
+            _connect.SaveChanges();
+            return true;
+        }
+
+        public bool DeleteHDCT(HoaDonChiTiet hdct)
+        {
+            _connect.Remove(hdct);
+            _connect.SaveChanges();
+            return true;
+        }
+
         public List<HoaDonChiTiet> GetHoaDonChiTiets()
         {
             return _connect.HoaDonChiTiets.ToList();
@@ -34,6 +64,20 @@ namespace DAL.Repositories
         public List<SanPham> GetSanPhams()
         {
           return _connect.SanPhams.ToList();
+        }
+
+        public bool UpdateHD(HoaDon hd)
+        {
+            _connect.Update(hd);
+            _connect.SaveChanges();
+            return true;
+        }
+
+        public bool UpdateHDCT(HoaDonChiTiet hdct)
+        {
+            _connect.Update(hdct);
+            _connect.SaveChanges();
+            return true;
         }
     }
 }
