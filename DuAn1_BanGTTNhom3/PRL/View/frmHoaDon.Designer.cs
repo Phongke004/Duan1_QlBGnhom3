@@ -71,7 +71,7 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-          
+
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -203,7 +203,6 @@
             // txtSoLuong
             // 
 
-            // 
             // cbbMaSP
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -486,9 +485,8 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
-            // txtSoLuong
-            // 
-           
+          
+
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -571,7 +569,7 @@
         private TextBox txtSoLuong;
         private TextBox txtThanhTien;
         private Label label12;
-       
+
 
     }
 }
