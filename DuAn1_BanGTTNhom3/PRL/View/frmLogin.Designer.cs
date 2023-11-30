@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             btnLogin = new Button();
             btnThoat = new Button();
             label1 = new Label();
@@ -137,6 +138,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(800, 450);
             Controls.Add(ckbShowPass);
             Controls.Add(lbQuenMk);
@@ -147,6 +149,7 @@
             Controls.Add(label1);
             Controls.Add(btnThoat);
             Controls.Add(btnLogin);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmLogin";
             Text = "frmLogin";
             ResumeLayout(false);

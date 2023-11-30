@@ -10,25 +10,26 @@ namespace DAL.DomainClass;
 public partial class Thongke
 {
     [Key]
-    [Column("idThongKe")]
-    public Guid IdThongKe { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaThongKe { get; set; } = null!;
 
     [Column(TypeName = "date")]
-    public DateTime NgayThongKe { get; set; }
+    public DateTime? NgayThongKe { get; set; }
 
     [StringLength(40)]
-    public string TongDoanhThu { get; set; } = null!;
+    public string? TongDoanhThu { get; set; }
 
-    public int SoLuong { get; set; }
+    public int? SoLuong { get; set; }
 
     [Column("MaHD")]
-    public Guid? MaHd { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaHd { get; set; }
 
-    public Guid? MaNv { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaNv { get; set; }
 
     [ForeignKey("MaHd")]
     [InverseProperty("Thongkes")]

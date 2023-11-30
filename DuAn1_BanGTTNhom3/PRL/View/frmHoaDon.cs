@@ -1,5 +1,6 @@
 
-﻿using DAL.DomainClass;
+using BUS.Service;
+using DAL.DomainClass;
 
 
 
@@ -12,12 +13,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace PRL.View
 {
     public partial class frmHoaDon : Form
     {
-        HoaDonServices _hoaDonServices;
+        private HoaDonServices _hoaDonServices;
+        private bool isExitApplication = false;
         Guid _idClick;
         public frmHoaDon()
         {
@@ -52,6 +55,57 @@ namespace PRL.View
             catch (Exception ex)
             {
                 MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn thoát không không!", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    isExitApplication = true;
+                    this.Close();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            Voucher voucher = new Voucher();
+            try
+            {
+                if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
+                {
+                    txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
+                    
+                }
+               else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
+                {
+                    txtTongTien.Text =((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - ( int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+
+                }
+                else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
+                {
+                    txtSoLuong.Text = "";
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
             }
         }
     }

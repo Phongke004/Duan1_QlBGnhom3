@@ -50,7 +50,9 @@ namespace PRL.View
 
                 {
                     // Kiểm tra mã chức vụ của nhân viên
-                    if (nhanVien.MaChucVu == new Guid("00000000-0000-0000-0000-000000000001"))
+
+                    if (nhanVien.MaChucVu == ("CV001"))
+
                     {
                         // Mở màn hình quản lý
                         frmQLNV quanLyForm = new frmQLNV();

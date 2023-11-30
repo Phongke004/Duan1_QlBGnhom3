@@ -10,23 +10,22 @@ namespace DAL.DomainClass;
 public partial class HoaDonChiTiet
 {
     [Key]
-    [Column("idHoaDonCT")]
-    public Guid IdHoaDonCt { get; set; }
-
     [Column("MaHDCT")]
     [StringLength(10)]
     [Unicode(false)]
     public string MaHdct { get; set; } = null!;
 
-    public int SoLuong { get; set; }
+    public int? SoLuong { get; set; }
 
-    public double DonGia { get; set; }
+    public double? DonGia { get; set; }
 
     [StringLength(250)]
-    public string GhiChu { get; set; } = null!;
+    public string? GhiChu { get; set; }
 
     [Column("MaHD")]
-    public Guid? MaHd { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaHd { get; set; }
 
     [InverseProperty("MaHdctNavigation")]
     public virtual ICollection<Doi> Dois { get; set; } = new List<Doi>();

@@ -42,7 +42,7 @@ namespace BUS.Service
 
         public string Remove(NhanVien nv)
         {
-            var clone = _repos.GetAllNV().FirstOrDefault(s => s.IdNhanVien == nv.IdNhanVien);
+            var clone = _repos.GetAllNV().FirstOrDefault(s => s.MaNv == nv.MaNv);
 
             if (_repos.RemoveNV(clone) == true)
             {
@@ -56,7 +56,7 @@ namespace BUS.Service
 
         public string Update(NhanVien nv)
         {
-            var clone = _repos.GetAllNV().FirstOrDefault(s => s.IdNhanVien == nv.IdNhanVien);
+            var clone = _repos.GetAllNV().FirstOrDefault(s => s.MaNv == nv.MaNv );
 
             clone.TenNhanVien = nv.TenNhanVien;
             clone.SoDienThoai = nv.SoDienThoai;
