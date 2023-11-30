@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class DoiTraReps : IDoiTraReps
+    public class DoiTraReps 
     {
         private MyContext _dbconnext;
         public DoiTraReps()
@@ -23,6 +23,7 @@ namespace DAL.Repositories
                 var maxid = _dbconnext.Dois.Max(x => x.MaDoi);
                 int nextid = Convert.ToInt32(maxid.Substring(3)) + 1;
                 doi.MaDoi = "DOI" + nextid.ToString("D3");
+                
             }
             else
             {
@@ -39,7 +40,7 @@ namespace DAL.Repositories
             {
                 var maxid = _dbconnext.Dois.Max(x => x.MaDoi);
                 int nextid = Convert.ToInt32(maxid.Substring(3)) + 1;
-                tra.MaTra = "TRA" + nextid.ToString("D3");
+                tra.MaTra = "TRA" + nextid.ToString("T3");
             }
             else
             {

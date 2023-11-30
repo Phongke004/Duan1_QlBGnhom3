@@ -52,7 +52,7 @@ namespace PRL.View
             //        var d = _service.GetThuongHieu().FirstOrDefault(x => x.MaTh == sp.IdChiTietSp);
             //        dgvSanPham.Rows.Add(stt++, sp.MaSp, sp.MaSp, sp., sp.NgayNhap, sp.SoLuong,
             //            item.MaMau, item.MaSize, item.MaChatLieu, item.MaTh, item.Gia, sp.TrangThai);
-            //    }
+
         }
     }
 }
