@@ -73,7 +73,7 @@ namespace BUS.Service
 
         public bool UpdateSP(SanPham sp)
         {
-            var clone = _repos.GetAll().FirstOrDefault(x => x.MaSp == sp.MaSp);
+            var clone = _repos.GetAll().FirstOrDefault(x => x.IdSanPham == sp.IdSanPham);
             clone.TenSanPham = sp.TenSanPham;
             clone.NgayNhap = sp.NgayNhap;
             clone.SoLuong = sp.SoLuong;

@@ -21,6 +21,7 @@ namespace DAL.IRepositories
         public bool UpdateHDCT(HoaDonChiTiet hdct);
         public bool DeleteHDCT(HoaDonChiTiet hdct);
         public bool AddHDCT(HoaDonChiTiet hdct);
+       public List<Voucher> GetVouchers();
 
     }
 }
