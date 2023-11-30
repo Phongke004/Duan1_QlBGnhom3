@@ -42,12 +42,14 @@ namespace PRL.View
             int stt = 1;
             foreach (var item in _hoaDonServiecs.GetHoaDonChiTiets())
             {
+
                 var query = _hoaDonServiecs.GetHoaDon(find).FirstOrDefault(x => x.MaHd == item.MaHd);
                 var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.MaSp == query.MaSp);
                 var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.MaNv == query.MaNv);
                // var query = _hoaDonServiecs.GetHoaDon(find).FirstOrDefault(x => x.MaHd == item.MaHd);
                 dgtView.Rows.Add(stt++, query.MaHd, query.NgayTao, item.SoLuong, item.DonGia, query.TongTien
                     , queryProduct.TenSanPham, queryStaff.TenNhanVien, item.MaHd);
+
             }
 
         }
@@ -79,8 +81,8 @@ namespace PRL.View
             try
             {
                 this.Hide();
-
-                frmDoi frmDoi = new frmDoi();
+                frmDoiTra frmDoi = new frmDoiTra();
+                
                 frmDoi.ShowDialog();
 
             }
