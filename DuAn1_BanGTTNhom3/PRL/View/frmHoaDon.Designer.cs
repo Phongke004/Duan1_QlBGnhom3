@@ -361,7 +361,7 @@
             btnXoaHoaDon.Location = new Point(485, 982);
             btnXoaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnXoaHoaDon.Location = new Point(474, 982);
-=
+
             btnXoaHoaDon.Name = "btnXoaHoaDon";
             btnXoaHoaDon.Size = new Size(182, 46);
             btnXoaHoaDon.TabIndex = 6;

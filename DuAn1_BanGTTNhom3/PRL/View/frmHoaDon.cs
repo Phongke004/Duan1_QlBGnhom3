@@ -133,22 +133,6 @@ namespace PRL.View
             //}
         }
 
-        private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        public void LoadComBoBox()
-        {
-            //List<Voucher> vouchers = _hoaDonServices
-            //cbbGiamGia.DataSource = vouchers;
-            //cbbGiamGia.DisplayMember = "MoTa";
-            //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
-
-        }
-
-        private void frmHoaDon_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
