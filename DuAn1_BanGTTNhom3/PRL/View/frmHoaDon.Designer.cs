@@ -69,7 +69,7 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            label12 = new Label();
+            txtSoLuong = new TextBox();
             txtThanhTien = new TextBox();
             txtSoLuong = new TextBox();
             groupBox1.SuspendLayout();
@@ -287,6 +287,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(34, 115);
             label7.Location = new Point(34, 118);
             label7.Name = "label7";
             label7.Size = new Size(133, 33);
@@ -315,6 +316,7 @@
             // 
             // btnAddHoadon
             // 
+            btnAddHoadon.Location = new Point(25, 982);
             btnAddHoadon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnAddHoadon.Location = new Point(14, 982);
             btnAddHoadon.Name = "btnAddHoadon";
@@ -325,6 +327,7 @@
             // 
             // btnSuaHoaDon
             // 
+            btnSuaHoaDon.Location = new Point(239, 982);
             btnSuaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnSuaHoaDon.Location = new Point(228, 982);
             btnSuaHoaDon.Name = "btnSuaHoaDon";
@@ -335,6 +338,7 @@
             // 
             // btnXoaHoaDon
             // 
+            btnXoaHoaDon.Location = new Point(485, 982);
             btnXoaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnXoaHoaDon.Location = new Point(474, 982);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
@@ -345,6 +349,7 @@
             // 
             // btnHienthi
             // 
+            btnHienthi.Location = new Point(714, 982);
             btnHienthi.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnHienthi.Location = new Point(703, 982);
             btnHienthi.Name = "btnHienthi";
@@ -355,6 +360,7 @@
             // 
             // btnThoat
             // 
+            btnThoat.Location = new Point(1547, 982);
             btnThoat.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnThoat.Location = new Point(1536, 982);
             btnThoat.Name = "btnThoat";
@@ -456,14 +462,28 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
+            // txtSoLuong
+            // 
+            txtSoLuong.Location = new Point(223, 112);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(522, 39);
+            txtSoLuong.TabIndex = 13;
+            txtSoLuong.TextChanged += txtSoLuong_TextChanged_1;
+            // 
+            // txtThanhTien
+            // 
+            txtThanhTien.Location = new Point(1142, 929);
+            txtThanhTien.Name = "txtThanhTien";
+            txtThanhTien.Size = new Size(551, 39);
+            txtThanhTien.TabIndex = 10;
+            // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label12.Location = new Point(960, 933);
+            label12.Location = new Point(924, 927);
             label12.Name = "label12";
-            label12.Size = new Size(120, 24);
-            label12.TabIndex = 10;
+            label12.Size = new Size(141, 32);
+            label12.TabIndex = 11;
             label12.Text = "Thành tiền :";
             // 
             // txtThanhTien
@@ -487,6 +507,8 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1796, 1040);
+            Controls.Add(label12);
+            Controls.Add(txtThanhTien);
             Controls.Add(txtThanhTien);
             Controls.Add(label12);
             Controls.Add(btnThoat);
@@ -557,6 +579,9 @@
         private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem1;
         private ToolStripMenuItem thêmNhânViênToolStripMenuItem;
+        private TextBox txtSoLuong;
+        private TextBox txtThanhTien;
+        private Label label12;
         private Label label12;
         private TextBox txtThanhTien;
         private TextBox txtSoLuong;

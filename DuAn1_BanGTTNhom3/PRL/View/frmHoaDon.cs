@@ -82,7 +82,27 @@ namespace PRL.View
 
         }
 
-        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+      
+
+        private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        public void LoadComBoBox()
+        {
+            List<Voucher> vouchers = _hoaDonServices.GetVouchers();
+            cbbGiamGia.DataSource = vouchers;
+            cbbGiamGia.DisplayMember = "MoTa";
+            //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
+
+        }
+
+        private void frmHoaDon_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuong_TextChanged_1(object sender, EventArgs e)
         {
             Voucher voucher = new Voucher();
             try
