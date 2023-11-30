@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            btnSua = new Button();
+            txtDoiSp = new TextBox();
+            label6 = new Label();
+            btnClear = new Button();
             btnXoa = new Button();
             btnThem = new Button();
-            txtMaHDCT = new TextBox();
             txtLyDo = new TextBox();
             ptkNgayDoi = new DateTimePicker();
             cbTrangThai = new ComboBox();
             txtMaDoi = new TextBox();
-            label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -45,7 +45,6 @@
             groupBox2 = new GroupBox();
             dtgView = new DataGridView();
             btnThoat = new Button();
-            btnClear = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -53,16 +52,15 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtDoiSp);
+            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(btnClear);
-            groupBox1.Controls.Add(btnSua);
             groupBox1.Controls.Add(btnXoa);
             groupBox1.Controls.Add(btnThem);
-            groupBox1.Controls.Add(txtMaHDCT);
             groupBox1.Controls.Add(txtLyDo);
             groupBox1.Controls.Add(ptkNgayDoi);
             groupBox1.Controls.Add(cbTrangThai);
             groupBox1.Controls.Add(txtMaDoi);
-            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -74,23 +72,41 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Chức năng";
             // 
-            // btnSua
+            // txtDoiSp
             // 
-            btnSua.Location = new Point(511, 90);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(107, 43);
-            btnSua.TabIndex = 12;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
+            txtDoiSp.Location = new Point(161, 192);
+            txtDoiSp.Name = "txtDoiSp";
+            txtDoiSp.Size = new Size(250, 27);
+            txtDoiSp.TabIndex = 15;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(23, 195);
+            label6.Name = "label6";
+            label6.Size = new Size(130, 20);
+            label6.TabIndex = 14;
+            label6.Text = "Đổi qua sản phẩm";
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(511, 172);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(107, 43);
+            btnClear.TabIndex = 13;
+            btnClear.Text = "Làm mới";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(511, 152);
+            btnXoa.Location = new Point(511, 107);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(107, 43);
             btnXoa.TabIndex = 11;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -100,13 +116,7 @@
             btnThem.TabIndex = 10;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
-            // 
-            // txtMaHDCT
-            // 
-            txtMaHDCT.Location = new Point(161, 190);
-            txtMaHDCT.Name = "txtMaHDCT";
-            txtMaHDCT.Size = new Size(250, 27);
-            txtMaHDCT.TabIndex = 9;
+            btnThem.Click += btnThem_Click;
             // 
             // txtLyDo
             // 
@@ -136,17 +146,9 @@
             // 
             txtMaDoi.Location = new Point(161, 22);
             txtMaDoi.Name = "txtMaDoi";
+            txtMaDoi.ReadOnly = true;
             txtMaDoi.Size = new Size(250, 27);
             txtMaDoi.TabIndex = 5;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(23, 197);
-            label5.Name = "label5";
-            label5.Size = new Size(110, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Mã hóa đơn CT";
             // 
             // label4
             // 
@@ -215,16 +217,6 @@
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
             // 
-            // btnClear
-            // 
-            btnClear.Location = new Point(511, 212);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(107, 43);
-            btnClear.TabIndex = 13;
-            btnClear.Text = "Làm mới";
-            btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
-            // 
             // frmDoi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -249,20 +241,19 @@
         private GroupBox groupBox1;
         private Label label2;
         private Label label1;
-        private TextBox txtMaHDCT;
         private TextBox txtLyDo;
         private DateTimePicker ptkNgayDoi;
         private ComboBox cbTrangThai;
         private TextBox txtMaDoi;
-        private Label label5;
         private Label label4;
         private Label label3;
-        private Button btnSua;
         private Button btnXoa;
         private Button btnThem;
         private GroupBox groupBox2;
         private DataGridView dtgView;
         private Button btnThoat;
         private Button btnClear;
+        private TextBox txtDoiSp;
+        private Label label6;
     }
 }

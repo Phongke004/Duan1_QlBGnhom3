@@ -68,7 +68,7 @@ namespace PRL.View
                     isExitApplication = true;
                     this.Close();
                 }
-
+               
 
             }
             catch (Exception ex)
