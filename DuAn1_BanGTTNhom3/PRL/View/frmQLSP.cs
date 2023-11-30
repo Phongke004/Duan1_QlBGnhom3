@@ -44,9 +44,9 @@ namespace PRL.View
             dgvSanPham.Columns[1].Visible = false;
             foreach (var sp in _service.GetAll(find))
             {
-                var item = _service.GetChiTietSP().FirstOrDefault(x => x.MaSp == sp.IdSanPham);
+                var item = _service.GetChiTietSP().FirstOrDefault(x => x.MaSp == sp.MaSp);
                 var e = _service.GetHoaDon().FirstOrDefault(x => x.MaHd == sp.MaSp);
-                dgvSanPham.Rows.Add(stt++, sp.IdSanPham, sp.MaSp, sp.TenSanPham, sp.NgayNhap, sp.SoLuong,
+                dgvSanPham.Rows.Add(stt++, sp.MaSp, sp.MaSp, sp.TenSanPham, sp.NgayNhap, sp.SoLuong,
                     item.MaMau, item.MaSize, item.MaChatLieu, item.MaTh, item.Gia, sp.TrangThai);
             }
         }
