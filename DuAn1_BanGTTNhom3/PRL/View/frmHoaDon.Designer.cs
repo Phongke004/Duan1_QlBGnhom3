@@ -73,6 +73,7 @@
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
             label12 = new Label();
             txtThanhTien = new TextBox();
+
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
