@@ -39,7 +39,7 @@
             label3 = new Label();
             label2 = new Label();
             groupBox2 = new GroupBox();
-            txtSoLuong = new TextBox();
+       
             cbbMaSP = new ComboBox();
             cbbGiamGia = new ComboBox();
             cbbSoLuong = new ComboBox();
@@ -71,8 +71,7 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            label12 = new Label();
-            txtThanhTien = new TextBox();
+
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -203,12 +202,7 @@
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(223, 115);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(522, 39);
-            txtSoLuong.TabIndex = 13;
-            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
-            // 
+
             // cbbMaSP
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -226,7 +220,7 @@
             cbbGiamGia.Name = "cbbGiamGia";
             cbbGiamGia.Size = new Size(578, 41);
             cbbGiamGia.TabIndex = 11;
-            cbbGiamGia.SelectedIndexChanged += cbbGiamGia_SelectedIndexChanged;
+           
             // 
             // cbbSoLuong
             // 
@@ -305,7 +299,10 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(34, 126);
+
+            label7.Location = new Point(34, 115);
+            label7.Location = new Point(34, 118);
+
             label7.Name = "label7";
             label7.Size = new Size(133, 33);
             label7.TabIndex = 1;
@@ -332,8 +329,11 @@
             dtgView.TabIndex = 3;
             // 
             // btnAddHoadon
-            // 
-            btnAddHoadon.Location = new Point(23, 950);
+
+            btnAddHoadon.Location = new Point(25, 982);
+            btnAddHoadon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnAddHoadon.Location = new Point(14, 982);
+
             btnAddHoadon.Name = "btnAddHoadon";
             btnAddHoadon.Size = new Size(185, 46);
             btnAddHoadon.TabIndex = 4;
@@ -342,7 +342,11 @@
             // 
             // btnSuaHoaDon
             // 
-            btnSuaHoaDon.Location = new Point(237, 950);
+
+            btnSuaHoaDon.Location = new Point(239, 982);
+            btnSuaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnSuaHoaDon.Location = new Point(228, 982);
+
             btnSuaHoaDon.Name = "btnSuaHoaDon";
             btnSuaHoaDon.Size = new Size(185, 46);
             btnSuaHoaDon.TabIndex = 5;
@@ -351,7 +355,11 @@
             // 
             // btnXoaHoaDon
             // 
-            btnXoaHoaDon.Location = new Point(483, 950);
+
+            btnXoaHoaDon.Location = new Point(485, 982);
+            btnXoaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnXoaHoaDon.Location = new Point(474, 982);
+
             btnXoaHoaDon.Name = "btnXoaHoaDon";
             btnXoaHoaDon.Size = new Size(182, 46);
             btnXoaHoaDon.TabIndex = 6;
@@ -360,7 +368,11 @@
             // 
             // btnHienthi
             // 
-            btnHienthi.Location = new Point(712, 950);
+
+            btnHienthi.Location = new Point(714, 982);
+            btnHienthi.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnHienthi.Location = new Point(703, 982);
+
             btnHienthi.Name = "btnHienthi";
             btnHienthi.Size = new Size(150, 46);
             btnHienthi.TabIndex = 7;
@@ -369,7 +381,11 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(1545, 950);
+
+            btnThoat.Location = new Point(1547, 982);
+            btnThoat.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btnThoat.Location = new Point(1536, 982);
+
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(150, 46);
             btnThoat.TabIndex = 8;
@@ -469,29 +485,16 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label12.Location = new Point(960, 933);
-            label12.Name = "label12";
-            label12.Size = new Size(120, 24);
-            label12.TabIndex = 10;
-            label12.Text = "Thành tiền :";
-            // 
-            // txtThanhTien
-            // 
-            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            txtThanhTien.Location = new Point(1118, 926);
-            txtThanhTien.Name = "txtThanhTien";
-            txtThanhTien.Size = new Size(357, 32);
-            txtThanhTien.TabIndex = 11;
-            // 
+          
+
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1796, 1040);
+
+           
+
             Controls.Add(btnThoat);
             Controls.Add(btnHienthi);
             Controls.Add(btnXoaHoaDon);
@@ -505,7 +508,7 @@
             MainMenuStrip = menuStrip1;
             Name = "frmHoaDon";
             Text = "frmHoaDon";
-            Load += frmHoaDon_Load;
+            
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -562,5 +565,11 @@
         private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem1;
         private ToolStripMenuItem thêmNhânViênToolStripMenuItem;
+
+        private TextBox txtSoLuong;
+        private TextBox txtThanhTien;
+        private Label label12;
+
+
     }
 }
