@@ -39,7 +39,7 @@
             label3 = new Label();
             label2 = new Label();
             groupBox2 = new GroupBox();
-            txtSoLuong = new TextBox();
+       
             cbbMaSP = new ComboBox();
             cbbGiamGia = new ComboBox();
             cbbSoLuong = new ComboBox();
@@ -71,8 +71,7 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            label12 = new Label();
-            txtThanhTien = new TextBox();
+          
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -203,11 +202,7 @@
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(223, 115);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(522, 39);
-            txtSoLuong.TabIndex = 13;
-            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
+
             // 
             // cbbMaSP
             // 
@@ -226,7 +221,7 @@
             cbbGiamGia.Name = "cbbGiamGia";
             cbbGiamGia.Size = new Size(578, 41);
             cbbGiamGia.TabIndex = 11;
-            cbbGiamGia.SelectedIndexChanged += cbbGiamGia_SelectedIndexChanged;
+           
             // 
             // cbbSoLuong
             // 
@@ -365,7 +360,7 @@
             btnXoaHoaDon.Location = new Point(485, 982);
             btnXoaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             btnXoaHoaDon.Location = new Point(474, 982);
-=
+
             btnXoaHoaDon.Name = "btnXoaHoaDon";
             btnXoaHoaDon.Size = new Size(182, 46);
             btnXoaHoaDon.TabIndex = 6;
@@ -493,46 +488,14 @@
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(223, 112);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(522, 39);
-            txtSoLuong.TabIndex = 13;
-            txtSoLuong.TextChanged += txtSoLuong_TextChanged_1;
-            // 
-            // txtThanhTien
-            // 
-            txtThanhTien.Location = new Point(1142, 929);
-            txtThanhTien.Name = "txtThanhTien";
-            txtThanhTien.Size = new Size(551, 39);
-            txtThanhTien.TabIndex = 10;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(924, 927);
-            label12.Name = "label12";
-            label12.Size = new Size(141, 32);
-            label12.TabIndex = 11;
-            label12.Text = "Thành tiền :";
-            // 
-            // txtThanhTien
-            // 
-            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            txtThanhTien.Location = new Point(1118, 926);
-            txtThanhTien.Name = "txtThanhTien";
-            txtThanhTien.Size = new Size(357, 32);
-            txtThanhTien.TabIndex = 11;
-            // 
+           
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1796, 1040);
 
-            Controls.Add(label12);
-            Controls.Add(txtThanhTien);
-            Controls.Add(txtThanhTien);
-            Controls.Add(label12);
+           
 
             Controls.Add(btnThoat);
             Controls.Add(btnHienthi);
@@ -547,7 +510,7 @@
             MainMenuStrip = menuStrip1;
             Name = "frmHoaDon";
             Text = "frmHoaDon";
-            Load += frmHoaDon_Load;
+            
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -608,9 +571,7 @@
         private TextBox txtSoLuong;
         private TextBox txtThanhTien;
         private Label label12;
-        private Label label12;
-        private TextBox txtThanhTien;
-        private TextBox txtSoLuong;
+       
 
     }
 }
