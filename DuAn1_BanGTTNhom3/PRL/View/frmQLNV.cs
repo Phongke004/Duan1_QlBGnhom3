@@ -45,12 +45,12 @@ namespace PRL.View
             dgvNhanVien.Columns[11].Name = "Chức vụ";
             dgvNhanVien.Columns[12].Name = "Mật khẩu";
             dgvNhanVien.Columns[1].Visible = false;
-            foreach (var nv in sevice.GetNVs(find))
-            {
-                var item = sevice.GetChucVus().FirstOrDefault(x => x.MaCv == nv.MaChucVu);
-                var e = sevice.GetCaLams().FirstOrDefault(x => x.MaCa == nv.MaCa);
-                dgvNhanVien.Rows.Add(stt++, nv.MaNv, nv.MaNv, nv.TenNhanVien, nv.DiaChi, nv.SoDienThoai, nv.Email, nv.GioiTinh, nv.TrangThai, nv.NgaySinh, e.MaCa, item.MaCv, nv.MatKhau);
-            }
+            //foreach (var nv in sevice.GetNVs(find))
+            //{
+            //    //var item = sevice.GetChucVus().FirstOrDefault(x => x.MaCv == nv.MaChucVu);
+            //    //var e = sevice.GetCaLams().FirstOrDefault(x => x.MaCa == nv.MaCa);
+            //    dgvNhanVien.Rows.Add(stt++, nv.MaNv, nv.MaNv, nv.TenNhanVien, nv.DiaChi, nv.SoDienThoai, nv.Email, nv.GioiTinh, nv.TrangThai, nv.NgaySinh, e.MaCa, item.MaCv, nv.MatKhau);
+            //}
         }
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
