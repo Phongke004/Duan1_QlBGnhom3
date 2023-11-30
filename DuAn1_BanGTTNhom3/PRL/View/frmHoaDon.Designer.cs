@@ -204,12 +204,7 @@
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(223, 115);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(522, 39);
-            txtSoLuong.TabIndex = 13;
-            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
-            // 
+            
             // cbbMaSP
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -472,22 +467,17 @@
             // 
             // label12
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label12.Location = new Point(960, 933);
-            label12.Name = "label12";
-            label12.Size = new Size(120, 24);
-            label12.TabIndex = 10;
-            label12.Text = "Thành tiền :";
+         
             // 
             // txtThanhTien
             // 
-            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            txtThanhTien.Location = new Point(1118, 926);
-            txtThanhTien.Name = "txtThanhTien";
-            txtThanhTien.Size = new Size(357, 32);
-            txtThanhTien.TabIndex = 11;
+ 
+            // txtSoLuong
             // 
+         
+          
+            // 
+
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -563,5 +553,11 @@
         private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem1;
         private ToolStripMenuItem thêmNhânViênToolStripMenuItem;
+
+        private TextBox txtSoLuong;
+        private TextBox txtThanhTien;
+        private Label label12;
+     
+
     }
 }
