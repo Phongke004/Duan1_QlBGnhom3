@@ -88,29 +88,29 @@ namespace PRL.View
 
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
         {
-            Voucher voucher = new Voucher();
-            try
-            {
-                if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
-                {
-                    txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
+            //Voucher voucher = new Voucher();
+            //try
+            //{
+            //    if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
+            //    {
+            //        txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
 
-                }
-                else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
-                {
-                    txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+            //    }
+            //    else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
+            //    {
+            //        txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
 
-                }
-                else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
-                {
-                    txtSoLuong.Text = "";
-                }
-            }
-            catch (Exception)
-            {
+            //    }
+            //    else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
+            //    {
+            //        txtSoLuong.Text = "";
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
-            }
+            //    MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
+            //}
         }
 
         private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,9 +119,9 @@ namespace PRL.View
         }
         public void LoadComBoBox()
         {
-            List<Voucher> vouchers = _hoaDonServices.GetVouchers();
-            cbbGiamGia.DataSource = vouchers;
-            cbbGiamGia.DisplayMember = "MoTa";
+            //List<Voucher> vouchers = _hoaDonServices
+            //cbbGiamGia.DataSource = vouchers;
+            //cbbGiamGia.DisplayMember = "MoTa";
             //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
 
         }
