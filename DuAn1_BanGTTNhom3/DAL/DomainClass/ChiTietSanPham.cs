@@ -10,29 +10,36 @@ namespace DAL.DomainClass;
 public partial class ChiTietSanPham
 {
     [Key]
-    [Column("idChiTietSp")]
-    public Guid IdChiTietSp { get; set; }
-
     [Column("MASPCT")]
     [StringLength(10)]
     [Unicode(false)]
     public string Maspct { get; set; } = null!;
 
-    public double Gia { get; set; }
+    public double? Gia { get; set; }
 
-    public int SoLuong { get; set; }
+    public int? SoLuong { get; set; }
 
     [Column("MaSP")]
-    public Guid? MaSp { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaSp { get; set; }
 
-    public Guid? MaMau { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaMau { get; set; }
 
-    public Guid? MaSize { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaSize { get; set; }
 
-    public Guid? MaChatLieu { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaChatLieu { get; set; }
 
     [Column("MaTH")]
-    public Guid? MaTh { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaTh { get; set; }
 
     [ForeignKey("MaChatLieu")]
     [InverseProperty("ChiTietSanPhams")]

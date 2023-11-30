@@ -10,24 +10,23 @@ namespace DAL.DomainClass;
 public partial class Tra
 {
     [Key]
-    [Column("idTra")]
-    public Guid IdTra { get; set; }
-
     [StringLength(10)]
     [Unicode(false)]
     public string MaTra { get; set; } = null!;
 
     [StringLength(10)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [Column(TypeName = "date")]
-    public DateTime NgayDoi { get; set; }
+    public DateTime? NgayDoi { get; set; }
 
     [StringLength(250)]
-    public string LyDo { get; set; } = null!;
+    public string? LyDo { get; set; }
 
     [Column("MaHDCT")]
-    public Guid? MaHdct { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaHdct { get; set; }
 
     [ForeignKey("MaHdct")]
     [InverseProperty("Tras")]

@@ -10,15 +10,17 @@ namespace DAL.DomainClass;
 public partial class KhachHang
 {
     [Key]
-    [Column("idKhachHang")]
-    public Guid IdKhachHang { get; set; }
+    [Column("MaKH")]
+    [StringLength(10)]
+    [Unicode(false)]
+    public string MaKh { get; set; } = null!;
 
     [Column("SDT")]
     [StringLength(10)]
     [Unicode(false)]
-    public string Sdt { get; set; } = null!;
+    public string? Sdt { get; set; }
 
-    public double Diem { get; set; }
+    public double? Diem { get; set; }
 
     [InverseProperty("MaKhNavigation")]
     public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();

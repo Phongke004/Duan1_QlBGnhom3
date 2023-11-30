@@ -15,7 +15,7 @@ namespace PRL.View
     public partial class frmDoiTra : Form
     {
         HoaDonServices _hoaDonServiecs;
-        Guid? _idClick;
+        string _idClick;
         public frmDoiTra()
         {
             InitializeComponent();
@@ -40,13 +40,14 @@ namespace PRL.View
             dgtView.Columns[8].Visible = false;
             dgtView.Rows.Clear();
             int stt = 1;
-            foreach (var item in _hoaDonServiecs.GetHoaDon(find))
+            foreach (var item in _hoaDonServiecs.GetHoaDonChiTiets())
             {
-                var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.IdSanPham == item.MaSp);
-                var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.IdNhanVien == item.MaNv);
-                var query = _hoaDonServiecs.GetHoaDonChiTiets().FirstOrDefault(x => x.IdHoaDonCt == item.IdHoaDon);
-                dgtView.Rows.Add(stt++, item.MaHd, item.NgayTao, query.SoLuong, query.DonGia, item.TongTien
-                    , queryProduct.MaSp, queryStaff.MaNv, item.IdHoaDon);
+                var query = _hoaDonServiecs.GetHoaDon(find).FirstOrDefault(x => x.MaHd == item.MaHd);
+                var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.MaSp == query.MaSp);
+                var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.MaNv == query.MaNv);
+               // var query = _hoaDonServiecs.GetHoaDon(find).FirstOrDefault(x => x.MaHd == item.MaHd);
+                dgtView.Rows.Add(stt++, query.MaHd, query.NgayTao, item.SoLuong, item.DonGia, query.TongTien
+                    , queryProduct.TenSanPham, queryStaff.TenNhanVien, item.MaHd);
             }
 
         }
@@ -55,7 +56,7 @@ namespace PRL.View
         {
             int index = e.RowIndex; if (index < 0) return;
 
-            _idClick = Guid.Parse(dgtView.Rows[index].Cells[8].Value.ToString());
+            _idClick = dgtView.Rows[index].Cells[8].Value.ToString();
             txtMaNv.Text = dgtView.Rows[index].Cells[7].Value.ToString();
             txtMaSp.Text = dgtView.Rows[index].Cells[6].Value.ToString();
             txtMaHD.Text = dgtView.Rows[index].Cells[1].Value.ToString();

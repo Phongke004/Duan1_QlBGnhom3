@@ -10,19 +10,16 @@ namespace DAL.DomainClass;
 public partial class ThuongHieu
 {
     [Key]
-    [Column("idThuongHieu")]
-    public Guid IdThuongHieu { get; set; }
-
     [Column("MaTH")]
     [StringLength(10)]
     [Unicode(false)]
     public string MaTh { get; set; } = null!;
 
     [StringLength(50)]
-    public string TenThuongHieu { get; set; } = null!;
+    public string? TenThuongHieu { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [InverseProperty("MaThNavigation")]
     public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();

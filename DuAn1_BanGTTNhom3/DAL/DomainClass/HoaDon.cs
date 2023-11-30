@@ -10,32 +10,38 @@ namespace DAL.DomainClass;
 public partial class HoaDon
 {
     [Key]
-    [Column("idHoaDon")]
-    public Guid IdHoaDon { get; set; }
-
     [Column("MaHD")]
     [StringLength(10)]
     [Unicode(false)]
     public string MaHd { get; set; } = null!;
 
     [Column(TypeName = "date")]
-    public DateTime NgayTao { get; set; }
+    public DateTime? NgayTao { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
-    public double TongTien { get; set; }
+    public double? TongTien { get; set; }
 
-    public double TongTienSauVoucher { get; set; }
+    public double? TongTienSauVoucher { get; set; }
 
-    public Guid? MaSp { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaSp { get; set; }
 
-    public Guid? MaVoucher { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaVoucher { get; set; }
 
     [Column("MaNV")]
-    public Guid? MaNv { get; set; }
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaNv { get; set; }
 
-    public Guid? MaKh { get; set; }
+    [Column("MaKH")]
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaKh { get; set; }
 
     [InverseProperty("MaHdNavigation")]
     public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; } = new List<HoaDonChiTiet>();

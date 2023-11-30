@@ -10,24 +10,21 @@ namespace DAL.DomainClass;
 public partial class SanPham
 {
     [Key]
-    [Column("idSanPham")]
-    public Guid IdSanPham { get; set; }
-
     [Column("MaSP")]
     [StringLength(10)]
     [Unicode(false)]
     public string MaSp { get; set; } = null!;
 
     [StringLength(250)]
-    public string TenSanPham { get; set; } = null!;
+    public string? TenSanPham { get; set; }
 
     [Column(TypeName = "date")]
-    public DateTime NgayNhap { get; set; }
+    public DateTime? NgayNhap { get; set; }
 
-    public int SoLuong { get; set; }
+    public int? SoLuong { get; set; }
 
     [StringLength(30)]
-    public string TrangThai { get; set; } = null!;
+    public string? TrangThai { get; set; }
 
     [InverseProperty("MaSpNavigation")]
     public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();
