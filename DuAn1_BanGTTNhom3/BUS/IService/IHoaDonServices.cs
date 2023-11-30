@@ -19,6 +19,8 @@ namespace BUS.IService
         public string UpdatesHDCT(HoaDonChiTiet hdct);
         public string DeletesHDCT(HoaDonChiTiet hdct);
         public string AddsHDCT(HoaDonChiTiet hdct);
+        public List<Voucher> GetVouchers();
+       
 
     }
 }

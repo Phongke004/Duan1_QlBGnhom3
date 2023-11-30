@@ -66,6 +66,11 @@ namespace DAL.Repositories
           return _connect.SanPhams.ToList();
         }
 
+        public List<Voucher> GetVouchers()
+        {
+            return _connect.Vouchers.ToList();
+        }
+
         public bool UpdateHD(HoaDon hd)
         {
             _connect.Update(hd);

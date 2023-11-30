@@ -79,8 +79,9 @@ namespace PRL.View
             {
                 this.Hide();
 
-                frmQLSP sanPham = new frmQLSP();
-                sanPham.ShowDialog();
+                frmDoi frmDoi = new frmDoi();
+
+                frmDoi.ShowDialog();
 
             }
             catch (Exception ex)
@@ -153,6 +154,11 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

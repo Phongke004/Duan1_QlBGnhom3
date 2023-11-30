@@ -42,13 +42,17 @@ namespace PRL.View
             dgvSanPham.Columns[10].Name = "Giá Tiền";
             dgvSanPham.Columns[11].Name = "Trạng Thái";
             dgvSanPham.Columns[1].Visible = false;
-            foreach (var sp in _service.GetAll(find))
-            {
-                var item = _service.GetChiTietSP().FirstOrDefault(x => x.MaSp == sp.MaSp);
-                var e = _service.GetHoaDon().FirstOrDefault(x => x.MaHd == sp.MaSp);
-                dgvSanPham.Rows.Add(stt++, sp.MaSp, sp.MaSp, sp.TenSanPham, sp.NgayNhap, sp.SoLuong,
-                    item.MaMau, item.MaSize, item.MaChatLieu, item.MaTh, item.Gia, sp.TrangThai);
-            }
+            //    foreach (var sp in _service.GetChiTietSP())
+            //    {
+            //        var item = _service.GetAll(find).FirstOrDefault(x => x.MaSp== sp.Maspct);
+            //        var e = _service.GetHoaDon().FirstOrDefault(x => x.IdHoaDon == sp.Id);
+            //        var a = _service.GetMauSac().FirstOrDefault(x => x.Id == sp.MaMau);
+            //        var b = _service.GetSize().FirstOrDefault(x => x.MaSize == sp.MaSizeNavigation);
+            //        var c = _service.GetChatLieu().FirstOrDefault(x => x.MaChatLieu == sp.IdChiTietSp);
+            //        var d = _service.GetThuongHieu().FirstOrDefault(x => x.MaTh == sp.IdChiTietSp);
+            //        dgvSanPham.Rows.Add(stt++, sp.MaSp, sp.MaSp, sp., sp.NgayNhap, sp.SoLuong,
+            //            item.MaMau, item.MaSize, item.MaChatLieu, item.MaTh, item.Gia, sp.TrangThai);
+
         }
     }
 }

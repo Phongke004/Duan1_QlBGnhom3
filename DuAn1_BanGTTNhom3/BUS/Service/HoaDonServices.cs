@@ -72,6 +72,9 @@ namespace BUS.Service
             }
         }
 
+      
+        
+
         public List<HoaDon> GetHoaDon(string find)
         {
             if (find == null)
@@ -94,6 +97,11 @@ namespace BUS.Service
         public List<SanPham> GetSanPhams()
         {
             return _repos.GetSanPhams();
+        }
+
+        public List<Voucher> GetVouchers()
+        {
+            return _repos.GetVouchers();
         }
 
         public string UpdatesHD(HoaDon hd)
