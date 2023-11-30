@@ -69,9 +69,9 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            txtSoLuong = new TextBox();
+            label12 = new Label();
             txtThanhTien = new TextBox();
-            txtSoLuong = new TextBox();
+
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
