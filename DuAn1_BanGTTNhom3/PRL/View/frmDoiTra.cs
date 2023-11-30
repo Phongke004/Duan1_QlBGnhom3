@@ -79,7 +79,7 @@ namespace PRL.View
             {
                 this.Hide();
                 frmDoiTra frmDoi = new frmDoiTra();
-                
+
                 frmDoi.ShowDialog();
 
             }

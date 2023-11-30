@@ -39,6 +39,7 @@
             label3 = new Label();
             label2 = new Label();
             groupBox2 = new GroupBox();
+            txtSoLuong = new TextBox();
             cbbMaSP = new ComboBox();
             cbbGiamGia = new ComboBox();
             label11 = new Label();
@@ -71,7 +72,6 @@
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
             label12 = new Label();
             txtThanhTien = new TextBox();
-            txtSoLuong = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -200,6 +200,14 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin sản phẩm";
             // 
+            // txtSoLuong
+            // 
+            txtSoLuong.Location = new Point(223, 115);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(522, 39);
+            txtSoLuong.TabIndex = 13;
+            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
+            // 
             // cbbMaSP
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -217,6 +225,7 @@
             cbbGiamGia.Name = "cbbGiamGia";
             cbbGiamGia.Size = new Size(578, 41);
             cbbGiamGia.TabIndex = 11;
+            cbbGiamGia.SelectedIndexChanged += cbbGiamGia_SelectedIndexChanged;
             // 
             // label11
             // 
@@ -474,14 +483,6 @@
             txtThanhTien.Size = new Size(357, 32);
             txtThanhTien.TabIndex = 11;
             // 
-            // txtSoLuong
-            // 
-            txtSoLuong.Location = new Point(223, 115);
-            txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(522, 39);
-            txtSoLuong.TabIndex = 13;
-            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
-            // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -502,6 +503,7 @@
             MainMenuStrip = menuStrip1;
             Name = "frmHoaDon";
             Text = "frmHoaDon";
+            Load += frmHoaDon_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

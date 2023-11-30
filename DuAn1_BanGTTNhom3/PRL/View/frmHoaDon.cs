@@ -1,5 +1,6 @@
 
 using BUS.Service;
+using DAL.Context;
 using DAL.DomainClass;
 
 
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace PRL.View
@@ -26,6 +28,8 @@ namespace PRL.View
         {
             InitializeComponent();
             _hoaDonServices = new HoaDonServices();
+            LoadComBoBox();
+
 
         }
 
@@ -90,11 +94,11 @@ namespace PRL.View
                 if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
                 {
                     txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
-                    
+
                 }
-               else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
+                else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
                 {
-                    txtTongTien.Text =((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - ( int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+                    txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
 
                 }
                 else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
@@ -107,6 +111,24 @@ namespace PRL.View
 
                 MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
             }
+        }
+
+        private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        public void LoadComBoBox()
+        {
+            List<Voucher> vouchers = _hoaDonServices.GetVouchers();
+            cbbGiamGia.DataSource = vouchers;
+            cbbGiamGia.DisplayMember = "MoTa";
+            //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
+
+        }
+
+        private void frmHoaDon_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
