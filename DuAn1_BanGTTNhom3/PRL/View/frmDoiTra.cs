@@ -80,6 +80,7 @@ namespace PRL.View
                 this.Hide();
 
                 frmDoi frmDoi = new frmDoi();
+
                 frmDoi.ShowDialog();
 
             }
