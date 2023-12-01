@@ -81,7 +81,11 @@ namespace BUS.Service
             {
                 return _repos.GetHoaDons();
             }
-            return _repos.GetHoaDons().Where(x => x.MaHd.Trim().ToLower().Contains(find.ToLower())).ToList();
+            else
+            {
+                return _repos.GetHoaDons().Where(x => x.MaHd.Contains(find)).ToList();
+            }
+          
         }
 
         public List<HoaDonChiTiet> GetHoaDonChiTiets()
