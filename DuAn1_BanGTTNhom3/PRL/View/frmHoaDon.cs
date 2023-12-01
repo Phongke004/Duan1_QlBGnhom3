@@ -72,7 +72,7 @@ namespace PRL.View
                     isExitApplication = true;
                     this.Close();
                 }
-               
+
 
             }
             catch (Exception ex)
@@ -86,7 +86,7 @@ namespace PRL.View
 
         }
 
-      
+
 
         private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -133,6 +133,6 @@ namespace PRL.View
             //}
         }
 
-       
+      
     }
 }
