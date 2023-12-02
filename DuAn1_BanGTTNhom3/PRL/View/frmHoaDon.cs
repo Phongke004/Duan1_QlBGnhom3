@@ -24,7 +24,7 @@ namespace PRL.View
     {
         private HoaDonServices _hoaDonServices;
         private bool isExitApplication = false;
-        int _idWhenClick;
+        string _idWhenClick;
         public frmHoaDon()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace PRL.View
         {
             Type type = typeof(HoaDon);
 
-            dtgView.ColumnCount = 17;
+            dtgView.ColumnCount = 18;
             int stt = 1;
             dtgView.Columns[0].Name = "STT";
             dtgView.Columns[1].Name = "Mã HD";
@@ -64,6 +64,8 @@ namespace PRL.View
             dtgView.Columns[14].Name = "Số Lượng";
             dtgView.Columns[15].Name = "Đơn Giá ";
             dtgView.Columns[16].Name = "Ghi chú";
+            dtgView.Columns[17].Visible = false;
+
 
             dtgView.Rows.Clear();
             foreach (var i in _hoaDonServices.GetHoaDon(txtSearch.Text))
@@ -74,6 +76,35 @@ namespace PRL.View
                 var queryHDCT = _hoaDonServices.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHd == i.MaHd);
                 dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.TongTienSauVoucher, i.MaSp, querySP.TenSanPham, i.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong, queryHDCT.DonGia, queryHDCT.GhiChu);
             }
+
+        }
+        private void dtgView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexof = e.RowIndex; if (indexof < 0) return;
+
+            _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
+            txtThanhTien.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
+            txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[1].Value.ToString();
+            txtMaKhachHang.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
+            txtMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
+            dtpkNgayTao.Value = DateTime.Parse(dtgView.Rows[indexof].Cells[2].Value.ToString());
+            txtTenSanPham.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
+            cbbMaSP.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
+            cbbGiamGia.Text = dtgView.Rows[indexof].Cells[8].Value.ToString();
+            cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
+            txtSoSanPham.Text = dtgView.Rows[indexof].Cells[14].Value.ToString();
+            txtDonGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
+            txtTongTien.Text = dtgView.Rows[indexof].Cells[4].Value.ToString();
+            
+        }
+        private void dtgView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+
+
+
+
 
         }
         private void mnStripDoiMk_Click(object sender, EventArgs e)
@@ -157,29 +188,29 @@ namespace PRL.View
 
         private void txtSoSanPham_TextChanged(object sender, EventArgs e)
         {
-            Voucher voucher = new Voucher();
-            try
-            {
-                if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
-                {
-                    txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
+            //Voucher voucher = new Voucher();
+            //try
+            //{
+            //    if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
+            //    {
+            //        txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
 
-                }
-                else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
-                {
-                    txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+            //    }
+            //    else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
+            //    {
+            //        txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
 
-                }
-                else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
-                {
-                    txtSoLuong.Text = "";
-                }
-            }
-            catch (Exception)
-            {
+            //    }
+            //    else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
+            //    {
+            //        txtSoLuong.Text = "";
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
-            }
+            //    MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
+            //}
         }
 
         private void btnAddHoadon_Click(object sender, EventArgs e)
@@ -187,5 +218,6 @@ namespace PRL.View
 
         }
 
+        
     }
 }

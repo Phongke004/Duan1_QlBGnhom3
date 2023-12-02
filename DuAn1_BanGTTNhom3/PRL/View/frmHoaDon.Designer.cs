@@ -39,9 +39,7 @@
             label3 = new Label();
             label2 = new Label();
             groupBox2 = new GroupBox();
-
             txtSoSanPham = new TextBox();
-
             cbbMaSP = new ComboBox();
             cbbGiamGia = new ComboBox();
             label11 = new Label();
@@ -72,12 +70,12 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-
             label13 = new Label();
             textBox1 = new TextBox();
             label14 = new Label();
             txtSearch = new TextBox();
-
+            label15 = new Label();
+            cbbTrangthai = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -214,7 +212,6 @@
             txtSoSanPham.TabIndex = 13;
             txtSoSanPham.TextChanged += txtSoSanPham_TextChanged;
             // 
-
             // cbbMaSP
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
@@ -232,18 +229,7 @@
             cbbGiamGia.Name = "cbbGiamGia";
             cbbGiamGia.Size = new Size(578, 41);
             cbbGiamGia.TabIndex = 11;
-
             cbbGiamGia.SelectedIndexChanged += cbbGiamGia_SelectedIndexChanged;
-            // 
-            // cbbSoLuong
-            // 
-            cbbSoLuong.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            cbbSoLuong.FormattingEnabled = true;
-            cbbSoLuong.Location = new Point(223, 118);
-            cbbSoLuong.Name = "cbbSoLuong";
-            cbbSoLuong.Size = new Size(522, 41);
-            cbbSoLuong.TabIndex = 10;
-
             // 
             // label11
             // 
@@ -338,6 +324,7 @@
             dtgView.RowTemplate.Height = 41;
             dtgView.Size = new Size(1753, 295);
             dtgView.TabIndex = 3;
+            dtgView.CellClick += dtgView_CellClick;
             // 
             // btnAddHoadon
             // 
@@ -369,7 +356,6 @@
             btnXoaHoaDon.TabIndex = 6;
             btnXoaHoaDon.Text = "Xóa hóa đơn";
             btnXoaHoaDon.UseVisualStyleBackColor = true;
-          
             // 
             // btnHienthi
             // 
@@ -485,7 +471,6 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
-
             // label13
             // 
             label13.AutoSize = true;
@@ -520,23 +505,41 @@
             txtSearch.Size = new Size(438, 39);
             txtSearch.TabIndex = 13;
             // 
-
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(42, 540);
+            label15.Name = "label15";
+            label15.Size = new Size(129, 33);
+            label15.TabIndex = 2;
+            label15.Text = "Trạng thái";
+            // 
+            // cbbTrangthai
+            // 
+            cbbTrangthai.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbTrangthai.FormattingEnabled = true;
+            cbbTrangthai.Location = new Point(228, 540);
+            cbbTrangthai.Name = "cbbTrangthai";
+            cbbTrangthai.Size = new Size(525, 41);
+            cbbTrangthai.TabIndex = 12;
+            // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1796, 1040);
-
             Controls.Add(txtSearch);
+            Controls.Add(cbbTrangthai);
             Controls.Add(label14);
             Controls.Add(textBox1);
             Controls.Add(label13);
-
             Controls.Add(btnThoat);
             Controls.Add(btnHienthi);
             Controls.Add(btnXoaHoaDon);
             Controls.Add(btnSuaHoaDon);
             Controls.Add(btnAddHoadon);
+            Controls.Add(label15);
             Controls.Add(dtgView);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -545,7 +548,6 @@
             MainMenuStrip = menuStrip1;
             Name = "frmHoaDon";
             Text = "frmHoaDon";
-
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -610,5 +612,7 @@
         private TextBox textBox1;
         private Label label14;
         private TextBox txtSearch;
+        private Label label15;
+        private ComboBox cbbTrangthai;
     }
 }

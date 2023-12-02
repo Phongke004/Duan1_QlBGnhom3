@@ -20,6 +20,17 @@ namespace DAL.Repositories
 
         public bool AddHD(HoaDon hd)
         {
+            if (GetHoaDons().Count != 0)
+            {
+                var maxid = _connect.Dois.Max(x => x.MaDoi);
+                int nextid = Convert.ToInt32(maxid.Substring(3)) + 1;
+                hd.MaHd = "HD" + nextid.ToString("D3");
+
+            }
+            else
+            {
+                hd.MaHd = "HD001";
+            }
             _connect.Add(hd);
             _connect.SaveChanges();
             return true;
