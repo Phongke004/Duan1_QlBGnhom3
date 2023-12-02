@@ -44,7 +44,7 @@ namespace BUS.Service
         {
             var clone = _repos.GetAllNV().FirstOrDefault(s => s.MaNv == nv.MaNv);
 
-            if (_repos.RemoveNV(clone) == true)
+            if (_repos.RemoveNV(clone.MaNv) == true)
             {
                 return " xóa thành công";
             }
@@ -56,12 +56,11 @@ namespace BUS.Service
 
         public string Update(NhanVien nv)
         {
-            var clone = _repos.GetAllNV().FirstOrDefault(s => s.MaNv == nv.MaNv );
+            var clone = _repos.GetAllNV().FirstOrDefault(s => s.MaNv == nv.MaNv);
 
             clone.TenNhanVien = nv.TenNhanVien;
             clone.SoDienThoai = nv.SoDienThoai;
             clone.Email = nv.Email;
-            clone.MaNv = nv.MaNv;
             clone.NgaySinh = nv.NgaySinh;
             clone.DiaChi = nv.DiaChi;
             clone.MaChucVu = nv.MaChucVu;
@@ -89,5 +88,6 @@ namespace BUS.Service
         {
             return _repos.GetCaLams();
         }
+
     }
 }
