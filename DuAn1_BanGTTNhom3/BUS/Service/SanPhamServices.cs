@@ -17,18 +17,18 @@ namespace BUS.Service
         {
             _repos = new SanPhamRepositories();
         }
-        public bool AddSP(SanPham sp)
+        public string AddSP(SanPham sp)
         {
             if (_repos.Add(sp) == true)
             {
-                return Convert.ToBoolean("Thêm thành công");
+                return ("Thêm thành công");
             }
             else
             {
 
             }
             {
-                return Convert.ToBoolean("Thêm thất bại");
+                return ("Thêm thất bại");
             }
         }
 
@@ -71,25 +71,27 @@ namespace BUS.Service
             return _repos.GetThuongHieu();
         }
 
-        public bool UpdateSP(SanPham sp)
+        public string UpdateSP(SanPham sp)
         {
-            var clone = _repos.GetAll().FirstOrDefault(x => x.MaSp == sp.MaSp);
-            clone.TenSanPham = sp.TenSanPham;
-            clone.NgayNhap = sp.NgayNhap;
-            clone.SoLuong = sp.SoLuong;
+            //var clone = _repos.GetAll().FirstOrDefault(x => x.MaSp == sp.MaSp);
+            //clone.TenSanPham = sp.TenSanPham;
+            //clone.NgayNhap = sp.NgayNhap;
+            //clone.SoLuong = sp.SoLuong;
             //clone.TenMau = sp.TenMau;
             //clone.KichThuoc = sp.KichThuoc;
             //clone.LoaiChatLieu = sp.LoaiChatLieu;
             //clone.TenThuongHieu = sp.TenThuongHieu;
-            clone.TrangThai = sp.TrangThai;
-            if (_repos.Update(clone) == true)
-            {
-                return Convert.ToBoolean(" Sửa thành công");
-            }
-            else
-            {
-                return Convert.ToBoolean(" Sửa thất bại");
-            }
+            //clone.TongTien = sp.TongTien;
+            //clone.TrangThai = sp.TrangThai;
+            //if (_repos.Update(clone) == true)
+            //{
+            //    return (" Sửa thành công");
+            //}
+            //else
+            //{
+            //    return (" Sửa thất bại");
+            //}
+            throw new NotImplementedException();
         }
     }
 }

@@ -9,8 +9,8 @@ namespace BUS.IService
 {
     public interface ISanPhamServices
     {
-        public bool AddSP(SanPham sp);
-        public bool UpdateSP(SanPham sp);
+        public string AddSP(SanPham sp);
+        public string UpdateSP(SanPham sp);
         public List<SanPham> GetAll(string find);
         public List<ChiTietSanPham> GetChiTietSP();
         public List<HoaDon> GetHoaDon();

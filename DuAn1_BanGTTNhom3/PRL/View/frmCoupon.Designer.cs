@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dtgCoupon = new DataGridView();
+            dgvCoupon = new DataGridView();
             btnDelete = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
@@ -61,56 +61,62 @@
             quảnLýHóaĐơnToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dtgCoupon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCoupon).BeginInit();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // dtgCoupon
+            // dgvCoupon
             // 
-            dtgCoupon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgCoupon.Location = new Point(6, 26);
-            dtgCoupon.Name = "dtgCoupon";
-            dtgCoupon.RowHeadersWidth = 51;
-            dtgCoupon.RowTemplate.Height = 29;
-            dtgCoupon.Size = new Size(1121, 267);
-            dtgCoupon.TabIndex = 0;
+            dgvCoupon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCoupon.Location = new Point(-107, 26);
+            dgvCoupon.Name = "dgvCoupon";
+            dgvCoupon.RowHeadersWidth = 51;
+            dgvCoupon.RowTemplate.Height = 29;
+            dgvCoupon.Size = new Size(1131, 267);
+            dgvCoupon.TabIndex = 0;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(6, 300);
+            btnDelete.Image = Properties.Resources.Delete;
+            btnDelete.ImageAlign = ContentAlignment.MiddleRight;
+            btnDelete.Location = new Point(6, 325);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(275, 77);
+            btnDelete.Size = new Size(172, 53);
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(6, 163);
+            btnUpdate.Image = Properties.Resources.Refresh;
+            btnUpdate.ImageAlign = ContentAlignment.MiddleRight;
+            btnUpdate.Location = new Point(6, 184);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(275, 77);
+            btnUpdate.Size = new Size(172, 53);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(6, 26);
+            btnAdd.Image = Properties.Resources.Add;
+            btnAdd.ImageAlign = ContentAlignment.MiddleRight;
+            btnAdd.Location = new Point(6, 43);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(275, 77);
+            btnAdd.Size = new Size(172, 53);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(dtgCoupon);
+            groupBox3.Controls.Add(dgvCoupon);
             groupBox3.Location = new Point(12, 479);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1133, 299);
+            groupBox3.Size = new Size(1030, 299);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Data Voucher";
@@ -122,7 +128,7 @@
             groupBox2.Controls.Add(btnAdd);
             groupBox2.Location = new Point(858, 89);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(287, 384);
+            groupBox2.Size = new Size(184, 384);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
@@ -278,7 +284,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { userToolStripMenuItem, quảnLýToolStripMenuItem, thêmNhânViênToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1157, 28);
+            menuStrip1.Size = new Size(1053, 28);
             menuStrip1.TabIndex = 5;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -294,13 +300,13 @@
             // đổiMậtKhẩuToolStripMenuItem
             // 
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            đổiMậtKhẩuToolStripMenuItem.Size = new Size(183, 26);
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(224, 26);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi Mật Khẩu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(183, 26);
+            đăngXuấtToolStripMenuItem.Size = new Size(224, 26);
             đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             // 
             // quảnLýToolStripMenuItem
@@ -356,7 +362,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1157, 784);
+            ClientSize = new Size(1053, 784);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(label1);
@@ -364,7 +370,7 @@
             Controls.Add(menuStrip1);
             Name = "frmCoupon";
             Text = "frmQLCoupon";
-            ((System.ComponentModel.ISupportInitialize)dtgCoupon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCoupon).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -377,7 +383,7 @@
 
         #endregion
 
-        private DataGridView dtgCoupon;
+        private DataGridView dgvCoupon;
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
