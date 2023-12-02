@@ -70,12 +70,8 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            label13 = new Label();
-            textBox1 = new TextBox();
-            label14 = new Label();
-            txtSearch = new TextBox();
-            label15 = new Label();
-            cbbTrangthai = new ComboBox();
+            label12 = new Label();
+            txtThanhTien = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -206,11 +202,11 @@
             // 
             // txtSoSanPham
             // 
-            txtSoSanPham.Location = new Point(226, 115);
-            txtSoSanPham.Name = "txtSoSanPham";
-            txtSoSanPham.Size = new Size(519, 39);
-            txtSoSanPham.TabIndex = 13;
-            txtSoSanPham.TextChanged += txtSoSanPham_TextChanged;
+            txtSoLuong.Location = new Point(223, 115);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(522, 39);
+            txtSoLuong.TabIndex = 13;
+            txtSoLuong.TextChanged += txtSoLuong_TextChanged;
             // 
             // cbbMaSP
             // 
@@ -471,58 +467,23 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
-            // label13
+            // label12
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label13.Location = new Point(970, 934);
-            label13.Name = "label13";
-            label13.Size = new Size(120, 24);
-            label13.TabIndex = 10;
-            label13.Text = "Thành tiền :";
+            label12.AutoSize = true;
+            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label12.Location = new Point(960, 933);
+            label12.Name = "label12";
+            label12.Size = new Size(120, 24);
+            label12.TabIndex = 10;
+            label12.Text = "Thành tiền :";
             // 
-            // textBox1
+            // txtThanhTien
             // 
-            textBox1.Location = new Point(1118, 919);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(579, 39);
-            textBox1.TabIndex = 11;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label14.Location = new Point(1111, 554);
-            label14.Name = "label14";
-            label14.Size = new Size(106, 28);
-            label14.TabIndex = 12;
-            label14.Text = "Tìm kiếm\r\n";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(1251, 547);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(438, 39);
-            txtSearch.TabIndex = 13;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(42, 540);
-            label15.Name = "label15";
-            label15.Size = new Size(129, 33);
-            label15.TabIndex = 2;
-            label15.Text = "Trạng thái";
-            // 
-            // cbbTrangthai
-            // 
-            cbbTrangthai.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            cbbTrangthai.FormattingEnabled = true;
-            cbbTrangthai.Location = new Point(228, 540);
-            cbbTrangthai.Name = "cbbTrangthai";
-            cbbTrangthai.Size = new Size(525, 41);
-            cbbTrangthai.TabIndex = 12;
+            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtThanhTien.Location = new Point(1118, 926);
+            txtThanhTien.Name = "txtThanhTien";
+            txtThanhTien.Size = new Size(357, 32);
+            txtThanhTien.TabIndex = 11;
             // 
             // frmHoaDon
             // 
