@@ -9,16 +9,20 @@ namespace DAL.IRepositories
 {
     internal interface IQLNVRepos
     {
-        public bool AddNV(NhanVien nv);
+        internal interface IQLNVRepos
+        {
+            public bool AddNV(NhanVien nv);
 
-        public bool RemoveNV(NhanVien nv);
+            public bool RemoveNV(string id);
 
-        public bool UpdateNV(NhanVien nv);
+            public bool UpdateNV(NhanVien nv);
 
-        public List<NhanVien> GetAllNV();
+            public List<NhanVien> GetAllNV();
 
-        public List<ChucVu> GetChucVus();
+            public List<ChucVu> GetChucVus();
 
-        public List<CaLamViec> GetCaLams();
+            public List<CaLamViec> GetCaLams();
+        }
+
     }
 }

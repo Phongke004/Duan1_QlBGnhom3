@@ -20,6 +20,16 @@ namespace DAL.Repositories
         }
         public bool AddNV(NhanVien nv)
         {
+            if (GetAllNV().Count != 0)
+            {
+                var maxid = _dbcontext.NhanViens.Max(x => x.MaNv);
+                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
+                nv.MaNv = "NV" + nextid.ToString("D3");
+            }
+            else
+            {
+                nv.MaNv = "NV001";
+            }
             _dbcontext.Add(nv);
             _dbcontext.SaveChanges();
             return true;
@@ -30,18 +40,45 @@ namespace DAL.Repositories
             return _dbcontext.NhanViens.ToList();
         }
 
-        public bool RemoveNV(NhanVien nv)
+        public bool RemoveNV(string id)
         {
-            _dbcontext.Remove(nv);
+            var results = _dbcontext.NhanViens.FirstOrDefault(x => x.MaNv == id);
+            if (results != null)
+            {
+                _dbcontext.Remove(results);
+            }
+
+            _dbcontext.Remove(id);
             _dbcontext.SaveChanges();
             return true;
         }
 
         public bool UpdateNV(NhanVien nv)
         {
-            _dbcontext.Update(nv);
-            _dbcontext.SaveChanges();
-            return true;
+            try
+            {
+                if (nv == null) return false;
+                var d = _dbcontext.NhanViens.FirstOrDefault(i => i.MaNv == nv.MaNv);
+                if (d == null) return false;
+                d.TenNhanVien = nv.TenNhanVien;
+                d.SoDienThoai = nv.SoDienThoai;
+                d.Email = nv.Email;
+                d.GioiTinh = nv.GioiTinh;
+                d.NgaySinh = nv.NgaySinh;
+                d.DiaChi = nv.DiaChi;
+                d.MatKhau = nv.MatKhau;
+                d.TrangThai = nv.TrangThai;
+                d.MaChucVu = nv.MaChucVu;
+                d.MaCa = nv.MaCa;
+                _dbcontext.NhanViens.Update(nv);
+                _dbcontext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public List<ChucVu> GetChucVus()
@@ -53,5 +90,6 @@ namespace DAL.Repositories
         {
             return _dbcontext.CaLamViecs.ToList();
         }
+
     }
 }
