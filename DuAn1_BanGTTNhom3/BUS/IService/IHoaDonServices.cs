@@ -15,7 +15,7 @@ namespace BUS.IService
         public List<SanPham> GetSanPhams();
         public string UpdatesHD(HoaDon hd);
         public string DeletesHD(HoaDon hd);
-        public string AddsHD(HoaDon hd);
+        public string AddsHD(HoaDon hd,KhachHang kh);
         public string UpdatesHDCT(HoaDonChiTiet hdct);
         public string DeletesHDCT(HoaDonChiTiet hdct);
         public string AddsHDCT(HoaDonChiTiet hdct);
