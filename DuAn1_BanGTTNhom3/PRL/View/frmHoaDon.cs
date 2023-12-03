@@ -35,9 +35,9 @@ namespace PRL.View
         }
         private void btnHienthi_Click(object sender, EventArgs e)
         {
-            LoadData();
+            LoadData(null);
         }
-        private void LoadData()
+        private void LoadData(string find)
         {
             Type type = typeof(HoaDon);
 
@@ -68,13 +68,15 @@ namespace PRL.View
 
 
             dtgView.Rows.Clear();
-            foreach (var i in _hoaDonServices.GetHoaDon(txtSearch.Text))
+            foreach (var i in _hoaDonServices.GetHoaDon(find))
             {
                 var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
                 var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
                 var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
                 var queryHDCT = _hoaDonServices.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHd == i.MaHd);
-                dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.TongTienSauVoucher, i.MaSp, querySP.TenSanPham, i.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong, queryHDCT.DonGia, queryHDCT.GhiChu);
+                dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.TongTienSauVoucher, i.MaSp, querySP.TenSanPham,
+                    i.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong,
+                    queryHDCT.DonGia, queryHDCT.GhiChu);
             }
 
         }
@@ -95,16 +97,6 @@ namespace PRL.View
             txtSoSanPham.Text = dtgView.Rows[indexof].Cells[14].Value.ToString();
             txtDonGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtTongTien.Text = dtgView.Rows[indexof].Cells[4].Value.ToString();
-            
-        }
-        private void dtgView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            
-
-
-
-
 
         }
         private void mnStripDoiMk_Click(object sender, EventArgs e)
@@ -155,13 +147,6 @@ namespace PRL.View
             }
         }
 
-        private void txtTongTien_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -176,15 +161,6 @@ namespace PRL.View
 
         }
 
-        private void frmHoaDon_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSoLuong_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtSoSanPham_TextChanged(object sender, EventArgs e)
         {
@@ -215,9 +191,30 @@ namespace PRL.View
 
         private void btnAddHoadon_Click(object sender, EventArgs e)
         {
+            try
+            {
+                HoaDon hoaDon = new HoaDon();
 
+                if (txtTenSanPham.Text != string.Empty && txtSoLuong.Text != string.Empty && cbbMaSP.Text != string.Empty)
+                {
+                    hoaDon.MaSp = txtMaHoaDon.Text;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
-        
+        private void cbbMaSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SanPham sanPham = new SanPham();
+            if(cbbMaSP.Text != null)
+            {
+                txtTenSanPham.Text = sanPham.TenSanPham;
+            }
+        }
     }
 }
