@@ -6,16 +6,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.DomainClass;
 
-[Table("Voucher")]
-public partial class Voucher
+[Table("Coupon")]
+public partial class Coupon
 {
     [Key]
     [StringLength(10)]
     [Unicode(false)]
-    public string MaVoucher { get; set; } = null!;
+    public string MaCoupon { get; set; } = null!;
 
     [StringLength(50)]
-    public string? TenVoucher { get; set; }
+    public string? TenCoupon { get; set; }
 
     public double? GiaTri { get; set; }
 
@@ -31,7 +31,4 @@ public partial class Voucher
 
     [Column(TypeName = "date")]
     public DateTime? NgayKetThuc { get; set; }
-
-    [InverseProperty("MaVoucherNavigation")]
-    public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
 }
