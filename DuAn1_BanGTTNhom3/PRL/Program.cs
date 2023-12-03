@@ -14,7 +14,8 @@ namespace PRL
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new frmHoaDon());
+
+            Application.Run(new frmQLSP());
 
             
 

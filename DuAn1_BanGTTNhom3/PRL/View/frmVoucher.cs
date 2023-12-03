@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PRL.View
 {
-    public partial class frmQLVoucher : Form
+    public partial class frmVoucher : Form
     {
-        public frmQLVoucher()
+        public frmVoucher()
         {
             InitializeComponent();
         }
