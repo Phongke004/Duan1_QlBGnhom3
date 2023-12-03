@@ -70,12 +70,8 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            label13 = new Label();
-            textBox1 = new TextBox();
-            label14 = new Label();
-            txtSearch = new TextBox();
-            label15 = new Label();
-            cbbTrangthai = new ComboBox();
+            label12 = new Label();
+            txtThanhTien = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -87,9 +83,10 @@
             label1.AutoSize = true;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Times New Roman", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(731, 24);
+            label1.Location = new Point(450, 15);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(336, 63);
+            label1.Size = new Size(219, 40);
             label1.TabIndex = 0;
             label1.Text = "Hóa Đơn Bán";
             // 
@@ -103,9 +100,11 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(11, 90);
+            groupBox1.Location = new Point(7, 56);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1758, 191);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(1082, 119);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin chung";
@@ -114,42 +113,47 @@
             // 
             dtpkNgayTao.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             dtpkNgayTao.Format = DateTimePickerFormat.Custom;
-            dtpkNgayTao.Location = new Point(231, 128);
+            dtpkNgayTao.Location = new Point(142, 80);
+            dtpkNgayTao.Margin = new Padding(2);
             dtpkNgayTao.Name = "dtpkNgayTao";
-            dtpkNgayTao.Size = new Size(526, 41);
+            dtpkNgayTao.Size = new Size(316, 28);
             dtpkNgayTao.TabIndex = 8;
             // 
             // txtMaNhanVien
             // 
             txtMaNhanVien.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaNhanVien.Location = new Point(1108, 128);
+            txtMaNhanVien.Location = new Point(682, 80);
+            txtMaNhanVien.Margin = new Padding(2);
             txtMaNhanVien.Name = "txtMaNhanVien";
-            txtMaNhanVien.Size = new Size(578, 41);
+            txtMaNhanVien.Size = new Size(357, 28);
             txtMaNhanVien.TabIndex = 7;
             // 
             // txtMaKhachHang
             // 
             txtMaKhachHang.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaKhachHang.Location = new Point(1107, 51);
+            txtMaKhachHang.Location = new Point(681, 32);
+            txtMaKhachHang.Margin = new Padding(2);
             txtMaKhachHang.Name = "txtMaKhachHang";
-            txtMaKhachHang.Size = new Size(578, 41);
+            txtMaKhachHang.Size = new Size(357, 28);
             txtMaKhachHang.TabIndex = 6;
             // 
             // txtMaHoaDon
             // 
             txtMaHoaDon.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaHoaDon.Location = new Point(228, 54);
+            txtMaHoaDon.Location = new Point(140, 34);
+            txtMaHoaDon.Margin = new Padding(2);
             txtMaHoaDon.Name = "txtMaHoaDon";
-            txtMaHoaDon.Size = new Size(522, 41);
+            txtMaHoaDon.Size = new Size(318, 28);
             txtMaHoaDon.TabIndex = 4;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(844, 136);
+            label5.Location = new Point(519, 85);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(185, 33);
+            label5.Size = new Size(118, 21);
             label5.TabIndex = 3;
             label5.Text = "Mã nhân viên :";
             // 
@@ -157,9 +161,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(843, 54);
+            label4.Location = new Point(519, 34);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(201, 33);
+            label4.Size = new Size(132, 21);
             label4.TabIndex = 2;
             label4.Text = "Mã khách hàng :";
             // 
@@ -167,9 +172,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(49, 136);
+            label3.Location = new Point(30, 85);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(130, 33);
+            label3.Size = new Size(86, 21);
             label3.TabIndex = 1;
             label3.Text = "Ngày tạo :";
             // 
@@ -177,9 +183,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(49, 54);
+            label2.Location = new Point(30, 34);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(166, 33);
+            label2.Size = new Size(109, 21);
             label2.TabIndex = 0;
             label2.Text = "Mã hóa đơn :";
             // 
@@ -197,37 +204,42 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(8, 276);
+            groupBox2.Location = new Point(5, 172);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1755, 245);
+            groupBox2.Padding = new Padding(2);
+            groupBox2.Size = new Size(1080, 153);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin sản phẩm";
             // 
             // txtSoSanPham
             // 
-            txtSoSanPham.Location = new Point(226, 115);
+            txtSoSanPham.Location = new Point(149, 74);
+            txtSoSanPham.Margin = new Padding(2);
             txtSoSanPham.Name = "txtSoSanPham";
-            txtSoSanPham.Size = new Size(519, 39);
-            txtSoSanPham.TabIndex = 13;
-            txtSoSanPham.TextChanged += txtSoSanPham_TextChanged;
+            txtSoSanPham.Size = new Size(323, 27);
+            txtSoSanPham.TabIndex = 0;
             // 
             // cbbMaSP
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             cbbMaSP.FormattingEnabled = true;
-            cbbMaSP.Location = new Point(1103, 51);
+            cbbMaSP.Location = new Point(679, 32);
+            cbbMaSP.Margin = new Padding(2);
             cbbMaSP.Name = "cbbMaSP";
-            cbbMaSP.Size = new Size(574, 41);
+            cbbMaSP.Size = new Size(355, 28);
             cbbMaSP.TabIndex = 12;
+            cbbMaSP.SelectedIndexChanged += cbbMaSP_SelectedIndexChanged;
             // 
             // cbbGiamGia
             // 
             cbbGiamGia.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             cbbGiamGia.FormattingEnabled = true;
-            cbbGiamGia.Location = new Point(1103, 115);
+            cbbGiamGia.Location = new Point(679, 72);
+            cbbGiamGia.Margin = new Padding(2);
             cbbGiamGia.Name = "cbbGiamGia";
-            cbbGiamGia.Size = new Size(578, 41);
+            cbbGiamGia.Size = new Size(357, 28);
             cbbGiamGia.TabIndex = 11;
             cbbGiamGia.SelectedIndexChanged += cbbGiamGia_SelectedIndexChanged;
             // 
@@ -235,9 +247,10 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(853, 182);
+            label11.Location = new Point(525, 114);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(124, 33);
+            label11.Size = new Size(81, 21);
             label11.TabIndex = 9;
             label11.Text = "Tổng tiền";
             // 
@@ -245,43 +258,48 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(34, 186);
+            label10.Location = new Point(21, 116);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(105, 33);
+            label10.Size = new Size(69, 21);
             label10.TabIndex = 8;
             label10.Text = "Đơn giá";
             // 
             // txtTongTien
             // 
             txtTongTien.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTongTien.Location = new Point(1102, 174);
+            txtTongTien.Location = new Point(678, 109);
+            txtTongTien.Margin = new Padding(2);
             txtTongTien.Name = "txtTongTien";
-            txtTongTien.Size = new Size(578, 41);
+            txtTongTien.Size = new Size(357, 28);
             txtTongTien.TabIndex = 7;
             // 
             // txtDonGia
             // 
             txtDonGia.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDonGia.Location = new Point(223, 179);
+            txtDonGia.Location = new Point(149, 111);
+            txtDonGia.Margin = new Padding(2);
             txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(522, 41);
+            txtDonGia.Size = new Size(323, 28);
             txtDonGia.TabIndex = 5;
             // 
             // txtTenSanPham
             // 
             txtTenSanPham.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenSanPham.Location = new Point(223, 51);
+            txtTenSanPham.Location = new Point(149, 29);
+            txtTenSanPham.Margin = new Padding(2);
             txtTenSanPham.Name = "txtTenSanPham";
-            txtTenSanPham.Size = new Size(522, 41);
+            txtTenSanPham.Size = new Size(323, 28);
             txtTenSanPham.TabIndex = 4;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(853, 123);
+            label9.Location = new Point(525, 77);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(132, 33);
+            label9.Size = new Size(85, 21);
             label9.TabIndex = 3;
             label9.Text = "Giảm giá :";
             // 
@@ -289,19 +307,21 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(853, 46);
+            label8.Location = new Point(525, 29);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(128, 33);
+            label8.Size = new Size(119, 21);
             label8.TabIndex = 2;
-            label8.Text = "Mã hàng :";
+            label8.Text = "Mã sản phẩm :";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(34, 118);
+            label7.Location = new Point(21, 74);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(133, 33);
+            label7.Size = new Size(87, 21);
             label7.TabIndex = 1;
             label7.Text = "Số lượng :";
             // 
@@ -309,29 +329,32 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(34, 58);
+            label6.Location = new Point(21, 36);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(188, 33);
+            label6.Size = new Size(124, 21);
             label6.TabIndex = 0;
             label6.Text = "Tên sản phẩm :";
             // 
             // dtgView
             // 
             dtgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgView.Location = new Point(8, 606);
+            dtgView.Location = new Point(5, 379);
+            dtgView.Margin = new Padding(2);
             dtgView.Name = "dtgView";
             dtgView.RowHeadersWidth = 82;
             dtgView.RowTemplate.Height = 41;
-            dtgView.Size = new Size(1753, 295);
+            dtgView.Size = new Size(1079, 184);
             dtgView.TabIndex = 3;
             dtgView.CellClick += dtgView_CellClick;
             // 
             // btnAddHoadon
             // 
             btnAddHoadon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnAddHoadon.Location = new Point(14, 982);
+            btnAddHoadon.Location = new Point(9, 614);
+            btnAddHoadon.Margin = new Padding(2);
             btnAddHoadon.Name = "btnAddHoadon";
-            btnAddHoadon.Size = new Size(185, 46);
+            btnAddHoadon.Size = new Size(114, 29);
             btnAddHoadon.TabIndex = 4;
             btnAddHoadon.Text = "Thêm hóa đơn";
             btnAddHoadon.UseVisualStyleBackColor = true;
@@ -340,9 +363,10 @@
             // btnSuaHoaDon
             // 
             btnSuaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnSuaHoaDon.Location = new Point(228, 982);
+            btnSuaHoaDon.Location = new Point(140, 614);
+            btnSuaHoaDon.Margin = new Padding(2);
             btnSuaHoaDon.Name = "btnSuaHoaDon";
-            btnSuaHoaDon.Size = new Size(185, 46);
+            btnSuaHoaDon.Size = new Size(114, 29);
             btnSuaHoaDon.TabIndex = 5;
             btnSuaHoaDon.Text = "Sửa hóa đơn";
             btnSuaHoaDon.UseVisualStyleBackColor = true;
@@ -350,9 +374,10 @@
             // btnXoaHoaDon
             // 
             btnXoaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnXoaHoaDon.Location = new Point(474, 982);
+            btnXoaHoaDon.Location = new Point(292, 614);
+            btnXoaHoaDon.Margin = new Padding(2);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
-            btnXoaHoaDon.Size = new Size(182, 46);
+            btnXoaHoaDon.Size = new Size(112, 29);
             btnXoaHoaDon.TabIndex = 6;
             btnXoaHoaDon.Text = "Xóa hóa đơn";
             btnXoaHoaDon.UseVisualStyleBackColor = true;
@@ -360,9 +385,10 @@
             // btnHienthi
             // 
             btnHienthi.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnHienthi.Location = new Point(703, 982);
+            btnHienthi.Location = new Point(433, 614);
+            btnHienthi.Margin = new Padding(2);
             btnHienthi.Name = "btnHienthi";
-            btnHienthi.Size = new Size(150, 46);
+            btnHienthi.Size = new Size(92, 29);
             btnHienthi.TabIndex = 7;
             btnHienthi.Text = "Hiển thị";
             btnHienthi.UseVisualStyleBackColor = true;
@@ -371,9 +397,10 @@
             // btnThoat
             // 
             btnThoat.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnThoat.Location = new Point(1536, 982);
+            btnThoat.Location = new Point(945, 614);
+            btnThoat.Margin = new Padding(2);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(150, 46);
+            btnThoat.Size = new Size(92, 29);
             btnThoat.TabIndex = 8;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
@@ -385,8 +412,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { mnStripUser, quảnLýToolStripMenuItem, thêmNhânViênToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(10, 3, 0, 3);
-            menuStrip1.Size = new Size(1796, 37);
+            menuStrip1.Size = new Size(1105, 25);
             menuStrip1.TabIndex = 9;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -397,20 +423,20 @@
             mnStripUser.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             mnStripUser.Margin = new Padding(0, 0, 290, 0);
             mnStripUser.Name = "mnStripUser";
-            mnStripUser.Size = new Size(88, 31);
+            mnStripUser.Size = new Size(58, 21);
             mnStripUser.Text = "User :";
             // 
             // mnStripDoiMk
             // 
             mnStripDoiMk.Name = "mnStripDoiMk";
-            mnStripDoiMk.Size = new Size(273, 44);
+            mnStripDoiMk.Size = new Size(169, 26);
             mnStripDoiMk.Text = "Đổi mật khẩu";
             mnStripDoiMk.Click += mnStripDoiMk_Click;
             // 
             // MnStripDangXuat
             // 
             MnStripDangXuat.Name = "MnStripDangXuat";
-            MnStripDangXuat.Size = new Size(273, 44);
+            MnStripDangXuat.Size = new Size(169, 26);
             MnStripDangXuat.Text = "Đăng Xuất";
             MnStripDangXuat.Click += MnStripDangXuat_Click;
             // 
@@ -419,133 +445,93 @@
             quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýSảnPhẩmToolStripMenuItem, quảnLýNhânViênToolStripMenuItem, quToolStripMenuItem, thốngKêToolStripMenuItem, quảToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, thốngKêToolStripMenuItem1 });
             quảnLýToolStripMenuItem.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            quảnLýToolStripMenuItem.Size = new Size(108, 31);
+            quảnLýToolStripMenuItem.Size = new Size(68, 21);
             quảnLýToolStripMenuItem.Text = "Quản lý";
             // 
             // quảnLýSảnPhẩmToolStripMenuItem
             // 
             quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(337, 44);
+            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(207, 26);
             quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             // 
             // quảnLýNhânViênToolStripMenuItem
             // 
             quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            quảnLýNhânViênToolStripMenuItem.Size = new Size(337, 44);
+            quảnLýNhânViênToolStripMenuItem.Size = new Size(207, 26);
             quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
             // 
             // quToolStripMenuItem
             // 
             quToolStripMenuItem.Name = "quToolStripMenuItem";
-            quToolStripMenuItem.Size = new Size(337, 44);
+            quToolStripMenuItem.Size = new Size(207, 26);
             quToolStripMenuItem.Text = "Quản lý hóa đơn";
             // 
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            thốngKêToolStripMenuItem.Size = new Size(337, 44);
+            thốngKêToolStripMenuItem.Size = new Size(207, 26);
             thốngKêToolStripMenuItem.Text = "Quản lý khuyến mại";
             // 
             // quảToolStripMenuItem
             // 
             quảToolStripMenuItem.Name = "quảToolStripMenuItem";
-            quảToolStripMenuItem.Size = new Size(337, 44);
+            quảToolStripMenuItem.Size = new Size(207, 26);
             quảToolStripMenuItem.Text = "Quản lý đổi trả";
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            quảnLýKháchHàngToolStripMenuItem.Size = new Size(337, 44);
+            quảnLýKháchHàngToolStripMenuItem.Size = new Size(207, 26);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             // 
             // thốngKêToolStripMenuItem1
             // 
             thốngKêToolStripMenuItem1.Name = "thốngKêToolStripMenuItem1";
-            thốngKêToolStripMenuItem1.Size = new Size(337, 44);
+            thốngKêToolStripMenuItem1.Size = new Size(207, 26);
             thốngKêToolStripMenuItem1.Text = "Thống kê";
             // 
             // thêmNhânViênToolStripMenuItem
             // 
             thêmNhânViênToolStripMenuItem.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             thêmNhânViênToolStripMenuItem.Name = "thêmNhânViênToolStripMenuItem";
-            thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
+            thêmNhânViênToolStripMenuItem.Size = new Size(116, 21);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
-            // label13
+            // label12
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label13.Location = new Point(970, 934);
-            label13.Name = "label13";
-            label13.Size = new Size(120, 24);
-            label13.TabIndex = 10;
-            label13.Text = "Thành tiền :";
+            label12.AutoSize = true;
+            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label12.Location = new Point(960, 933);
+            label12.Name = "label12";
+            label12.Size = new Size(120, 24);
+            label12.TabIndex = 10;
+            label12.Text = "Thành tiền :";
             // 
-            // textBox1
+            // txtThanhTien
             // 
-            textBox1.Location = new Point(1118, 919);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(579, 39);
-            textBox1.TabIndex = 11;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label14.Location = new Point(1111, 554);
-            label14.Name = "label14";
-            label14.Size = new Size(106, 28);
-            label14.TabIndex = 12;
-            label14.Text = "Tìm kiếm\r\n";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(1251, 547);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(438, 39);
-            txtSearch.TabIndex = 13;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(42, 540);
-            label15.Name = "label15";
-            label15.Size = new Size(129, 33);
-            label15.TabIndex = 2;
-            label15.Text = "Trạng thái";
-            // 
-            // cbbTrangthai
-            // 
-            cbbTrangthai.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            cbbTrangthai.FormattingEnabled = true;
-            cbbTrangthai.Location = new Point(228, 540);
-            cbbTrangthai.Name = "cbbTrangthai";
-            cbbTrangthai.Size = new Size(525, 41);
-            cbbTrangthai.TabIndex = 12;
+            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtThanhTien.Location = new Point(1118, 926);
+            txtThanhTien.Name = "txtThanhTien";
+            txtThanhTien.Size = new Size(357, 23);
+            txtThanhTien.TabIndex = 11;
             // 
             // frmHoaDon
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1796, 1040);
-            Controls.Add(txtSearch);
-            Controls.Add(cbbTrangthai);
-            Controls.Add(label14);
-            Controls.Add(textBox1);
-            Controls.Add(label13);
+            ClientSize = new Size(1105, 650);
             Controls.Add(btnThoat);
             Controls.Add(btnHienthi);
             Controls.Add(btnXoaHoaDon);
             Controls.Add(btnSuaHoaDon);
             Controls.Add(btnAddHoadon);
-            Controls.Add(label15);
             Controls.Add(dtgView);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(2);
             Name = "frmHoaDon";
             Text = "frmHoaDon";
             groupBox1.ResumeLayout(false);

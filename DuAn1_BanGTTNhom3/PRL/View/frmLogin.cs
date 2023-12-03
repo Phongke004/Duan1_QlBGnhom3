@@ -53,7 +53,7 @@ namespace PRL.View
                     if (nhanVien.MaChucVu == "CV001")
                     {
                         // Mở màn hình quản lý
-                        frmQLNV quanLyForm = new frmQLNV();
+                        frmMenuAd quanLyForm = new frmMenuAd();
                         // Gắn sự kiện đăng xuất
                         this.Hide();
                         quanLyForm.ShowDialog();
@@ -69,7 +69,7 @@ namespace PRL.View
                     }
                     else
                     {
-                        frmHoaDon login = new frmHoaDon();
+                        frmMenuNV login = new frmMenuNV();
                         this.Hide();
                         login.ShowDialog();
                         if (login.DialogResult == DialogResult.Yes)
