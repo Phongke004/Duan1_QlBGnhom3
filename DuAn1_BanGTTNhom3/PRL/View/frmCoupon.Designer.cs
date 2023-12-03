@@ -80,7 +80,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Image = Properties.Resources.Delete;
+            btnDelete.Image = Properties.Resources. Delete;
             btnDelete.ImageAlign = ContentAlignment.MiddleRight;
             btnDelete.Location = new Point(6, 325);
             btnDelete.Name = "btnDelete";
