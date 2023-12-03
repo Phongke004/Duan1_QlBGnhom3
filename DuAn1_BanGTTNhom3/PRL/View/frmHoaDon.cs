@@ -83,7 +83,7 @@ namespace PRL.View
             int indexof = e.RowIndex; if (indexof < 0) return;
 
             _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
-            txtThanhTien.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
+            //txtThanhTien.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[1].Value.ToString();
             txtMaKhachHang.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
             txtMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
@@ -171,6 +171,7 @@ namespace PRL.View
             List<Voucher> vouchers = _hoaDonServices.GetVouchers();
             cbbGiamGia.DataSource = vouchers;
             cbbGiamGia.DisplayMember = "MoTa";
+
             //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
 
 
