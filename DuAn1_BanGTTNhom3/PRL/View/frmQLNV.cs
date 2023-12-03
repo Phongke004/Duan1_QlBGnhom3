@@ -21,14 +21,14 @@ namespace PRL.View
         {
             InitializeComponent();
             sevice = new QLNVSevice();
-            LoadData(null);
-            LoadCBO();
+
 
 
         }
 
         public void LoadData(string find)
         {
+
             Type type = typeof(NhanVien);
             dgvNhanVien.Rows.Clear();
             dgvNhanVien.ColumnCount = type.GetProperties().Length + 1;
@@ -51,8 +51,10 @@ namespace PRL.View
             {
                 var item = sevice.GetChucVus().FirstOrDefault(x => x.MaCv == nv.MaChucVu);
                 var e = sevice.GetCaLams().FirstOrDefault(x => x.MaCa == nv.MaCa);
-                dgvNhanVien.Rows.Add(stt++, nv.MaNv, nv.MaNv, nv.TenNhanVien, nv.DiaChi, nv.SoDienThoai, nv.Email, nv.GioiTinh, nv.TrangThai, nv.NgaySinh, e.MaCa, item.MaCv, nv.MatKhau);
+                dgvNhanVien.Rows.Add(stt++, nv.MaNv, nv.MaNv, nv.TenNhanVien, nv.DiaChi,
+                    nv.SoDienThoai, nv.Email, nv.GioiTinh, nv.TrangThai, nv.NgaySinh, e.MaCa, item.MaCv, nv.MatKhau);
             }
+
 
         }
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -64,8 +66,23 @@ namespace PRL.View
             cboChucVu.Text = dgvNhanVien.Rows[index].Cells[11].Value.ToString();
             cboCaLam.Text = dgvNhanVien.Rows[index].Cells[10].Value.ToString();
             dtpNgaySinh.Text = dgvNhanVien.Rows[index].Cells[9].Value.ToString();
-            radioButtonHD.Text = dgvNhanVien.Rows[index].Cells[8].Value.ToString();
-            radioButtonNam.Text = dgvNhanVien.Rows[index].Cells[7].Value.ToString();
+            if (dgvNhanVien.Rows[index].Cells[8].Value.Equals("Hoạt Động"))
+            {
+                radioButtonHD.Checked = true;
+            }
+            else
+            {
+                radioButtonKHD.Checked = true;
+            }
+
+            if (dgvNhanVien.Rows[index].Cells[7].Value.Equals("Nam"))
+            {
+                radioButtonNam.Checked = true;
+            }
+            else
+            {
+                radioButtonNu.Checked = true;
+            }
             txtEmail.Text = dgvNhanVien.Rows[index].Cells[6].Value.ToString();
             txtSDT.Text = dgvNhanVien.Rows[index].Cells[5].Value.ToString();
             txtDiaChi.Text = dgvNhanVien.Rows[index].Cells[4].Value.ToString();
@@ -85,51 +102,8 @@ namespace PRL.View
             cboChucVu.DisplayMember = "MaCv";
         }
 
-        //private void btnSua_Click_1(object sender, EventArgs e)
-        //{
-        //    var nv = new NhanVien();
 
-
-        //    nv.TenNhanVien = txtTen.Text;
-        //    nv.DiaChi = txtDiaChi.Text;
-        //    nv.SoDienThoai = txtSDT.Text;
-        //    nv.Email = txtEmail.Text;
-        //    nv.GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ";
-        //    nv.TrangThai = radioButtonHD.Checked ? "Hoạt Động" : "Không Hoạt Động";
-        //    nv.NgaySinh = dtpNgaySinh.Value;
-        //    nv.MaChucVu = cboChucVu.Text;
-        //    nv.MaCa = cboCaLam.Text;
-        //    nv.MatKhau = txtPasswork.Text;
-        //    var option = MessageBox.Show("Xác nhận muốn Sửa?", "Xác nhận", MessageBoxButtons.YesNo);
-        //    if (option == DialogResult.Yes)
-        //    {
-        //        MessageBox.Show(sevice.Update(nv));
-
-        //    }
-        //    else
-        //    {
-
-        //        return;
-        //    }
-        //    LoadData(null);
-        //}
-
-        //private void btnXoa_Click(object sender, EventArgs e)
-        //{
-        //    txtMa.Text = "";
-        //    txtTen.Text = "";
-        //    txtDiaChi.Text = "";
-        //    txtSDT.Text = "";
-        //    txtEmail.Text = "";
-        //    radioButtonHD.Checked = false;
-        //    radioButtonNam.Checked = false;
-        //    dtpNgaySinh.Text = "";
-        //    cboCaLam.Text = "";
-        //    cboChucVu.Text = "";
-        //    txtPasswork.Text = "";
-        //}
-
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -151,7 +125,7 @@ namespace PRL.View
                     sevice.Add(nv);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
-                    LoadCBO();
+
                 }
                 else
                 {
@@ -169,7 +143,7 @@ namespace PRL.View
         {
             var nv = new NhanVien();
 
-
+            nv.MaNv = txtMa.Text;
             nv.TenNhanVien = txtTen.Text;
             nv.DiaChi = txtDiaChi.Text;
             nv.SoDienThoai = txtSDT.Text;
@@ -194,7 +168,7 @@ namespace PRL.View
             LoadData(null);
         }
 
-        private void btnXoa_Click_1(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             txtMa.Text = "";
             txtTen.Text = "";
@@ -209,5 +183,22 @@ namespace PRL.View
             txtPasswork.Text = "";
         }
 
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            LoadData(null);
+            LoadCBO();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmMenuAd frmMenuAd = new frmMenuAd();
+            frmMenuAd.ShowDialog();
+        }
     }
 }

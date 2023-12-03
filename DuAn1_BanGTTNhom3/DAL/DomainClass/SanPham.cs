@@ -23,6 +23,8 @@ public partial class SanPham
 
     public int? SoLuong { get; set; }
 
+    public double? Gia { get; set; }
+
     [StringLength(30)]
     public string? TrangThai { get; set; }
 

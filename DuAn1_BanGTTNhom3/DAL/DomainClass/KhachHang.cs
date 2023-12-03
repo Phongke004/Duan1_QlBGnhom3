@@ -22,9 +22,14 @@ public partial class KhachHang
 
     public double? Diem { get; set; }
 
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaRank { get; set; }
+
     [InverseProperty("MaKhNavigation")]
     public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
 
-    [InverseProperty("MaKhNavigation")]
-    public virtual ICollection<Rank> Ranks { get; set; } = new List<Rank>();
+    [ForeignKey("MaRank")]
+    [InverseProperty("KhachHangs")]
+    public virtual Rank? MaRankNavigation { get; set; }
 }

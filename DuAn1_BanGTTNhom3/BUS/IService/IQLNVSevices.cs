@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BUS.IService
 {
-    internal interface IQLNVSevices
+    public interface IQLNVSevices
     {
         public string Add(NhanVien nv);
 
