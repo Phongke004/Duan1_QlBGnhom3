@@ -17,9 +17,21 @@ namespace DAL.Repositories
         {
             _connect = new MyContext();
         }
-
-        public bool AddHD(HoaDon hd)
+        
+        public bool AddHD(HoaDon hd, KhachHang kh)
         {
+            if (GetHoaDons().Count != 0 && GetKhachHang().Count !=0)
+            {
+                var maxid = _connect.Dois.Max(x => x.MaDoi);
+                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
+                hd.MaHd = "HD" + nextid.ToString("D3");
+                kh.MaKh = "KH" + nextid.ToString("D3");
+            }
+            else
+            {
+                hd.MaHd = "HD001";
+                kh.MaKh = "KH001";
+            }
             _connect.Add(hd);
             _connect.SaveChanges();
             return true;
@@ -54,6 +66,11 @@ namespace DAL.Repositories
         public List<HoaDon> GetHoaDons()
         {
             return _connect.HoaDons.ToList();
+        }
+
+        public List<KhachHang> GetKhachHang()
+        {
+            return _connect.KhachHangs.ToList();
         }
 
         public List<NhanVien> GetNhanViens()

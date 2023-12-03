@@ -15,7 +15,7 @@ namespace PRL.View
     public partial class frmDoiTra : Form
     {
         HoaDonServices _hoaDonServiecs;
-        Guid? _idClick;
+        string _idClick;
         public frmDoiTra()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace PRL.View
             {
                 var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.MaSp == item.MaSp);
                 var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.MaNv == item.MaNv);
-                var query = _hoaDonServiecs.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHdct == item.MaHd);
+                var query = _hoaDonServiecs.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHd == item.MaHd);
                 dgtView.Rows.Add(stt++, item.MaHd, item.NgayTao, query.SoLuong, query.DonGia, item.TongTien
                     , queryProduct.MaSp, queryStaff.MaNv, item.MaHd);
             }
@@ -55,7 +55,7 @@ namespace PRL.View
         {
             int index = e.RowIndex; if (index < 0) return;
 
-            _idClick = Guid.Parse(dgtView.Rows[index].Cells[8].Value.ToString());
+            _idClick = dgtView.Rows[index].Cells[8].Value.ToString();
             txtMaNv.Text = dgtView.Rows[index].Cells[7].Value.ToString();
             txtMaSp.Text = dgtView.Rows[index].Cells[6].Value.ToString();
             txtMaHD.Text = dgtView.Rows[index].Cells[1].Value.ToString();

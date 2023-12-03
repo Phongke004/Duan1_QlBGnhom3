@@ -82,7 +82,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { quảnLýToolStripMenuItem, thêmNhânViênToolStripMenuItem, userToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1160, 28);
+            menuStrip1.Size = new Size(1053, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -316,6 +316,7 @@
             // 
             txtboxIDSP.Location = new Point(140, 39);
             txtboxIDSP.Name = "txtboxIDSP";
+            txtboxIDSP.ReadOnly = true;
             txtboxIDSP.Size = new Size(271, 27);
             txtboxIDSP.TabIndex = 6;
             // 
@@ -379,63 +380,75 @@
             groupBox2.Controls.Add(btnAdd);
             groupBox2.Location = new Point(861, 83);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(287, 384);
+            groupBox2.Size = new Size(184, 384);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
             // 
             // btnClear
             // 
+            btnClear.Image = Properties.Resources.Delete;
+            btnClear.ImageAlign = ContentAlignment.MiddleRight;
             btnClear.Location = new Point(6, 300);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(275, 77);
+            btnClear.Size = new Size(172, 53);
             btnClear.TabIndex = 3;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnUpdate
             // 
+            btnUpdate.Image = Properties.Resources.Refresh;
+            btnUpdate.ImageAlign = ContentAlignment.MiddleRight;
             btnUpdate.Location = new Point(6, 163);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(275, 77);
+            btnUpdate.Size = new Size(172, 53);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
+            btnAdd.Image = Properties.Resources.Add;
+            btnAdd.ImageAlign = ContentAlignment.MiddleRight;
             btnAdd.Location = new Point(6, 26);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(275, 77);
+            btnAdd.Size = new Size(172, 53);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(dgvSanPham);
             groupBox3.Location = new Point(6, 473);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1136, 270);
+            groupBox3.Size = new Size(1033, 299);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
             groupBox3.Text = "Data Sản Phẩm";
             // 
             // dgvSanPham
             // 
+            dgvSanPham.AllowUserToAddRows = false;
+            dgvSanPham.AllowUserToDeleteRows = false;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSanPham.Location = new Point(6, 26);
             dgvSanPham.Name = "dgvSanPham";
+            dgvSanPham.ReadOnly = true;
             dgvSanPham.RowHeadersWidth = 51;
             dgvSanPham.RowTemplate.Height = 29;
-            dgvSanPham.Size = new Size(1124, 238);
+            dgvSanPham.Size = new Size(1021, 267);
             dgvSanPham.TabIndex = 0;
+            dgvSanPham.CellClick += dgvSanPham_CellClick;
             // 
             // frmQLSP
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1160, 755);
+            ClientSize = new Size(1053, 784);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
