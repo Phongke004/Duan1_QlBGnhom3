@@ -15,8 +15,6 @@ public partial class ChiTietSanPham
     [Unicode(false)]
     public string Maspct { get; set; } = null!;
 
-    public double? Gia { get; set; }
-
     public int? SoLuong { get; set; }
 
     [Column("MaSP")]

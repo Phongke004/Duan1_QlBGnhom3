@@ -27,12 +27,6 @@ public partial class Rank
     [StringLength(250)]
     public string? MoTa { get; set; }
 
-    [Column("MaKH")]
-    [StringLength(10)]
-    [Unicode(false)]
-    public string? MaKh { get; set; }
-
-    [ForeignKey("MaKh")]
-    [InverseProperty("Ranks")]
-    public virtual KhachHang? MaKhNavigation { get; set; }
+    [InverseProperty("MaRankNavigation")]
+    public virtual ICollection<KhachHang> KhachHangs { get; set; } = new List<KhachHang>();
 }
