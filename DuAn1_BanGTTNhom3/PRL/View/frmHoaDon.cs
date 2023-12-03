@@ -212,7 +212,7 @@ namespace PRL.View
         private void cbbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             SanPham sanPham = new SanPham();
-            if(cbbMaSP.Text != null)
+            if (cbbMaSP.Text != null)
             {
                 txtTenSanPham.Text = sanPham.TenSanPham;
             }
