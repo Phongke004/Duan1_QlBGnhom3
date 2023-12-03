@@ -68,7 +68,7 @@ namespace PRL.View
 
 
             dtgView.Rows.Clear();
-            foreach (var i in _hoaDonServices.GetHoaDon(find))
+            foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
             {
                 var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
                 var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
@@ -85,10 +85,10 @@ namespace PRL.View
             int indexof = e.RowIndex; if (indexof < 0) return;
 
             _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
-            txtThanhTien.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
+            txtTienSauVC.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[1].Value.ToString();
             txtMaKhachHang.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
-            txtMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
+            cbbMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
             dtpkNgayTao.Value = DateTime.Parse(dtgView.Rows[indexof].Cells[2].Value.ToString());
             txtTenSanPham.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
             cbbMaSP.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
@@ -156,6 +156,17 @@ namespace PRL.View
             List<Voucher> vouchers = _hoaDonServices.GetVouchers();
             cbbGiamGia.DataSource = vouchers;
             cbbGiamGia.DisplayMember = "MoTa";
+
+
+
+            List<SanPham> sanPhams = _hoaDonServices.GetSanPhams();
+
+            cbbMaSP.DataSource = sanPhams;
+            cbbMaSP.DisplayMember = "MaSp";
+
+            List<NhanVien> nhanViens = _hoaDonServices.GetNhanViens();
+            cbbMaNhanVien.DataSource = nhanViens;
+            cbbMaNhanVien.DisplayMember = "MaNv";
             //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
 
 
@@ -211,7 +222,7 @@ namespace PRL.View
         private void cbbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             SanPham sanPham = new SanPham();
-            if(cbbMaSP.Text != null)
+            if (cbbMaSP.Text != null)
             {
                 txtTenSanPham.Text = sanPham.TenSanPham;
             }
