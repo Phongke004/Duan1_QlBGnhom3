@@ -70,7 +70,7 @@ namespace DAL.Repositories
                 d.TrangThai = nv.TrangThai;
                 d.MaChucVu = nv.MaChucVu;
                 d.MaCa = nv.MaCa;
-                _dbcontext.NhanViens.Update(nv);
+                _dbcontext.NhanViens.Update(d);
                 _dbcontext.SaveChanges();
                 return true;
             }

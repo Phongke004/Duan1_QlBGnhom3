@@ -160,5 +160,19 @@ namespace PRL.View
         {
 
         }
+
+        private void btnTra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmQLSP sanPham = new frmQLSP();
+                sanPham.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi sảy ra" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
     }
 }

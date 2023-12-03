@@ -34,14 +34,13 @@
             đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             groupBox1 = new GroupBox();
-            btnQLPoint = new Button();
+            btnThongKe = new Button();
             btnQLCoupon = new Button();
             btnQLVoucher = new Button();
             btnQLHD = new Button();
             btnQLKH = new Button();
             btnQLNV = new Button();
             btnQLSP = new Button();
-            btnThongKe = new Button();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
@@ -92,7 +91,6 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(btnThongKe);
-            groupBox1.Controls.Add(btnQLPoint);
             groupBox1.Controls.Add(btnQLCoupon);
             groupBox1.Controls.Add(btnQLVoucher);
             groupBox1.Controls.Add(btnQLHD);
@@ -106,16 +104,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Chức Năng";
             // 
-            // btnQLPoint
+            // btnThongKe
             // 
-            btnQLPoint.Image = Properties.Resources.Best;
-            btnQLPoint.ImageAlign = ContentAlignment.MiddleRight;
-            btnQLPoint.Location = new Point(6, 476);
-            btnQLPoint.Name = "btnQLPoint";
-            btnQLPoint.Size = new Size(208, 53);
-            btnQLPoint.TabIndex = 6;
-            btnQLPoint.Text = "Quản Lý Điểm";
-            btnQLPoint.UseVisualStyleBackColor = true;
+            btnThongKe.Image = Properties.Resources.Statistics;
+            btnThongKe.ImageAlign = ContentAlignment.MiddleRight;
+            btnThongKe.Location = new Point(6, 492);
+            btnThongKe.Name = "btnThongKe";
+            btnThongKe.Size = new Size(208, 53);
+            btnThongKe.TabIndex = 7;
+            btnThongKe.Text = "Thống Kê";
+            btnThongKe.UseVisualStyleBackColor = true;
+            btnThongKe.Click += btnThongKe_Click;
             // 
             // btnQLCoupon
             // 
@@ -127,6 +126,7 @@
             btnQLCoupon.TabIndex = 5;
             btnQLCoupon.Text = "Quản Lý Coupon";
             btnQLCoupon.UseVisualStyleBackColor = true;
+            btnQLCoupon.Click += btnQLCoupon_Click;
             // 
             // btnQLVoucher
             // 
@@ -138,6 +138,7 @@
             btnQLVoucher.TabIndex = 4;
             btnQLVoucher.Text = "Quản Lý Voucher";
             btnQLVoucher.UseVisualStyleBackColor = true;
+            btnQLVoucher.Click += btnQLVoucher_Click;
             // 
             // btnQLHD
             // 
@@ -149,6 +150,7 @@
             btnQLHD.TabIndex = 3;
             btnQLHD.Text = "Quản Lý Hóa Đơn";
             btnQLHD.UseVisualStyleBackColor = true;
+            btnQLHD.Click += btnQLHD_Click;
             // 
             // btnQLKH
             // 
@@ -160,6 +162,7 @@
             btnQLKH.TabIndex = 2;
             btnQLKH.Text = "Quản Lý Khách Hàng";
             btnQLKH.UseVisualStyleBackColor = true;
+            btnQLKH.Click += btnQLKH_Click;
             // 
             // btnQLNV
             // 
@@ -171,6 +174,7 @@
             btnQLNV.TabIndex = 1;
             btnQLNV.Text = "Quản Lý Nhân Viên";
             btnQLNV.UseVisualStyleBackColor = true;
+            btnQLNV.Click += btnQLNV_Click;
             // 
             // btnQLSP
             // 
@@ -182,17 +186,7 @@
             btnQLSP.TabIndex = 0;
             btnQLSP.Text = "Quản Lý Sản Phẩm";
             btnQLSP.UseVisualStyleBackColor = true;
-            // 
-            // btnThongKe
-            // 
-            btnThongKe.Image = Properties.Resources.Statistics;
-            btnThongKe.ImageAlign = ContentAlignment.MiddleRight;
-            btnThongKe.Location = new Point(6, 551);
-            btnThongKe.Name = "btnThongKe";
-            btnThongKe.Size = new Size(208, 53);
-            btnThongKe.TabIndex = 7;
-            btnThongKe.Text = "Thống Kê";
-            btnThongKe.UseVisualStyleBackColor = true;
+            btnQLSP.Click += btnQLSP_Click;
             // 
             // frmMenuAd
             // 
@@ -221,7 +215,6 @@
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private GroupBox groupBox1;
         private Button btnQLSP;
-        private Button btnQLPoint;
         private Button btnQLCoupon;
         private Button btnQLVoucher;
         private Button btnQLHD;
