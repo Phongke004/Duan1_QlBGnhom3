@@ -33,10 +33,7 @@
             đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             groupBox1 = new GroupBox();
-            btnCoupon = new Button();
-            btnVoucher = new Button();
-            btnKhachHang = new Button();
-            btnPoint = new Button();
+            btnDoiTra = new Button();
             btnHoaDon = new Button();
             btnSanPham = new Button();
             pictureBox1 = new PictureBox();
@@ -51,7 +48,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { userToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1116, 28);
+            menuStrip1.Size = new Size(654, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -80,60 +77,34 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnCoupon);
-            groupBox1.Controls.Add(btnVoucher);
-            groupBox1.Controls.Add(btnKhachHang);
-            groupBox1.Controls.Add(btnPoint);
+            groupBox1.Controls.Add(btnDoiTra);
             groupBox1.Controls.Add(btnHoaDon);
             groupBox1.Controls.Add(btnSanPham);
             groupBox1.Location = new Point(12, 31);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(334, 610);
+            groupBox1.Size = new Size(190, 327);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Chức Năng";
             // 
-            // btnCoupon
+            // btnDoiTra
             // 
-            btnCoupon.Location = new Point(6, 446);
-            btnCoupon.Name = "btnCoupon";
-            btnCoupon.Size = new Size(322, 53);
-            btnCoupon.TabIndex = 5;
-            btnCoupon.Text = "Coupon";
-            btnCoupon.UseVisualStyleBackColor = true;
-            // 
-            // btnVoucher
-            // 
-            btnVoucher.Location = new Point(6, 341);
-            btnVoucher.Name = "btnVoucher";
-            btnVoucher.Size = new Size(322, 53);
-            btnVoucher.TabIndex = 4;
-            btnVoucher.Text = "Voucher";
-            btnVoucher.UseVisualStyleBackColor = true;
-            // 
-            // btnKhachHang
-            // 
-            btnKhachHang.Location = new Point(6, 551);
-            btnKhachHang.Name = "btnKhachHang";
-            btnKhachHang.Size = new Size(322, 53);
-            btnKhachHang.TabIndex = 3;
-            btnKhachHang.Text = "Khách Hàng";
-            btnKhachHang.UseVisualStyleBackColor = true;
-            // 
-            // btnPoint
-            // 
-            btnPoint.Location = new Point(6, 236);
-            btnPoint.Name = "btnPoint";
-            btnPoint.Size = new Size(322, 53);
-            btnPoint.TabIndex = 2;
-            btnPoint.Text = "Điểm";
-            btnPoint.UseVisualStyleBackColor = true;
+            btnDoiTra.Image = Properties.Resources.Task_list;
+            btnDoiTra.ImageAlign = ContentAlignment.MiddleRight;
+            btnDoiTra.Location = new Point(6, 264);
+            btnDoiTra.Name = "btnDoiTra";
+            btnDoiTra.Size = new Size(178, 53);
+            btnDoiTra.TabIndex = 2;
+            btnDoiTra.Text = "Đổi Trả";
+            btnDoiTra.UseVisualStyleBackColor = true;
             // 
             // btnHoaDon
             // 
-            btnHoaDon.Location = new Point(6, 131);
+            btnHoaDon.Image = Properties.Resources.Price_list;
+            btnHoaDon.ImageAlign = ContentAlignment.MiddleRight;
+            btnHoaDon.Location = new Point(6, 145);
             btnHoaDon.Name = "btnHoaDon";
-            btnHoaDon.Size = new Size(322, 53);
+            btnHoaDon.Size = new Size(178, 53);
             btnHoaDon.TabIndex = 1;
             btnHoaDon.Text = "Hóa Đơn";
             btnHoaDon.UseVisualStyleBackColor = true;
@@ -141,9 +112,11 @@
             // 
             // btnSanPham
             // 
+            btnSanPham.Image = Properties.Resources.Numbered_list;
+            btnSanPham.ImageAlign = ContentAlignment.MiddleRight;
             btnSanPham.Location = new Point(6, 26);
             btnSanPham.Name = "btnSanPham";
-            btnSanPham.Size = new Size(322, 53);
+            btnSanPham.Size = new Size(178, 53);
             btnSanPham.TabIndex = 0;
             btnSanPham.Text = "Sản Phẩm";
             btnSanPham.UseVisualStyleBackColor = true;
@@ -152,9 +125,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.ronaldocamgiay;
-            pictureBox1.Location = new Point(352, 31);
+            pictureBox1.Location = new Point(208, 37);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(752, 604);
+            pictureBox1.Size = new Size(434, 321);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -163,7 +136,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1116, 653);
+            ClientSize = new Size(654, 370);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
@@ -188,9 +161,6 @@
         private Button btnHoaDon;
         private Button btnSanPham;
         private PictureBox pictureBox1;
-        private Button btnKhachHang;
-        private Button btnPoint;
-        private Button btnCoupon;
-        private Button btnVoucher;
+        private Button btnDoiTra;
     }
 }
