@@ -40,30 +40,31 @@
             quảnLýHóaĐơnToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            dtpNgayKetThucCoupon = new DateTimePicker();
-            dtpNgayBatDauCoupon = new DateTimePicker();
-            rdbtnCouponHetHan = new RadioButton();
-            rdbtnCouponConHan = new RadioButton();
-            txtboxMoTaCoupon = new TextBox();
-            txtboxTenCoupon = new TextBox();
-            txtboxMaCoupon = new TextBox();
+            dtpNgayKetThucVoucher = new DateTimePicker();
+            dtpNgayBatDauVoucher = new DateTimePicker();
+            txtboxMoTaVoucher = new TextBox();
+            txtboxTenVoucher = new TextBox();
+            txtboxMaVoucher = new TextBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label2 = new Label();
             groupBox3 = new GroupBox();
-            dgvCoupon = new DataGridView();
+            dgvVoucher = new DataGridView();
             groupBox2 = new GroupBox();
-            btnDelete = new Button();
+            btnClear = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            txtboxDKVoucher = new TextBox();
+            txtboxGiaTriVoucher = new TextBox();
+            label8 = new Label();
             label3 = new Label();
             menuStrip1.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvCoupon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVoucher).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -148,69 +149,48 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(132, 24);
             thêmNhânViênToolStripMenuItem.Text = "Thêm Nhân Viên";
             // 
-            // dtpNgayKetThucCoupon
+            // dtpNgayKetThucVoucher
             // 
-            dtpNgayKetThucCoupon.Format = DateTimePickerFormat.Short;
-            dtpNgayKetThucCoupon.Location = new Point(565, 283);
-            dtpNgayKetThucCoupon.Name = "dtpNgayKetThucCoupon";
-            dtpNgayKetThucCoupon.Size = new Size(269, 27);
-            dtpNgayKetThucCoupon.TabIndex = 12;
+            dtpNgayKetThucVoucher.Format = DateTimePickerFormat.Short;
+            dtpNgayKetThucVoucher.Location = new Point(565, 320);
+            dtpNgayKetThucVoucher.Name = "dtpNgayKetThucVoucher";
+            dtpNgayKetThucVoucher.Size = new Size(269, 27);
+            dtpNgayKetThucVoucher.TabIndex = 12;
             // 
-            // dtpNgayBatDauCoupon
+            // dtpNgayBatDauVoucher
             // 
-            dtpNgayBatDauCoupon.Format = DateTimePickerFormat.Short;
-            dtpNgayBatDauCoupon.Location = new Point(131, 283);
-            dtpNgayBatDauCoupon.Name = "dtpNgayBatDauCoupon";
-            dtpNgayBatDauCoupon.Size = new Size(269, 27);
-            dtpNgayBatDauCoupon.TabIndex = 11;
+            dtpNgayBatDauVoucher.Format = DateTimePickerFormat.Short;
+            dtpNgayBatDauVoucher.Location = new Point(131, 320);
+            dtpNgayBatDauVoucher.Name = "dtpNgayBatDauVoucher";
+            dtpNgayBatDauVoucher.Size = new Size(269, 27);
+            dtpNgayBatDauVoucher.TabIndex = 11;
             // 
-            // rdbtnCouponHetHan
+            // txtboxMoTaVoucher
             // 
-            rdbtnCouponHetHan.AutoSize = true;
-            rdbtnCouponHetHan.Location = new Point(749, 176);
-            rdbtnCouponHetHan.Name = "rdbtnCouponHetHan";
-            rdbtnCouponHetHan.Size = new Size(85, 24);
-            rdbtnCouponHetHan.TabIndex = 10;
-            rdbtnCouponHetHan.TabStop = true;
-            rdbtnCouponHetHan.Text = "Hết Hạn";
-            rdbtnCouponHetHan.UseVisualStyleBackColor = true;
+            txtboxMoTaVoucher.Location = new Point(565, 199);
+            txtboxMoTaVoucher.Name = "txtboxMoTaVoucher";
+            txtboxMoTaVoucher.Size = new Size(269, 27);
+            txtboxMoTaVoucher.TabIndex = 8;
             // 
-            // rdbtnCouponConHan
+            // txtboxTenVoucher
             // 
-            rdbtnCouponConHan.AutoSize = true;
-            rdbtnCouponConHan.Location = new Point(565, 178);
-            rdbtnCouponConHan.Name = "rdbtnCouponConHan";
-            rdbtnCouponConHan.Size = new Size(87, 24);
-            rdbtnCouponConHan.TabIndex = 9;
-            rdbtnCouponConHan.TabStop = true;
-            rdbtnCouponConHan.Text = "Còn Hạn";
-            rdbtnCouponConHan.UseVisualStyleBackColor = true;
+            txtboxTenVoucher.Location = new Point(565, 73);
+            txtboxTenVoucher.Name = "txtboxTenVoucher";
+            txtboxTenVoucher.Size = new Size(269, 27);
+            txtboxTenVoucher.TabIndex = 7;
             // 
-            // txtboxMoTaCoupon
+            // txtboxMaVoucher
             // 
-            txtboxMoTaCoupon.Location = new Point(131, 179);
-            txtboxMoTaCoupon.Name = "txtboxMoTaCoupon";
-            txtboxMoTaCoupon.Size = new Size(269, 27);
-            txtboxMoTaCoupon.TabIndex = 8;
-            // 
-            // txtboxTenCoupon
-            // 
-            txtboxTenCoupon.Location = new Point(565, 73);
-            txtboxTenCoupon.Name = "txtboxTenCoupon";
-            txtboxTenCoupon.Size = new Size(269, 27);
-            txtboxTenCoupon.TabIndex = 7;
-            // 
-            // txtboxMaCoupon
-            // 
-            txtboxMaCoupon.Location = new Point(131, 73);
-            txtboxMaCoupon.Name = "txtboxMaCoupon";
-            txtboxMaCoupon.Size = new Size(269, 27);
-            txtboxMaCoupon.TabIndex = 6;
+            txtboxMaVoucher.Location = new Point(131, 73);
+            txtboxMaVoucher.Name = "txtboxMaVoucher";
+            txtboxMaVoucher.ReadOnly = true;
+            txtboxMaVoucher.Size = new Size(269, 27);
+            txtboxMaVoucher.TabIndex = 6;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(454, 288);
+            label7.Location = new Point(454, 324);
             label7.Name = "label7";
             label7.Size = new Size(105, 20);
             label7.TabIndex = 5;
@@ -219,7 +199,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(24, 288);
+            label6.Location = new Point(24, 325);
             label6.Name = "label6";
             label6.Size = new Size(101, 20);
             label6.TabIndex = 4;
@@ -228,16 +208,16 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(481, 180);
+            label5.Location = new Point(64, 159);
             label5.Name = "label5";
-            label5.Size = new Size(78, 20);
+            label5.Size = new Size(51, 20);
             label5.TabIndex = 3;
-            label5.Text = "Trạng Thái";
+            label5.Text = "Giá Trị";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(74, 182);
+            label4.Location = new Point(508, 202);
             label4.Name = "label4";
             label4.Size = new Size(51, 20);
             label4.TabIndex = 2;
@@ -254,7 +234,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(dgvCoupon);
+            groupBox3.Controls.Add(dgvVoucher);
             groupBox3.Location = new Point(12, 482);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(1030, 299);
@@ -262,19 +242,23 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Data Voucher";
             // 
-            // dgvCoupon
+            // dgvVoucher
             // 
-            dgvCoupon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCoupon.Location = new Point(-107, 26);
-            dgvCoupon.Name = "dgvCoupon";
-            dgvCoupon.RowHeadersWidth = 51;
-            dgvCoupon.RowTemplate.Height = 29;
-            dgvCoupon.Size = new Size(1131, 267);
-            dgvCoupon.TabIndex = 0;
+            dgvVoucher.AllowUserToAddRows = false;
+            dgvVoucher.AllowUserToDeleteRows = false;
+            dgvVoucher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvVoucher.Location = new Point(-107, 26);
+            dgvVoucher.Name = "dgvVoucher";
+            dgvVoucher.ReadOnly = true;
+            dgvVoucher.RowHeadersWidth = 51;
+            dgvVoucher.RowTemplate.Height = 29;
+            dgvVoucher.Size = new Size(1131, 267);
+            dgvVoucher.TabIndex = 0;
+            dgvVoucher.CellClick += dgvVoucher_CellClick;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnDelete);
+            groupBox2.Controls.Add(btnClear);
             groupBox2.Controls.Add(btnUpdate);
             groupBox2.Controls.Add(btnAdd);
             groupBox2.Location = new Point(858, 92);
@@ -284,16 +268,17 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
             // 
-            // btnDelete
+            // btnClear
             // 
-            btnDelete.Image = Properties.Resources.Delete;
-            btnDelete.ImageAlign = ContentAlignment.MiddleRight;
-            btnDelete.Location = new Point(6, 325);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(172, 53);
-            btnDelete.TabIndex = 2;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnClear.Image = Properties.Resources.Delete;
+            btnClear.ImageAlign = ContentAlignment.MiddleRight;
+            btnClear.Location = new Point(6, 325);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(172, 53);
+            btnClear.TabIndex = 2;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnUpdate
             // 
@@ -305,6 +290,7 @@
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -316,6 +302,7 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // label1
             // 
@@ -329,13 +316,14 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dtpNgayKetThucCoupon);
-            groupBox1.Controls.Add(dtpNgayBatDauCoupon);
-            groupBox1.Controls.Add(rdbtnCouponHetHan);
-            groupBox1.Controls.Add(rdbtnCouponConHan);
-            groupBox1.Controls.Add(txtboxMoTaCoupon);
-            groupBox1.Controls.Add(txtboxTenCoupon);
-            groupBox1.Controls.Add(txtboxMaCoupon);
+            groupBox1.Controls.Add(txtboxDKVoucher);
+            groupBox1.Controls.Add(txtboxGiaTriVoucher);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(dtpNgayKetThucVoucher);
+            groupBox1.Controls.Add(dtpNgayBatDauVoucher);
+            groupBox1.Controls.Add(txtboxMoTaVoucher);
+            groupBox1.Controls.Add(txtboxTenVoucher);
+            groupBox1.Controls.Add(txtboxMaVoucher);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
@@ -348,6 +336,29 @@
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin";
+            // 
+            // txtboxDKVoucher
+            // 
+            txtboxDKVoucher.Location = new Point(131, 239);
+            txtboxDKVoucher.Name = "txtboxDKVoucher";
+            txtboxDKVoucher.Size = new Size(269, 27);
+            txtboxDKVoucher.TabIndex = 15;
+            // 
+            // txtboxGiaTriVoucher
+            // 
+            txtboxGiaTriVoucher.Location = new Point(131, 156);
+            txtboxGiaTriVoucher.Name = "txtboxGiaTriVoucher";
+            txtboxGiaTriVoucher.Size = new Size(269, 27);
+            txtboxGiaTriVoucher.TabIndex = 14;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(42, 242);
+            label8.Name = "label8";
+            label8.Size = new Size(73, 20);
+            label8.TabIndex = 13;
+            label8.Text = "Điều Kiện";
             // 
             // label3
             // 
@@ -373,7 +384,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvCoupon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVoucher).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -395,26 +406,27 @@
         private ToolStripMenuItem quảnLýHóaĐơnToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem;
         private ToolStripMenuItem thêmNhânViênToolStripMenuItem;
-        private DateTimePicker dtpNgayKetThucCoupon;
-        private DateTimePicker dtpNgayBatDauCoupon;
-        private RadioButton rdbtnCouponHetHan;
-        private RadioButton rdbtnCouponConHan;
-        private TextBox txtboxMoTaCoupon;
-        private TextBox txtboxTenCoupon;
-        private TextBox txtboxMaCoupon;
+        private DateTimePicker dtpNgayKetThucVoucher;
+        private DateTimePicker dtpNgayBatDauVoucher;
+        private TextBox txtboxMoTaVoucher;
+        private TextBox txtboxTenVoucher;
+        private TextBox txtboxMaVoucher;
         private Label label7;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label2;
         private GroupBox groupBox3;
-        private DataGridView dgvCoupon;
+        private DataGridView dgvVoucher;
         private GroupBox groupBox2;
-        private Button btnDelete;
+        private Button btnClear;
         private Button btnUpdate;
         private Button btnAdd;
         private Label label1;
         private GroupBox groupBox1;
         private Label label3;
+        private Label label8;
+        private TextBox txtboxDKVoucher;
+        private TextBox txtboxGiaTriVoucher;
     }
 }

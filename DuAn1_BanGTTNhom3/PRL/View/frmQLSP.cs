@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using Size = DAL.DomainClass.Size;
 
 namespace PRL.View
 {
@@ -23,6 +24,7 @@ namespace PRL.View
             InitializeComponent();
             _service = new SanPhamServices();
             LoadData(null);
+            LoadCBB();
         }
 
         private void LoadData(string find)
@@ -66,10 +68,10 @@ namespace PRL.View
             txtboxNameSP.Text = dgvSanPham.Rows[index].Cells[3].Value.ToString();
             dtpNgayNhap.Text = dgvSanPham.Rows[index].Cells[4].Value.ToString();
             txtboxSoLuong.Text = dgvSanPham.Rows[index].Cells[5].Value.ToString();
-            txtboxColor.Text = dgvSanPham.Rows[index].Cells[6].Value.ToString();
-            txtboxSize.Text = dgvSanPham.Rows[index].Cells[7].Value.ToString();
-            txtboxChatLieu.Text = dgvSanPham.Rows[index].Cells[8].Value.ToString();
-            txtboxThuongHieu.Text = dgvSanPham.Rows[index].Cells[9].Value.ToString();
+            cbbColor.Text = dgvSanPham.Rows[index].Cells[6].Value.ToString();
+            cbbSize.Text = dgvSanPham.Rows[index].Cells[7].Value.ToString();
+            cbbChatLieu.Text = dgvSanPham.Rows[index].Cells[8].Value.ToString();
+            cbbThuongHieu.Text = dgvSanPham.Rows[index].Cells[9].Value.ToString();
             txtboxGiaTien.Text = dgvSanPham.Rows[index].Cells[10].Value.ToString();
             if (dgvSanPham.Rows[index].Cells[11].Value.Equals("Hết hàng"))
             {
@@ -85,19 +87,20 @@ namespace PRL.View
         {
             try
             {
-                if (txtboxIDSP.Text != string.Empty && txtboxNameSP.Text != string.Empty && dtpNgayNhap.Text != string.Empty && txtboxSoLuong.Text != string.Empty)
-                //&& rbtnConHang.Text != string.Empty && txtboxColor.Text != string.Empty && txtboxSize.Text != string.Empty
-                //&& txtboxChatLieu.Text != string.Empty && txtboxThuongHieu.Text != string.Empty && txtboxGiaTien.Text != string.Empty)
+                if (txtboxNameSP.Text != string.Empty && dtpNgayNhap.Text != string.Empty && txtboxSoLuong.Text != string.Empty
+                && rbtnConHang.Text != string.Empty && cbbColor.Text != string.Empty && cbbSize.Text != string.Empty
+                && cbbChatLieu.Text != string.Empty && cbbThuongHieu.Text != string.Empty && txtboxGiaTien.Text != string.Empty)
                 {
                     SanPham sp = new SanPham();
+                    ChiTietSanPham ctsp = new ChiTietSanPham();
                     sp.TenSanPham = txtboxNameSP.Text;
                     sp.NgayNhap = dtpNgayNhap.Value;
                     sp.SoLuong = Convert.ToInt32(txtboxSoLuong.Text);
-                    //sp.TenMau = txtboxColor.Text;
-                    //sp.KichThuoc = txtboxSize;
-                    //sp.LoaiChatLieu = txtboxChatLieu;
-                    //sp.TenThuongHieu = txtboxThuongHieu;
-                    //sp.TongTien = txtboxGiaTien;
+                    ctsp.MaMau = cbbColor.Text;
+                    ctsp.MaSize = cbbSize.Text;
+                    ctsp.MaChatLieu = cbbChatLieu.Text;
+                    ctsp.MaTh = cbbThuongHieu.Text;
+                    sp.Gia = Convert.ToInt32(txtboxGiaTien.Text);
                     sp.TrangThai = rbtnConHang.Checked ? "Còn hàng" : "Hết hàng";
                     _service.AddSP(sp);
                     MessageBox.Show("Thêm thành công");
@@ -121,13 +124,31 @@ namespace PRL.View
             txtboxNameSP.Text = "";
             dtpNgayNhap.Text = "";
             txtboxSoLuong.Text = "";
-            txtboxColor.Text = "";
-            txtboxSize.Text = "";
-            txtboxChatLieu.Text = "";
-            txtboxThuongHieu.Text = "";
+            cbbColor.Text = "";
+            cbbSize.Text = "";
+            cbbChatLieu.Text = "";
+            cbbThuongHieu.Text = "";
             txtboxGiaTien.Text = "";
             rbtnConHang.Checked = false;
             rbtnHetHang.Checked = false;
+        }
+        private void LoadCBB()
+        {
+            List<MauSac> ms = _service.GetMauSac();
+            cbbColor.DataSource = ms;
+            cbbColor.DisplayMember = "TenMau";
+
+            List<Size> sz = _service.GetSize();
+            cbbSize.DataSource = sz;
+            cbbSize.DisplayMember = "KichThuoc";
+
+            List<ChatLieu> cl = _service.GetChatLieu();
+            cbbChatLieu.DataSource = cl;
+            cbbChatLieu.DisplayMember = "LoaiChatLieu";
+
+            List<ThuongHieu> th = _service.GetThuongHieu();
+            cbbThuongHieu.DataSource = th;
+            cbbThuongHieu.DisplayMember = "TenThuongHieu";
         }
     }
 }

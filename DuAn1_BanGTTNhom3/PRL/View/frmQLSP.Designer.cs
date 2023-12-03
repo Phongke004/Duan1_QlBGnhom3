@@ -42,11 +42,11 @@
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            cbbThuongHieu = new ComboBox();
+            cbbChatLieu = new ComboBox();
+            cbbSize = new ComboBox();
+            cbbColor = new ComboBox();
             txtboxGiaTien = new TextBox();
-            txtboxThuongHieu = new TextBox();
-            txtboxChatLieu = new TextBox();
-            txtboxSize = new TextBox();
-            txtboxColor = new TextBox();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
@@ -168,11 +168,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cbbThuongHieu);
+            groupBox1.Controls.Add(cbbChatLieu);
+            groupBox1.Controls.Add(cbbSize);
+            groupBox1.Controls.Add(cbbColor);
             groupBox1.Controls.Add(txtboxGiaTien);
-            groupBox1.Controls.Add(txtboxThuongHieu);
-            groupBox1.Controls.Add(txtboxChatLieu);
-            groupBox1.Controls.Add(txtboxSize);
-            groupBox1.Controls.Add(txtboxColor);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label9);
@@ -196,40 +196,44 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin Sản Phẩm";
             // 
+            // cbbThuongHieu
+            // 
+            cbbThuongHieu.FormattingEnabled = true;
+            cbbThuongHieu.Location = new Point(566, 261);
+            cbbThuongHieu.Name = "cbbThuongHieu";
+            cbbThuongHieu.Size = new Size(271, 28);
+            cbbThuongHieu.TabIndex = 24;
+            // 
+            // cbbChatLieu
+            // 
+            cbbChatLieu.FormattingEnabled = true;
+            cbbChatLieu.Location = new Point(140, 261);
+            cbbChatLieu.Name = "cbbChatLieu";
+            cbbChatLieu.Size = new Size(271, 28);
+            cbbChatLieu.TabIndex = 23;
+            // 
+            // cbbSize
+            // 
+            cbbSize.FormattingEnabled = true;
+            cbbSize.Location = new Point(566, 190);
+            cbbSize.Name = "cbbSize";
+            cbbSize.Size = new Size(271, 28);
+            cbbSize.TabIndex = 22;
+            // 
+            // cbbColor
+            // 
+            cbbColor.FormattingEnabled = true;
+            cbbColor.Location = new Point(140, 187);
+            cbbColor.Name = "cbbColor";
+            cbbColor.Size = new Size(271, 28);
+            cbbColor.TabIndex = 21;
+            // 
             // txtboxGiaTien
             // 
             txtboxGiaTien.Location = new Point(140, 336);
             txtboxGiaTien.Name = "txtboxGiaTien";
             txtboxGiaTien.Size = new Size(271, 27);
             txtboxGiaTien.TabIndex = 20;
-            // 
-            // txtboxThuongHieu
-            // 
-            txtboxThuongHieu.Location = new Point(566, 261);
-            txtboxThuongHieu.Name = "txtboxThuongHieu";
-            txtboxThuongHieu.Size = new Size(271, 27);
-            txtboxThuongHieu.TabIndex = 19;
-            // 
-            // txtboxChatLieu
-            // 
-            txtboxChatLieu.Location = new Point(140, 261);
-            txtboxChatLieu.Name = "txtboxChatLieu";
-            txtboxChatLieu.Size = new Size(271, 27);
-            txtboxChatLieu.TabIndex = 18;
-            // 
-            // txtboxSize
-            // 
-            txtboxSize.Location = new Point(566, 187);
-            txtboxSize.Name = "txtboxSize";
-            txtboxSize.Size = new Size(271, 27);
-            txtboxSize.TabIndex = 17;
-            // 
-            // txtboxColor
-            // 
-            txtboxColor.Location = new Point(140, 187);
-            txtboxColor.Name = "txtboxColor";
-            txtboxColor.Size = new Size(271, 27);
-            txtboxColor.TabIndex = 16;
             // 
             // label11
             // 
@@ -432,7 +436,6 @@
             // 
             // dgvSanPham
             // 
-            dgvSanPham.AllowUserToAddRows = false;
             dgvSanPham.AllowUserToDeleteRows = false;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSanPham.Location = new Point(6, 26);
@@ -501,15 +504,15 @@
         private Button btnClear;
         private Button btnUpdate;
         private Button btnAdd;
-        private TextBox txtboxSize;
-        private TextBox txtboxColor;
         private Label label11;
         private Label label10;
         private Label label9;
         private Label label8;
         private Label label7;
         private TextBox txtboxGiaTien;
-        private TextBox txtboxThuongHieu;
-        private TextBox txtboxChatLieu;
+        private ComboBox cbbColor;
+        private ComboBox cbbThuongHieu;
+        private ComboBox cbbChatLieu;
+        private ComboBox cbbSize;
     }
 }
