@@ -31,7 +31,6 @@
             label1 = new Label();
             groupBox1 = new GroupBox();
             dtpkNgayTao = new DateTimePicker();
-            txtMaNhanVien = new TextBox();
             txtMaKhachHang = new TextBox();
             txtMaHoaDon = new TextBox();
             label5 = new Label();
@@ -57,7 +56,8 @@
             btnXoaHoaDon = new Button();
             btnHienthi = new Button();
             btnThoat = new Button();
-            menuStrip1 = new MenuStrip();
+            label12 = new Label();
+            txtThanhTien = new TextBox();
             mnStripUser = new ToolStripMenuItem();
             mnStripDoiMk = new ToolStripMenuItem();
             MnStripDangXuat = new ToolStripMenuItem();
@@ -70,8 +70,14 @@
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
             thêmNhânViênToolStripMenuItem = new ToolStripMenuItem();
-            label12 = new Label();
-            txtThanhTien = new TextBox();
+            menuStrip1 = new MenuStrip();
+            txtsearch = new TextBox();
+            txtTienSauVC = new TextBox();
+            label13 = new Label();
+            label14 = new Label();
+            cbbTrangthai = new ComboBox();
+            label15 = new Label();
+            cbbMaNhanVien = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -91,8 +97,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cbbMaNhanVien);
             groupBox1.Controls.Add(dtpkNgayTao);
-            groupBox1.Controls.Add(txtMaNhanVien);
             groupBox1.Controls.Add(txtMaKhachHang);
             groupBox1.Controls.Add(txtMaHoaDon);
             groupBox1.Controls.Add(label5);
@@ -114,14 +120,6 @@
             dtpkNgayTao.Name = "dtpkNgayTao";
             dtpkNgayTao.Size = new Size(511, 41);
             dtpkNgayTao.TabIndex = 8;
-            // 
-            // txtMaNhanVien
-            // 
-            txtMaNhanVien.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaNhanVien.Location = new Point(1108, 128);
-            txtMaNhanVien.Name = "txtMaNhanVien";
-            txtMaNhanVien.Size = new Size(578, 41);
-            txtMaNhanVien.TabIndex = 7;
             // 
             // txtMaKhachHang
             // 
@@ -211,7 +209,7 @@
             // 
             cbbMaSP.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             cbbMaSP.FormattingEnabled = true;
-            cbbMaSP.Location = new Point(1103, 51);
+            cbbMaSP.Location = new Point(1111, 55);
             cbbMaSP.Name = "cbbMaSP";
             cbbMaSP.Size = new Size(574, 41);
             cbbMaSP.TabIndex = 12;
@@ -221,9 +219,9 @@
             // 
             cbbGiamGia.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
             cbbGiamGia.FormattingEnabled = true;
-            cbbGiamGia.Location = new Point(1103, 115);
+            cbbGiamGia.Location = new Point(1111, 115);
             cbbGiamGia.Name = "cbbGiamGia";
-            cbbGiamGia.Size = new Size(578, 41);
+            cbbGiamGia.Size = new Size(570, 41);
             cbbGiamGia.TabIndex = 11;
             cbbGiamGia.SelectedIndexChanged += cbbGiamGia_SelectedIndexChanged;
             // 
@@ -250,9 +248,9 @@
             // txtTongTien
             // 
             txtTongTien.Font = new Font("Times New Roman", 10.875F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTongTien.Location = new Point(1102, 174);
+            txtTongTien.Location = new Point(1111, 174);
             txtTongTien.Name = "txtTongTien";
-            txtTongTien.Size = new Size(578, 41);
+            txtTongTien.Size = new Size(574, 41);
             txtTongTien.TabIndex = 7;
             // 
             // txtDonGia
@@ -314,7 +312,7 @@
             // dtgView
             // 
             dtgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgView.Location = new Point(16, 602);
+            dtgView.Location = new Point(12, 602);
             dtgView.Name = "dtgView";
             dtgView.RowHeadersWidth = 82;
             dtgView.RowTemplate.Height = 41;
@@ -375,16 +373,23 @@
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
             // 
-            // menuStrip1
+            // label12
             // 
-            menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mnStripUser, quảnLýToolStripMenuItem, thêmNhânViênToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(10, 3, 0, 3);
-            menuStrip1.Size = new Size(1796, 37);
-            menuStrip1.TabIndex = 9;
-            menuStrip1.Text = "menuStrip1";
+            label12.AutoSize = true;
+            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label12.Location = new Point(960, 933);
+            label12.Name = "label12";
+            label12.Size = new Size(120, 24);
+            label12.TabIndex = 10;
+            label12.Text = "Thành tiền :";
+            // 
+            // txtThanhTien
+            // 
+            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtThanhTien.Location = new Point(1118, 926);
+            txtThanhTien.Name = "txtThanhTien";
+            txtThanhTien.Size = new Size(357, 32);
+            txtThanhTien.TabIndex = 11;
             // 
             // mnStripUser
             // 
@@ -467,29 +472,90 @@
             thêmNhânViênToolStripMenuItem.Size = new Size(187, 31);
             thêmNhânViênToolStripMenuItem.Text = "Thêm nhân viên";
             // 
-            // label12
+            // menuStrip1
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label12.Location = new Point(960, 933);
-            label12.Name = "label12";
-            label12.Size = new Size(120, 24);
-            label12.TabIndex = 10;
-            label12.Text = "Thành tiền :";
+            menuStrip1.ImageScalingSize = new Size(32, 32);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mnStripUser, quảnLýToolStripMenuItem, thêmNhânViênToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(10, 3, 0, 3);
+            menuStrip1.Size = new Size(1796, 37);
+            menuStrip1.TabIndex = 9;
+            menuStrip1.Text = "menuStrip1";
             // 
-            // txtThanhTien
+            // txtsearch
             // 
-            txtThanhTien.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            txtThanhTien.Location = new Point(1118, 926);
-            txtThanhTien.Name = "txtThanhTien";
-            txtThanhTien.Size = new Size(357, 32);
-            txtThanhTien.TabIndex = 11;
+            txtsearch.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtsearch.Location = new Point(1131, 546);
+            txtsearch.Name = "txtsearch";
+            txtsearch.Size = new Size(555, 35);
+            txtsearch.TabIndex = 10;
+            // 
+            // txtTienSauVC
+            // 
+            txtTienSauVC.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtTienSauVC.Location = new Point(1131, 915);
+            txtTienSauVC.Name = "txtTienSauVC";
+            txtTienSauVC.Size = new Size(558, 35);
+            txtTienSauVC.TabIndex = 11;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label13.Location = new Point(976, 549);
+            label13.Name = "label13";
+            label13.Size = new Size(106, 28);
+            label13.TabIndex = 12;
+            label13.Text = "Tìm kiếm";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label14.Location = new Point(976, 922);
+            label14.Name = "label14";
+            label14.Size = new Size(122, 28);
+            label14.TabIndex = 13;
+            label14.Text = "Thành tiền";
+            // 
+            // cbbTrangthai
+            // 
+            cbbTrangthai.FormattingEnabled = true;
+            cbbTrangthai.Location = new Point(246, 548);
+            cbbTrangthai.Name = "cbbTrangthai";
+            cbbTrangthai.Size = new Size(526, 40);
+            cbbTrangthai.TabIndex = 14;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label15.Location = new Point(73, 546);
+            label15.Name = "label15";
+            label15.Size = new Size(117, 28);
+            label15.TabIndex = 15;
+            label15.Text = "Trạng thái";
+            // 
+            // cbbMaNhanVien
+            // 
+            cbbMaNhanVien.FormattingEnabled = true;
+            cbbMaNhanVien.Location = new Point(1103, 131);
+            cbbMaNhanVien.Name = "cbbMaNhanVien";
+            cbbMaNhanVien.Size = new Size(582, 40);
+            cbbMaNhanVien.TabIndex = 9;
             // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1796, 1040);
+            Controls.Add(label15);
+            Controls.Add(cbbTrangthai);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(txtTienSauVC);
+            Controls.Add(txtsearch);
             Controls.Add(btnThoat);
             Controls.Add(btnHienthi);
             Controls.Add(btnXoaHoaDon);
@@ -502,7 +568,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmHoaDon";
-            Text = "frmHoaDon";
+            Text = "Hóa đơn";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -523,7 +589,6 @@
         private Label label3;
         private Label label2;
         private DateTimePicker dtpkNgayTao;
-        private TextBox txtMaNhanVien;
         private TextBox txtMaKhachHang;
         private TextBox txtMaHoaDon;
         private GroupBox groupBox2;
@@ -545,7 +610,17 @@
         private Button btnXoaHoaDon;
         private Button btnHienthi;
         private Button btnThoat;
-        private MenuStrip menuStrip1;
+
+        private TextBox txtSoLuong;
+        private TextBox txtThanhTien;
+        private Label label12;
+        private TextBox txtSoSanPham;
+        private Label label13;
+        private TextBox txtsearch;
+        private Label label14;
+        private TextBox txtSearch;
+        private Label label15;
+        private ComboBox cbbTrangthai;
         private ToolStripMenuItem mnStripUser;
         private ToolStripMenuItem mnStripDoiMk;
         private ToolStripMenuItem MnStripDangXuat;
@@ -558,16 +633,8 @@
         private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem1;
         private ToolStripMenuItem thêmNhânViênToolStripMenuItem;
-
-        private TextBox txtSoLuong;
-        private TextBox txtThanhTien;
-        private Label label12;
-        private TextBox txtSoSanPham;
-        private Label label13;
-        private TextBox textBox1;
-        private Label label14;
-        private TextBox txtSearch;
-        private Label label15;
-        private ComboBox cbbTrangthai;
+        private MenuStrip menuStrip1;
+        private TextBox txtTienSauVC;
+        private ComboBox cbbMaNhanVien;
     }
 }
