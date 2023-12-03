@@ -25,9 +25,6 @@ namespace BUS.Service
             }
             else
             {
-
-            }
-            {
                 return ("Thêm thất bại");
             }
         }

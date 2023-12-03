@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dgvCoupon = new DataGridView();
-            btnDelete = new Button();
+            btnClear = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
             groupBox3 = new GroupBox();
@@ -37,9 +37,10 @@
             label1 = new Label();
             dtpNgayKetThucCoupon = new DateTimePicker();
             dtpNgayBatDauCoupon = new DateTimePicker();
-            rdbtnCouponHetHan = new RadioButton();
             groupBox1 = new GroupBox();
-            rdbtnCouponConHan = new RadioButton();
+            txtboxDKCoupon = new TextBox();
+            txtboxGiaTriCoupon = new TextBox();
+            label8 = new Label();
             txtboxMoTaCoupon = new TextBox();
             txtboxTenCoupon = new TextBox();
             txtboxMaCoupon = new TextBox();
@@ -70,24 +71,29 @@
             // 
             // dgvCoupon
             // 
+            dgvCoupon.AllowUserToAddRows = false;
+            dgvCoupon.AllowUserToDeleteRows = false;
             dgvCoupon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCoupon.Location = new Point(-107, 26);
             dgvCoupon.Name = "dgvCoupon";
+            dgvCoupon.ReadOnly = true;
             dgvCoupon.RowHeadersWidth = 51;
             dgvCoupon.RowTemplate.Height = 29;
             dgvCoupon.Size = new Size(1131, 267);
             dgvCoupon.TabIndex = 0;
+            dgvCoupon.CellClick += dgvCoupon_CellClick;
             // 
-            // btnDelete
+            // btnClear
             // 
-            btnDelete.Image = Properties.Resources. Delete;
-            btnDelete.ImageAlign = ContentAlignment.MiddleRight;
-            btnDelete.Location = new Point(6, 325);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(172, 53);
-            btnDelete.TabIndex = 2;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnClear.Image = Properties.Resources.Delete;
+            btnClear.ImageAlign = ContentAlignment.MiddleRight;
+            btnClear.Location = new Point(6, 325);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(172, 53);
+            btnClear.TabIndex = 2;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnUpdate
             // 
@@ -99,6 +105,7 @@
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -110,6 +117,7 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // groupBox3
             // 
@@ -123,7 +131,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnDelete);
+            groupBox2.Controls.Add(btnClear);
             groupBox2.Controls.Add(btnUpdate);
             groupBox2.Controls.Add(btnAdd);
             groupBox2.Location = new Point(858, 89);
@@ -146,7 +154,7 @@
             // dtpNgayKetThucCoupon
             // 
             dtpNgayKetThucCoupon.Format = DateTimePickerFormat.Short;
-            dtpNgayKetThucCoupon.Location = new Point(565, 283);
+            dtpNgayKetThucCoupon.Location = new Point(565, 320);
             dtpNgayKetThucCoupon.Name = "dtpNgayKetThucCoupon";
             dtpNgayKetThucCoupon.Size = new Size(269, 27);
             dtpNgayKetThucCoupon.TabIndex = 12;
@@ -154,28 +162,18 @@
             // dtpNgayBatDauCoupon
             // 
             dtpNgayBatDauCoupon.Format = DateTimePickerFormat.Short;
-            dtpNgayBatDauCoupon.Location = new Point(131, 283);
+            dtpNgayBatDauCoupon.Location = new Point(131, 320);
             dtpNgayBatDauCoupon.Name = "dtpNgayBatDauCoupon";
             dtpNgayBatDauCoupon.Size = new Size(269, 27);
             dtpNgayBatDauCoupon.TabIndex = 11;
             // 
-            // rdbtnCouponHetHan
-            // 
-            rdbtnCouponHetHan.AutoSize = true;
-            rdbtnCouponHetHan.Location = new Point(749, 176);
-            rdbtnCouponHetHan.Name = "rdbtnCouponHetHan";
-            rdbtnCouponHetHan.Size = new Size(85, 24);
-            rdbtnCouponHetHan.TabIndex = 10;
-            rdbtnCouponHetHan.TabStop = true;
-            rdbtnCouponHetHan.Text = "Hết Hạn";
-            rdbtnCouponHetHan.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtboxDKCoupon);
+            groupBox1.Controls.Add(txtboxGiaTriCoupon);
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(dtpNgayKetThucCoupon);
             groupBox1.Controls.Add(dtpNgayBatDauCoupon);
-            groupBox1.Controls.Add(rdbtnCouponHetHan);
-            groupBox1.Controls.Add(rdbtnCouponConHan);
             groupBox1.Controls.Add(txtboxMoTaCoupon);
             groupBox1.Controls.Add(txtboxTenCoupon);
             groupBox1.Controls.Add(txtboxMaCoupon);
@@ -192,20 +190,32 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin";
             // 
-            // rdbtnCouponConHan
+            // txtboxDKCoupon
             // 
-            rdbtnCouponConHan.AutoSize = true;
-            rdbtnCouponConHan.Location = new Point(565, 178);
-            rdbtnCouponConHan.Name = "rdbtnCouponConHan";
-            rdbtnCouponConHan.Size = new Size(87, 24);
-            rdbtnCouponConHan.TabIndex = 9;
-            rdbtnCouponConHan.TabStop = true;
-            rdbtnCouponConHan.Text = "Còn Hạn";
-            rdbtnCouponConHan.UseVisualStyleBackColor = true;
+            txtboxDKCoupon.Location = new Point(131, 239);
+            txtboxDKCoupon.Name = "txtboxDKCoupon";
+            txtboxDKCoupon.Size = new Size(269, 27);
+            txtboxDKCoupon.TabIndex = 15;
+            // 
+            // txtboxGiaTriCoupon
+            // 
+            txtboxGiaTriCoupon.Location = new Point(131, 156);
+            txtboxGiaTriCoupon.Name = "txtboxGiaTriCoupon";
+            txtboxGiaTriCoupon.Size = new Size(269, 27);
+            txtboxGiaTriCoupon.TabIndex = 14;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(51, 242);
+            label8.Name = "label8";
+            label8.Size = new Size(73, 20);
+            label8.TabIndex = 13;
+            label8.Text = "Điều Kiện";
             // 
             // txtboxMoTaCoupon
             // 
-            txtboxMoTaCoupon.Location = new Point(131, 179);
+            txtboxMoTaCoupon.Location = new Point(565, 199);
             txtboxMoTaCoupon.Name = "txtboxMoTaCoupon";
             txtboxMoTaCoupon.Size = new Size(269, 27);
             txtboxMoTaCoupon.TabIndex = 8;
@@ -221,13 +231,14 @@
             // 
             txtboxMaCoupon.Location = new Point(131, 73);
             txtboxMaCoupon.Name = "txtboxMaCoupon";
+            txtboxMaCoupon.ReadOnly = true;
             txtboxMaCoupon.Size = new Size(269, 27);
             txtboxMaCoupon.TabIndex = 6;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(454, 288);
+            label7.Location = new Point(453, 325);
             label7.Name = "label7";
             label7.Size = new Size(105, 20);
             label7.TabIndex = 5;
@@ -236,7 +247,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(24, 288);
+            label6.Location = new Point(23, 325);
             label6.Name = "label6";
             label6.Size = new Size(101, 20);
             label6.TabIndex = 4;
@@ -245,16 +256,16 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(481, 180);
+            label5.Location = new Point(54, 159);
             label5.Name = "label5";
-            label5.Size = new Size(78, 20);
+            label5.Size = new Size(51, 20);
             label5.TabIndex = 3;
-            label5.Text = "Trạng Thái";
+            label5.Text = "Giá Trị";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(74, 182);
+            label4.Location = new Point(508, 202);
             label4.Name = "label4";
             label4.Size = new Size(51, 20);
             label4.TabIndex = 2;
@@ -300,13 +311,13 @@
             // đổiMậtKhẩuToolStripMenuItem
             // 
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            đổiMậtKhẩuToolStripMenuItem.Size = new Size(224, 26);
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(183, 26);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi Mật Khẩu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(224, 26);
+            đăngXuấtToolStripMenuItem.Size = new Size(183, 26);
             đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             // 
             // quảnLýToolStripMenuItem
@@ -384,7 +395,7 @@
         #endregion
 
         private DataGridView dgvCoupon;
-        private Button btnDelete;
+        private Button btnClear;
         private Button btnUpdate;
         private Button btnAdd;
         private GroupBox groupBox3;
@@ -392,9 +403,7 @@
         private Label label1;
         private DateTimePicker dtpNgayKetThucCoupon;
         private DateTimePicker dtpNgayBatDauCoupon;
-        private RadioButton rdbtnCouponHetHan;
         private GroupBox groupBox1;
-        private RadioButton rdbtnCouponConHan;
         private TextBox txtboxMoTaCoupon;
         private TextBox txtboxTenCoupon;
         private TextBox txtboxMaCoupon;
@@ -416,5 +425,8 @@
         private ToolStripMenuItem quảnLýHóaĐơnToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem;
         private ToolStripMenuItem thêmNhânViênToolStripMenuItem;
+        private Label label8;
+        private TextBox txtboxDKCoupon;
+        private TextBox txtboxGiaTriCoupon;
     }
 }

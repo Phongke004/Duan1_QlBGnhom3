@@ -21,7 +21,7 @@ namespace DAL.Repositories
         {
             if (GetAll().Count != 0)
             {
-                var maxid = _db.NhanViens.Max(x => x.MaNv);
+                var maxid = _db.SanPhams.Max(x => x.MaSp);
                 int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
                 sp.MaSp = "SP" + nextid.ToString("D3");
             }
@@ -73,22 +73,12 @@ namespace DAL.Repositories
         {
             //try
             //{
-            //    if (sp == null) return false;
-            //    var a = _db.SanPhams.FirstOrDefault(x => x.MaSp == sp.MaSp);
-            //    var b = _db.ChiTietSanPhams.FirstOrDefault(x => x.MaSp == sp.MaSp);
-            //    var c = _db.HoaDons.FirstOrDefault(x => x.MaSp == sp.MaSp);
-            //    var d = _db.MauSacs.FirstOrDefault(x => x.MaMau == sp.MaMau);
-            //    var e = _db.Sizes.FirstOrDefault(x => x.MaSize == sp.MaSize);
-            //    var f = _db.ChatLieus.FirstOrDefault(x => x.MaChatLieu == sp.MaChatLieu);
-            //    var g = _db.ThuongHieus.FirstOrDefault(x => x.MaTh == sp.MaTh);
-            //    if (a == null) return false;
-            //    if (b == null) return false;
-            //    if (c == null) return false;
-            //    if (d == null) return false;
-            //    if (e == null) return false;
-            //    if (f == null) return false;
-            //    if (g == null) return false;
-            //    a.TenSanPham = sp.TenSanPham;
+            //    var a = _db.ChiTietSanPhams.FirstOrDefault(x => x.Maspct == sp.MaSp);
+            //    var b = _db.MauSacs.FirstOrDefault(x => x.MaMau == sp.MaMau);
+            //    var c = _db.Sizes.FirstOrDefault(x => x.MaSize == sp.MaSize);
+            //    var d = _db.ChatLieus.FirstOrDefault(x => x.MaChatLieu == sp.MaChatLieu);
+            //    var e = _db.ThuongHieus.FirstOrDefault(x => x.MaTh == sp.MaTh);
+            //    sp.TenSanPham = item.
             //    a.NgayNhap = sp.NgayNhap;
             //    a.SoLuong = sp.SoLuong;
             //    d.TenMau = sp.TenMau;
