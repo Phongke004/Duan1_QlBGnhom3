@@ -57,7 +57,7 @@ namespace BUS.Service
         public string Update(NhanVien nv)
         {
             var clone = _repos.GetAllNV().FirstOrDefault(s => s.MaNv == nv.MaNv);
-
+            clone.MaNv = nv.MaNv;
             clone.TenNhanVien = nv.TenNhanVien;
             clone.SoDienThoai = nv.SoDienThoai;
             clone.Email = nv.Email;
@@ -69,7 +69,7 @@ namespace BUS.Service
             clone.MaChucVu = nv.MaChucVu;
             clone.MatKhau = nv.MatKhau;
 
-            if (_repos.UpdateNV(clone) == true)
+            if (_repos.UpdateNV(nv) == true)
             {
                 return " sửa thành công";
             }
@@ -88,6 +88,8 @@ namespace BUS.Service
         {
             return _repos.GetCaLams();
         }
+
+
 
     }
 }

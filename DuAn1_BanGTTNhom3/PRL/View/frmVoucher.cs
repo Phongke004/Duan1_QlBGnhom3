@@ -9,72 +9,68 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PRL.View
 {
-    public partial class frmCoupon : Form
+    public partial class frmVoucher : Form
     {
-        private CouponServices _service;
+        private VoucherServices _service;
         string _cellclick;
-        string userName;
-        bool isExitApplication = false;
-        public frmCoupon()
+        public frmVoucher()
         {
             InitializeComponent();
-            _service = new CouponServices();
+            _service = new VoucherServices();
             LoadData(null);
-            // this.userName = userName;
         }
         private void LoadData(string find)
         {
-            Type type = typeof(Coupon);
-            dgvCoupon.Rows.Clear();
-            dgvCoupon.ColumnCount = 9;
+            Type type = typeof(Voucher);
+            dgvVoucher.Rows.Clear();
+            dgvVoucher.ColumnCount = 9;
             int stt = 1;
-            dgvCoupon.Columns[1].Name = "STT";
-            dgvCoupon.Columns[2].Name = "Mã Coupon";
-            dgvCoupon.Columns[3].Name = "Tên Coupon";
-            dgvCoupon.Columns[4].Name = "Giá Trị";
-            dgvCoupon.Columns[5].Name = "Mô Tả";
-            dgvCoupon.Columns[6].Name = "Điều Kiện";
-            dgvCoupon.Columns[7].Name = "Ngày Bắt Đầu";
-            dgvCoupon.Columns[8].Name = "Ngày Kết Thúc";
-            foreach (var cp in _service.GetCP(find))
+            dgvVoucher.Columns[1].Name = "STT";
+            dgvVoucher.Columns[2].Name = "Mã Coupon";
+            dgvVoucher.Columns[3].Name = "Tên Coupon";
+            dgvVoucher.Columns[4].Name = "Giá Trị";
+            dgvVoucher.Columns[5].Name = "Mô Tả";
+            dgvVoucher.Columns[6].Name = "Điều Kiện";
+            dgvVoucher.Columns[7].Name = "Ngày Bắt Đầu";
+            dgvVoucher.Columns[8].Name = "Ngày Kết Thúc";
+            foreach (var vc in _service.GetVC(find))
             {
-                dgvCoupon.Rows.Add(stt, stt++, cp.MaCoupon, cp.TenCoupon, cp.GiaTri, cp.MoTa, cp.DieuKien, cp.NgayBatDau, cp.NgayKetThuc);
+                dgvVoucher.Rows.Add(stt, stt++, vc.MaVoucher, vc.TenVoucher, vc.GiaTri, vc.MoTa, vc.DieuKien, vc.NgayBatDau, vc.NgayKetThuc);
             }
         }
 
-        private void dgvCoupon_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvVoucher_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex; if (index < 0) return;
 
-            _cellclick = dgvCoupon.Rows[index].Cells[1].Value.ToString();
-            txtboxMaCoupon.Text = dgvCoupon.Rows[index].Cells[2].Value.ToString();
-            txtboxTenCoupon.Text = dgvCoupon.Rows[index].Cells[3].Value.ToString();
-            txtboxGiaTriCoupon.Text = dgvCoupon.Rows[index].Cells[4].Value.ToString();
-            txtboxMoTaCoupon.Text = dgvCoupon.Rows[index].Cells[5].Value.ToString();
-            txtboxDKCoupon.Text = dgvCoupon.Rows[index].Cells[6].Value.ToString();
-            dtpNgayBatDauCoupon.Text = dgvCoupon.Rows[index].Cells[7].Value.ToString();
-            dtpNgayKetThucCoupon.Text = dgvCoupon.Rows[index].Cells[8].Value.ToString();
+            _cellclick = dgvVoucher.Rows[index].Cells[1].Value.ToString();
+            txtboxMaVoucher.Text = dgvVoucher.Rows[index].Cells[2].Value.ToString();
+            txtboxTenVoucher.Text = dgvVoucher.Rows[index].Cells[3].Value.ToString();
+            txtboxGiaTriVoucher.Text = dgvVoucher.Rows[index].Cells[4].Value.ToString();
+            txtboxMoTaVoucher.Text = dgvVoucher.Rows[index].Cells[5].Value.ToString();
+            txtboxDKVoucher.Text = dgvVoucher.Rows[index].Cells[6].Value.ToString();
+            dtpNgayBatDauVoucher.Text = dgvVoucher.Rows[index].Cells[7].Value.ToString();
+            dtpNgayKetThucVoucher.Text = dgvVoucher.Rows[index].Cells[8].Value.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtboxTenCoupon.Text != string.Empty && txtboxGiaTriCoupon.Text != string.Empty && txtboxMoTaCoupon.Text != string.Empty
-                && txtboxDKCoupon.Text != string.Empty && dtpNgayBatDauCoupon.Text != string.Empty && dtpNgayKetThucCoupon.Text != string.Empty)
+                if (txtboxTenVoucher.Text != string.Empty && txtboxGiaTriVoucher.Text != string.Empty && txtboxMoTaVoucher.Text != string.Empty
+                && txtboxDKVoucher.Text != string.Empty && dtpNgayBatDauVoucher.Text != string.Empty && dtpNgayKetThucVoucher.Text != string.Empty)
                 {
-                    Coupon cp = new Coupon();
-                    cp.TenCoupon = txtboxTenCoupon.Text;
-                    cp.GiaTri = Convert.ToInt32(txtboxGiaTriCoupon.Text);
-                    cp.MoTa = txtboxMoTaCoupon.Text;
-                    cp.DieuKien = txtboxDKCoupon.Text;
-                    cp.NgayBatDau = dtpNgayBatDauCoupon.Value;
-                    cp.NgayKetThuc = dtpNgayKetThucCoupon.Value;
-                    _service.AddCP(cp);
+                    Voucher vc = new Voucher();
+                    vc.TenVoucher = txtboxTenVoucher.Text;
+                    vc.GiaTri = Convert.ToInt32(txtboxGiaTriVoucher.Text);
+                    vc.MoTa = txtboxMoTaVoucher.Text;
+                    vc.DieuKien = txtboxDKVoucher.Text;
+                    vc.NgayBatDau = dtpNgayBatDauVoucher.Value;
+                    vc.NgayKetThuc = dtpNgayKetThucVoucher.Value;
+                    _service.AddVC(vc);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
                 }
@@ -92,19 +88,19 @@ namespace PRL.View
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var cp = new Coupon();
+            var vc = new Voucher();
 
-            cp.MaCoupon = txtboxMaCoupon.Text;
-            cp.TenCoupon = txtboxTenCoupon.Text;
-            cp.GiaTri = Convert.ToInt32(txtboxGiaTriCoupon.Text);
-            cp.MoTa = txtboxMoTaCoupon.Text;
-            cp.DieuKien = txtboxDKCoupon.Text;
-            cp.NgayBatDau = dtpNgayBatDauCoupon.Value;
-            cp.NgayKetThuc = dtpNgayKetThucCoupon.Value;
+            vc.MaVoucher = txtboxMaVoucher.Text;
+            vc.TenVoucher = txtboxTenVoucher.Text;
+            vc.GiaTri = Convert.ToInt32(txtboxGiaTriVoucher.Text);
+            vc.MoTa = txtboxMoTaVoucher.Text;
+            vc.DieuKien = txtboxDKVoucher.Text;
+            vc.NgayBatDau = dtpNgayBatDauVoucher.Value;
+            vc.NgayKetThuc = dtpNgayKetThucVoucher.Value;
             var option = MessageBox.Show("Xác nhận muốn Sửa?", "Xác nhận", MessageBoxButtons.YesNo);
             if (option == DialogResult.Yes)
             {
-                MessageBox.Show(_service.UpdateCP(cp));
+                MessageBox.Show(_service.UpdateVC(vc));
 
             }
             else
@@ -117,40 +113,13 @@ namespace PRL.View
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtboxMaCoupon.Text = "";
-            txtboxTenCoupon.Text = "";
-            txtboxGiaTriCoupon.Text = "";
-            txtboxMoTaCoupon.Text = "";
-            txtboxDKCoupon.Text = "";
-            dtpNgayBatDauCoupon.Text = "";
-            dtpNgayKetThucCoupon.Text = "";
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Hide();
-                frmQLNV nhanVien = new frmQLNV();
-                nhanVien.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
+            txtboxMaVoucher.Text = "";
+            txtboxTenVoucher.Text = "";
+            txtboxGiaTriVoucher.Text = "";
+            txtboxMoTaVoucher.Text = "";
+            txtboxDKVoucher.Text = "";
+            dtpNgayBatDauVoucher.Text = "";
+            dtpNgayKetThucVoucher.Text = "";
         }
 
         private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,6 +138,7 @@ namespace PRL.View
 
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             try
             {
                 this.Hide();
@@ -223,6 +193,20 @@ namespace PRL.View
             }
         }
 
+        private void couponToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmCoupon coupon = new frmCoupon();
+                coupon.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -249,11 +233,6 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-        }
-
-        private void quảnLýCouponToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

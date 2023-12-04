@@ -78,5 +78,19 @@ namespace PRL.View
                 MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnDoiTra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmDoiTra doiTra = new frmDoiTra();
+                doiTra.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi sảy ra" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
     }
 }

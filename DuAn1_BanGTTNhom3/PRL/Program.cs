@@ -14,7 +14,9 @@ namespace PRL
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+
             Application.Run(new frmTra());
+
 
             
 
