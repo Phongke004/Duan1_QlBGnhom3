@@ -94,5 +94,20 @@ namespace BUS.Service
             return _doiTraReps.GetTras().Where(x => x.MaTra.Contains(find.Trim().ToLower())).ToList();
         }
 
+        public string UpdateTras(Tra tra)
+        {
+            var clone = _doiTraReps.GetTras().FirstOrDefault(x => x.MaTra == tra.MaTra);
+            clone.TrangThai = tra.TrangThai;
+            clone.NgayDoi = tra.NgayDoi;
+            tra.LyDo = tra.LyDo;
+            if (_doiTraReps.UpdateTra(tra) == true)
+            {
+                return " Sửa thành công";
+            }
+            else
+            {
+                return " Sửa thất bại";
+            }
+        }
     }
 }
