@@ -43,10 +43,10 @@ namespace BUS.Service
             return _repos.GetChatLieu();
         }
 
-        public List<ChiTietSanPham> GetChiTietSP()
-        {
-            return _repos.GetChiTietSP();
-        }
+        //public List<ChiTietSanPham> GetChiTietSP()
+        //{
+        //    return _repos.GetChiTietSP();
+        //}
 
         public List<HoaDon> GetHoaDon()
         {

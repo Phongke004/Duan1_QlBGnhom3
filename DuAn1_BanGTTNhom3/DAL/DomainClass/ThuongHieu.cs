@@ -22,5 +22,5 @@ public partial class ThuongHieu
     public string? TrangThai { get; set; }
 
     [InverseProperty("MaThNavigation")]
-    public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();
+    public virtual ICollection<SanPham> SanPhams { get; set; } = new List<SanPham>();
 }
