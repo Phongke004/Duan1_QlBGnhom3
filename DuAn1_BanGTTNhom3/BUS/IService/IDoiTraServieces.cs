@@ -17,5 +17,6 @@ namespace BUS.IService
         public bool CreateTra(Tra tra);
         public bool DeleteTra(string id);
         public bool DeleteDoi(string id);
+        public string UpdateTras(Tra tra);
     }
 }

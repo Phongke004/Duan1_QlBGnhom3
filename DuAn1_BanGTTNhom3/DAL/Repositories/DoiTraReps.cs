@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class DoiTraReps 
+    public class DoiTraReps : IDoiTraReps
     {
         private MyContext _dbconnext;
         public DoiTraReps()
@@ -91,6 +91,13 @@ namespace DAL.Repositories
         public List<Tra> GetTras()
         {
             return _dbconnext.Tras.ToList();
+        }
+
+        public bool UpdateTra(Tra tra)
+        {
+            _dbconnext.Update(tra);
+           _dbconnext.SaveChanges();
+            return true;
         }
     }
 }
