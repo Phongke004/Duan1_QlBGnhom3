@@ -43,8 +43,6 @@ namespace DAL.Repositories
         {
             return _db.ChatLieus.ToList();
         }
-
-
         public List<HoaDon> GetHoaDon()
         {
             return _db.HoaDons.ToList();
