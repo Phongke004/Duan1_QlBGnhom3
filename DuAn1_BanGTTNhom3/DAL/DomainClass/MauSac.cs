@@ -21,5 +21,5 @@ public partial class MauSac
     public string? TrangThai { get; set; }
 
     [InverseProperty("MaMauNavigation")]
-    public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();
+    public virtual ICollection<SanPham> SanPhams { get; set; } = new List<SanPham>();
 }

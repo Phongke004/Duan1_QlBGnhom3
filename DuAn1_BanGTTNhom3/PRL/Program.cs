@@ -15,7 +15,7 @@ namespace PRL
             ApplicationConfiguration.Initialize();
 
 
-            Application.Run(new frmVoucher());
+            Application.Run(new frmLogin());
 
             
 
