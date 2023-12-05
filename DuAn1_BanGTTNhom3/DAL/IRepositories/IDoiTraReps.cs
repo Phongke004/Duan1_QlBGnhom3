@@ -17,5 +17,6 @@ namespace DAL.IRepositories
         public bool CreateTra(Tra tra);
         public bool DeleteTra(string id);
         public bool DeleteDoi(string id);
+        public bool UpdateTra(Tra tra);
     }
 }

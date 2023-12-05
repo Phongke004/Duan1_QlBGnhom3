@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            textBox3 = new TextBox();
+            label6 = new Label();
+            txtSearch = new TextBox();
+            txtLyDo = new TextBox();
             label5 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpkNgayTra = new DateTimePicker();
             label4 = new Label();
-            textBox2 = new TextBox();
+            txtTrangThai = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtMaTRa = new TextBox();
             label2 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            dtgview = new DataGridView();
-            btnShow = new Button();
-            btnAdd = new Button();
-            btnUpdate = new Button();
             btnDelete = new Button();
+            btnUpdate = new Button();
+            btnAdd = new Button();
+            btnShow = new Button();
+            dtgview = new DataGridView();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgview).BeginInit();
@@ -51,89 +53,109 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(txtSearch);
+            groupBox1.Controls.Add(txtLyDo);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(dtpkNgayTra);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtTrangThai);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtMaTRa);
             groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Times New Roman", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 82);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1213, 379);
+            groupBox1.Size = new Size(952, 379);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
             // 
-            // textBox3
+            // label6
             // 
-            textBox3.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            textBox3.Location = new Point(444, 304);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(464, 35);
-            textBox3.TabIndex = 7;
+            label6.AutoSize = true;
+            label6.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(71, 342);
+            label6.Name = "label6";
+            label6.Size = new Size(109, 24);
+            label6.TabIndex = 9;
+            label6.Text = "Tìm kiếm : ";
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(345, 335);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(468, 39);
+            txtSearch.TabIndex = 8;
+            // 
+            // txtLyDo
+            // 
+            txtLyDo.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtLyDo.Location = new Point(348, 272);
+            txtLyDo.Name = "txtLyDo";
+            txtLyDo.Size = new Size(464, 35);
+            txtLyDo.TabIndex = 7;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(168, 307);
+            label5.Location = new Point(72, 275);
             label5.Name = "label5";
-            label5.Size = new Size(102, 28);
+            label5.Size = new Size(116, 28);
             label5.TabIndex = 6;
-            label5.Text = "Lý do trả";
+            label5.Text = "Lý do trả :";
             // 
-            // dateTimePicker1
+            // dtpkNgayTra
             // 
-            dateTimePicker1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(442, 224);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(466, 35);
-            dateTimePicker1.TabIndex = 5;
+            dtpkNgayTra.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            dtpkNgayTra.Format = DateTimePickerFormat.Short;
+            dtpkNgayTra.Location = new Point(346, 192);
+            dtpkNgayTra.Name = "dtpkNgayTra";
+            dtpkNgayTra.Size = new Size(466, 35);
+            dtpkNgayTra.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(150, 229);
+            label4.Location = new Point(54, 197);
             label4.Name = "label4";
             label4.Size = new Size(118, 28);
             label4.TabIndex = 4;
             label4.Text = " Ngày trả :";
             // 
-            // textBox2
+            // txtTrangThai
             // 
-            textBox2.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            textBox2.Location = new Point(444, 151);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(465, 35);
-            textBox2.TabIndex = 3;
+            txtTrangThai.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtTrangThai.Location = new Point(348, 119);
+            txtTrangThai.Name = "txtTrangThai";
+            txtTrangThai.Size = new Size(465, 35);
+            txtTrangThai.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(144, 150);
+            label3.Location = new Point(48, 118);
             label3.Name = "label3";
             label3.Size = new Size(187, 28);
             label3.TabIndex = 2;
             label3.Text = "Trạng thái hàng :";
             // 
-            // textBox1
+            // txtMaTRa
             // 
-            textBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            textBox1.Location = new Point(446, 76);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(463, 35);
-            textBox1.TabIndex = 1;
+            txtMaTRa.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            txtMaTRa.Location = new Point(350, 44);
+            txtMaTRa.Name = "txtMaTRa";
+            txtMaTRa.Size = new Size(463, 35);
+            txtMaTRa.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(150, 79);
+            label2.Location = new Point(54, 47);
             label2.Name = "label2";
             label2.Size = new Size(149, 28);
             label2.TabIndex = 0;
@@ -155,31 +177,33 @@
             groupBox2.Controls.Add(btnUpdate);
             groupBox2.Controls.Add(btnAdd);
             groupBox2.Controls.Add(btnShow);
-            groupBox2.Location = new Point(1254, 82);
+            groupBox2.Font = new Font("Times New Roman", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox2.Location = new Point(985, 82);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(400, 379);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức năng";
             // 
-            // dtgview
+            // btnDelete
             // 
-            dtgview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgview.Location = new Point(12, 499);
-            dtgview.Name = "dtgview";
-            dtgview.RowHeadersWidth = 82;
-            dtgview.RowTemplate.Height = 41;
-            dtgview.Size = new Size(1642, 346);
-            dtgview.TabIndex = 3;
+            btnDelete.Location = new Point(128, 304);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(150, 46);
+            btnDelete.TabIndex = 7;
+            btnDelete.Text = "Xóa";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // btnShow
+            // btnUpdate
             // 
-            btnShow.Location = new Point(128, 61);
-            btnShow.Name = "btnShow";
-            btnShow.Size = new Size(150, 46);
-            btnShow.TabIndex = 4;
-            btnShow.Text = "Hiển thị";
-            btnShow.UseVisualStyleBackColor = true;
+            btnUpdate.Location = new Point(128, 229);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(150, 46);
+            btnUpdate.TabIndex = 6;
+            btnUpdate.Text = "Sửa";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -190,29 +214,32 @@
             btnAdd.Text = "Lưu ";
             btnAdd.UseVisualStyleBackColor = true;
             // 
-            // btnUpdate
+            // btnShow
             // 
-            btnUpdate.Location = new Point(128, 229);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(150, 46);
-            btnUpdate.TabIndex = 6;
-            btnUpdate.Text = "Sửa";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnShow.Location = new Point(128, 61);
+            btnShow.Name = "btnShow";
+            btnShow.Size = new Size(150, 46);
+            btnShow.TabIndex = 4;
+            btnShow.Text = "Hiển thị";
+            btnShow.UseVisualStyleBackColor = true;
+            btnShow.Click += btnShow_Click;
             // 
-            // btnDelete
+            // dtgview
             // 
-            btnDelete.Location = new Point(128, 304);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(150, 46);
-            btnDelete.TabIndex = 7;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = true;
+            dtgview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgview.Location = new Point(12, 499);
+            dtgview.Name = "dtgview";
+            dtgview.RowHeadersWidth = 82;
+            dtgview.RowTemplate.Height = 41;
+            dtgview.Size = new Size(1373, 346);
+            dtgview.TabIndex = 3;
+            dtgview.CellClick += dtgview_CellClick;
             // 
             // frmTra
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1685, 847);
+            ClientSize = new Size(1427, 847);
             Controls.Add(dtgview);
             Controls.Add(groupBox2);
             Controls.Add(label1);
@@ -230,20 +257,22 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox txtMaTRa;
         private Label label2;
         private Label label1;
         private GroupBox groupBox2;
         private DataGridView dtgview;
-        private TextBox textBox3;
+        private TextBox txtLyDo;
         private Label label5;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpkNgayTra;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox txtTrangThai;
         private Label label3;
         private Button btnShow;
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
+        private Label label6;
+        private TextBox txtSearch;
     }
 }
