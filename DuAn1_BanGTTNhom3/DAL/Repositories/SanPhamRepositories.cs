@@ -44,11 +44,6 @@ namespace DAL.Repositories
             return _db.ChatLieus.ToList();
         }
 
-        public List<SanPham> GetChiTietSP()
-        {
-            return _db.SanPhams.ToList();
-        }
-
         public List<HoaDon> GetHoaDon()
         {
             return _db.HoaDons.ToList();

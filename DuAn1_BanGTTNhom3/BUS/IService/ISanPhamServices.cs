@@ -12,7 +12,7 @@ namespace BUS.IService
         public string AddSP(SanPham sp);
         public string UpdateSP(SanPham sp);
         public List<SanPham> GetAll(string find);
-        
+
         public List<HoaDon> GetHoaDon();
         public List<MauSac> GetMauSac();
         public List<Size> GetSize();
