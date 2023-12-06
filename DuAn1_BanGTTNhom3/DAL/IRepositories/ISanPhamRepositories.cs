@@ -12,7 +12,7 @@ namespace DAL.IRepositories
         public bool Add(SanPham sp);
         public bool Update(SanPham sp);
         public List<SanPham> GetAll();
-        public List<ChiTietSanPham> GetChiTietSP();
+        
         public List<HoaDon> GetHoaDon();
         public List<MauSac> GetMauSac();
         public List<Size> GetSize();

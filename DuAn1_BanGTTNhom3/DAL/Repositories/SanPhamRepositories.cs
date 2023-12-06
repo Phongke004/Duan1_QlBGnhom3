@@ -102,9 +102,6 @@ namespace DAL.Repositories
 
       
 
-        List<ChiTietSanPham> ISanPhamRepositories.GetChiTietSP()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
+            cbbMaKH = new ComboBox();
             cbbMaNhanVien = new ComboBox();
             dtpkNgayTao = new DateTimePicker();
             txtMaHoaDon = new TextBox();
@@ -77,7 +78,6 @@
             label14 = new Label();
             cbbTrangthai = new ComboBox();
             label15 = new Label();
-            cbbMaKH = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -111,6 +111,14 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin chung";
+            // 
+            // cbbMaKH
+            // 
+            cbbMaKH.FormattingEnabled = true;
+            cbbMaKH.Location = new Point(1108, 64);
+            cbbMaKH.Name = "cbbMaKH";
+            cbbMaKH.Size = new Size(570, 40);
+            cbbMaKH.TabIndex = 10;
             // 
             // cbbMaNhanVien
             // 
@@ -204,6 +212,7 @@
             txtSoSanPham.Name = "txtSoSanPham";
             txtSoSanPham.Size = new Size(522, 39);
             txtSoSanPham.TabIndex = 0;
+            txtSoSanPham.TextChanged += txtSoSanPham_TextChanged;
             // 
             // cbbTenSanPham
             // 
@@ -505,6 +514,7 @@
             txtTienSauVC.Name = "txtTienSauVC";
             txtTienSauVC.Size = new Size(558, 35);
             txtTienSauVC.TabIndex = 11;
+            txtTienSauVC.TextChanged += txtTienSauVC_TextChanged;
             // 
             // label13
             // 
@@ -543,14 +553,6 @@
             label15.Size = new Size(117, 28);
             label15.TabIndex = 15;
             label15.Text = "Trạng thái";
-            // 
-            // cbbMaKH
-            // 
-            cbbMaKH.FormattingEnabled = true;
-            cbbMaKH.Location = new Point(1108, 64);
-            cbbMaKH.Name = "cbbMaKH";
-            cbbMaKH.Size = new Size(570, 40);
-            cbbMaKH.TabIndex = 10;
             // 
             // frmHoaDon
             // 

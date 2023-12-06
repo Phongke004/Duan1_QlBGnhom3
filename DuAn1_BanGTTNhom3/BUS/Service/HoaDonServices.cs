@@ -18,9 +18,9 @@ namespace BUS.Service
             _repos = new HoaDonReps();
         }
 
-        public string AddsHD(HoaDon hd,KhachHang kh)
+        public string AddsHD(HoaDon hd)
         {
-            if (_repos.AddHD(hd,kh)== true)
+            if (_repos.AddHD(hd)== true)
             {
                 return "Thêm thành công";
 
@@ -91,6 +91,11 @@ namespace BUS.Service
         public List<HoaDonChiTiet> GetHoaDonChiTiets()
         {
           return _repos.GetHoaDonChiTiets();
+        }
+
+        public Voucher GetIDVouchers(string MaVC)
+        {
+            return _repos.GetIDVoucher(MaVC);
         }
 
         public List<NhanVien> GetNhanViens()

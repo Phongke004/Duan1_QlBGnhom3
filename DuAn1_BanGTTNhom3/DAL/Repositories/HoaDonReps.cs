@@ -75,6 +75,11 @@ namespace DAL.Repositories
             return _connect.HoaDons.ToList();
         }
 
+        public Voucher GetIDVoucher(string MaVC)
+        {
+            return _connect.Vouchers.FirstOrDefault(i => i.MaVoucher == MaVC);
+        }
+
         public List<KhachHang> GetKhachHang()
         {
             return _connect.KhachHangs.ToList();
@@ -93,6 +98,7 @@ namespace DAL.Repositories
         public List<Voucher> GetVouchers()
         {
             return _connect.Vouchers.ToList();
+
         }
 
         public bool UpdateHD(HoaDon hd)
