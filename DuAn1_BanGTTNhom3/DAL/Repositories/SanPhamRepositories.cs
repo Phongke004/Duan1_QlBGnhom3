@@ -44,9 +44,9 @@ namespace DAL.Repositories
             return _db.ChatLieus.ToList();
         }
 
-        public List<ChiTietSanPham> GetChiTietSP()
+        public List<SanPham> GetChiTietSP()
         {
-            return _db.ChiTietSanPhams.ToList();
+            return _db.SanPhams.ToList();
         }
 
         public List<HoaDon> GetHoaDon()
@@ -97,6 +97,13 @@ namespace DAL.Repositories
 
             //    return false;
             //}
+            throw new NotImplementedException();
+        }
+
+      
+
+        List<ChiTietSanPham> ISanPhamRepositories.GetChiTietSP()
+        {
             throw new NotImplementedException();
         }
     }

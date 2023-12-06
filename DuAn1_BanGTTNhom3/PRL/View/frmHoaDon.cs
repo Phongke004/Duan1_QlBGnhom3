@@ -90,8 +90,8 @@ namespace PRL.View
             txtMaKhachHang.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
             cbbMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
             dtpkNgayTao.Value = DateTime.Parse(dtgView.Rows[indexof].Cells[2].Value.ToString());
-            txtTenSanPham.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
-            cbbMaSP.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
+            txtMaSP.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
+            cbbTenSanPham.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
             cbbGiamGia.Text = dtgView.Rows[indexof].Cells[8].Value.ToString();
             cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
             txtSoSanPham.Text = dtgView.Rows[indexof].Cells[14].Value.ToString();
@@ -143,6 +143,7 @@ namespace PRL.View
                 MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        
 
         private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -153,13 +154,14 @@ namespace PRL.View
             List<Voucher> vouchers = _hoaDonServices.GetVouchers();
             cbbGiamGia.DataSource = vouchers;
             cbbGiamGia.DisplayMember = "MoTa";
+            cbbGiamGia.SelectedIndex = -1;
+
 
 
 
             List<SanPham> sanPhams = _hoaDonServices.GetSanPhams();
-
-            cbbMaSP.DataSource = sanPhams;
-            cbbMaSP.DisplayMember = "MaSp";
+            cbbTenSanPham.DataSource = sanPhams;
+            cbbTenSanPham.DisplayMember = "MaSp";
 
             List<NhanVien> nhanViens = _hoaDonServices.GetNhanViens();
             cbbMaNhanVien.DataSource = nhanViens;
@@ -172,29 +174,31 @@ namespace PRL.View
 
         private void txtSoSanPham_TextChanged(object sender, EventArgs e)
         {
-            //Voucher voucher = new Voucher();
-            //try
-            //{
-            //    if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
-            //    {
-            //        txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
+            Voucher voucher = new Voucher();
+            try
+            {
 
-            //    }
-            //    else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
-            //    {
-            //        txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+                txtSoSanPham.Text = "";
+                if (txtSoSanPham.Text != null && txtDonGia.Text != null )
+                {
 
-            //    }
-            //    else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
-            //    {
-            //        txtSoLuong.Text = "";
-            //    }
-            //}
-            //catch (Exception)
-            //{
+                    txtTongTien.Text = (int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)).ToString();
+                    if (cbbGiamGia.Items != null)
+                    {
+                        txtTongTien.Text = ((int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoSanPham.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
 
-            //    MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
-            //}
+                    }
+
+
+                }
+                
+               
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("chỉ được nhập số!!!!", "thông báo!", MessageBoxButtons.OK);
+            }
         }
 
         private void btnAddHoadon_Click(object sender, EventArgs e)
@@ -203,9 +207,23 @@ namespace PRL.View
             {
                 HoaDon hoaDon = new HoaDon();
 
-                if (txtTenSanPham.Text != string.Empty && txtSoLuong.Text != string.Empty && cbbMaSP.Text != string.Empty)
+                if (txtMaSP.Text != string.Empty && txtSoLuong.Text != string.Empty && cbbTenSanPham.Text != string.Empty)
                 {
-                    hoaDon.MaSp = txtMaHoaDon.Text;
+
+                    hoaDon.NgayTao =Convert.ToDateTime(dtpkNgayTao.Value);
+                    hoaDon.TrangThai = cbbTrangthai.SelectedItem.ToString();
+                    hoaDon.TongTien = Convert.ToDouble( txtTongTien.Text);
+                    hoaDon.TongTienSauVoucher = Convert.ToDouble(txtTienSauVC.Text);
+                    hoaDon.MaSp = txtMaSP.Text;
+                    hoaDon.MaVoucher = cbbGiamGia.SelectedItem.ToString();
+                    hoaDon.MaNv = cbbMaNhanVien.SelectedItem.ToString();
+                    hoaDon.MaKh = cbbMaKH.SelectedItem.ToString();
+                    
+
+
+
+
+
 
                 }
 
@@ -218,10 +236,11 @@ namespace PRL.View
 
         private void cbbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SanPham sanPham = new SanPham();
-            if (cbbMaSP.Text != null)
+            
+            if (cbbTenSanPham.SelectedItem != null)
             {
-                txtTenSanPham.Text = sanPham.TenSanPham;
+                var sanPham = (SanPham)cbbTenSanPham.SelectedItem;
+                txtMaSP.Text = sanPham.MaSp;
             }
         }
 

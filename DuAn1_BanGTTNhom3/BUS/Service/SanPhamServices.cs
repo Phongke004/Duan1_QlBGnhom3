@@ -45,7 +45,7 @@ namespace BUS.Service
 
         public List<ChiTietSanPham> GetChiTietSP()
         {
-            return _repos.GetChiTietSP();
+           return null;
         }
 
         public List<HoaDon> GetHoaDon()

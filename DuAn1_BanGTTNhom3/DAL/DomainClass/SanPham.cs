@@ -28,9 +28,39 @@ public partial class SanPham
     [StringLength(30)]
     public string? TrangThai { get; set; }
 
-    [InverseProperty("MaSpNavigation")]
-    public virtual ICollection<ChiTietSanPham> ChiTietSanPhams { get; set; } = new List<ChiTietSanPham>();
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaMau { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaSize { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaChatLieu { get; set; }
+
+    [Column("MaTH")]
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaTh { get; set; }
 
     [InverseProperty("MaSpNavigation")]
     public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
+
+    [ForeignKey("MaChatLieu")]
+    [InverseProperty("SanPhams")]
+    public virtual ChatLieu? MaChatLieuNavigation { get; set; }
+
+    [ForeignKey("MaMau")]
+    [InverseProperty("SanPhams")]
+    public virtual MauSac? MaMauNavigation { get; set; }
+
+    [ForeignKey("MaSize")]
+    [InverseProperty("SanPhams")]
+    public virtual Size? MaSizeNavigation { get; set; }
+
+    [ForeignKey("MaTh")]
+    [InverseProperty("SanPhams")]
+    public virtual ThuongHieu? MaThNavigation { get; set; }
 }
