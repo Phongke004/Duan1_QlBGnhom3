@@ -15,7 +15,10 @@ namespace PRL
             ApplicationConfiguration.Initialize();
 
 
-            Application.Run(new frmQLSP());
+
+            Application.Run(new frmLogin());
+
+
 
             
 
