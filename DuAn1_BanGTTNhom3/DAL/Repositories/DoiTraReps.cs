@@ -34,22 +34,7 @@ namespace DAL.Repositories
             return true;
         }
 
-        public bool CreateTra(Tra tra)
-        {
-            if (GetTras().Count != 0)
-            {
-                var maxid = _dbconnext.Dois.Max(x => x.MaDoi);
-                int nextid = Convert.ToInt32(maxid.Substring(3)) + 1;
-                tra.MaTra = "TRA" + nextid.ToString("T3");
-            }
-            else
-            {
-                tra.MaTra = "TRA001";
-            }
-            _dbconnext.Tras.Add(tra);
-            _dbconnext.SaveChanges();
-            return true;
-        }
+        
 
         public bool DeleteDoi(string id)
         {
@@ -62,16 +47,7 @@ namespace DAL.Repositories
             return true;
         }
 
-        public bool DeleteTra(string id)
-        {
-            var results = _dbconnext.Tras.FirstOrDefault(x => x.MaTra == id);
-            if (results != null)
-            {
-                _dbconnext.Remove(results);
-            }
-            _dbconnext.SaveChanges();
-            return true;
-        }
+        
 
         public List<Doi> GetDois()
         {
@@ -88,16 +64,8 @@ namespace DAL.Repositories
            return _dbconnext.SanPhams.ToList();
         }
 
-        public List<Tra> GetTras()
-        {
-            return _dbconnext.Tras.ToList();
-        }
+        
 
-        public bool UpdateTra(Tra tra)
-        {
-            _dbconnext.Update(tra);
-           _dbconnext.SaveChanges();
-            return true;
-        }
+        
     }
 }

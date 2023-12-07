@@ -58,6 +58,19 @@ namespace DAL.Repositories
 
         public bool AddHDCT(HoaDonChiTiet hdct)
         {
+            if (GetHoaDonChiTiets().Count != 0)
+            {
+                var maxid = _connect.HoaDonChiTiets.Max(x => x.MaHdct);
+                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
+                hdct.MaHdct = "HDCT" + nextid.ToString("D3");
+
+            }
+            else
+            {
+                hdct.MaHdct = "HDCT001";
+
+            }
+            
             _connect.Add(hdct);
             _connect.SaveChanges();
             return true;
