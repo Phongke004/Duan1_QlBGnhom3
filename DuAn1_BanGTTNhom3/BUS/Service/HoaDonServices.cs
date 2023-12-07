@@ -20,7 +20,7 @@ namespace BUS.Service
 
         public string AddsHD(HoaDon hd)
         {
-            if (_repos.AddHD(hd)== true)
+            if (_repos.AddHDs(hd)== true)
             {
                 return "Thêm thành công";
 

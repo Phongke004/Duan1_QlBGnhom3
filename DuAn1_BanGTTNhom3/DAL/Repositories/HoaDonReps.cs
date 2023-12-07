@@ -37,7 +37,7 @@ namespace DAL.Repositories
             return true;
         }
 
-        public bool AddHD(HoaDon hd)
+        public bool AddHDs(HoaDon hd)
         {
             _connect.Add(hd);
             _connect.SaveChanges();
