@@ -10,7 +10,7 @@ namespace BUS.IService
     public interface IHoaDonServices
     {
         public List<HoaDon> GetHoaDon(string find);
-        public List<HoaDonChiTiet> GetHoaDonChiTiets();
+        public List<HoaDonChiTiet> GetHoaDonChiTiets(string search);
         public List <NhanVien > GetNhanViens();
         public List<SanPham> GetSanPhams();
         public List<KhachHang> GetKhachHang();
