@@ -39,6 +39,18 @@ namespace DAL.Repositories
 
         public bool AddHDs(HoaDon hd)
         {
+            if (GetHoaDons().Count != 0 )
+            {
+                var maxid = _connect.HoaDons.Max(x => x.MaHd);
+                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
+                hd.MaHd = "HD" + nextid.ToString("D3");
+               
+            }
+            else
+            {
+                hd.MaHd = "HD001";
+               
+            }
             _connect.Add(hd);
             _connect.SaveChanges();
             return true;
@@ -113,6 +125,11 @@ namespace DAL.Repositories
             _connect.Update(hdct);
             _connect.SaveChanges();
             return true;
+        }
+
+        public bool AddHD(HoaDon hd)
+        {
+            throw new NotImplementedException();
         }
     }
 }
