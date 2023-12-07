@@ -58,153 +58,119 @@ public partial class MyContext : DbContext
     {
         modelBuilder.Entity<CaLamViec>(entity =>
         {
-
-            entity.HasKey(e => e.MaCa).HasName("PK__CaLamVie__27258E7B583358C9");
-
+            entity.HasKey(e => e.MaCa).HasName("PK__CaLamVie__27258E7BC6410A31");
         });
 
         modelBuilder.Entity<ChatLieu>(entity =>
         {
-
-            entity.HasKey(e => e.MaChatLieu).HasName("PK__ChatLieu__453995BCCF531B33");
-
+            entity.HasKey(e => e.MaChatLieu).HasName("PK__ChatLieu__453995BC5C33ACE7");
         });
 
         modelBuilder.Entity<ChucVu>(entity =>
         {
-
-            entity.HasKey(e => e.MaCv).HasName("PK__ChucVu__27258E76BBA8F851");
-
+            entity.HasKey(e => e.MaCv).HasName("PK__ChucVu__27258E76AA97A469");
         });
 
         modelBuilder.Entity<Coupon>(entity =>
         {
-
-            entity.HasKey(e => e.MaCoupon).HasName("PK__Coupon__44DC861C52FB58D2");
-
+            entity.HasKey(e => e.MaCoupon).HasName("PK__Coupon__44DC861CF497941C");
         });
 
         modelBuilder.Entity<Doi>(entity =>
         {
+            entity.HasKey(e => e.MaDoi).HasName("PK__Doi__3D89F55300DF55B1");
 
-            entity.HasKey(e => e.MaDoi).HasName("PK__Doi__3D89F553708B5AB6");
-
-            entity.HasOne(d => d.MaHdctNavigation).WithMany(p => p.Dois).HasConstraintName("FK__Doi__MaHDCT__0880433F");
-
+            entity.HasOne(d => d.MaHdctNavigation).WithMany(p => p.Dois).HasConstraintName("FK__Doi__MaHDCT__67DE6983");
         });
 
         modelBuilder.Entity<HoaDon>(entity =>
         {
+            entity.HasKey(e => e.MaHd).HasName("PK__HoaDon__2725A6E0628F0F36");
 
-            entity.HasKey(e => e.MaHd).HasName("PK__HoaDon__2725A6E0FD58137F");
+            entity.HasOne(d => d.MaKhNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaKH__61316BF4");
 
-            entity.HasOne(d => d.MaKhNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaKH__02C769E9");
+            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaNV__603D47BB");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaNV__01D345B0");
-
-            entity.HasOne(d => d.MaSpNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaSp__7FEAFD3E");
-
-            entity.HasOne(d => d.MaVoucherNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaVouche__00DF2177");
-
+            entity.HasOne(d => d.MaSpNavigation).WithMany(p => p.HoaDons).HasConstraintName("FK__HoaDon__MaSp__5F492382");
         });
 
         modelBuilder.Entity<HoaDonChiTiet>(entity =>
         {
+            entity.HasKey(e => e.MaHdct).HasName("PK__HoaDonCh__1419C1297DE0803C");
 
-            entity.HasKey(e => e.MaHdct).HasName("PK__HoaDonCh__1419C129CBA1BDA9");
+            entity.HasOne(d => d.MaHdNavigation).WithMany(p => p.HoaDonChiTiets).HasConstraintName("FK__HoaDonChiT__MaHD__6501FCD8");
 
-            entity.HasOne(d => d.MaHdNavigation).WithMany(p => p.HoaDonChiTiets).HasConstraintName("FK__HoaDonChiT__MaHD__05A3D694");
-
+            entity.HasOne(d => d.MaVoucherNavigation).WithMany(p => p.HoaDonChiTiets).HasConstraintName("FK__HoaDonChi__MaVou__640DD89F");
         });
 
         modelBuilder.Entity<KhachHang>(entity =>
         {
+            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1E39118DFB");
 
-            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1EA80F8131");
-
-            entity.HasOne(d => d.MaRankNavigation).WithMany(p => p.KhachHangs).HasConstraintName("FK__KhachHang__MaRan__7D0E9093");
-
+            entity.HasOne(d => d.MaRankNavigation).WithMany(p => p.KhachHangs).HasConstraintName("FK__KhachHang__MaRan__5C6CB6D7");
         });
 
         modelBuilder.Entity<MauSac>(entity =>
         {
-
-            entity.HasKey(e => e.MaMau).HasName("PK__MauSac__3A5BBB7D37FB0A74");
-
+            entity.HasKey(e => e.MaMau).HasName("PK__MauSac__3A5BBB7D6B3EF113");
         });
 
         modelBuilder.Entity<NhanVien>(entity =>
         {
+            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70AA489AB50");
 
-            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70AA173570F");
+            entity.HasOne(d => d.MaCaNavigation).WithMany(p => p.NhanViens).HasConstraintName("FK__NhanVien__MaCa__467D75B8");
 
-            entity.HasOne(d => d.MaCaNavigation).WithMany(p => p.NhanViens).HasConstraintName("FK__NhanVien__MaCa__671F4F74");
-
-            entity.HasOne(d => d.MaChucVuNavigation).WithMany(p => p.NhanViens).HasConstraintName("FK__NhanVien__MaChuc__662B2B3B");
-
+            entity.HasOne(d => d.MaChucVuNavigation).WithMany(p => p.NhanViens).HasConstraintName("FK__NhanVien__MaChuc__4589517F");
         });
 
         modelBuilder.Entity<Rank>(entity =>
         {
-
-            entity.HasKey(e => e.MaRank).HasName("PK__RANKS__7AE11877EECC0FEA");
-
+            entity.HasKey(e => e.MaRank).HasName("PK__RANKS__7AE11877165B17AE");
         });
 
         modelBuilder.Entity<SanPham>(entity =>
         {
+            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C4444934A");
 
-            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C096B9BE9");
+            entity.HasOne(d => d.MaChatLieuNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaChatL__52E34C9D");
 
-            entity.HasOne(d => d.MaChatLieuNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaChatL__73852659");
+            entity.HasOne(d => d.MaMauNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaMau__50FB042B");
 
-            entity.HasOne(d => d.MaMauNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaMau__719CDDE7");
+            entity.HasOne(d => d.MaSizeNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaSize__51EF2864");
 
-            entity.HasOne(d => d.MaSizeNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaSize__72910220");
-
-            entity.HasOne(d => d.MaThNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaTH__74794A92");
-
+            entity.HasOne(d => d.MaThNavigation).WithMany(p => p.SanPhams).HasConstraintName("FK__SanPham__MaTH__53D770D6");
         });
 
         modelBuilder.Entity<Size>(entity =>
         {
-
-            entity.HasKey(e => e.MaSize).HasName("PK__Size__A787E7ED58A0056F");
-
+            entity.HasKey(e => e.MaSize).HasName("PK__Size__A787E7EDEDDEDF17");
         });
 
         modelBuilder.Entity<Thongke>(entity =>
         {
+            entity.HasKey(e => e.MaThongKe).HasName("PK__THONGKE__60E521F457F9F91D");
 
-            entity.HasKey(e => e.MaThongKe).HasName("PK__THONGKE__60E521F407C2906B");
+            entity.HasOne(d => d.MaHdNavigation).WithMany(p => p.Thongkes).HasConstraintName("FK__THONGKE__MaHD__6D9742D9");
 
-            entity.HasOne(d => d.MaHdNavigation).WithMany(p => p.Thongkes).HasConstraintName("FK__THONGKE__MaHD__0E391C95");
-
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.Thongkes).HasConstraintName("FK__THONGKE__MaNv__0F2D40CE");
-
+            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.Thongkes).HasConstraintName("FK__THONGKE__MaNv__6E8B6712");
         });
 
         modelBuilder.Entity<ThuongHieu>(entity =>
         {
-
-            entity.HasKey(e => e.MaTh).HasName("PK__ThuongHi__27250075F04D8C95");
-
+            entity.HasKey(e => e.MaTh).HasName("PK__ThuongHi__27250075CB94F910");
         });
 
         modelBuilder.Entity<Tra>(entity =>
         {
+            entity.HasKey(e => e.MaTra).HasName("PK__Tra__31493C676D0AA078");
 
-            entity.HasKey(e => e.MaTra).HasName("PK__Tra__31493C67C2AB20B3");
-
-            entity.HasOne(d => d.MaHdctNavigation).WithMany(p => p.Tras).HasConstraintName("FK__Tra__MaHDCT__0B5CAFEA");
-
+            entity.HasOne(d => d.MaHdctNavigation).WithMany(p => p.Tras).HasConstraintName("FK__Tra__MaHDCT__6ABAD62E");
         });
 
         modelBuilder.Entity<Voucher>(entity =>
         {
-
-            entity.HasKey(e => e.MaVoucher).HasName("PK__Voucher__0AAC5B111FAA9CFC");
-
+            entity.HasKey(e => e.MaVoucher).HasName("PK__Voucher__0AAC5B1194C30E77");
         });
 
         OnModelCreatingPartial(modelBuilder);
