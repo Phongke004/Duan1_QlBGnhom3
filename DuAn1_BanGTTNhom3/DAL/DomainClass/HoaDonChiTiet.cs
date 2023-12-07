@@ -19,8 +19,11 @@ public partial class HoaDonChiTiet
 
     public double? DonGia { get; set; }
 
-    [StringLength(250)]
-    public string? GhiChu { get; set; }
+    public double? TongTienSauVoucher { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaVoucher { get; set; }
 
     [Column("MaHD")]
     [StringLength(10)]
@@ -33,6 +36,10 @@ public partial class HoaDonChiTiet
     [ForeignKey("MaHd")]
     [InverseProperty("HoaDonChiTiets")]
     public virtual HoaDon? MaHdNavigation { get; set; }
+
+    [ForeignKey("MaVoucher")]
+    [InverseProperty("HoaDonChiTiets")]
+    public virtual Voucher? MaVoucherNavigation { get; set; }
 
     [InverseProperty("MaHdctNavigation")]
     public virtual ICollection<Tra> Tras { get; set; } = new List<Tra>();

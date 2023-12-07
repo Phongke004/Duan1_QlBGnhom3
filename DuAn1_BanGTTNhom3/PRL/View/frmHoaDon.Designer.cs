@@ -539,6 +539,7 @@
             // cbbTrangthai
             // 
             cbbTrangthai.FormattingEnabled = true;
+            cbbTrangthai.Items.AddRange(new object[] { "Đã thanh toán", "Chưa thanh toán" });
             cbbTrangthai.Location = new Point(245, 547);
             cbbTrangthai.Name = "cbbTrangthai";
             cbbTrangthai.Size = new Size(526, 40);

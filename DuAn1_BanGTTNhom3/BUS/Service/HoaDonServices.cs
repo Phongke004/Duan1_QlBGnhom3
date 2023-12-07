@@ -98,6 +98,11 @@ namespace BUS.Service
             return _repos.GetIDVoucher(MaVC);
         }
 
+        public List<KhachHang> GetKhachHang()
+        {
+            return _repos.GetKhachHang();
+        }
+
         public List<NhanVien> GetNhanViens()
         {
           return _repos.GetNhanViens();
@@ -119,7 +124,7 @@ namespace BUS.Service
             clone.NgayTao = hd.NgayTao;
             clone.TrangThai = hd.TrangThai;
             clone.TongTien = hd.TongTien;
-            clone.TongTienSauVoucher = hd.TongTienSauVoucher;
+          
 
             if (_repos.UpdateHD(hd))
             {
@@ -136,7 +141,8 @@ namespace BUS.Service
             var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHd == hdct.MaHd);
             clone.SoLuong = hdct.SoLuong;
             clone.DonGia = hdct.DonGia;
-            clone.GhiChu = hdct.GhiChu;
+            clone.TongTienSauVoucher = hdct.TongTienSauVoucher;
+            clone.MaHd = hdct.MaHd;
 
             if (_repos.UpdateHDCT(hdct) == true)
             {
