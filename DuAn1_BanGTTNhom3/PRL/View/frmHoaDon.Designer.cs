@@ -85,11 +85,16 @@
             btnAddHD = new Button();
             btnUpdateHD = new Button();
             btnXoaHD = new Button();
+            groupBox3 = new GroupBox();
+            groupBox4 = new GroupBox();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgviewHD).BeginInit();
+            groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -249,7 +254,7 @@
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label14);
             groupBox2.Controls.Add(txtTienSauVC);
-            groupBox2.Location = new Point(16, 646);
+            groupBox2.Location = new Point(16, 681);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(1755, 252);
             groupBox2.TabIndex = 2;
@@ -371,29 +376,29 @@
             // dtgView
             // 
             dtgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgView.Location = new Point(11, 904);
+            dtgView.Location = new Point(37, 377);
             dtgView.Name = "dtgView";
             dtgView.RowHeadersWidth = 82;
             dtgView.RowTemplate.Height = 41;
-            dtgView.Size = new Size(1753, 294);
+            dtgView.Size = new Size(1732, 248);
             dtgView.TabIndex = 3;
             dtgView.CellClick += dtgView_CellClick;
             // 
             // btnAddHoadon
             // 
-            btnAddHoadon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnAddHoadon.Location = new Point(1801, 758);
+            btnAddHoadon.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddHoadon.Location = new Point(30, 156);
             btnAddHoadon.Name = "btnAddHoadon";
-            btnAddHoadon.Size = new Size(185, 46);
+            btnAddHoadon.Size = new Size(185, 82);
             btnAddHoadon.TabIndex = 4;
-            btnAddHoadon.Text = "Thêm hóa đơn";
+            btnAddHoadon.Text = "Thêm hóa đơn chi tiết";
             btnAddHoadon.UseVisualStyleBackColor = true;
             btnAddHoadon.Click += btnAddHoadon_Click;
             // 
             // btnSuaHoaDon
             // 
-            btnSuaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnSuaHoaDon.Location = new Point(1801, 840);
+            btnSuaHoaDon.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSuaHoaDon.Location = new Point(12, 122);
             btnSuaHoaDon.Name = "btnSuaHoaDon";
             btnSuaHoaDon.Size = new Size(185, 46);
             btnSuaHoaDon.TabIndex = 5;
@@ -402,8 +407,8 @@
             // 
             // btnXoaHoaDon
             // 
-            btnXoaHoaDon.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnXoaHoaDon.Location = new Point(1791, 943);
+            btnXoaHoaDon.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnXoaHoaDon.Location = new Point(12, 199);
             btnXoaHoaDon.Name = "btnXoaHoaDon";
             btnXoaHoaDon.Size = new Size(182, 46);
             btnXoaHoaDon.TabIndex = 6;
@@ -412,10 +417,10 @@
             // 
             // btnHienthi
             // 
-            btnHienthi.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnHienthi.Location = new Point(1801, 1033);
+            btnHienthi.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHienthi.Location = new Point(12, 281);
             btnHienthi.Name = "btnHienthi";
-            btnHienthi.Size = new Size(150, 46);
+            btnHienthi.Size = new Size(182, 46);
             btnHienthi.TabIndex = 7;
             btnHienthi.Text = "Hiển thị";
             btnHienthi.UseVisualStyleBackColor = true;
@@ -424,7 +429,7 @@
             // btnThoat
             // 
             btnThoat.Font = new Font("Times New Roman", 7.875F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnThoat.Location = new Point(1801, 1195);
+            btnThoat.Location = new Point(55, 499);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(150, 46);
             btnThoat.TabIndex = 8;
@@ -581,18 +586,18 @@
             // dtgviewHD
             // 
             dtgviewHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgviewHD.Location = new Point(22, 390);
+            dtgviewHD.Location = new Point(22, 965);
             dtgviewHD.Name = "dtgviewHD";
             dtgviewHD.RowHeadersWidth = 82;
             dtgviewHD.RowTemplate.Height = 41;
-            dtgviewHD.Size = new Size(1749, 250);
+            dtgviewHD.Size = new Size(1749, 292);
             dtgviewHD.TabIndex = 13;
             dtgviewHD.CellClick += dtgviewHD_CellClick;
             // 
             // ClearCode
             // 
-            ClearCode.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ClearCode.Location = new Point(1801, 1112);
+            ClearCode.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ClearCode.Location = new Point(25, 456);
             ClearCode.Name = "ClearCode";
             ClearCode.Size = new Size(150, 46);
             ClearCode.TabIndex = 16;
@@ -602,66 +607,98 @@
             // 
             // btnHienThiHD
             // 
-            btnHienThiHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnHienThiHD.Location = new Point(1823, 115);
+            btnHienThiHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHienThiHD.Location = new Point(30, 53);
             btnHienThiHD.Name = "btnHienThiHD";
-            btnHienThiHD.Size = new Size(150, 46);
+            btnHienThiHD.Size = new Size(185, 73);
             btnHienThiHD.TabIndex = 17;
-            btnHienThiHD.Text = "Hiển thị";
+            btnHienThiHD.Text = "Hiển thị hóa đơn chi tiết";
             btnHienThiHD.UseVisualStyleBackColor = true;
             btnHienThiHD.Click += btnHienThiHD_Click;
             // 
             // btnAddHD
             // 
-            btnAddHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnAddHD.Location = new Point(1823, 202);
+            btnAddHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddHD.Location = new Point(15, 38);
             btnAddHD.Name = "btnAddHD";
-            btnAddHD.Size = new Size(150, 46);
+            btnAddHD.Size = new Size(172, 50);
             btnAddHD.TabIndex = 18;
-            btnAddHD.Text = "Thêm";
+            btnAddHD.Text = "Thêm hóa đơn ";
             btnAddHD.UseVisualStyleBackColor = true;
             btnAddHD.Click += btnAddHD_Click;
             // 
             // btnUpdateHD
             // 
-            btnUpdateHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnUpdateHD.Location = new Point(1823, 292);
+            btnUpdateHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateHD.Location = new Point(33, 270);
             btnUpdateHD.Name = "btnUpdateHD";
-            btnUpdateHD.Size = new Size(150, 46);
+            btnUpdateHD.Size = new Size(182, 70);
             btnUpdateHD.TabIndex = 19;
-            btnUpdateHD.Text = "Sửa";
+            btnUpdateHD.Text = "Sửa hóa đơn chi tiết";
             btnUpdateHD.UseVisualStyleBackColor = true;
             // 
             // btnXoaHD
             // 
-            btnXoaHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnXoaHD.Location = new Point(1829, 390);
+            btnXoaHD.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnXoaHD.Location = new Point(33, 385);
             btnXoaHD.Name = "btnXoaHD";
-            btnXoaHD.Size = new Size(150, 46);
+            btnXoaHD.Size = new Size(182, 66);
             btnXoaHD.TabIndex = 20;
-            btnXoaHD.Text = "Xóa";
+            btnXoaHD.Text = "Xóa hóa đơn chi tiết";
             btnXoaHD.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(btnHienThiHD);
+            groupBox3.Controls.Add(btnXoaHD);
+            groupBox3.Controls.Add(btnAddHoadon);
+            groupBox3.Controls.Add(btnUpdateHD);
+            groupBox3.Controls.Add(btnThoat);
+            groupBox3.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox3.Location = new Point(1771, 695);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(238, 570);
+            groupBox3.TabIndex = 21;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Chức năng";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(button1);
+            groupBox4.Controls.Add(btnAddHD);
+            groupBox4.Controls.Add(ClearCode);
+            groupBox4.Controls.Add(btnSuaHoaDon);
+            groupBox4.Controls.Add(btnXoaHoaDon);
+            groupBox4.Controls.Add(btnHienthi);
+            groupBox4.Location = new Point(1789, 107);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(208, 518);
+            groupBox4.TabIndex = 22;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Chức năng";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(15, 377);
+            button1.Name = "button1";
+            button1.Size = new Size(179, 46);
+            button1.TabIndex = 19;
+            button1.Text = "In Hóa đơn";
+            button1.UseVisualStyleBackColor = true;
             // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2009, 1277);
-            Controls.Add(btnXoaHD);
-            Controls.Add(btnUpdateHD);
-            Controls.Add(btnAddHD);
-            Controls.Add(btnHienThiHD);
-            Controls.Add(ClearCode);
+            Controls.Add(groupBox4);
+            Controls.Add(groupBox3);
             Controls.Add(dtgviewHD);
             Controls.Add(label15);
             Controls.Add(cbbTrangthai);
             Controls.Add(label13);
             Controls.Add(txtsearch);
-            Controls.Add(btnThoat);
-            Controls.Add(btnHienthi);
-            Controls.Add(btnXoaHoaDon);
-            Controls.Add(btnSuaHoaDon);
-            Controls.Add(btnAddHoadon);
             Controls.Add(dtgView);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -678,6 +715,8 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgviewHD).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -745,5 +784,8 @@
         private Button btnXoaHD;
         private ComboBox cbbMaHD;
         private Label label16;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private Button button1;
     }
 }
