@@ -33,5 +33,5 @@ public partial class Voucher
     public DateTime? NgayKetThuc { get; set; }
 
     [InverseProperty("MaVoucherNavigation")]
-    public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
+    public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; } = new List<HoaDonChiTiet>();
 }

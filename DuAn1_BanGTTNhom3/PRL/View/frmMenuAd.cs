@@ -56,7 +56,7 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmHoaDon hoaDon = new frmHoaDon();
+                frmQuanLyHD hoaDon = new frmQuanLyHD();
                 hoaDon.ShowDialog();
             }
             catch (Exception ex)

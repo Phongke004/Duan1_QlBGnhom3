@@ -18,9 +18,9 @@ namespace BUS.Service
             _repos = new HoaDonReps();
         }
 
-        public string AddsHD(HoaDon hd,KhachHang kh)
+        public string AddsHD(HoaDon hd)
         {
-            if (_repos.AddHD(hd,kh)== true)
+            if (_repos.AddHD(hd)== true)
             {
                 return "Thêm thành công";
 
@@ -88,9 +88,27 @@ namespace BUS.Service
           
         }
 
-        public List<HoaDonChiTiet> GetHoaDonChiTiets()
+        public List<HoaDonChiTiet> GetHoaDonChiTiets(string search)
         {
-          return _repos.GetHoaDonChiTiets();
+          
+            if (search == null)
+            {
+                return _repos.GetHoaDonChiTiets();
+            }
+            else
+            {
+                return _repos.GetHoaDonChiTiets().Where(x => x.MaHd.Contains(search)).ToList();
+            }
+        }
+
+        public Voucher GetIDVouchers(string MaVC)
+        {
+            return _repos.GetIDVoucher(MaVC);
+        }
+
+        public List<KhachHang> GetKhachHang()
+        {
+            return _repos.GetKhachHang();
         }
 
         public List<NhanVien> GetNhanViens()
@@ -114,7 +132,7 @@ namespace BUS.Service
             clone.NgayTao = hd.NgayTao;
             clone.TrangThai = hd.TrangThai;
             clone.TongTien = hd.TongTien;
-            clone.TongTienSauVoucher = hd.TongTienSauVoucher;
+          
 
             if (_repos.UpdateHD(hd))
             {
@@ -131,7 +149,8 @@ namespace BUS.Service
             var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHd == hdct.MaHd);
             clone.SoLuong = hdct.SoLuong;
             clone.DonGia = hdct.DonGia;
-            clone.GhiChu = hdct.GhiChu;
+            clone.TongTienSauVoucher = hdct.TongTienSauVoucher;
+            clone.MaHd = hdct.MaHd;
 
             if (_repos.UpdateHDCT(hdct) == true)
             {

@@ -39,9 +39,9 @@ namespace PRL.View
         }
         private void LoadData(string find)
         {
-            Type type = typeof(HoaDon);
+            
 
-            dtgView.ColumnCount = 18;
+            dtgView.ColumnCount = 17;
             int stt = 1;
             dtgView.Columns[0].Name = "STT";
             dtgView.Columns[1].Name = "Mã HD";
@@ -63,8 +63,8 @@ namespace PRL.View
             dtgView.Columns[13].Visible = false;
             dtgView.Columns[14].Name = "Số Lượng";
             dtgView.Columns[15].Name = "Đơn Giá ";
-            dtgView.Columns[16].Name = "Ghi chú";
-            dtgView.Columns[17].Visible = false;
+           
+            dtgView.Columns[16].Visible = false;
 
 
             dtgView.Rows.Clear();
@@ -73,10 +73,10 @@ namespace PRL.View
                 var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
                 var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
                 var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
-                var queryHDCT = _hoaDonServices.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHd == i.MaHd);
-                dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.TongTienSauVoucher, i.MaSp, querySP.TenSanPham,
-                    i.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong,
-                    queryHDCT.DonGia, queryHDCT.GhiChu);
+                var queryHDCT = _hoaDonServices.GetHoaDonChiTiets(null).FirstOrDefault(x => x.MaHd == i.MaHd);
+                dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, queryHDCT.TongTienSauVoucher, i.MaSp, querySP.TenSanPham,
+                    queryHDCT.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong,
+                    queryHDCT.DonGia);
             }
 
         }
@@ -87,11 +87,11 @@ namespace PRL.View
             _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
             txtTienSauVC.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[1].Value.ToString();
-            txtMaKhachHang.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
+            cbbMaKH.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
             cbbMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
             dtpkNgayTao.Value = DateTime.Parse(dtgView.Rows[indexof].Cells[2].Value.ToString());
-            txtTenSanPham.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
-            cbbMaSP.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
+            txtMaSP.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
+            cbbTenSanPham.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
             cbbGiamGia.Text = dtgView.Rows[indexof].Cells[8].Value.ToString();
             cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
             txtSoSanPham.Text = dtgView.Rows[indexof].Cells[14].Value.ToString();
@@ -144,58 +144,132 @@ namespace PRL.View
             }
         }
 
+
         private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Voucher voucher = new Voucher();
+            //try
+            //{
 
+
+
+            //    if (cbbGiamGia.Items != null)
+            //    {
+            //        txtTongTien.Text = ((int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoSanPham.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+
+            //    }
+            //    else
+            //    {
+            //        cbbGiamGia.SelectedItem = null;
+            //    }
+
+
+
+
+
+            //}
+            //catch (Exception)
+            //{
+
+            //    MessageBox.Show("chỉ được nhập số!!!!", "thông báo!", MessageBoxButtons.OK);
+            //}
+            TinhTongTien();
+        }
+        private void TinhTongTien()
+        {
+
+
+
+
+            try
+            {
+                if (!string.IsNullOrEmpty(txtSoSanPham.Text) && !string.IsNullOrEmpty(txtDonGia.Text))
+                {
+                    int soLuong = Convert.ToInt32(txtSoSanPham.Text);
+                    double giaBan = Convert.ToDouble(txtDonGia.Text);
+
+                    double tongTienBanDau = soLuong * giaBan;
+                    txtTongTien.Text = tongTienBanDau.ToString();
+
+                    // Kiểm tra xem đã chọn voucher chưa
+                    if (cbbGiamGia.SelectedItem != null)
+                    {
+                        Voucher voucherChon = (Voucher)cbbGiamGia.SelectedItem;
+                        double giamGia = Convert.ToDouble(voucherChon.GiaTri * soLuong * giaBan);
+                        txtTongTien.Text = tongTienBanDau.ToString();
+
+                        double tongTienSauVoucher = tongTienBanDau - giamGia;
+                        txtTienSauVC.Text = tongTienSauVoucher.ToString();
+                    }
+                    else
+                    {
+                        // Nếu không có voucher, tổng tiền sau voucher bằng tổng tiền ban đầu
+                        txtTienSauVC.Text = tongTienBanDau.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tính tổng số tiền: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //try
+            //{
+            //    if (!string.IsNullOrEmpty(txtSoSanPham.Text) && !string.IsNullOrEmpty(txtDonGia.Text))
+            //    {
+            //        int soLuong = Convert.ToInt32(txtSoSanPham.Text);
+            //        double giaBan = Convert.ToDouble(txtDonGia.Text);
+
+            //        double tongTien = soLuong * giaBan;
+
+            //        Kiểm tra xem đã chọn voucher chưa
+            //        if (cbbGiamGia.SelectedItem != null)
+            //        {
+            //            Voucher voucherChon = (Voucher)cbbGiamGia.SelectedItem;
+            //            tongTien -= Convert.ToDouble(voucherChon.GiaTri * soLuong * giaBan);
+            //        }
+
+            //        txtTongTien.Text = tongTien.ToString();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Lỗi khi tính tổng số tiền: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
         public void LoadComBoBox()
         {
             List<Voucher> vouchers = _hoaDonServices.GetVouchers();
             cbbGiamGia.DataSource = vouchers;
             cbbGiamGia.DisplayMember = "MoTa";
+            cbbGiamGia.SelectedIndex = -1;
+
 
 
 
             List<SanPham> sanPhams = _hoaDonServices.GetSanPhams();
+            cbbTenSanPham.DataSource = sanPhams;
+            cbbTenSanPham.DisplayMember = "TenSanPham";
+            cbbTenSanPham.SelectedIndex = -1;
 
-            cbbMaSP.DataSource = sanPhams;
-            cbbMaSP.DisplayMember = "MaSp";
-
+            //cbb nhan viên
             List<NhanVien> nhanViens = _hoaDonServices.GetNhanViens();
             cbbMaNhanVien.DataSource = nhanViens;
             cbbMaNhanVien.DisplayMember = "MaNv";
+            cbbMaNhanVien.SelectedIndex = -1;
+
             //bbGiamGia.DataSource = _hoaDonServices.GetVouchers();
+            //Cbb khach hang
+            List<KhachHang> khachHangs = _hoaDonServices.GetKhachHang();
+            cbbMaKH.DataSource = khachHangs;
+            cbbMaKH.DisplayMember = "MaKH";
+            cbbMaKH.SelectedIndex = -1;
+
 
 
         }
 
 
-        private void txtSoSanPham_TextChanged(object sender, EventArgs e)
-        {
-            //Voucher voucher = new Voucher();
-            //try
-            //{
-            //    if (txtSoLuong.Text != null && cbbGiamGia.Items == null)
-            //    {
-            //        txtTongTien.Text = (int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)).ToString();
-
-            //    }
-            //    else if (txtSoLuong.Text != null && cbbGiamGia.Items != null)
-            //    {
-            //        txtTongTien.Text = ((int.Parse(txtSoLuong.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoLuong.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
-
-            //    }
-            //    else if (txtSoLuong.Text == null && cbbGiamGia.Items != null)
-            //    {
-            //        txtSoLuong.Text = "";
-            //    }
-            //}
-            //catch (Exception)
-            //{
-
-            //    MessageBox.Show("Chỉ được nhập số!!!!", "Thông báo!", MessageBoxButtons.OK);
-            //}
-        }
 
         private void btnAddHoadon_Click(object sender, EventArgs e)
         {
@@ -203,10 +277,37 @@ namespace PRL.View
             {
                 HoaDon hoaDon = new HoaDon();
 
-                if (txtTenSanPham.Text != string.Empty && txtSoLuong.Text != string.Empty && cbbMaSP.Text != string.Empty)
+                if (txtMaSP.Text != string.Empty && cbbTenSanPham.Text != string.Empty)
                 {
-                    hoaDon.MaSp = txtMaHoaDon.Text;
 
+                    hoaDon.NgayTao = Convert.ToDateTime(dtpkNgayTao.Value);
+                    hoaDon.TrangThai = cbbTrangthai.SelectedItem.ToString();
+                    hoaDon.TongTien = Convert.ToDouble(txtTongTien.Text);
+                   
+                    hoaDon.MaSp = txtMaSP.Text;
+              
+                    hoaDon.MaNv = cbbMaNhanVien.SelectedItem.ToString();
+                    hoaDon.MaKh = cbbMaKH.SelectedItem.ToString();
+                    _hoaDonServices.AddsHD(hoaDon);
+                    MessageBox.Show("Thêm thành công");
+                    LoadData(null);
+
+
+
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Hãy nhập đầy đủ các trường");
+                }
+                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
+                if (txtSoSanPham.Text != string.Empty && txtDonGia.Text != string.Empty )
+                {
+                    hoaDonChiTiet.SoLuong =Convert.ToInt32( txtSoSanPham.Text);
+                    hoaDonChiTiet.DonGia = Convert.ToInt32(txtDonGia.Text);
                 }
 
             }
@@ -215,13 +316,59 @@ namespace PRL.View
 
             }
         }
+        private void txtSoSanPham_TextChanged_1(object sender, EventArgs e)
+        {
 
+        }
+        private void txtSoSanPham_TextChanged(object sender, EventArgs e)
+        {
+
+            //var voucher = _hoaDonServices.GetIDVouchers(null);
+            //try
+            //{
+
+
+            //    txtSoSanPham.Text = "";
+            //    if (txtSoSanPham.Text != null && txtDonGia.Text != null)
+            //    {
+
+            //        txtTongTien.Text = (int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)).ToString();
+            //        if (cbbGiamGia.SelectedItem != null)
+            //        {
+            //            txtTongTien.Text = ((int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoSanPham.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
+
+            //        }
+
+
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("chỉ được nhập số!!!!", "thông báo!", MessageBoxButtons.OK);
+            //    }
+
+
+            //}
+
+            //catch (Exception)
+            //{
+            //    return;
+
+            //}
+            TinhTongTien();
+
+
+
+
+        }
         private void cbbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SanPham sanPham = new SanPham();
-            if (cbbMaSP.Text != null)
+            txtMaSP.Text = "";
+            txtDonGia.Text = "";
+            if (cbbTenSanPham.SelectedItem != null)
             {
-                txtTenSanPham.Text = sanPham.TenSanPham;
+                var sanPham = (SanPham)cbbTenSanPham.SelectedItem;
+                txtMaSP.Text = sanPham.MaSp;
+                txtDonGia.Text = sanPham.Gia.ToString();
             }
         }
 
@@ -324,5 +471,24 @@ namespace PRL.View
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
+
+
+
+        private void txtDonGia_TextChanged(object sender, EventArgs e)
+        {
+
+            if (cbbTenSanPham.SelectedItem != null)
+            {
+                var sanPham = (SanPham)cbbTenSanPham.SelectedItem;
+                txtDonGia.Text = sanPham.Gia.ToString();
+            }
+        }
+
+        private void txtTienSauVC_TextChanged(object sender, EventArgs e)
+        {
+            TinhTongTien();
+        }
+
+
     }
 }
