@@ -39,7 +39,7 @@ namespace PRL.View
         }
         private void LoadData(string find)
         {
-            Type type = typeof(HoaDon);
+            
 
             dtgView.ColumnCount = 17;
             int stt = 1;
@@ -73,7 +73,7 @@ namespace PRL.View
                 var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
                 var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
                 var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
-                var queryHDCT = _hoaDonServices.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHd == i.MaHd);
+                var queryHDCT = _hoaDonServices.GetHoaDonChiTiets(null).FirstOrDefault(x => x.MaHd == i.MaHd);
                 dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, queryHDCT.TongTienSauVoucher, i.MaSp, querySP.TenSanPham,
                     queryHDCT.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong,
                     queryHDCT.DonGia);

@@ -88,9 +88,17 @@ namespace BUS.Service
           
         }
 
-        public List<HoaDonChiTiet> GetHoaDonChiTiets()
+        public List<HoaDonChiTiet> GetHoaDonChiTiets(string search)
         {
-          return _repos.GetHoaDonChiTiets();
+          
+            if (search == null)
+            {
+                return _repos.GetHoaDonChiTiets();
+            }
+            else
+            {
+                return _repos.GetHoaDonChiTiets().Where(x => x.MaHd.Contains(search)).ToList();
+            }
         }
 
         public Voucher GetIDVouchers(string MaVC)
