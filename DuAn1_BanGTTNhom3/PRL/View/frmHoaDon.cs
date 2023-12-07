@@ -36,48 +36,40 @@ namespace PRL.View
         private void btnHienthi_Click(object sender, EventArgs e)
         {
             LoadData(null);
+            LoadDataHD();
         }
         private void LoadData(string find)
         {
-            
 
-            dtgView.ColumnCount = 17;
-            int stt = 1;
+
+
+            dtgView.ColumnCount = 10;
+                int stt = 1;
             dtgView.Columns[0].Name = "STT";
             dtgView.Columns[1].Name = "Mã HD";
             dtgView.Columns[2].Name = "Ngày tạo";
             dtgView.Columns[3].Name = "Trạng thái";
             dtgView.Columns[4].Name = "Tổng tiền";
-            dtgView.Columns[5].Name = "Tiền sau Voucher";
-            dtgView.Columns[6].Name = "Mã SP";
-            dtgView.Columns[6].Visible = false;
-            dtgView.Columns[7].Name = "Tên sản phẩm";
-            dtgView.Columns[8].Name = "Mã VC";
-            dtgView.Columns[8].Visible = false;
-            dtgView.Columns[9].Name = "Mô tả voucher";
-            dtgView.Columns[10].Name = "Mã NV";
-            dtgView.Columns[10].Visible = false;
-            dtgView.Columns[11].Name = "Tên nhân viên";
-            dtgView.Columns[12].Name = "Mã KH";
-            dtgView.Columns[13].Name = "Mã HDCT";
-            dtgView.Columns[13].Visible = false;
-            dtgView.Columns[14].Name = "Số Lượng";
-            dtgView.Columns[15].Name = "Đơn Giá ";
-           
-            dtgView.Columns[16].Visible = false;
+            dtgView.Columns[5].Name = "Mã SP";
+            dtgView.Columns[5].Visible = false;
+            dtgView.Columns[6].Name = "Tên sản phẩm";
+            dtgView.Columns[7].Name = "Mã NV";
+            dtgView.Columns[7].Visible = false;
+            dtgView.Columns[8].Name = "Tên nhân viên";
+            dtgView.Columns[9].Name = "Mã KH";
 
 
             dtgView.Rows.Clear();
-            foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
-            {
-                var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
-                var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
-                var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
-                var queryHDCT = _hoaDonServices.GetHoaDonChiTiets(null).FirstOrDefault(x => x.MaHd == i.MaHd);
-                dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, queryHDCT.TongTienSauVoucher, i.MaSp, querySP.TenSanPham,
-                    queryHDCT.MaVoucher, queryVC.MoTa, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh, queryHDCT.MaHdct, queryHDCT.SoLuong,
-                    queryHDCT.DonGia);
-            }
+                foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
+                {
+                    var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
+                    var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
+
+
+                dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.MaSp, querySP.TenSanPham,
+                       i.MaNv, queryNhanVien.TenNhanVien, i.MaKh);
+                }
+            
 
         }
         private void dtgView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,19 +77,53 @@ namespace PRL.View
             int indexof = e.RowIndex; if (indexof < 0) return;
 
             _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
-            txtTienSauVC.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
+            
             txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[1].Value.ToString();
-            cbbMaKH.Text = dtgView.Rows[indexof].Cells[12].Value.ToString();
-            cbbMaNhanVien.Text = dtgView.Rows[indexof].Cells[10].Value.ToString();
+            cbbMaKH.Text = dtgView.Rows[indexof].Cells[9].Value.ToString();
+            cbbMaNhanVien.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
             dtpkNgayTao.Value = DateTime.Parse(dtgView.Rows[indexof].Cells[2].Value.ToString());
-            txtMaSP.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
-            cbbTenSanPham.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
-            cbbGiamGia.Text = dtgView.Rows[indexof].Cells[8].Value.ToString();
-            cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
-            txtSoSanPham.Text = dtgView.Rows[indexof].Cells[14].Value.ToString();
+            txtMaSP.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
+            cbbTenSanPham.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();      
+            cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();       
             txtDonGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtTongTien.Text = dtgView.Rows[indexof].Cells[4].Value.ToString();
 
+        }
+        private void dtgviewHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indexof = e.RowIndex; if (indexof < 0) return;
+
+            _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
+            txtTienSauVC.Text = dtgView.Rows[indexof].Cells[4].Value.ToString();
+            txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
+           
+            cbbGiamGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();      
+            txtSoSanPham.Text = dtgView.Rows[indexof].Cells[2].Value.ToString();
+            txtDonGia.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
+            
+        }
+        private void LoadDataHD()
+        {
+
+            dtgviewHD.ColumnCount = 8;
+            int stt = 1;
+            dtgviewHD.Columns[0].Name = "STT";
+            dtgviewHD.Columns[1].Name = "Mã HDCt";
+            dtgviewHD.Columns[2].Name = "Số Lượng";
+            dtgviewHD.Columns[3].Name = "Đơn Giá ";
+            dtgviewHD.Columns[4].Name = "Tiền sau Voucher";
+            dtgviewHD.Columns[5].Name = "Mã VC";
+            dtgviewHD.Columns[5].Visible = false;
+            dtgviewHD.Columns[6].Name = "Mô tả voucher";
+            dtgviewHD.Columns[7].Name = "Ma HD";
+            dtgviewHD.Rows.Clear();
+            foreach (var i in _hoaDonServices.GetHoaDonChiTiets(txtsearch.Text))
+            {
+
+                var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
+
+                dtgviewHD.Rows.Add(stt++, i.MaHdct, i.SoLuong, i.DonGia, i.TongTienSauVoucher, i.MaVoucher, queryVC.MoTa, i.MaHd);
+            }
         }
         private void mnStripDoiMk_Click(object sender, EventArgs e)
         {
@@ -283,9 +309,9 @@ namespace PRL.View
                     hoaDon.NgayTao = Convert.ToDateTime(dtpkNgayTao.Value);
                     hoaDon.TrangThai = cbbTrangthai.SelectedItem.ToString();
                     hoaDon.TongTien = Convert.ToDouble(txtTongTien.Text);
-                   
+
                     hoaDon.MaSp = txtMaSP.Text;
-              
+
                     hoaDon.MaNv = cbbMaNhanVien.SelectedItem.ToString();
                     hoaDon.MaKh = cbbMaKH.SelectedItem.ToString();
                     _hoaDonServices.AddsHD(hoaDon);
@@ -304,9 +330,9 @@ namespace PRL.View
                     MessageBox.Show("Hãy nhập đầy đủ các trường");
                 }
                 HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
-                if (txtSoSanPham.Text != string.Empty && txtDonGia.Text != string.Empty )
+                if (txtSoSanPham.Text != string.Empty && txtDonGia.Text != string.Empty)
                 {
-                    hoaDonChiTiet.SoLuong =Convert.ToInt32( txtSoSanPham.Text);
+                    hoaDonChiTiet.SoLuong = Convert.ToInt32(txtSoSanPham.Text);
                     hoaDonChiTiet.DonGia = Convert.ToInt32(txtDonGia.Text);
                 }
 
@@ -489,6 +515,22 @@ namespace PRL.View
             TinhTongTien();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtTienSauVC.Text = "";
+            txtMaHoaDon.Text = "";
+            cbbMaKH.Text = "";
+            cbbMaNhanVien.Text = "";
+            dtpkNgayTao.Text = "";
+            txtMaSP.Text = "";
+            cbbTenSanPham.Text = "";
+            cbbGiamGia.Text = "";
+            cbbTrangthai.Text = "";
+            txtSoSanPham.Text = "";
+            txtDonGia.Text = "";
+            txtTongTien.Text = "";
+        }
 
+       
     }
 }
