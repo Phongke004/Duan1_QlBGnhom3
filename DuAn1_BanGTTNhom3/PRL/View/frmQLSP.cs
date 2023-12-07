@@ -19,6 +19,10 @@ namespace PRL.View
     {
         private SanPhamServices _service;
         string _idClick;
+        string[] _idMau = new string[] { "MS001" , "MS002"};
+        string[] _idSize = new string[] { "Size001", "Size002"};
+        string[] _idChatLieu = new string[] { "CL001", "CL002"};
+        string[] _idThuongHieu = new string[] { "TH001", "TH002"};
         public frmQLSP()
         {
             InitializeComponent();
@@ -29,7 +33,7 @@ namespace PRL.View
 
         private void LoadData(string find)
         {
-           // Type type = typeof(SanPham);
+            // Type type = typeof(SanPham);
             dgvSanPham.Rows.Clear();
             dgvSanPham.ColumnCount = 11;
             int stt = 1;
@@ -45,15 +49,15 @@ namespace PRL.View
             dgvSanPham.Columns[8].Name = "Thương Hiệu";
             dgvSanPham.Columns[9].Name = "Giá Tiền";
             dgvSanPham.Columns[10].Name = "Trạng Thái";
-           
-            foreach (var item in  _service.GetAll(find))
+
+            foreach (var item in _service.GetAll(find))
             {
-                var getMauSac = _service.GetMauSac().FirstOrDefault(x=>x.MaMau==item.MaMau);
-                var getThuongHieu= _service.GetThuongHieu().FirstOrDefault(x=>x.MaTh==item.MaTh);
-                var getSize = _service.GetSize().FirstOrDefault(x=>x.MaSize==item.MaSize);  
-                var getChatLieu = _service.GetChatLieu().FirstOrDefault(x=>x.MaChatLieu==item.MaChatLieu);
-                dgvSanPham.Rows.Add(stt++, item.MaSp, item.TenSanPham, item.NgayNhap, item.SoLuong,getMauSac.TenMau,getSize.KichThuoc,
-                    getChatLieu.LoaiChatLieu,getThuongHieu.TenThuongHieu,item.Gia, item.TrangThai);
+                var getMauSac = _service.GetMauSac().FirstOrDefault(x => x.MaMau == item.MaMau);
+                var getThuongHieu = _service.GetThuongHieu().FirstOrDefault(x => x.MaTh == item.MaTh);
+                var getSize = _service.GetSize().FirstOrDefault(x => x.MaSize == item.MaSize);
+                var getChatLieu = _service.GetChatLieu().FirstOrDefault(x => x.MaChatLieu == item.MaChatLieu);
+                dgvSanPham.Rows.Add(stt++, item.MaSp, item.TenSanPham, item.NgayNhap, item.SoLuong, getMauSac.TenMau, getSize.KichThuoc,
+                    getChatLieu.LoaiChatLieu, getThuongHieu.TenThuongHieu, item.Gia, item.TrangThai);
             }
         }
 
@@ -71,7 +75,7 @@ namespace PRL.View
             cbbChatLieu.Text = dgvSanPham.Rows[index].Cells[7].Value.ToString();
             cbbThuongHieu.Text = dgvSanPham.Rows[index].Cells[8].Value.ToString();
             txtboxGiaTien.Text = dgvSanPham.Rows[index].Cells[9].Value.ToString();
-            
+
 
             if (dgvSanPham.Rows[index].Cells[10].Value.Equals("Hết hàng"))
             {
@@ -94,7 +98,7 @@ namespace PRL.View
                     sp.TenSanPham = txtboxNameSP.Text;
                     sp.NgayNhap = dtpNgayNhap.Value;
                     sp.SoLuong = Convert.ToInt32(txtboxSoLuong.Text);
-                    if(rbtnConHang.Checked)
+                    if (rbtnConHang.Checked)
                     {
                         sp.TrangThai = "Còn hàng";
                     }
@@ -102,22 +106,50 @@ namespace PRL.View
                     {
                         sp.TrangThai = "Hết hàng";
                     }
-                    sp.Gia = Convert.ToDouble( txtboxGiaTien.Text);
-                   // sp.MaMau = 
-                    sp.MaTh = cbbThuongHieu.Text;
-                    sp.MaChatLieu = cbbChatLieu.Text;
-                    sp.MaSize = cbbSize.Text;
-                      MessageBox.Show("Thêm thành công");
-                      _service.AddSP(sp);
+                    sp.Gia = Convert.ToDouble(txtboxGiaTien.Text);
+                    if (cbbColor.SelectedIndex == 1)
+                    {
+                        sp.MaMau = _idMau[0];
+                    }
+                    else
+                    {
+                        sp.MaMau = _idMau[1];
+                    }
+                    if (cbbThuongHieu.SelectedIndex == 1)
+                    {
+                        sp.MaTh = _idThuongHieu[0];
+                    }
+                    else
+                    {
+                        sp.MaTh = _idThuongHieu[1];
+                    }
+                    if (cbbChatLieu.SelectedIndex == 1)
+                    {
+                        sp.MaChatLieu = _idChatLieu[0];
+                    }
+                    else
+                    {
+                        sp.MaChatLieu = _idChatLieu[1];
+                    }
+                    if (cbbSize.SelectedIndex == 1)
+                    {
+                        sp.MaSize = _idSize[0];
+                    }
+                    else
+                    {
+                        sp.MaSize = _idSize[1];
+                    }
+                    MessageBox.Show("Thêm thành công");
+                    _service.AddSP(sp);
                     LoadData(null);
                     LoadCBB();
                 }
                 else
                 {
-                 
+
                     MessageBox.Show("Vui lòng nhập đầy đủ các trường");
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -170,11 +202,6 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-        }
-
-        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void quảnLýKhuyếnMãiToolStripMenuItem_Click(object sender, EventArgs e)

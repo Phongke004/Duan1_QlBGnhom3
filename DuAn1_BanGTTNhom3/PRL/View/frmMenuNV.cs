@@ -25,8 +25,8 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmQLSP sanPham = new frmQLSP();
-                sanPham.ShowDialog();
+                frmQLSP frmQLSP = new frmQLSP();
+                frmQLSP.ShowDialog();
             }
             catch (Exception ex)
             {
