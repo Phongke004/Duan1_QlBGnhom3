@@ -44,7 +44,7 @@ namespace PRL.View
 
 
             dtgView.ColumnCount = 10;
-                int stt = 1;
+            int stt = 1;
             dtgView.Columns[0].Name = "STT";
             dtgView.Columns[1].Name = "Mã HD";
             dtgView.Columns[2].Name = "Ngày tạo";
@@ -60,16 +60,16 @@ namespace PRL.View
 
 
             dtgView.Rows.Clear();
-                foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
-                {
-                    var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
-                    var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
+            foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
+            {
+                var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
+                var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
 
 
                 dtgView.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.MaSp, querySP.TenSanPham,
                        i.MaNv, queryNhanVien.TenNhanVien, i.MaKh);
-                }
-            
+            }
+
 
         }
         private void dtgView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -77,14 +77,14 @@ namespace PRL.View
             int indexof = e.RowIndex; if (indexof < 0) return;
 
             _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
-            
+
             txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[1].Value.ToString();
             cbbMaKH.Text = dtgView.Rows[indexof].Cells[9].Value.ToString();
             cbbMaNhanVien.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
             dtpkNgayTao.Value = DateTime.Parse(dtgView.Rows[indexof].Cells[2].Value.ToString());
             txtMaSP.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
-            cbbTenSanPham.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();      
-            cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();       
+            cbbTenSanPham.Text = dtgView.Rows[indexof].Cells[6].Value.ToString();
+            cbbTrangthai.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
             txtDonGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtTongTien.Text = dtgView.Rows[indexof].Cells[4].Value.ToString();
 
@@ -96,11 +96,11 @@ namespace PRL.View
             _idWhenClick = dtgView.Rows[indexof].Cells[1].Value.ToString();
             txtTienSauVC.Text = dtgView.Rows[indexof].Cells[4].Value.ToString();
             txtMaHoaDon.Text = dtgView.Rows[indexof].Cells[7].Value.ToString();
-           
-            cbbGiamGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();      
+
+            cbbGiamGia.Text = dtgView.Rows[indexof].Cells[5].Value.ToString();
             txtSoSanPham.Text = dtgView.Rows[indexof].Cells[2].Value.ToString();
             txtDonGia.Text = dtgView.Rows[indexof].Cells[3].Value.ToString();
-            
+
         }
         private void LoadDataHD()
         {
@@ -269,8 +269,11 @@ namespace PRL.View
             cbbGiamGia.DataSource = vouchers;
             cbbGiamGia.DisplayMember = "MoTa";
             cbbGiamGia.SelectedIndex = -1;
-
-
+            // hóa đơn
+            List<HoaDon> hoaDon = _hoaDonServices.GetHoaDon(null);
+            cbbMaHD.DataSource = hoaDon;
+            cbbMaHD.DisplayMember = "MaHD";
+            cbbMaHD.SelectedIndex = -1;
 
 
             List<SanPham> sanPhams = _hoaDonServices.GetSanPhams();
@@ -295,9 +298,7 @@ namespace PRL.View
 
         }
 
-
-
-        private void btnAddHoadon_Click(object sender, EventArgs e)
+        private void btnAddHD_Click(object sender, EventArgs e)
         {
             try
             {
@@ -307,14 +308,48 @@ namespace PRL.View
                 {
 
                     hoaDon.NgayTao = Convert.ToDateTime(dtpkNgayTao.Value);
-                    hoaDon.TrangThai = cbbTrangthai.SelectedItem.ToString();
+                    hoaDon.TrangThai = cbbTrangthai.Text;
                     hoaDon.TongTien = Convert.ToDouble(txtTongTien.Text);
-
                     hoaDon.MaSp = txtMaSP.Text;
-
-                    hoaDon.MaNv = cbbMaNhanVien.SelectedItem.ToString();
-                    hoaDon.MaKh = cbbMaKH.SelectedItem.ToString();
+                    hoaDon.MaNv = cbbMaNhanVien.Text;
+                    hoaDon.MaKh = cbbMaKH.Text;
                     _hoaDonServices.AddsHD(hoaDon);
+                    MessageBox.Show("Thêm thành công");
+                    LoadData(null);
+
+
+
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Hãy nhập đầy đủ các trường");
+                }
+
+
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Bạn đã sai rồi");
+            }
+        }
+
+        private void btnAddHoadon_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HoaDonChiTiet hDCT = new HoaDonChiTiet();
+
+                if (txtSoSanPham.Text != string.Empty && txtDonGia.Text != string.Empty)
+                {
+                    hDCT.SoLuong = Convert.ToInt32(txtSoSanPham.Text);
+                    hDCT.DonGia = Convert.ToDouble(txtDonGia.Text);
+                    hDCT.TongTienSauVoucher = Convert.ToDouble(txtTienSauVC.Text);
+                    hDCT.MaHd = cbbMaHD.Text;
+                    _hoaDonServices.AddsHDCT(hDCT);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
 
@@ -339,7 +374,7 @@ namespace PRL.View
             }
             catch (Exception ex)
             {
-
+                return;
             }
         }
         private void txtSoSanPham_TextChanged_1(object sender, EventArgs e)
@@ -531,6 +566,15 @@ namespace PRL.View
             txtTongTien.Text = "";
         }
 
-       
+        private void btnHienThiHD_Click(object sender, EventArgs e)
+        {
+            LoadData(null);
+            LoadDataHD();
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
