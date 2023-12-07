@@ -12,10 +12,12 @@ namespace PRL.View
 {
     public partial class frmMenuNV : Form
     {
+        string userName;
         bool isExitApplication;
-        public frmMenuNV()
+        public frmMenuNV(string username)
         {
             InitializeComponent();
+           this.userName = username;
         }
 
         private void btnSanPham_Click(object sender, EventArgs e)
@@ -91,6 +93,11 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi sảy ra" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmMenuNV_Load(object sender, EventArgs e)
+        {
+            userToolStripMenuItem.Text = "User: " + Username;
         }
     }
 }

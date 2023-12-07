@@ -12,9 +12,11 @@ namespace PRL.View
 {
     public partial class frmMenuAd : Form
     {
-        public frmMenuAd()
+        string Username;
+        public frmMenuAd(string username)
         {
             InitializeComponent();
+            Username = username;
         }
 
         private void btnQLSP_Click(object sender, EventArgs e)
@@ -133,6 +135,11 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmMenuAd_Load(object sender, EventArgs e)
+        {
+            userToolStripMenuItem.Text = "User: " + Username;
         }
     }
 }
