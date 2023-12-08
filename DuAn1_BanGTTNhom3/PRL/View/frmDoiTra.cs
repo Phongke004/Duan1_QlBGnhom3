@@ -170,9 +170,9 @@ namespace PRL.View
         {
             try
             {
-                this.Close();
-
-
+                this.Hide();
+                frmMenuNV frmMenuNV = new frmMenuNV(null);
+                frmMenuNV.ShowDialog(); 
             }
             catch (Exception ex)
             {

@@ -16,7 +16,7 @@ namespace PRL
 
 
 
-            Application.Run(new frmCoupon());
+            Application.Run(new frmLogin());
 
 
 
