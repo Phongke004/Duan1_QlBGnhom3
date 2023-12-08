@@ -75,9 +75,10 @@ namespace DAL.Repositories
             return true;
         }
 
-        public bool DeleteHD(HoaDon hd)
+        public bool DeleteHD(HoaDon id)
         {
-            _connect.HoaDons.Remove(hd);
+       
+            _connect.HoaDons.Remove(id);
             _connect.SaveChanges();
             return true;
         }
@@ -127,6 +128,7 @@ namespace DAL.Repositories
 
         public bool UpdateHD(HoaDon hd)
         {
+
             _connect.HoaDons.Update(hd);
             _connect.SaveChanges();
             return true;
@@ -160,6 +162,7 @@ namespace DAL.Repositories
             _connect.SaveChanges();
             return true;
         }
+
 
     }
 }
