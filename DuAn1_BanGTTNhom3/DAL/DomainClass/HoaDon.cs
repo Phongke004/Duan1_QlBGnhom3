@@ -23,10 +23,6 @@ public partial class HoaDon
 
     public double? TongTien { get; set; }
 
-    [StringLength(10)]
-    [Unicode(false)]
-    public string? MaSp { get; set; }
-
     [Column("MaNV")]
     [StringLength(10)]
     [Unicode(false)]
@@ -47,10 +43,6 @@ public partial class HoaDon
     [ForeignKey("MaNv")]
     [InverseProperty("HoaDons")]
     public virtual NhanVien? MaNvNavigation { get; set; }
-
-    [ForeignKey("MaSp")]
-    [InverseProperty("HoaDons")]
-    public virtual SanPham? MaSpNavigation { get; set; }
 
     [InverseProperty("MaHdNavigation")]
     public virtual ICollection<Thongke> Thongkes { get; set; } = new List<Thongke>();

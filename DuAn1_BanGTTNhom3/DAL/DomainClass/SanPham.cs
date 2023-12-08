@@ -46,7 +46,7 @@ public partial class SanPham
     public string? MaTh { get; set; }
 
     [InverseProperty("MaSpNavigation")]
-    public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
+    public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; } = new List<HoaDonChiTiet>();
 
     [ForeignKey("MaChatLieu")]
     [InverseProperty("SanPhams")]

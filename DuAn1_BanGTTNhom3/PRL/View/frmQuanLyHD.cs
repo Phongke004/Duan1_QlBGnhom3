@@ -31,21 +31,17 @@ namespace PRL.View
         private void LoadDataHD()
         {
 
-            dtgvHoaDon.ColumnCount = 10;
+            dtgvHoaDon.ColumnCount = 8;
             int stt = 1;
             dtgvHoaDon.Columns[0].Name = "STT";
             dtgvHoaDon.Columns[1].Name = "Mã HD";
             dtgvHoaDon.Columns[2].Name = "Ngày tạo";
             dtgvHoaDon.Columns[3].Name = "Trạng thái";
             dtgvHoaDon.Columns[4].Name = "Tổng tiền";
-            dtgvHoaDon.Columns[5].Name = "Mã SP";
+            dtgvHoaDon.Columns[5].Name = "Mã NV";
             dtgvHoaDon.Columns[5].Visible = false;
-            dtgvHoaDon.Columns[6].Name = "Tên sản phẩm";
-
-            dtgvHoaDon.Columns[7].Name = "Mã NV";
-            dtgvHoaDon.Columns[7].Visible = false;
-            dtgvHoaDon.Columns[8].Name = "Tên nhân viên";
-            dtgvHoaDon.Columns[9].Name = "Mã KH";
+            dtgvHoaDon.Columns[6].Name = "Tên nhân viên";
+            dtgvHoaDon.Columns[7].Name = "Mã KH";
 
 
 
@@ -57,40 +53,37 @@ namespace PRL.View
             foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
             {
                 var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
-                var querySP = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
+               
 
 
-                dtgvHoaDon.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.MaSp, querySP.TenSanPham,
-                   i.MaNv, queryNhanVien.TenNhanVien, i.MaKh);
+                dtgvHoaDon.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh);
             }
         }
         private void LoadDataHDCT()
         {
 
-            dtgvHDCT.ColumnCount = 8;
+            dtgvHDCT.ColumnCount = 10;
             int stt = 1;
             dtgvHDCT.Columns[0].Name = "STT";
-            dtgvHDCT.Columns[1].Name = "Mã HDCt";
-
-            dtgvHDCT.Columns[2].Name = "Số Lượng";
-            dtgvHDCT.Columns[3].Name = "Đơn Giá ";
-            dtgvHDCT.Columns[4].Name = "Tiền sau Voucher";
-            dtgvHDCT.Columns[5].Name = "Mã VC";
-            dtgvHDCT.Columns[5].Visible = false;
-            dtgvHDCT.Columns[6].Name = "Mô tả voucher";
-            dtgvHDCT.Columns[7].Name = "Ma HD";
-
-
-
-
-
+            dtgvHDCT.Columns[1].Name = "Mã HDCT";
+            dtgvHDCT.Columns[1].Visible = false;
+            dtgvHDCT.Columns[2].Name = "Mã sản phẩm";
+            dtgvHDCT.Columns[2].Visible = false;
+            dtgvHDCT.Columns[3].Name = "Tên sản phẩm";
+            dtgvHDCT.Columns[4].Name = "Số Lượng";
+            dtgvHDCT.Columns[5].Name = "Đơn Giá ";
+            dtgvHDCT.Columns[6].Name = "Tiền sau Voucher";
+            dtgvHDCT.Columns[7].Name = "Mã VC";
+            dtgvHDCT.Columns[7].Visible = false;
+            dtgvHDCT.Columns[8].Name = "Mô tả voucher";
+            dtgvHDCT.Columns[9].Name = "Mã HD";
             dtgvHDCT.Rows.Clear();
             foreach (var i in _hoaDonServices.GetHoaDonChiTiets(txtsearch.Text))
             {
 
                 var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
-
-                dtgvHDCT.Rows.Add(stt++, i.MaHdct, i.SoLuong, i.DonGia, i.TongTienSauVoucher, i.MaVoucher, queryVC.MoTa, i.MaHd);
+                var querySanPham = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
+                dtgvHDCT.Rows.Add(stt++, i.MaHdct, i.MaSp, querySanPham.TenSanPham, i.SoLuong, i.DonGia, i.TongTienSauVoucher, i.MaVoucher, queryVC.MoTa, i.MaHd);
             }
         }
         private void dtgvHDCT_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -30,17 +30,7 @@ namespace BUS.Service
 
         }
 
-        public bool CreateTra(Tra tra)
-        {
-            if (_doiTraReps.CreateTra(tra))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
 
         public bool DeleteDoi(string id)
         {
@@ -54,17 +44,7 @@ namespace BUS.Service
             }
         }
 
-        public bool DeleteTra(string id)
-        {
-            if (_doiTraReps.DeleteTra(id))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
 
         public List<Doi> GetDois(string find)
         {
@@ -85,29 +65,6 @@ namespace BUS.Service
            return _doiTraReps.GetSanPhams();
         }
 
-        public List<Tra> GetTras(string find)
-        {
-            if (find == null)
-            {
-                return _doiTraReps.GetTras();
-            }
-            return _doiTraReps.GetTras().Where(x => x.MaTra.Contains(find.Trim().ToLower())).ToList();
-        }
-
-        public string UpdateTras(Tra tra)
-        {
-            var clone = _doiTraReps.GetTras().FirstOrDefault(x => x.MaTra == tra.MaTra);
-            clone.TrangThai = tra.TrangThai;
-            clone.NgayDoi = tra.NgayDoi;
-            tra.LyDo = tra.LyDo;
-            if (_doiTraReps.UpdateTra(tra) == true)
-            {
-                return " Sửa thành công";
-            }
-            else
-            {
-                return " Sửa thất bại";
-            }
-        }
+       
     }
 }

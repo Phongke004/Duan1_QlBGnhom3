@@ -15,6 +15,10 @@ public partial class HoaDonChiTiet
     [Unicode(false)]
     public string MaHdct { get; set; } = null!;
 
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaSp { get; set; }
+
     public int? SoLuong { get; set; }
 
     public double? DonGia { get; set; }
@@ -37,10 +41,11 @@ public partial class HoaDonChiTiet
     [InverseProperty("HoaDonChiTiets")]
     public virtual HoaDon? MaHdNavigation { get; set; }
 
+    [ForeignKey("MaSp")]
+    [InverseProperty("HoaDonChiTiets")]
+    public virtual SanPham? MaSpNavigation { get; set; }
+
     [ForeignKey("MaVoucher")]
     [InverseProperty("HoaDonChiTiets")]
     public virtual Voucher? MaVoucherNavigation { get; set; }
-
-    [InverseProperty("MaHdctNavigation")]
-    public virtual ICollection<Tra> Tras { get; set; } = new List<Tra>();
 }
