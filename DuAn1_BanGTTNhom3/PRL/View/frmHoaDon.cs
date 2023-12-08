@@ -36,7 +36,7 @@ namespace PRL.View
         private void btnHienthi_Click(object sender, EventArgs e)
         {
             LoadData(null);
-            LoadDataHDCT();
+           
         }
         private void LoadData(string find)
         {
@@ -91,9 +91,9 @@ namespace PRL.View
             txtMaHDCT.Text = dtgviewHD.Rows[indexof].Cells[1].Value.ToString();
             txtTienSauVC.Text = dtgviewHD.Rows[indexof].Cells[6].Value.ToString();
             cbbTenSanPham.Text = dtgviewHD.Rows[indexof].Cells[3].Value.ToString();
-           
+
             txtMaSP.Text = dtgviewHD.Rows[indexof].Cells[2].Value.ToString();
-          
+
             cbbGiamGia.Text = dtgviewHD.Rows[indexof].Cells[8].Value.ToString();
             txtSoSanPham.Text = dtgviewHD.Rows[indexof].Cells[4].Value.ToString();
             txtDonGia.Text = dtgviewHD.Rows[indexof].Cells[5].Value.ToString();
@@ -315,7 +315,7 @@ namespace PRL.View
 
                     hoaDon.MaNv = cbbMaNhanVien.Text;
                     hoaDon.MaKh = cbbMaKH.Text;
-                   
+
                     _hoaDonServices.AddsHD(hoaDon);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
@@ -352,12 +352,9 @@ namespace PRL.View
                     hDCT.MaHd = cbbMaHD.Text;
 
 
-                    // cập nhật số lượng sản phẩm
-                    SanPham sanPham = _hoaDonServices.GetSanPhams().Where(p => p.MaSp.Equals(txtMaSP.Text)).SingleOrDefault();
-                    //Phương thức SingleOrDefault trong C# được sử dụng để trả về phần tử duy nhất từ một tập hợp (collection) thoả mãn điều kiện được chỉ định, hoặc trả về giá trị mặc định nếu không có phần tử nào thoả mãn điều kiện. Nếu có nhiều hơn một phần tử thoả mãn điều kiện, phương thức này sẽ ném một ngoại lệ.
-                    sanPham.SoLuong = sanPham.SoLuong - Convert.ToInt32(txtSoSanPham.Text);
+                    UpdateSoLuong();
                     _hoaDonServices.AddsHDCT(hDCT);
-                    
+
                     TinhTongTien();
                     LoadData(null);
                     LoadDataHDCT();
@@ -377,7 +374,31 @@ namespace PRL.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bạn đã sai rồi");
+                MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
+            }
+        }
+        private void UpdateSoLuong()
+        {
+            try
+            {
+                int soLuong =Convert.ToInt32( txtSoSanPham.Text);
+                if (soLuong == null)
+                {
+                    return;
+                }
+                else
+                {
+                    foreach (var  i in _hoaDonServices.GetHoaDonChiTiets(null))
+                    {
+                        var getSoLuong = _hoaDonServices.GetSanPhams().FirstOrDefault(x => x.MaSp == i.MaSp);
+                        int upDateSoLuongSp = Convert.ToInt32(getSoLuong.SoLuong - soLuong);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
             }
         }
         private void txtSoSanPham_TextChanged_1(object sender, EventArgs e)
@@ -571,7 +592,7 @@ namespace PRL.View
             txtSoSanPham.Text = "";
             txtDonGia.Clear();
             txtTongTien.Text = "";
-            
+
         }
         private void btnHienThiHD_Click(object sender, EventArgs e)
         {
@@ -643,6 +664,11 @@ namespace PRL.View
         }
 
         private void btnUpdateHDCT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbMaHD_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
