@@ -36,7 +36,7 @@ namespace PRL.View
         private void btnHienthi_Click(object sender, EventArgs e)
         {
             LoadData(null);
-           
+
         }
         private void LoadData(string find)
         {
@@ -317,12 +317,26 @@ namespace PRL.View
                     hoaDon.MaKh = cbbMaKH.Text;
 
                     _hoaDonServices.AddsHD(hoaDon);
+                    HoaDonChiTiet hDCT = new HoaDonChiTiet();
+                    hDCT.MaSp = txtMaSP.Text;
+                    hDCT.SoLuong = Convert.ToInt32(txtSoSanPham.Text);
+                    hDCT.DonGia = Convert.ToDouble(txtDonGia.Text);
+                    //   hDCT.MaVoucher = cbbGiamGia.Text;
+                    hDCT.MaHd = hoaDon.MaHd;
+                    hDCT.TongTienSauVoucher = Convert.ToDouble(txtTienSauVC.Text);
+
+                    _hoaDonServices.AddsHDCT(hDCT);
+                    LoadDataHDCT();
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
                     txtMaHoaDon.ReadOnly = true;
+
+                    ///
+
                 }
                 else
                 {
+
                     MessageBox.Show("Thêm thất bại");
                     MessageBox.Show("Hãy nhập đầy đủ các trường");
                 }
@@ -335,74 +349,8 @@ namespace PRL.View
             }
         }
 
-        private void btnAddHoadon_Click(object sender, EventArgs e)
-        {
-            try
-            {
 
 
-                if (txtSoSanPham.Text != string.Empty && cbbMaHD.Text != string.Empty)
-                {
-                    HoaDonChiTiet hDCT = new HoaDonChiTiet();
-                    hDCT.MaSp = txtMaSP.Text;
-                    hDCT.SoLuong = Convert.ToInt32(txtSoSanPham.Text);
-                    hDCT.DonGia = Convert.ToDouble(txtDonGia.Text);
-
-                    hDCT.TongTienSauVoucher = Convert.ToDouble(txtTienSauVC.Text);
-                    hDCT.MaHd = cbbMaHD.Text;
-
-
-                    UpdateSoLuong();
-                    _hoaDonServices.AddsHDCT(hDCT);
-
-                    TinhTongTien();
-                    LoadData(null);
-                    LoadDataHDCT();
-
-                    MessageBox.Show("Thêm thành công");
-
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại");
-                    MessageBox.Show("Hãy nhập đầy đủ các trường");
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
-            }
-        }
-        private void UpdateSoLuong()
-        {
-            try
-            {
-                int soLuong =Convert.ToInt32( txtSoSanPham.Text);
-                if (soLuong == null)
-                {
-                    return;
-                }
-                else
-                {
-                    foreach (var  i in _hoaDonServices.GetHoaDonChiTiets(null))
-                    {
-                        var getSoLuong = _hoaDonServices.GetSanPhams().FirstOrDefault(x => x.MaSp == i.MaSp);
-                        int upDateSoLuongSp = Convert.ToInt32(getSoLuong.SoLuong - soLuong);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
-
-            }
-        }
         private void txtSoSanPham_TextChanged_1(object sender, EventArgs e)
         {
 
@@ -672,6 +620,52 @@ namespace PRL.View
 
 
         private void cbbMaHD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            // hoa don chi tiet
+
+            if (txtSoSanPham.Text != string.Empty && cbbMaHD.Text != string.Empty)
+            {
+
+
+
+                SanPham sanPham = new SanPham();
+
+                //sanPham.SoLuong = hDCT.SoLuong - Convert.ToInt32(txtSoSanPham.Text);
+                _hoaDonServices.UpdateSoLuongSanPham(_idWhenClick);
+                //_hoaDonServices.AddsHDCT(hDCT);
+
+                TinhTongTien();
+                LoadData(null);
+                LoadDataHDCT();
+
+                MessageBox.Show("Thêm thành công");
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại");
+                MessageBox.Show("Hãy nhập đầy đủ các trường");
+            }
+
+
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
+            //}
+        }
+
+        private void dtgviewHD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

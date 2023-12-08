@@ -58,6 +58,18 @@ namespace DAL.Repositories
 
         public bool AddHDCT(HoaDonChiTiet hdct)
         {
+            if (GetHoaDonChiTiets().Count != 0)
+            {
+                var maxid = _connect.HoaDonChiTiets.Max(x => x.MaHdct);
+                int nextid = Convert.ToInt32(maxid.Substring(4)) + 1;
+                hdct.MaHdct = "HDCT" + nextid.ToString("D3");
+
+            }
+            else
+            {
+                hdct.MaHdct = "HDCT001";
+
+            }
             _connect.HoaDonChiTiets.Add(hdct);
             _connect.SaveChanges();
             return true;
@@ -128,5 +140,26 @@ namespace DAL.Repositories
         }
 
         
+        public List<SanPham> GetSanPhamById()
+        {
+            return _connect.SanPhams.ToList();
+        }
+        public bool UpdateSoLuongSanPham( string id)
+        {
+            var getSanPhamById = GetHoaDonChiTiets().FirstOrDefault(x => x.MaHdct == id);
+            int? gidaygiday = getSanPhamById.SoLuong;
+            var getSoLuongBan = getSanPhamById.MaSp;
+            var abc = GetSanPhamById().FirstOrDefault(x => x.MaSp == getSoLuongBan);
+            int? caigiday = abc.SoLuong;
+
+         
+          
+                abc.SoLuong = caigiday - gidaygiday;
+            
+            _connect.SanPhams.Update(abc);
+            _connect.SaveChanges();
+            return true;
+        }
+
     }
 }
