@@ -19,10 +19,10 @@ namespace PRL.View
     {
         private SanPhamServices _service;
         string _idClick;
-        string[] _idMau = new string[] { "MS001" , "MS002"};
-        string[] _idSize = new string[] { "Size001", "Size002"};
-        string[] _idChatLieu = new string[] { "CL001", "CL002"};
-        string[] _idThuongHieu = new string[] { "TH001", "TH002"};
+        string[] _idMau = new string[] { "MS001", "MS002" };
+        string[] _idSize = new string[] { "Size001", "Size002" };
+        string[] _idChatLieu = new string[] { "CL001", "CL002" };
+        string[] _idThuongHieu = new string[] { "TH001", "TH002" };
         public frmQLSP()
         {
             InitializeComponent();
@@ -291,6 +291,34 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            SanPham sp = new SanPham();
+            sp.MaSp = _idClick;
+            sp.TenSanPham = txtboxNameSP.Text;
+            sp.NgayNhap = Convert.ToDateTime(dtpNgayNhap.Text);
+            sp.SoLuong = Convert.ToInt32( txtboxSoLuong.Text);
+            sp.Gia = Convert.ToDouble(txtboxGiaTien.Text);
+            sp.TrangThai = rbtnConHang.Checked ? "Còn hàng" : "Hết hàng";
+            sp.MaMau = cbbColor.Text;
+            sp.MaSize = cbbSize.Text;
+            sp.MaChatLieu = cbbChatLieu.Text;
+            sp.MaTh = cbbThuongHieu.Text;
+            var option = MessageBox.Show("Xác nhận muốn Sửa?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (option == DialogResult.Yes)
+            {
+                MessageBox.Show(_service.UpdateSP(sp));
+
+            }
+            else
+            {
+
+                return;
+            }
+            LoadData(null);
+
         }
     }
 }

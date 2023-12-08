@@ -252,7 +252,6 @@
             txtboxMaCoupon.Location = new Point(213, 117);
             txtboxMaCoupon.Margin = new Padding(5);
             txtboxMaCoupon.Name = "txtboxMaCoupon";
-            txtboxMaCoupon.ReadOnly = true;
             txtboxMaCoupon.Size = new Size(435, 39);
             txtboxMaCoupon.TabIndex = 6;
             // 

@@ -64,6 +64,7 @@ namespace PRL.View
                 && txtboxDKVoucher.Text != string.Empty && dtpNgayBatDauVoucher.Text != string.Empty && dtpNgayKetThucVoucher.Text != string.Empty)
                 {
                     Voucher vc = new Voucher();
+                    vc.MaVoucher = txtboxMaVoucher.Text;
                     vc.TenVoucher = txtboxTenVoucher.Text;
                     vc.GiaTri = Convert.ToInt32(txtboxGiaTriVoucher.Text);
                     vc.MoTa = txtboxMoTaVoucher.Text;
