@@ -17,6 +17,7 @@ namespace PRL.View
     {
         HoaDonServices _hoaDonServices;
         string _idWhenclick;
+        string _idclickChiTiet;
         public frmQuanLyHD()
         {
             _hoaDonServices = new HoaDonServices();
@@ -25,10 +26,10 @@ namespace PRL.View
 
         private void btnHIenthi_Click(object sender, EventArgs e)
         {
-            LoadDataHD();
+            LoadDataHD(null);
             LoadDataHDCT();
         }
-        private void LoadDataHD()
+        private void LoadDataHD(string find)
         {
 
             dtgvHoaDon.ColumnCount = 8;
@@ -42,20 +43,10 @@ namespace PRL.View
             dtgvHoaDon.Columns[5].Visible = false;
             dtgvHoaDon.Columns[6].Name = "Tên nhân viên";
             dtgvHoaDon.Columns[7].Name = "Mã KH";
-
-
-
-
-
-
-
             dtgvHoaDon.Rows.Clear();
-            foreach (var i in _hoaDonServices.GetHoaDon(txtsearch.Text))
+            foreach (var i in _hoaDonServices.GetHoaDon(find))
             {
                 var queryNhanVien = _hoaDonServices.GetNhanViens().FirstOrDefault(i => i.MaNv == i.MaNv);
-               
-
-
                 dtgvHoaDon.Rows.Add(stt++, i.MaHd, i.NgayTao, i.TrangThai, i.TongTien, i.MaNv, queryNhanVien.TenNhanVien, i.MaKh);
             }
         }
@@ -66,7 +57,7 @@ namespace PRL.View
             int stt = 1;
             dtgvHDCT.Columns[0].Name = "STT";
             dtgvHDCT.Columns[1].Name = "Mã HDCT";
-            dtgvHDCT.Columns[1].Visible = false;
+            // dtgvHDCT.Columns[1].Visible = false;
             dtgvHDCT.Columns[2].Name = "Mã sản phẩm";
             dtgvHDCT.Columns[2].Visible = false;
             dtgvHDCT.Columns[3].Name = "Tên sản phẩm";
@@ -90,7 +81,7 @@ namespace PRL.View
         {
             int indexof = e.RowIndex; if (indexof < 0) return;
 
-            _idWhenclick = dtgvHoaDon.Rows[indexof].Cells[1].Value.ToString();
+            _idclickChiTiet = dtgvHoaDon.Rows[indexof].Cells[1].Value.ToString();
         }
 
         private void dtgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -100,36 +91,35 @@ namespace PRL.View
             _idWhenclick = dtgvHDCT.Rows[indexof].Cells[1].Value.ToString();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+
+
+        private void txtsearch_TextChanged(object sender, EventArgs e)
         {
-            HoaDon hd = new HoaDon();
-            hd.MaHd = _idWhenclick;
-            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Xóa không", "Xác nhận ", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            if (txtsearch.Text.Trim().Length < 0 || txtsearch.Text == null)
             {
-                _hoaDonServices.DeletesHD(hd);
+                LoadDataHD(null);
             }
             else
             {
-                return;
+                LoadDataHD(txtsearch.Text);
             }
-            LoadDataHD();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btndel_Click(object sender, EventArgs e)
         {
-            HoaDonChiTiet hd = new HoaDonChiTiet();
-            hd.MaHdct = _idWhenclick;
-            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Xóa không", "Xác nhận ", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                _hoaDonServices.DeletesHDCT(hd);
-            }
-            else
-            {
-                return;
-            }
+            HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
+            hoaDonChiTiet.MaHdct = _idclickChiTiet;
+            _hoaDonServices.DeletesHDCT(hoaDonChiTiet);
             LoadDataHDCT();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+            HoaDon hoaDonChiTiet = new HoaDon();
+            hoaDonChiTiet.MaHd = _idWhenclick;
+            _hoaDonServices.DeletesHD(hoaDonChiTiet);
+            LoadDataHD(null);
         }
     }
 }

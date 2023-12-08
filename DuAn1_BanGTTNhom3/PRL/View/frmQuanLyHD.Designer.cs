@@ -36,9 +36,8 @@
             dtgvHDCT = new DataGridView();
             btnXoa = new Button();
             btnHIenthi = new Button();
-            btnInHoaDon = new Button();
             txtsearch = new TextBox();
-            button1 = new Button();
+            btndel = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvHoaDon).BeginInit();
             groupBox2.SuspendLayout();
@@ -50,9 +49,10 @@
             label1.AutoSize = true;
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(527, 25);
+            label1.Location = new Point(464, 25);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(386, 57);
+            label1.Size = new Size(240, 37);
             label1.TabIndex = 0;
             label1.Text = "Quản lý Hóa Đơn";
             // 
@@ -60,51 +60,62 @@
             // 
             groupBox1.Controls.Add(dtgvHoaDon);
             groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            groupBox1.Location = new Point(12, 103);
+            groupBox1.Location = new Point(7, 64);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1434, 372);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(1068, 232);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin hóa đơn";
             // 
             // dtgvHoaDon
             // 
+            dtgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvHoaDon.Location = new Point(8, 44);
+            dtgvHoaDon.Location = new Point(20, 37);
+            dtgvHoaDon.Margin = new Padding(2);
             dtgvHoaDon.Name = "dtgvHoaDon";
             dtgvHoaDon.RowHeadersWidth = 82;
             dtgvHoaDon.RowTemplate.Height = 41;
-            dtgvHoaDon.Size = new Size(1420, 306);
+            dtgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvHoaDon.Size = new Size(1020, 191);
             dtgvHoaDon.TabIndex = 0;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(dtgvHDCT);
             groupBox2.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            groupBox2.Location = new Point(18, 556);
+            groupBox2.Location = new Point(11, 348);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1428, 411);
+            groupBox2.Padding = new Padding(2);
+            groupBox2.Size = new Size(1064, 257);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin sản phẩm";
             // 
             // dtgvHDCT
             // 
+            dtgvHDCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvHDCT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvHDCT.Location = new Point(6, 38);
+            dtgvHDCT.Location = new Point(7, 28);
+            dtgvHDCT.Margin = new Padding(2);
             dtgvHDCT.Name = "dtgvHDCT";
             dtgvHDCT.RowHeadersWidth = 82;
             dtgvHDCT.RowTemplate.Height = 41;
-            dtgvHDCT.Size = new Size(1416, 367);
+            dtgvHDCT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvHDCT.Size = new Size(1029, 229);
             dtgvHDCT.TabIndex = 0;
             dtgvHDCT.CellClick += dtgvHDCT_CellClick;
             // 
             // btnXoa
             // 
             btnXoa.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnXoa.Location = new Point(790, 502);
+            btnXoa.Location = new Point(486, 314);
+            btnXoa.Margin = new Padding(2);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(150, 46);
+            btnXoa.Size = new Size(92, 29);
             btnXoa.TabIndex = 3;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -113,57 +124,51 @@
             // btnHIenthi
             // 
             btnHIenthi.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnHIenthi.Location = new Point(1290, 502);
+            btnHIenthi.Location = new Point(794, 314);
+            btnHIenthi.Margin = new Padding(2);
             btnHIenthi.Name = "btnHIenthi";
-            btnHIenthi.Size = new Size(150, 46);
+            btnHIenthi.Size = new Size(92, 29);
             btnHIenthi.TabIndex = 4;
             btnHIenthi.Text = "Hiển thị";
             btnHIenthi.UseVisualStyleBackColor = true;
             btnHIenthi.Click += btnHIenthi_Click;
             // 
-            // btnInHoaDon
-            // 
-            btnInHoaDon.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            btnInHoaDon.Location = new Point(602, 502);
-            btnInHoaDon.Name = "btnInHoaDon";
-            btnInHoaDon.Size = new Size(150, 46);
-            btnInHoaDon.TabIndex = 5;
-            btnInHoaDon.Text = "In hóa đơn";
-            btnInHoaDon.UseVisualStyleBackColor = true;
-            // 
             // txtsearch
             // 
             txtsearch.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            txtsearch.Location = new Point(996, 508);
+            txtsearch.Location = new Point(613, 318);
+            txtsearch.Margin = new Padding(2);
             txtsearch.Name = "txtsearch";
             txtsearch.PlaceholderText = "Tìm Kiếm";
-            txtsearch.Size = new Size(282, 35);
+            txtsearch.Size = new Size(175, 25);
             txtsearch.TabIndex = 7;
+            txtsearch.TextChanged += txtsearch_TextChanged;
             // 
-            // button1
+            // btndel
             // 
-            button1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            button1.Location = new Point(1170, 1001);
-            button1.Name = "button1";
-            button1.Size = new Size(198, 46);
-            button1.TabIndex = 8;
-            button1.Text = "Xóa sản phẩm";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btndel.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            btndel.Location = new Point(720, 626);
+            btndel.Margin = new Padding(2);
+            btndel.Name = "btndel";
+            btndel.Size = new Size(122, 29);
+            btndel.TabIndex = 8;
+            btndel.Text = "Xóa sản phẩm";
+            btndel.UseVisualStyleBackColor = true;
+            btndel.Click += btndel_Click;
             // 
             // frmQuanLyHD
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1479, 1087);
-            Controls.Add(button1);
+            ClientSize = new Size(1222, 659);
+            Controls.Add(btndel);
             Controls.Add(txtsearch);
-            Controls.Add(btnInHoaDon);
             Controls.Add(btnHIenthi);
             Controls.Add(btnXoa);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            Margin = new Padding(2);
             Name = "frmQuanLyHD";
             Text = "frmQuanLyHD";
             groupBox1.ResumeLayout(false);
@@ -184,8 +189,7 @@
         private DataGridView dtgvHDCT;
         private Button btnXoa;
         private Button btnHIenthi;
-        private Button btnInHoaDon;
         private TextBox txtsearch;
-        private Button button1;
+        private Button btndel;
     }
 }
