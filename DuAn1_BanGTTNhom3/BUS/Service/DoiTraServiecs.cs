@@ -17,30 +17,13 @@ namespace BUS.Service
             _doiTraReps = new DoiTraReps();
         }
 
-        public bool CreateDoi(Doi doi)
+        public Doi CreateDoi(Doi doi)
         {
-            if (_doiTraReps.CreateDoi(doi))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+          return _doiTraReps.CreateDoi(doi);
 
         }
 
-        public bool CreateTra(Tra tra)
-        {
-            if (_doiTraReps.CreateTra(tra))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+
 
         public bool DeleteDoi(string id)
         {
@@ -54,17 +37,7 @@ namespace BUS.Service
             }
         }
 
-        public bool DeleteTra(string id)
-        {
-            if (_doiTraReps.DeleteTra(id))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+
 
         public List<Doi> GetDois(string find)
         {
@@ -75,6 +48,23 @@ namespace BUS.Service
             return _doiTraReps.GetDois().Where(x => x.MaDoi.Contains(find.Trim().ToLower())).ToList();
         }
 
+        public List<HoaDonChiTiet> GetHoaDonChiTiet()
+        {
+            return _doiTraReps.GetHoaDonChiTiets();
+        }
+
+        public List<HoaDon> GetHoaDons(string find)
+        {
+            if (find == null)
+            {
+                return _doiTraReps.GetHoaDons();
+            }
+          
+
+                return _doiTraReps.GetHoaDons().Where(x=>x.MaHd.Contains(find.ToLower().Trim())).ToList();
+            
+        }
+
         public List<NhanVien> GetNhanViens()
         {
             return _doiTraReps.GetNhanViens();
@@ -82,32 +72,9 @@ namespace BUS.Service
 
         public List<SanPham> GetSanPhams()
         {
-           return _doiTraReps.GetSanPhams();
+            return _doiTraReps.GetSanPhams();
         }
 
-        public List<Tra> GetTras(string find)
-        {
-            if (find == null)
-            {
-                return _doiTraReps.GetTras();
-            }
-            return _doiTraReps.GetTras().Where(x => x.MaTra.Contains(find.Trim().ToLower())).ToList();
-        }
 
-        public string UpdateTras(Tra tra)
-        {
-            var clone = _doiTraReps.GetTras().FirstOrDefault(x => x.MaTra == tra.MaTra);
-            clone.TrangThai = tra.TrangThai;
-            clone.NgayDoi = tra.NgayDoi;
-            tra.LyDo = tra.LyDo;
-            if (_doiTraReps.UpdateTra(tra) == true)
-            {
-                return " Sửa thành công";
-            }
-            else
-            {
-                return " Sửa thất bại";
-            }
-        }
     }
 }

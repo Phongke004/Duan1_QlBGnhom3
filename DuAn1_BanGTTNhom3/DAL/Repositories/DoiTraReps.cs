@@ -16,7 +16,7 @@ namespace DAL.Repositories
         {
             _dbconnext = new MyContext();
         }
-        public bool CreateDoi(Doi doi)
+        public Doi CreateDoi(Doi doi)
         {
             if (GetDois().Count != 0)
             {
@@ -31,25 +31,10 @@ namespace DAL.Repositories
             }
             _dbconnext.Dois.Add(doi);
             _dbconnext.SaveChanges();
-            return true;
+            return doi;
         }
 
-        public bool CreateTra(Tra tra)
-        {
-            if (GetTras().Count != 0)
-            {
-                var maxid = _dbconnext.Dois.Max(x => x.MaDoi);
-                int nextid = Convert.ToInt32(maxid.Substring(3)) + 1;
-                tra.MaTra = "TRA" + nextid.ToString("T3");
-            }
-            else
-            {
-                tra.MaTra = "TRA001";
-            }
-            _dbconnext.Tras.Add(tra);
-            _dbconnext.SaveChanges();
-            return true;
-        }
+        
 
         public bool DeleteDoi(string id)
         {
@@ -62,20 +47,21 @@ namespace DAL.Repositories
             return true;
         }
 
-        public bool DeleteTra(string id)
-        {
-            var results = _dbconnext.Tras.FirstOrDefault(x => x.MaTra == id);
-            if (results != null)
-            {
-                _dbconnext.Remove(results);
-            }
-            _dbconnext.SaveChanges();
-            return true;
-        }
+        
 
         public List<Doi> GetDois()
         {
             return _dbconnext.Dois.ToList();
+        }
+
+        public List<HoaDonChiTiet> GetHoaDonChiTiets()
+        {
+            return _dbconnext.HoaDonChiTiets.ToList();
+        }
+
+        public List<HoaDon> GetHoaDons()
+        {
+          return _dbconnext.HoaDons.ToList();
         }
 
         public List<NhanVien> GetNhanViens()
@@ -88,16 +74,5 @@ namespace DAL.Repositories
            return _dbconnext.SanPhams.ToList();
         }
 
-        public List<Tra> GetTras()
-        {
-            return _dbconnext.Tras.ToList();
-        }
-
-        public bool UpdateTra(Tra tra)
-        {
-            _dbconnext.Update(tra);
-           _dbconnext.SaveChanges();
-            return true;
-        }
     }
 }

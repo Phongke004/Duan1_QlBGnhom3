@@ -37,30 +37,54 @@ namespace DAL.Repositories
             return true;
         }
 
-        public bool AddHD(HoaDon hd)
+        public bool AddHDs(HoaDon hd)
         {
-            _connect.Add(hd);
+            if (GetHoaDons().Count != 0 )
+            {
+                var maxid = _connect.HoaDons.Max(x => x.MaHd);
+                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
+                hd.MaHd = "HD" + nextid.ToString("D3");
+               
+            }
+            else
+            {
+                hd.MaHd = "HD001";
+               
+            }
+            _connect.HoaDons.Add(hd);
             _connect.SaveChanges();
             return true;
         }
 
         public bool AddHDCT(HoaDonChiTiet hdct)
         {
-            _connect.Add(hdct);
+            if (GetHoaDonChiTiets().Count != 0)
+            {
+                var maxid = _connect.HoaDonChiTiets.Max(x => x.MaHdct);
+                int nextid = Convert.ToInt32(maxid.Substring(4)) + 1;
+                hdct.MaHdct = "HDCT" + nextid.ToString("D3");
+
+            }
+            else
+            {
+                hdct.MaHdct = "HDCT001";
+
+            }
+            _connect.HoaDonChiTiets.Add(hdct);
             _connect.SaveChanges();
             return true;
         }
 
         public bool DeleteHD(HoaDon hd)
         {
-            _connect.Remove(hd);
+            _connect.HoaDons.Remove(hd);
             _connect.SaveChanges();
             return true;
         }
 
         public bool DeleteHDCT(HoaDonChiTiet hdct)
         {
-            _connect.Remove(hdct);
+            _connect.HoaDonChiTiets.Remove(hdct);
             _connect.SaveChanges();
             return true;
         }
@@ -73,6 +97,11 @@ namespace DAL.Repositories
         public List<HoaDon> GetHoaDons()
         {
             return _connect.HoaDons.ToList();
+        }
+
+        public Voucher GetIDVoucher(string MaVC)
+        {
+            return _connect.Vouchers.FirstOrDefault(i => i.MaVoucher == MaVC);
         }
 
         public List<KhachHang> GetKhachHang()
@@ -93,20 +122,44 @@ namespace DAL.Repositories
         public List<Voucher> GetVouchers()
         {
             return _connect.Vouchers.ToList();
+
         }
 
         public bool UpdateHD(HoaDon hd)
         {
-            _connect.Update(hd);
+            _connect.HoaDons.Update(hd);
             _connect.SaveChanges();
             return true;
         }
 
         public bool UpdateHDCT(HoaDonChiTiet hdct)
         {
-            _connect.Update(hdct);
+            _connect.HoaDonChiTiets.Update(hdct);
             _connect.SaveChanges();
             return true;
         }
+
+        
+        public List<SanPham> GetSanPhamById()
+        {
+            return _connect.SanPhams.ToList();
+        }
+        public bool UpdateSoLuongSanPham( string id)
+        {
+            var getSanPhamById = GetHoaDonChiTiets().FirstOrDefault(x => x.MaHdct == id);
+            int? gidaygiday = getSanPhamById.SoLuong;
+            var getSoLuongBan = getSanPhamById.MaSp;
+            var abc = GetSanPhamById().FirstOrDefault(x => x.MaSp == getSoLuongBan);
+            int? caigiday = abc.SoLuong;
+
+         
+          
+                abc.SoLuong = caigiday - gidaygiday;
+            
+            _connect.SanPhams.Update(abc);
+            _connect.SaveChanges();
+            return true;
+        }
+
     }
 }

@@ -17,19 +17,10 @@ namespace DAL.Repositories
             _db = new MyContext();
         }
 
-        public bool Add(Coupon cp)
+        public bool AddCP(Coupon cp)
         {
-            if (GetCP().Count != 0)
-            {
-                var maxid = _db.Coupons.Max(x => x.MaCoupon);
-                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
-                cp.MaCoupon = "CP" + nextid.ToString("D3");
-            }
-            else
-            {
-                cp.MaCoupon = "CP001";
-            }
-            _db.Add(cp);
+            
+            _db.Coupons.Add(cp);
             _db.SaveChanges();
             return true;
         }

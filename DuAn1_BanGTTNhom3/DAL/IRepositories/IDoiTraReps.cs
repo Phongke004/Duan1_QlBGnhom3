@@ -10,13 +10,14 @@ namespace DAL.IRepositories
     public interface IDoiTraReps
     {
         public List<Doi> GetDois();
-        public List<Tra> GetTras();
+       
         public List<SanPham> GetSanPhams();
         public List<NhanVien> GetNhanViens();
-        public bool CreateDoi(Doi doi);
-        public bool CreateTra(Tra tra);
-        public bool DeleteTra(string id);
+        public Doi CreateDoi(Doi doi);
+
+        public List<HoaDon> GetHoaDons();
+        public List<HoaDonChiTiet>GetHoaDonChiTiets();
         public bool DeleteDoi(string id);
-        public bool UpdateTra(Tra tra);
+       
     }
 }

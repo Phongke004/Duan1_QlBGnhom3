@@ -10,16 +10,20 @@ namespace BUS.IService
     public interface IHoaDonServices
     {
         public List<HoaDon> GetHoaDon(string find);
-        public List<HoaDonChiTiet> GetHoaDonChiTiets();
+        public List<HoaDonChiTiet> GetHoaDonChiTiets(string search);
         public List <NhanVien > GetNhanViens();
         public List<SanPham> GetSanPhams();
+        public List<KhachHang> GetKhachHang();
+        public List<SanPham> GetSanPhamById();
+        public bool UpdateSoLuongSanPham(string id);
         public string UpdatesHD(HoaDon hd);
         public string DeletesHD(HoaDon hd);
-        public string AddsHD(HoaDon hd,KhachHang kh);
+        public string AddsHD(HoaDon hd);
         public string UpdatesHDCT(HoaDonChiTiet hdct);
         public string DeletesHDCT(HoaDonChiTiet hdct);
         public string AddsHDCT(HoaDonChiTiet hdct);
         public List<Voucher> GetVouchers();
+        public Voucher GetIDVouchers(string MaVC);
        
 
     }

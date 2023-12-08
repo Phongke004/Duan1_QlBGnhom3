@@ -412,6 +412,7 @@
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -430,7 +431,7 @@
             groupBox3.Controls.Add(dgvSanPham);
             groupBox3.Location = new Point(6, 473);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1033, 299);
+            groupBox3.Size = new Size(1033, 459);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
             groupBox3.Text = "Data Sản Phẩm";
@@ -440,12 +441,12 @@
             dgvSanPham.AllowUserToAddRows = false;
             dgvSanPham.AllowUserToDeleteRows = false;
             dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSanPham.Location = new Point(6, 26);
+            dgvSanPham.Location = new Point(12, 41);
             dgvSanPham.Name = "dgvSanPham";
             dgvSanPham.ReadOnly = true;
             dgvSanPham.RowHeadersWidth = 51;
             dgvSanPham.RowTemplate.Height = 29;
-            dgvSanPham.Size = new Size(1021, 267);
+            dgvSanPham.Size = new Size(1021, 395);
             dgvSanPham.TabIndex = 0;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
             // 
@@ -453,7 +454,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 784);
+            ClientSize = new Size(1053, 944);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);

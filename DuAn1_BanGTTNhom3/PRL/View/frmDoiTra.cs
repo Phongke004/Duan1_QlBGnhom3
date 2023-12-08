@@ -14,13 +14,13 @@ namespace PRL.View
 {
     public partial class frmDoiTra : Form
     {
-        HoaDonServices _hoaDonServiecs;
+        DoiTraServiecs _services;
         string _idClick;
         bool isExitApplication = false;
         public frmDoiTra()
         {
             InitializeComponent();
-            _hoaDonServiecs = new HoaDonServices();
+            _services = new DoiTraServiecs();
             LoadData(null);
         }
         public void LoadData(string find)
@@ -28,7 +28,7 @@ namespace PRL.View
             //Type type = typeof(HoaDon);
 
 
-            dgtView.ColumnCount = 9;
+            dgtView.ColumnCount = 8;
 
             dgtView.Columns[0].Name = "STT";
             dgtView.Columns[1].Name = "Mã hóa đơn";
@@ -36,18 +36,18 @@ namespace PRL.View
             dgtView.Columns[3].Name = "Số lượng";
             dgtView.Columns[4].Name = "Đơn giá";
             dgtView.Columns[5].Name = "Tổng tiền";
-            dgtView.Columns[6].Name = "Mã sản phẩm";
-            dgtView.Columns[7].Name = "Mã nhân viên";
-            dgtView.Columns[8].Visible = false;
+            dgtView.Columns[6].Name = "Tên sản phẩm";
+            dgtView.Columns[7].Name = "Tên nhân viên";
+            // dgtView.Columns[1].Visible = false;
             dgtView.Rows.Clear();
             int stt = 1;
-            foreach (var item in _hoaDonServiecs.GetHoaDon(find))
+            foreach (var item in _services.GetHoaDons(find))
             {
-                var queryProduct = _hoaDonServiecs.GetSanPhams().FirstOrDefault(x => x.MaSp == item.MaSp);
-                var queryStaff = _hoaDonServiecs.GetNhanViens().FirstOrDefault(x => x.MaNv == item.MaNv);
-                var query = _hoaDonServiecs.GetHoaDonChiTiets().FirstOrDefault(x => x.MaHd == item.MaHd);
-                dgtView.Rows.Add(stt++, item.MaHd, item.NgayTao, query.SoLuong, query.DonGia, item.TongTien
-                    , queryProduct.MaSp, queryStaff.MaNv, item.MaHd);
+                var getHoaDonChiTiet = _services.GetHoaDonChiTiet().FirstOrDefault(x => x.MaHd == item.MaHd);
+                var getNhanVien = _services.GetNhanViens().FirstOrDefault(x => x.MaNv == item.MaNv);
+                var getSanPham = _services.GetSanPhams().FirstOrDefault(x => x.MaSp == getHoaDonChiTiet.MaSp);
+                dgtView.Rows.Add(stt++, item.MaHd, item.NgayTao, getHoaDonChiTiet.SoLuong, getHoaDonChiTiet.DonGia, item.TongTien, getSanPham.TenSanPham
+                    , getNhanVien.TenNhanVien);
             }
 
         }
@@ -56,23 +56,13 @@ namespace PRL.View
         {
             int index = e.RowIndex; if (index < 0) return;
 
-            _idClick = dgtView.Rows[index].Cells[8].Value.ToString();
+            _idClick = dgtView.Rows[index].Cells[1].Value.ToString();
             txtMaNv.Text = dgtView.Rows[index].Cells[7].Value.ToString();
             txtMaSp.Text = dgtView.Rows[index].Cells[6].Value.ToString();
             txtMaHD.Text = dgtView.Rows[index].Cells[1].Value.ToString();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            if (txtSearch.Text.Trim().ToLower().Length < 0 || txtSearch.Text == null)
-            {
-                LoadData(null);
-            }
-            else
-            {
-                LoadData(txtSearch.Text);
-            }
-        }
+   
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -180,9 +170,9 @@ namespace PRL.View
         {
             try
             {
-                  this.Close();
-            
-
+                this.Hide();
+                frmMenuNV frmMenuNV = new frmMenuNV(null);
+                frmMenuNV.ShowDialog(); 
             }
             catch (Exception ex)
             {
@@ -248,6 +238,18 @@ namespace PRL.View
             catch (Exception ex)
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            if(txtSearch.Text.Trim().Length < 0||txtSearch.Text==null) 
+            {
+                LoadData(null);
+            }
+            else
+            {
+                LoadData(txtSearch.Text);
             }
         }
     }

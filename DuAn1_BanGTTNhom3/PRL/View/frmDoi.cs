@@ -112,6 +112,7 @@ namespace PRL
                     {
                         doi.TrangThai = "Không hợp lệ";
                     }
+                   
                     doi.NgayDoi = ptkNgayDoi.Value;
                     doi.DoiSangSp = txtDoiSp.Text;
                     MessageBox.Show("Thêm thành công");

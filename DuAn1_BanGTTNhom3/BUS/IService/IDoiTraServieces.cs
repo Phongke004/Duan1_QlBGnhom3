@@ -10,13 +10,14 @@ namespace BUS.IService
     public interface IDoiTraServieces
     {
         public List<Doi> GetDois(string find);
-        public List<Tra> GetTras(string find);
+      
         public List<NhanVien> GetNhanViens();
         public List<SanPham> GetSanPhams();
-        public bool CreateDoi(Doi doi);
-        public bool CreateTra(Tra tra);
-        public bool DeleteTra(string id);
+        public Doi CreateDoi(Doi doi);
+    
+       public List<HoaDon>GetHoaDons(string find);
+        public List<HoaDonChiTiet> GetHoaDonChiTiet();
         public bool DeleteDoi(string id);
-        public string UpdateTras(Tra tra);
+      
     }
 }

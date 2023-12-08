@@ -20,17 +20,8 @@ namespace DAL.Repositories
 
         public bool Add(Voucher vc)
         {
-            if (GetVC().Count != 0)
-            {
-                var maxid = _db.Vouchers.Max(x => x.MaVoucher);
-                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
-                vc.MaVoucher = "VC" + nextid.ToString("D3");
-            }
-            else
-            {
-                vc.MaVoucher = "VC001";
-            }
-            _db.Add(vc);
+            
+            _db.Vouchers.Add(vc);
             _db.SaveChanges();
             return true;
         }

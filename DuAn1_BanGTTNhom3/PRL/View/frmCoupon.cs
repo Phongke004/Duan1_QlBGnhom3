@@ -68,15 +68,17 @@ namespace PRL.View
                 && txtboxDKCoupon.Text != string.Empty && dtpNgayBatDauCoupon.Text != string.Empty && dtpNgayKetThucCoupon.Text != string.Empty)
                 {
                     Coupon cp = new Coupon();
+                    cp.MaCoupon = txtboxMaCoupon.Text;
                     cp.TenCoupon = txtboxTenCoupon.Text;
                     cp.GiaTri = Convert.ToInt32(txtboxGiaTriCoupon.Text);
                     cp.MoTa = txtboxMoTaCoupon.Text;
                     cp.DieuKien = txtboxDKCoupon.Text;
-                    cp.NgayBatDau = dtpNgayBatDauCoupon.Value;
-                    cp.NgayKetThuc = dtpNgayKetThucCoupon.Value;
-                    _service.AddCP(cp);
+                    cp.NgayBatDau = Convert.ToDateTime( dtpNgayBatDauCoupon.Text);
+                    cp.NgayKetThuc =Convert.ToDateTime( dtpNgayKetThucCoupon.Text);
+                    _service.AddCPs(cp);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
+                    txtboxMaCoupon.ReadOnly = false;
                 }
                 else
                 {
