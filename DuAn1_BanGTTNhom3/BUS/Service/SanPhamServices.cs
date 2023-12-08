@@ -19,7 +19,7 @@ namespace BUS.Service
         }
         public string AddSP(SanPham sp)
         {
-            if (_repos.Add(sp) == true)
+            if (_repos.AddsSP(sp) == true)
             {
                 return ("Thêm thành công");
             }
@@ -68,8 +68,6 @@ namespace BUS.Service
         public string UpdateSP(SanPham sp)
         {
             var sanpham = _repos.GetAll().FirstOrDefault(i => i.MaSp == sp.MaSp);
-
-
             sanpham.TenSanPham = sp.TenSanPham;
             sanpham.NgayNhap = sp.NgayNhap;
             sanpham.SoLuong = sp.SoLuong;
@@ -80,7 +78,7 @@ namespace BUS.Service
             sanpham.MaChatLieu = sp.MaChatLieu;
             sanpham.MaTh = sp.MaTh;
 
-                if (_repos.Update(sanpham) == true)
+                if (_repos.UpdatesSP(sanpham) == true)
                 {
                     return "sửa thành công";
                 }

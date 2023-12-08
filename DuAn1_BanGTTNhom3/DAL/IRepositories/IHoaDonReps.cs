@@ -17,7 +17,7 @@ namespace DAL.IRepositories
         public bool UpdateSoLuongSanPham( string id);
         public List<KhachHang> GetKhachHang();
         public bool UpdateHD(HoaDon hd);
-        public bool DeleteHD(HoaDon hd);
+        public bool DeleteHD(HoaDon id);
         public bool AddHD(HoaDon hd , KhachHang kh);
         public bool AddHDs(HoaDon hd);
         public bool UpdateHDCT(HoaDonChiTiet hdct);

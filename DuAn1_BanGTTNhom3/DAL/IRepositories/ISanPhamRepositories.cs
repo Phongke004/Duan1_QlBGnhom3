@@ -9,8 +9,8 @@ namespace DAL.IRepositories
 {
     public interface ISanPhamRepositories
     {
-        public bool Add(SanPham sp);
-        public bool Update(SanPham sp);
+        public bool AddsSP(SanPham sp);
+        public bool UpdatesSP(SanPham sp);
         public List<SanPham> GetAll();
 
         public List<HoaDon> GetHoaDon();

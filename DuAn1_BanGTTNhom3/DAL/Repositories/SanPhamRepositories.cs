@@ -17,19 +17,10 @@ namespace DAL.Repositories
         {
             _db = new MyContext();
         }
-        public bool Add(SanPham sp)
+        public bool AddsSP(SanPham sp)
         {
-            if (GetAll().Count != 0)
-            {
-                var maxid = _db.SanPhams.Max(x => x.MaSp);
-                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
-                sp.MaSp = "SP" + nextid.ToString("D3");
-            }
-            else
-            {
-                sp.MaSp = "SP001";
-            }
-            _db.Add(sp);
+            
+            _db.SanPhams.Add(sp);
             _db.SaveChanges();
             return true;
         }
@@ -64,22 +55,11 @@ namespace DAL.Repositories
             return _db.ThuongHieus.ToList();
         }
 
-        public bool Update(SanPham sp)
+        public bool UpdatesSP(SanPham sp)
         {
             _db.SanPhams.Update(sp);
             _db.SaveChanges();
-
             return true;
-            
-               
-                    
-                
-               
-           
         }
-
-      
-
-      
     }
 }

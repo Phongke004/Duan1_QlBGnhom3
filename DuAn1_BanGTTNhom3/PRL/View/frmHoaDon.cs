@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xceed.Words.NET;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
@@ -24,7 +25,8 @@ namespace PRL.View
     {
         private HoaDonServices _hoaDonServices;
         private bool isExitApplication = false;
-        string _idWhenClick;
+        string? _idWhenClick;
+        string? _idClickChiTiet;
         public frmHoaDon()
         {
             InitializeComponent();
@@ -87,7 +89,7 @@ namespace PRL.View
         {
             int indexof = e.RowIndex; if (indexof < 0) return;
 
-            _idWhenClick = dtgviewHD.Rows[indexof].Cells[1].Value.ToString();
+            _idClickChiTiet = dtgviewHD.Rows[indexof].Cells[1].Value.ToString();
             txtMaHDCT.Text = dtgviewHD.Rows[indexof].Cells[1].Value.ToString();
             txtTienSauVC.Text = dtgviewHD.Rows[indexof].Cells[6].Value.ToString();
             cbbTenSanPham.Text = dtgviewHD.Rows[indexof].Cells[3].Value.ToString();
@@ -175,32 +177,6 @@ namespace PRL.View
 
         private void cbbGiamGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Voucher voucher = new Voucher();
-            //try
-            //{
-
-
-
-            //    if (cbbGiamGia.Items != null)
-            //    {
-            //        txtTongTien.Text = ((int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoSanPham.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
-
-            //    }
-            //    else
-            //    {
-            //        cbbGiamGia.SelectedItem = null;
-            //    }
-
-
-
-
-
-            //}
-            //catch (Exception)
-            //{
-
-            //    MessageBox.Show("chỉ được nhập số!!!!", "thông báo!", MessageBoxButtons.OK);
-            //}
             TinhTongTien();
         }
         private void TinhTongTien()
@@ -241,29 +217,16 @@ namespace PRL.View
                 MessageBox.Show("Lỗi khi tính tổng số tiền: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //try
-            //{
-            //    if (!string.IsNullOrEmpty(txtSoSanPham.Text) && !string.IsNullOrEmpty(txtDonGia.Text))
-            //    {
-            //        int soLuong = Convert.ToInt32(txtSoSanPham.Text);
-            //        double giaBan = Convert.ToDouble(txtDonGia.Text);
+        }
+        private void LoadCbbMaHoaDon()
+        {
+            // hóa đơn
+            List<HoaDon> hoaDon = _hoaDonServices.GetHoaDon(null);
+            cbbMaHD.DataSource = null;
+            cbbMaHD.DataSource = hoaDon;
+            cbbMaHD.DisplayMember = "MaHD";
+            cbbMaHD.SelectedIndex = -1;
 
-            //        double tongTien = soLuong * giaBan;
-
-            //        Kiểm tra xem đã chọn voucher chưa
-            //        if (cbbGiamGia.SelectedItem != null)
-            //        {
-            //            Voucher voucherChon = (Voucher)cbbGiamGia.SelectedItem;
-            //            tongTien -= Convert.ToDouble(voucherChon.GiaTri * soLuong * giaBan);
-            //        }
-
-            //        txtTongTien.Text = tongTien.ToString();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Lỗi khi tính tổng số tiền: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
         public void LoadComBoBox()
         {
@@ -317,6 +280,7 @@ namespace PRL.View
                     hoaDon.MaKh = cbbMaKH.Text;
 
                     _hoaDonServices.AddsHD(hoaDon);
+                    LoadCbbMaHoaDon();
                     HoaDonChiTiet hDCT = new HoaDonChiTiet();
                     hDCT.MaSp = txtMaSP.Text;
                     hDCT.SoLuong = Convert.ToInt32(txtSoSanPham.Text);
@@ -358,37 +322,6 @@ namespace PRL.View
         private void txtSoSanPham_TextChanged(object sender, EventArgs e)
         {
 
-            //var voucher = _hoaDonServices.GetIDVouchers(null);
-            //try
-            //{
-
-
-            //    txtSoSanPham.Text = "";
-            //    if (txtSoSanPham.Text != null && txtDonGia.Text != null)
-            //    {
-
-            //        txtTongTien.Text = (int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)).ToString();
-            //        if (cbbGiamGia.SelectedItem != null)
-            //        {
-            //            txtTongTien.Text = ((int.Parse(txtSoSanPham.Text) * double.Parse(txtDonGia.Text)) - (int.Parse(txtSoSanPham.Text) * voucher.GiaTri * double.Parse(txtDonGia.Text))).ToString();
-
-            //        }
-
-
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("chỉ được nhập số!!!!", "thông báo!", MessageBoxButtons.OK);
-            //    }
-
-
-            //}
-
-            //catch (Exception)
-            //{
-            //    return;
-
-            //}
             TinhTongTien();
 
 
@@ -561,61 +494,45 @@ namespace PRL.View
             hd.MaHd = _idWhenClick;
             hd.NgayTao = Convert.ToDateTime(dtpkNgayTao.Text);
             hd.TrangThai = cbbTrangthai.Text;
-            hd.TongTien = Convert.ToDouble(txtTongTien.Text);
-            hd.MaKh = cbbTrangthai.Text;
+            hd.MaKh = cbbMaKH.Text;
             hd.MaNv = cbbMaNhanVien.Text;
-            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Sửa không", "Xác nhận ", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                MessageBox.Show(_hoaDonServices.UpdatesHD(hd));
-            }
-            else
-            {
-                return;
-            }
+            _hoaDonServices.UpdatesHD(hd);
             LoadData(null);
+
         }
 
         private void btnXoaHoaDon_Click(object sender, EventArgs e)
         {
-            HoaDon hd = new HoaDon();
-
-            hd.MaHd = _idWhenClick;
-            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Xóa không", "Xác nhận ", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                MessageBox.Show(_hoaDonServices.DeletesHD(hd));
-            }
-            else
-            {
-                return;
-            }
+            HoaDon hoaDon = new HoaDon();
+            hoaDon.MaHd = _idWhenClick;
+            _hoaDonServices.DeletesHD(hoaDon);
             LoadData(null);
         }
 
         private void btnXoaHDCT_Click(object sender, EventArgs e)
         {
+            HoaDon hd = new HoaDon();
+            hd.MaHd = _idWhenClick;
             HoaDonChiTiet hdct = new HoaDonChiTiet();
+            hdct.MaHdct = _idClickChiTiet;
+            _hoaDonServices.DeletesHD(hd);
+            _hoaDonServices.DeletesHDCT(hdct);
 
-            hdct.MaHdct = _idWhenClick;
-            //update lai so luong kho hang khi xoa
-            SanPham suaSL = _hoaDonServices.GetSanPhams().Where(p => p.MaSp.Equals(txtMaSP.Text)).SingleOrDefault();
-            suaSL.SoLuong = suaSL.SoLuong + int.Parse(txtSoSanPham.Text);
-            DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Xóa không", "Xác nhận ", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                MessageBox.Show(_hoaDonServices.DeletesHDCT(hdct));
-            }
-            else
-            {
-                return;
-            }
+
+            LoadData(null);
+
             LoadDataHDCT();
         }
 
         private void btnUpdateHDCT_Click(object sender, EventArgs e)
         {
-
+            HoaDonChiTiet hdct = new HoaDonChiTiet();
+            hdct.MaHdct = _idClickChiTiet;
+            hdct.SoLuong = int.Parse(txtSoSanPham.Text);
+            hdct.MaSp = txtMaSP.Text;
+            hdct.MaVoucher = cbbGiamGia.Text;
+            _hoaDonServices.UpdatesHDCT(hdct);
+            LoadDataHDCT();
         }
 
 
@@ -667,6 +584,48 @@ namespace PRL.View
 
         private void dtgviewHD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void cbbTrangthai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmHoaDon_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXuatfile_Click(object sender, EventArgs e)
+        {
+            // Tạo đối tượng SaveFileDialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Word Document (*.doc)|*.docx";
+            saveFileDialog.Title = "Save Word Document";
+            saveFileDialog.DefaultExt = "docx";
+            saveFileDialog.AddExtension = true;
+            if(saveFileDialog.ShowDialog()== DialogResult.OK)
+            {
+                string path = saveFileDialog.FileName;
+                using (DocX doucument = DocX.Create(path))
+                {
+                    doucument.InsertParagraph("Hóa đơn bán hàng");
+                    doucument.InsertParagraph($"Mã hóa đơn chi tiết : {txtMaHDCT.Text}");
+                    doucument.InsertParagraph($"Mã hóa đơn : {cbbMaHD.Text}");
+                    doucument.InsertParagraph($"Mã sản phẩm : {txtMaSP.Text}");
+                    doucument.InsertParagraph($"Số lượng : {txtSoSanPham.Text}");
+                    doucument.InsertParagraph($"Đơn giá : {txtDonGia.Text}");
+                    doucument.InsertParagraph($"Tổng tiền : {txtTongTien.Text}");
+                    doucument.InsertParagraph($"Voucher sử dụng : {cbbGiamGia.Text}");
+                    doucument.InsertParagraph($"Số tiền cần trả : {txtTienSauVC.Text}");
+
+                    doucument.Save();
+
+                }
+                MessageBox.Show("In thành công");
+            }
+          
 
         }
     }

@@ -107,7 +107,7 @@ namespace PRL.View
             DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Xóa không", "Xác nhận ", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                MessageBox.Show(_hoaDonServices.DeletesHD(hd));
+                _hoaDonServices.DeletesHD(hd);
             }
             else
             {
@@ -123,7 +123,7 @@ namespace PRL.View
             DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Xóa không", "Xác nhận ", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                MessageBox.Show(_hoaDonServices.DeletesHDCT(hd));
+                _hoaDonServices.DeletesHDCT(hd);
             }
             else
             {
