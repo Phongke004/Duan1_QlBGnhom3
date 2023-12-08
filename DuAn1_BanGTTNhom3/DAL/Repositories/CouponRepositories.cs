@@ -17,7 +17,7 @@ namespace DAL.Repositories
             _db = new MyContext();
         }
 
-        public bool Add(Coupon cp)
+        public bool AddCP(Coupon cp)
         {
             if (GetCP().Count != 0)
             {
@@ -29,7 +29,7 @@ namespace DAL.Repositories
             {
                 cp.MaCoupon = "CP001";
             }
-            _db.Add(cp);
+            _db.Coupons.Add(cp);
             _db.SaveChanges();
             return true;
         }
