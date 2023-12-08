@@ -66,33 +66,16 @@ namespace DAL.Repositories
 
         public bool Update(SanPham sp)
         {
-            //try
-            //{
-            //    var a = _db.ChiTietSanPhams.FirstOrDefault(x => x.Maspct == sp.MaSp);
-            //    var b = _db.MauSacs.FirstOrDefault(x => x.MaMau == sp.MaMau);
-            //    var c = _db.Sizes.FirstOrDefault(x => x.MaSize == sp.MaSize);
-            //    var d = _db.ChatLieus.FirstOrDefault(x => x.MaChatLieu == sp.MaChatLieu);
-            //    var e = _db.ThuongHieus.FirstOrDefault(x => x.MaTh == sp.MaTh);
-            //    sp.TenSanPham = item.
-            //    a.NgayNhap = sp.NgayNhap;
-            //    a.SoLuong = sp.SoLuong;
-            //    d.TenMau = sp.TenMau;
-            //    e.KichThuoc = ;
-            //    b.DiaChi = sp.DiaChi;
-            //    d.MatKhau = nv.MatKhau;
-            //    d.TrangThai = nv.TrangThai;
-            //    d.MaChucVu = nv.MaChucVu;
-            //    d.MaCa = nv.MaCa;
-            //    _dbcontext.NhanViens.Update(nv);
-            //    _dbcontext.SaveChanges();
-            //    return true;
-            //}
-            //catch (Exception)
-            //{
+            _db.SanPhams.Update(sp);
+            _db.SaveChanges();
 
-            //    return false;
-            //}
-            throw new NotImplementedException();
+            return true;
+            
+               
+                    
+                
+               
+           
         }
 
       

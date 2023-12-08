@@ -67,25 +67,28 @@ namespace BUS.Service
 
         public string UpdateSP(SanPham sp)
         {
-            //var clone = _repos.GetAll().FirstOrDefault(x => x.MaSp == sp.MaSp);
-            //clone.TenSanPham = sp.TenSanPham;
-            //clone.NgayNhap = sp.NgayNhap;
-            //clone.SoLuong = sp.SoLuong;
-            //clone.TenMau = sp.TenMau;
-            //clone.KichThuoc = sp.KichThuoc;
-            //clone.LoaiChatLieu = sp.LoaiChatLieu;
-            //clone.TenThuongHieu = sp.TenThuongHieu;
-            //clone.TongTien = sp.TongTien;
-            //clone.TrangThai = sp.TrangThai;
-            //if (_repos.Update(clone) == true)
-            //{
-            //    return (" Sửa thành công");
-            //}
-            //else
-            //{
-            //    return (" Sửa thất bại");
-            //}
-            throw new NotImplementedException();
+            var sanpham = _repos.GetAll().FirstOrDefault(i => i.MaSp == sp.MaSp);
+
+
+            sanpham.TenSanPham = sp.TenSanPham;
+            sanpham.NgayNhap = sp.NgayNhap;
+            sanpham.SoLuong = sp.SoLuong;
+            sanpham.Gia = sp.Gia;
+            sanpham.TrangThai = sp.TrangThai;
+            sanpham.MaMau = sp.MaMau;
+            sanpham.MaSize = sp.MaSize;
+            sanpham.MaChatLieu = sp.MaChatLieu;
+            sanpham.MaTh = sp.MaTh;
+
+                if (_repos.Update(sanpham) == true)
+                {
+                    return "sửa thành công";
+                }
+                else
+                {
+                    return "sửa thất bại";
+                }
+           
         }
     }
 }
