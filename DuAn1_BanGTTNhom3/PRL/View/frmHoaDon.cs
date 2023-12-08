@@ -374,6 +374,7 @@ namespace PRL.View
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
             }
         }
@@ -399,6 +400,7 @@ namespace PRL.View
             {
 
                 MessageBox.Show("Thông báo :" + ex, "Thông báo ", MessageBoxButtons.OK);
+
             }
         }
         private void txtSoSanPham_TextChanged_1(object sender, EventArgs e)
@@ -667,6 +669,7 @@ namespace PRL.View
         {
 
         }
+
 
         private void cbbMaHD_SelectedIndexChanged(object sender, EventArgs e)
         {

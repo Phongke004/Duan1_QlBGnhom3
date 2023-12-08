@@ -55,7 +55,6 @@
             label2 = new Label();
             btnDoiHang = new Button();
             grb = new GroupBox();
-            btnTra = new Button();
             txtSearch = new TextBox();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -80,7 +79,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { chứcToolStripMenuItem, thêmNhânViênToolStripMenuItem, userToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(863, 28);
+            menuStrip1.Size = new Size(1133, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -94,49 +93,49 @@
             // quảnLýNhânViênToolStripMenuItem
             // 
             quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            quảnLýNhânViênToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýNhânViênToolStripMenuItem.Size = new Size(221, 26);
             quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
             quảnLýNhânViênToolStripMenuItem.Click += quảnLýNhânViênToolStripMenuItem_Click;
             // 
             // quảnLýSảnPhẩmToolStripMenuItem
             // 
             quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(221, 26);
             quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             quảnLýSảnPhẩmToolStripMenuItem.Click += quảnLýSảnPhẩmToolStripMenuItem_Click;
             // 
             // quảnLýKhuyếnMạiToolStripMenuItem
             // 
             quảnLýKhuyếnMạiToolStripMenuItem.Name = "quảnLýKhuyếnMạiToolStripMenuItem";
-            quảnLýKhuyếnMạiToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýKhuyếnMạiToolStripMenuItem.Size = new Size(221, 26);
             quảnLýKhuyếnMạiToolStripMenuItem.Text = "Quản lý Voucher";
             quảnLýKhuyếnMạiToolStripMenuItem.Click += quảnLýKhuyếnMạiToolStripMenuItem_Click;
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            quảnLýKháchHàngToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýKháchHàngToolStripMenuItem.Size = new Size(221, 26);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             quảnLýKháchHàngToolStripMenuItem.Click += quảnLýKháchHàngToolStripMenuItem_Click;
             // 
             // quảnLýHóaĐơnToolStripMenuItem
             // 
             quảnLýHóaĐơnToolStripMenuItem.Name = "quảnLýHóaĐơnToolStripMenuItem";
-            quảnLýHóaĐơnToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýHóaĐơnToolStripMenuItem.Size = new Size(221, 26);
             quảnLýHóaĐơnToolStripMenuItem.Text = "Quản lý hóa đơn";
             quảnLýHóaĐơnToolStripMenuItem.Click += quảnLýHóaĐơnToolStripMenuItem_Click;
             // 
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            thốngKêToolStripMenuItem.Size = new Size(224, 26);
+            thốngKêToolStripMenuItem.Size = new Size(221, 26);
             thốngKêToolStripMenuItem.Text = "Thống kê";
             thốngKêToolStripMenuItem.Click += thốngKêToolStripMenuItem_Click;
             // 
             // cuoponToolStripMenuItem
             // 
             cuoponToolStripMenuItem.Name = "cuoponToolStripMenuItem";
-            cuoponToolStripMenuItem.Size = new Size(224, 26);
+            cuoponToolStripMenuItem.Size = new Size(221, 26);
             cuoponToolStripMenuItem.Text = "Cuopon";
             cuoponToolStripMenuItem.Click += cuoponToolStripMenuItem_Click;
             // 
@@ -173,7 +172,7 @@
             groupBox2.Controls.Add(dgtView);
             groupBox2.Location = new Point(27, 295);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(799, 311);
+            groupBox2.Size = new Size(1015, 311);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Danh sách hóa đơn";
@@ -185,13 +184,13 @@
             dgtView.Name = "dgtView";
             dgtView.RowHeadersWidth = 51;
             dgtView.RowTemplate.Height = 29;
-            dgtView.Size = new Size(749, 265);
+            dgtView.Size = new Size(951, 265);
             dgtView.TabIndex = 0;
             dgtView.CellClick += dgtView_CellClick;
             // 
             // btnXem
             // 
-            btnXem.Location = new Point(587, 630);
+            btnXem.Location = new Point(841, 628);
             btnXem.Name = "btnXem";
             btnXem.Size = new Size(92, 47);
             btnXem.TabIndex = 4;
@@ -201,7 +200,7 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(712, 630);
+            btnThoat.Location = new Point(981, 628);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(94, 47);
             btnThoat.TabIndex = 5;
@@ -219,7 +218,7 @@
             groupBox3.Controls.Add(label2);
             groupBox3.Location = new Point(27, 97);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(346, 178);
+            groupBox3.Size = new Size(492, 178);
             groupBox3.TabIndex = 6;
             groupBox3.TabStop = false;
             groupBox3.Text = "Thông tin";
@@ -228,7 +227,8 @@
             // 
             txtMaHD.Location = new Point(154, 109);
             txtMaHD.Name = "txtMaHD";
-            txtMaHD.Size = new Size(125, 27);
+            txtMaHD.ReadOnly = true;
+            txtMaHD.Size = new Size(271, 27);
             txtMaHD.TabIndex = 5;
             // 
             // label4
@@ -244,14 +244,16 @@
             // 
             txtMaSp.Location = new Point(154, 64);
             txtMaSp.Name = "txtMaSp";
-            txtMaSp.Size = new Size(125, 27);
+            txtMaSp.ReadOnly = true;
+            txtMaSp.Size = new Size(271, 27);
             txtMaSp.TabIndex = 3;
             // 
             // txtMaNv
             // 
             txtMaNv.Location = new Point(154, 26);
             txtMaNv.Name = "txtMaNv";
-            txtMaNv.Size = new Size(125, 27);
+            txtMaNv.ReadOnly = true;
+            txtMaNv.Size = new Size(271, 27);
             txtMaNv.TabIndex = 2;
             // 
             // label3
@@ -274,7 +276,7 @@
             // 
             // btnDoiHang
             // 
-            btnDoiHang.Location = new Point(121, 126);
+            btnDoiHang.Location = new Point(305, 129);
             btnDoiHang.Name = "btnDoiHang";
             btnDoiHang.Size = new Size(120, 38);
             btnDoiHang.TabIndex = 2;
@@ -284,25 +286,14 @@
             // 
             // grb
             // 
-            grb.Controls.Add(btnTra);
             grb.Controls.Add(txtSearch);
             grb.Controls.Add(btnDoiHang);
-            grb.Location = new Point(396, 97);
+            grb.Location = new Point(562, 97);
             grb.Name = "grb";
-            grb.Size = new Size(430, 192);
+            grb.Size = new Size(528, 192);
             grb.TabIndex = 7;
             grb.TabStop = false;
             grb.Text = "Chức năng";
-            // 
-            // btnTra
-            // 
-            btnTra.Location = new Point(290, 126);
-            btnTra.Name = "btnTra";
-            btnTra.Size = new Size(120, 38);
-            btnTra.TabIndex = 3;
-            btnTra.Text = "Trả hàng";
-            btnTra.UseVisualStyleBackColor = true;
-            btnTra.Click += btnTra_Click;
             // 
             // txtSearch
             // 
@@ -310,14 +301,15 @@
             txtSearch.Location = new Point(15, 44);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Nhập mã hóa đơn để tìm kiếm";
-            txtSearch.Size = new Size(312, 27);
+            txtSearch.Size = new Size(410, 27);
             txtSearch.TabIndex = 2;
+            txtSearch.TextChanged += txtSearch_TextChanged_1;
             // 
             // frmDoiTra
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(863, 687);
+            ClientSize = new Size(1133, 687);
             Controls.Add(grb);
             Controls.Add(groupBox3);
             Controls.Add(btnThoat);

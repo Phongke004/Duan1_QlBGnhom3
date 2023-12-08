@@ -14,8 +14,9 @@ namespace DAL.IRepositories
         public List<SanPham> GetSanPhams();
         public List<NhanVien> GetNhanViens();
         public bool CreateDoi(Doi doi);
-       
-       
+
+        public List<HoaDon> GetHoaDons();
+        public List<HoaDonChiTiet>GetHoaDonChiTiets();
         public bool DeleteDoi(string id);
        
     }

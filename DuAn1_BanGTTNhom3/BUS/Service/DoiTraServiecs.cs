@@ -30,7 +30,7 @@ namespace BUS.Service
 
         }
 
-        
+
 
         public bool DeleteDoi(string id)
         {
@@ -44,7 +44,7 @@ namespace BUS.Service
             }
         }
 
-        
+
 
         public List<Doi> GetDois(string find)
         {
@@ -55,6 +55,23 @@ namespace BUS.Service
             return _doiTraReps.GetDois().Where(x => x.MaDoi.Contains(find.Trim().ToLower())).ToList();
         }
 
+        public List<HoaDonChiTiet> GetHoaDonChiTiet()
+        {
+            return _doiTraReps.GetHoaDonChiTiets();
+        }
+
+        public List<HoaDon> GetHoaDons(string find)
+        {
+            if (find == null)
+            {
+                return _doiTraReps.GetHoaDons();
+            }
+          
+
+                return _doiTraReps.GetHoaDons().Where(x=>x.MaHd.Contains(find.ToLower().Trim())).ToList();
+            
+        }
+
         public List<NhanVien> GetNhanViens()
         {
             return _doiTraReps.GetNhanViens();
@@ -62,9 +79,9 @@ namespace BUS.Service
 
         public List<SanPham> GetSanPhams()
         {
-           return _doiTraReps.GetSanPhams();
+            return _doiTraReps.GetSanPhams();
         }
 
-       
+
     }
 }

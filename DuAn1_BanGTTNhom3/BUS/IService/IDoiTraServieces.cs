@@ -15,7 +15,8 @@ namespace BUS.IService
         public List<SanPham> GetSanPhams();
         public bool CreateDoi(Doi doi);
     
-      
+       public List<HoaDon>GetHoaDons(string find);
+        public List<HoaDonChiTiet> GetHoaDonChiTiet();
         public bool DeleteDoi(string id);
       
     }
