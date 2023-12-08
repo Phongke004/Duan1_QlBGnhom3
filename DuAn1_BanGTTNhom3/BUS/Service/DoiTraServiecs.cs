@@ -17,16 +17,9 @@ namespace BUS.Service
             _doiTraReps = new DoiTraReps();
         }
 
-        public bool CreateDoi(Doi doi)
+        public Doi CreateDoi(Doi doi)
         {
-            if (_doiTraReps.CreateDoi(doi))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+          return _doiTraReps.CreateDoi(doi);
 
         }
 
