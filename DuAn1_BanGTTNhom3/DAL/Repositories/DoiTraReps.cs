@@ -54,6 +54,16 @@ namespace DAL.Repositories
             return _dbconnext.Dois.ToList();
         }
 
+        public List<HoaDonChiTiet> GetHoaDonChiTiets()
+        {
+            return _dbconnext.HoaDonChiTiets.ToList();
+        }
+
+        public List<HoaDon> GetHoaDons()
+        {
+          return _dbconnext.HoaDons.ToList();
+        }
+
         public List<NhanVien> GetNhanViens()
         {
             return _dbconnext.NhanViens.ToList();

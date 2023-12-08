@@ -97,7 +97,7 @@ namespace PRL.View
 
         private void frmMenuNV_Load(object sender, EventArgs e)
         {
-            userToolStripMenuItem.Text = "User: " + Username;
+            userToolStripMenuItem.Text = "User: " + userName;
         }
     }
 }

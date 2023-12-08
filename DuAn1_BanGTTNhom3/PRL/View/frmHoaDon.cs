@@ -356,7 +356,7 @@ namespace PRL.View
                     //Phương thức SingleOrDefault trong C# được sử dụng để trả về phần tử duy nhất từ một tập hợp (collection) thoả mãn điều kiện được chỉ định, hoặc trả về giá trị mặc định nếu không có phần tử nào thoả mãn điều kiện. Nếu có nhiều hơn một phần tử thoả mãn điều kiện, phương thức này sẽ ném một ngoại lệ.
                     sanPham.SoLuong = sanPham.SoLuong - Convert.ToInt32(txtSoSanPham.Text);
                     _hoaDonServices.AddsHDCT(hDCT);
-                    
+                    UpdateSoLuong();
                     TinhTongTien();
                     LoadData(null);
                     LoadDataHDCT();
@@ -376,7 +376,7 @@ namespace PRL.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bạn đã sai rồi");
+                MessageBox.Show("Có lỗi sảy ra"+ex,"Thông báo");
             }
         }
         private void txtSoSanPham_TextChanged_1(object sender, EventArgs e)
@@ -644,6 +644,31 @@ namespace PRL.View
         private void btnUpdateHDCT_Click(object sender, EventArgs e)
         {
 
+        }
+        private void UpdateSoLuong()
+        {
+            try
+            {
+                int soLuong = Convert.ToInt32(txtSoLuong.Text);
+                if (soLuong == null)
+                {
+                    return;
+                }
+                else
+                {
+                    foreach (var item in _hoaDonServices.GetHoaDonChiTiets(null))
+                    {
+                        var getSoLuong = _hoaDonServices.GetSanPhams().FirstOrDefault(x => x.MaSp == item.MaSp);
+                        int updateSoLuongSp = Convert.ToInt32(getSoLuong.SoLuong - soLuong);
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi update số lượng sp " + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
         }
     }
 }
