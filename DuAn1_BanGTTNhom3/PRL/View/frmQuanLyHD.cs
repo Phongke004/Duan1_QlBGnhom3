@@ -62,11 +62,12 @@ namespace PRL.View
         private void LoadDataHDCT()
         {
 
-            dtgvHDCT.ColumnCount = 8;
+            dtgvHDCT.ColumnCount = 10;
             int stt = 1;
             dtgvHDCT.Columns[0].Name = "STT";
-            dtgvHDCT.Columns[1].Name = "Mã HDCt";
-            dtgvHDCT.Columns[2].Name = "Mã SP";
+            dtgvHDCT.Columns[1].Name = "Mã HDCT";
+            dtgvHDCT.Columns[1].Visible = false;
+            dtgvHDCT.Columns[2].Name = "Mã sản phẩm";
             dtgvHDCT.Columns[2].Visible = false;
             dtgvHDCT.Columns[3].Name = "Tên sản phẩm";
             dtgvHDCT.Columns[4].Name = "Số Lượng";
@@ -75,19 +76,14 @@ namespace PRL.View
             dtgvHDCT.Columns[7].Name = "Mã VC";
             dtgvHDCT.Columns[7].Visible = false;
             dtgvHDCT.Columns[8].Name = "Mô tả voucher";
-            dtgvHDCT.Columns[9].Name = "Ma HD";
-
-
-
-
-
+            dtgvHDCT.Columns[9].Name = "Mã HD";
             dtgvHDCT.Rows.Clear();
             foreach (var i in _hoaDonServices.GetHoaDonChiTiets(txtsearch.Text))
             {
 
                 var queryVC = _hoaDonServices.GetVouchers().FirstOrDefault(i => i.MaVoucher == i.MaVoucher);
-                var querySanpham = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
-                dtgvHDCT.Rows.Add(stt++, i.MaHdct , i.MaSp , querySanpham.TenSanPham, i.SoLuong, i.DonGia, i.TongTienSauVoucher, i.MaVoucher, queryVC.MoTa, i.MaHd);
+                var querySanPham = _hoaDonServices.GetSanPhams().FirstOrDefault(i => i.MaSp == i.MaSp);
+                dtgvHDCT.Rows.Add(stt++, i.MaHdct, i.MaSp, querySanPham.TenSanPham, i.SoLuong, i.DonGia, i.TongTienSauVoucher, i.MaVoucher, queryVC.MoTa, i.MaHd);
             }
         }
         private void dtgvHDCT_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -33,7 +33,7 @@ namespace BUS.Service
 
         public string AddsHDCT(HoaDonChiTiet hdct)
         {
-            if (_repos.AddHDCT(hdct))
+            if (_repos.AddHDCT(hdct) == true)
             {
                 return "thêm thành công";
 
@@ -46,9 +46,9 @@ namespace BUS.Service
 
         public string DeletesHD(HoaDon hd)
         {
-            var clone = _repos.GetHoaDons().FirstOrDefault(s => s.MaNv == hd.MaNv);
+            var clone = _repos.GetHoaDons().FirstOrDefault(s => s.MaHd == hd.MaHd);
             
-            if (_repos.DeleteHD(clone))
+            if (_repos.DeleteHD(clone) == true)
             {
                 return " Xóa thành công";
             }
@@ -60,9 +60,9 @@ namespace BUS.Service
 
         public string DeletesHDCT(HoaDonChiTiet hdct)
         {
-            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHd == hdct.MaHd);
+            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHdct == hdct.MaHdct);
 
-            if (_repos.DeleteHDCT(clone))
+            if (_repos.DeleteHDCT(clone) == true)
             {
                 return " Xóa thành công";
             }
@@ -134,7 +134,7 @@ namespace BUS.Service
             clone.TongTien = hd.TongTien;
           
 
-            if (_repos.UpdateHD(hd))
+            if (_repos.UpdateHD(clone) == true)
             {
                 return " sửa thành công";
             }
@@ -152,7 +152,7 @@ namespace BUS.Service
             clone.TongTienSauVoucher = hdct.TongTienSauVoucher;
             clone.MaHd = hdct.MaHd;
 
-            if (_repos.UpdateHDCT(hdct) == true)
+            if (_repos.UpdateHDCT(clone) == true)
             {
                 return " sửa thành công";
             }

@@ -51,7 +51,7 @@ namespace DAL.Repositories
                 hd.MaHd = "HD001";
                
             }
-            _connect.Add(hd);
+            _connect.HoaDons.Add(hd);
             _connect.SaveChanges();
             return true;
         }
@@ -71,21 +71,21 @@ namespace DAL.Repositories
 
             }
             
-            _connect.Add(hdct);
+            _connect.HoaDonChiTiets.Add(hdct);
             _connect.SaveChanges();
             return true;
         }
 
         public bool DeleteHD(HoaDon hd)
         {
-            _connect.Remove(hd);
+            _connect.HoaDons.Remove(hd);
             _connect.SaveChanges();
             return true;
         }
 
         public bool DeleteHDCT(HoaDonChiTiet hdct)
         {
-            _connect.Remove(hdct);
+            _connect.HoaDonChiTiets.Remove(hdct);
             _connect.SaveChanges();
             return true;
         }
@@ -128,21 +128,18 @@ namespace DAL.Repositories
 
         public bool UpdateHD(HoaDon hd)
         {
-            _connect.Update(hd);
+            _connect.HoaDons.Update(hd);
             _connect.SaveChanges();
             return true;
         }
 
         public bool UpdateHDCT(HoaDonChiTiet hdct)
         {
-            _connect.Update(hdct);
+            _connect.HoaDonChiTiets.Update(hdct);
             _connect.SaveChanges();
             return true;
         }
 
-        public bool AddHD(HoaDon hd)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
