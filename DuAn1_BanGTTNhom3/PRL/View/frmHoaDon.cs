@@ -306,7 +306,7 @@ namespace PRL.View
             {
 
 
-                if (txtMaSP.Text != string.Empty && cbbTenSanPham.Text != string.Empty)
+                if (txtMaSP.Text != "" && cbbTrangthai.Text != "" && cbbMaKH.Text != "")
                 {
                     HoaDon hoaDon = new HoaDon();
                     hoaDon.NgayTao = Convert.ToDateTime(dtpkNgayTao.Value);
@@ -315,10 +315,11 @@ namespace PRL.View
 
                     hoaDon.MaNv = cbbMaNhanVien.Text;
                     hoaDon.MaKh = cbbMaKH.Text;
-                    txtMaHoaDon.ReadOnly = true;
+                   
                     _hoaDonServices.AddsHD(hoaDon);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
+                    txtMaHoaDon.ReadOnly = true;
                 }
                 else
                 {

@@ -22,7 +22,7 @@ namespace PRL.View
             InitializeComponent();
             sevice = new QLNVSevice();
 
-
+            LoadCBO();
 
         }
 
@@ -96,10 +96,12 @@ namespace PRL.View
             List<CaLamViec> CaLam = sevice.GetCaLams();
             cboCaLam.DataSource = CaLam;
             cboCaLam.DisplayMember = "MaCa";
+            cboCaLam.SelectedIndex = -1;
 
             List<ChucVu> ChucVu = sevice.GetChucVus();
             cboChucVu.DataSource = ChucVu;
             cboChucVu.DisplayMember = "MaCv";
+            cboChucVu.SelectedIndex = -1;
         }
 
 
@@ -125,7 +127,7 @@ namespace PRL.View
                     sevice.Add(nv);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
-
+                    txtMa.ReadOnly = true;
                 }
                 else
                 {
@@ -196,7 +198,7 @@ namespace PRL.View
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-           
+
             this.Close();
         }
 
@@ -294,4 +296,5 @@ namespace PRL.View
             }
         }
     }
+
 }

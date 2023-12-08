@@ -22,4 +22,5 @@ namespace DAL.IRepositories
         public List<CaLamViec> GetCaLams();
 
     }
+
 }

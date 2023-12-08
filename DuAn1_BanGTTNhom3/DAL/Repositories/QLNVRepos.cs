@@ -30,7 +30,7 @@ namespace DAL.Repositories
             {
                 nv.MaNv = "NV001";
             }
-            _dbcontext.Add(nv);
+            _dbcontext.NhanViens.Add(nv);
             _dbcontext.SaveChanges();
             return true;
         }
@@ -45,7 +45,7 @@ namespace DAL.Repositories
             var results = _dbcontext.NhanViens.FirstOrDefault(x => x.MaNv == id);
             if (results != null)
             {
-                _dbcontext.Remove(results);
+                _dbcontext.NhanViens.Remove(results);
             }
 
             _dbcontext.Remove(id);
@@ -92,4 +92,5 @@ namespace DAL.Repositories
         }
 
     }
+
 }

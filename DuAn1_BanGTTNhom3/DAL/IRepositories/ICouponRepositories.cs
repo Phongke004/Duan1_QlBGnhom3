@@ -9,7 +9,7 @@ namespace DAL.IRepositories
 {
     public interface ICouponRepositories
     {
-        public bool Add(Coupon cp);
+        public bool AddCP(Coupon cp);
         public bool Update(Coupon cp);
         public List<Coupon> GetCP();
     }

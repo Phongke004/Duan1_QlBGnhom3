@@ -9,7 +9,7 @@ namespace BUS.IService
 {
     public interface ICouponServices
     {
-        public string AddCP(Coupon cp);
+        public string AddCPs(Coupon cp);
         public string UpdateCP(Coupon cp);
         public List<Coupon> GetCP(string find);
     }

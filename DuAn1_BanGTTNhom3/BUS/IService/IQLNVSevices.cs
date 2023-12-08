@@ -20,4 +20,5 @@ namespace BUS.IService
 
         public List<CaLamViec> GetCaLams();
     }
+
 }
