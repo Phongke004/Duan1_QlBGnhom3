@@ -44,32 +44,24 @@ namespace BUS.Service
             }
         }
 
-        public string DeletesHD(HoaDon hd)
+        public bool DeletesHD(HoaDon id)
         {
-            var clone = _repos.GetHoaDons().FirstOrDefault(s => s.MaHd == hd.MaHd);
-            
-            if (_repos.DeleteHD(clone) == true)
+           HoaDon del = GetHoaDon(null).FirstOrDefault(x => x.MaHd == id.MaHd);
+            if (del != null)
             {
-                return " Xóa thành công";
+                return _repos.DeleteHD(del);
             }
-            else
-            {
-                return " Xóa thất bại";
-            }
+            return false;
         }
 
-        public string DeletesHDCT(HoaDonChiTiet hdct)
+        public bool DeletesHDCT(HoaDonChiTiet hdct)
         {
-            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHdct == hdct.MaHdct);
-
-            if (_repos.DeleteHDCT(clone) == true)
+            var del =  GetHoaDonChiTiets(null).FirstOrDefault(x=>x.MaHdct == hdct.MaHdct);
+            if (del != null)
             {
-                return " Xóa thành công";
+               return _repos.DeleteHDCT(del);
             }
-            else
-            {
-                return " Xóa thất bại";
-            }
+            return false;
         }
 
       
@@ -95,10 +87,9 @@ namespace BUS.Service
             {
                 return _repos.GetHoaDonChiTiets();
             }
-            else
-            {
-                return _repos.GetHoaDonChiTiets().Where(x => x.MaHd.Contains(search)).ToList();
-            }
+            
+                return _repos.GetHoaDonChiTiets().Where(x => x.MaHdct.Contains(search)).ToList();
+            
         }
 
         public Voucher GetIDVouchers(string MaVC)
@@ -131,40 +122,24 @@ namespace BUS.Service
             return _repos.GetVouchers();
         }
 
-        public string UpdatesHD(HoaDon hd)
+        public bool UpdatesHD(HoaDon hd)
         {
-            var clone = _repos.GetHoaDons().FirstOrDefault(s => s.MaNv == hd.MaNv);
-            clone.NgayTao = hd.NgayTao;
-            clone.TrangThai = hd.TrangThai;
-            clone.TongTien = hd.TongTien;
-          
-
-            if (_repos.UpdateHD(clone) == true)
-            {
-                return " sửa thành công";
-            }
-            else
-            {
-                return " sửa thất bại";
-            }
+            HoaDon update = GetHoaDon(null).FirstOrDefault(x=>x.MaHd== hd.MaHd);
+            update.TrangThai = hd.TrangThai;
+            update.MaKh = hd.MaKh;
+            update.NgayTao = hd.NgayTao;
+            update.MaNv = hd.MaNv;
+            return _repos.UpdateHD(update);
         }
 
-        public string UpdatesHDCT(HoaDonChiTiet hdct)
+        public bool UpdatesHDCT(HoaDonChiTiet hdct)
         {
-            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHd == hdct.MaHd);
+            var clone = _repos.GetHoaDonChiTiets().FirstOrDefault(s => s.MaHdct == hdct.MaHdct);
             clone.SoLuong = hdct.SoLuong;
-            clone.DonGia = hdct.DonGia;
-            clone.TongTienSauVoucher = hdct.TongTienSauVoucher;
+            clone.MaSp = hdct.MaSp;
+         //   clone.MaVoucher = hdct.MaVoucher;
             clone.MaHd = hdct.MaHd;
-
-            if (_repos.UpdateHDCT(clone) == true)
-            {
-                return " sửa thành công";
-            }
-            else
-            {
-                return " sửa thất bại";
-            }
+            return _repos.UpdateHDCT(clone);
         }
 
         public bool UpdateSoLuongSanPham(string id)

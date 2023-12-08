@@ -16,11 +16,11 @@ namespace BUS.IService
         public List<KhachHang> GetKhachHang();
         public List<SanPham> GetSanPhamById();
         public bool UpdateSoLuongSanPham(string id);
-        public string UpdatesHD(HoaDon hd);
-        public string DeletesHD(HoaDon hd);
+        public bool UpdatesHD(HoaDon hd);
+        public bool DeletesHD(HoaDon hd);
         public string AddsHD(HoaDon hd);
-        public string UpdatesHDCT(HoaDonChiTiet hdct);
-        public string DeletesHDCT(HoaDonChiTiet hdct);
+        public bool UpdatesHDCT(HoaDonChiTiet hdct);
+        public bool DeletesHDCT(HoaDonChiTiet hdct);
         public string AddsHDCT(HoaDonChiTiet hdct);
         public List<Voucher> GetVouchers();
         public Voucher GetIDVouchers(string MaVC);
