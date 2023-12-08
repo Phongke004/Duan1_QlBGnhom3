@@ -16,7 +16,7 @@ namespace DAL.Repositories
         {
             _dbconnext = new MyContext();
         }
-        public bool CreateDoi(Doi doi)
+        public Doi CreateDoi(Doi doi)
         {
             if (GetDois().Count != 0)
             {
@@ -31,7 +31,7 @@ namespace DAL.Repositories
             }
             _dbconnext.Dois.Add(doi);
             _dbconnext.SaveChanges();
-            return true;
+            return doi;
         }
 
         
@@ -54,6 +54,16 @@ namespace DAL.Repositories
             return _dbconnext.Dois.ToList();
         }
 
+        public List<HoaDonChiTiet> GetHoaDonChiTiets()
+        {
+            return _dbconnext.HoaDonChiTiets.ToList();
+        }
+
+        public List<HoaDon> GetHoaDons()
+        {
+          return _dbconnext.HoaDons.ToList();
+        }
+
         public List<NhanVien> GetNhanViens()
         {
             return _dbconnext.NhanViens.ToList();
@@ -64,8 +74,5 @@ namespace DAL.Repositories
            return _dbconnext.SanPhams.ToList();
         }
 
-        
-
-        
     }
 }

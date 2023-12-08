@@ -116,6 +116,11 @@ namespace BUS.Service
           return _repos.GetNhanViens();
         }
 
+        public List<SanPham> GetSanPhamById()
+        {
+            return _repos.GetSanPhamById();
+        }
+
         public List<SanPham> GetSanPhams()
         {
             return _repos.GetSanPhams();
@@ -160,6 +165,11 @@ namespace BUS.Service
             {
                 return " sửa thất bại";
             }
+        }
+
+        public bool UpdateSoLuongSanPham(string id)
+        {
+            return _repos.UpdateSoLuongSanPham(id);
         }
     }
 }

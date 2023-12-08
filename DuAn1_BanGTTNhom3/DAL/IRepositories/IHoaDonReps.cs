@@ -13,7 +13,8 @@ namespace DAL.IRepositories
         public List<HoaDonChiTiet> GetHoaDonChiTiets();
         public List<NhanVien> GetNhanViens();
         public List<SanPham> GetSanPhams();
-       
+        public List<SanPham> GetSanPhamById();
+        public bool UpdateSoLuongSanPham( string id);
         public List<KhachHang> GetKhachHang();
         public bool UpdateHD(HoaDon hd);
         public bool DeleteHD(HoaDon hd);
