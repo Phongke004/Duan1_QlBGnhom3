@@ -17,9 +17,9 @@ namespace BUS.Service
             _repos = new CouponRepositories();
         }
 
-        public string AddCP(Coupon cp)
+        public string AddCPs(Coupon cp)
         {
-            if (_repos.Add(cp) == true)
+            if (_repos.AddCP(cp) == true)
             {
                 return ("Thêm thành công");
             }
