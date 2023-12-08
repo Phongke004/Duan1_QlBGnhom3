@@ -218,6 +218,16 @@ namespace PRL.View
             }
 
         }
+        private void LoadCbbMaHoaDon()
+        {
+            // hóa đơn
+            List<HoaDon> hoaDon = _hoaDonServices.GetHoaDon(null);
+            cbbMaHD.DataSource = null;
+            cbbMaHD.DataSource = hoaDon;
+            cbbMaHD.DisplayMember = "MaHD";
+            cbbMaHD.SelectedIndex = -1;
+
+        }
         public void LoadComBoBox()
         {
             List<Voucher> vouchers = _hoaDonServices.GetVouchers();
@@ -270,6 +280,7 @@ namespace PRL.View
                     hoaDon.MaKh = cbbMaKH.Text;
 
                     _hoaDonServices.AddsHD(hoaDon);
+                    LoadCbbMaHoaDon();
                     HoaDonChiTiet hDCT = new HoaDonChiTiet();
                     hDCT.MaSp = txtMaSP.Text;
                     hDCT.SoLuong = Convert.ToInt32(txtSoSanPham.Text);

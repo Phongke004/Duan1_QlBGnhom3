@@ -16,7 +16,7 @@ namespace PRL
 
 
 
-            Application.Run(new frmHoaDon());
+            Application.Run(new frmQLSP());
 
 
 
