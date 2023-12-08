@@ -16,7 +16,7 @@ namespace PRL
 
 
 
-            Application.Run(new frmLogin());
+            Application.Run(new frmHoaDon());
 
 
 

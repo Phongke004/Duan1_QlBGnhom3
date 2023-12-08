@@ -14,6 +14,8 @@ namespace BUS.IService
         public List <NhanVien > GetNhanViens();
         public List<SanPham> GetSanPhams();
         public List<KhachHang> GetKhachHang();
+        public List<SanPham> GetSanPhamById();
+        public bool UpdateSoLuongSanPham(string id);
         public string UpdatesHD(HoaDon hd);
         public string DeletesHD(HoaDon hd);
         public string AddsHD(HoaDon hd);
