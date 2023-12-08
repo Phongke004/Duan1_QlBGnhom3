@@ -19,14 +19,12 @@ namespace PRL.View
     {
         private SanPhamServices _service;
         string _idClick;
-        string[] _idMau = new string[] { "MS001", "MS002" };
-        string[] _idSize = new string[] { "Size001", "Size002" };
-        string[] _idChatLieu = new string[] { "CL001", "CL002" };
-        string[] _idThuongHieu = new string[] { "TH001", "TH002" };
+
         public frmQLSP()
         {
-            InitializeComponent();
             _service = new SanPhamServices();
+            InitializeComponent();
+
             LoadData(null);
             LoadCBB();
         }
@@ -95,52 +93,34 @@ namespace PRL.View
                 && rbtnConHang.Text != string.Empty && txtboxGiaTien.Text != string.Empty)
                 {
                     SanPham sp = new SanPham();
+                    sp.MaSp = txtboxIDSP.Text;
                     sp.TenSanPham = txtboxNameSP.Text;
-                    sp.NgayNhap = dtpNgayNhap.Value;
+                    sp.NgayNhap = Convert.ToDateTime(dtpNgayNhap.Text);
                     sp.SoLuong = Convert.ToInt32(txtboxSoLuong.Text);
                     if (rbtnConHang.Checked)
                     {
                         sp.TrangThai = "Còn hàng";
                     }
-                    else
+                    else if (rbtnHetHang.Checked)
                     {
                         sp.TrangThai = "Hết hàng";
                     }
                     sp.Gia = Convert.ToDouble(txtboxGiaTien.Text);
-                    if (cbbColor.SelectedIndex == 1)
+                    sp.MaMau = txtMaMau.Text;
+
+                    sp.MaTh = txtMaTH.Text;
+                    sp.MaChatLieu = txtMaCL.Text;
+                    sp.MaSize = txtMaSize.Text;
+                    DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn thêm không", "Xác nhận ", MessageBoxButtons.YesNo);
+                    if (dialog == DialogResult.Yes)
                     {
-                        sp.MaMau = _idMau[0];
+                        MessageBox.Show(_service.AddSP(sp));
                     }
                     else
                     {
-                        sp.MaMau = _idMau[1];
+                        return;
                     }
-                    if (cbbThuongHieu.SelectedIndex == 1)
-                    {
-                        sp.MaTh = _idThuongHieu[0];
-                    }
-                    else
-                    {
-                        sp.MaTh = _idThuongHieu[1];
-                    }
-                    if (cbbChatLieu.SelectedIndex == 1)
-                    {
-                        sp.MaChatLieu = _idChatLieu[0];
-                    }
-                    else
-                    {
-                        sp.MaChatLieu = _idChatLieu[1];
-                    }
-                    if (cbbSize.SelectedIndex == 1)
-                    {
-                        sp.MaSize = _idSize[0];
-                    }
-                    else
-                    {
-                        sp.MaSize = _idSize[1];
-                    }
-                    MessageBox.Show("Thêm thành công");
-                    _service.AddSP(sp);
+
                     LoadData(null);
                     LoadCBB();
                 }
@@ -174,20 +154,28 @@ namespace PRL.View
         private void LoadCBB()
         {
             List<MauSac> ms = _service.GetMauSac();
+            cbbColor.DataSource = null;
             cbbColor.DataSource = ms;
             cbbColor.DisplayMember = "TenMau";
+            cbbColor.SelectedIndex = -1;
 
             List<Size> sz = _service.GetSize();
+            cbbSize.DataSource = null;
             cbbSize.DataSource = sz;
             cbbSize.DisplayMember = "KichThuoc";
+            cbbSize.SelectedIndex = -1;
 
             List<ChatLieu> cl = _service.GetChatLieu();
+            cbbChatLieu.DataSource = null;
             cbbChatLieu.DataSource = cl;
             cbbChatLieu.DisplayMember = "LoaiChatLieu";
+            cbbChatLieu.SelectedIndex = -1;
 
             List<ThuongHieu> th = _service.GetThuongHieu();
+            cbbThuongHieu.DataSource = null;
             cbbThuongHieu.DataSource = th;
             cbbThuongHieu.DisplayMember = "TenThuongHieu";
+            cbbThuongHieu.SelectedIndex = -1;
         }
 
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
@@ -295,30 +283,80 @@ namespace PRL.View
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            SanPham sp = new SanPham();
-            sp.MaSp = _idClick;
-            sp.TenSanPham = txtboxNameSP.Text;
-            sp.NgayNhap = Convert.ToDateTime(dtpNgayNhap.Text);
-            sp.SoLuong = Convert.ToInt32( txtboxSoLuong.Text);
-            sp.Gia = Convert.ToDouble(txtboxGiaTien.Text);
-            sp.TrangThai = rbtnConHang.Checked ? "Còn hàng" : "Hết hàng";
-            sp.MaMau = cbbColor.Text;
-            sp.MaSize = cbbSize.Text;
-            sp.MaChatLieu = cbbChatLieu.Text;
-            sp.MaTh = cbbThuongHieu.Text;
-            var option = MessageBox.Show("Xác nhận muốn Sửa?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (option == DialogResult.Yes)
+            try
             {
-                MessageBox.Show(_service.UpdateSP(sp));
+                SanPham sp = new SanPham();
+                sp.MaSp = _idClick;
+                sp.TenSanPham = txtboxNameSP.Text;
+                sp.NgayNhap = Convert.ToDateTime(dtpNgayNhap.Text);
+                sp.SoLuong = Convert.ToInt32(txtboxSoLuong.Text);
+                sp.Gia = Convert.ToDouble(txtboxGiaTien.Text);
+                sp.TrangThai = rbtnConHang.Checked ? "Còn hàng" : "Hết hàng";
+                sp.MaMau = txtMaMau.Text;
+                sp.MaSize = txtMaSize.Text;
+                sp.MaChatLieu = txtMaCL.Text;
+                sp.MaTh = txtMaTH.Text;
+                DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn Sửa không", "Xác nhận ", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    MessageBox.Show(_service.UpdateSP(sp));
+                }
+                else
+                {
+                    return;
+                }
+
+
+                LoadData(null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbbColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaMau.Text = "";
+            if (cbbColor.SelectedItem != null)
+            {
+                var mauSac = (MauSac)cbbColor.SelectedItem;
+                txtMaMau.Text = mauSac.MaMau;
 
             }
-            else
+        }
+
+        private void cbbSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaSize.Text = "";
+            if (cbbSize.SelectedItem != null)
             {
+                var Size = (Size)cbbSize.SelectedItem;
+                txtMaSize.Text = Size.MaSize;
 
-                return;
             }
-            LoadData(null);
+        }
 
+        private void cbbThuongHieu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaTH.Text = "";
+            if (cbbThuongHieu.SelectedItem != null)
+            {
+                var th = (ThuongHieu)cbbThuongHieu.SelectedItem;
+                txtMaTH.Text = th.MaTh;
+
+            }
+        }
+
+        private void cbbChatLieu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaCL.Text = "";
+            if (cbbChatLieu.SelectedItem != null)
+            {
+                var cl = (ChatLieu)cbbChatLieu.SelectedItem;
+                txtMaCL.Text = cl.MaChatLieu;
+
+            }
         }
     }
 }
