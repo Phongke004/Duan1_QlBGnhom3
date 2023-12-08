@@ -19,16 +19,7 @@ namespace DAL.Repositories
 
         public bool AddCP(Coupon cp)
         {
-            if (GetCP().Count != 0)
-            {
-                var maxid = _db.Coupons.Max(x => x.MaCoupon);
-                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
-                cp.MaCoupon = "CP" + nextid.ToString("D3");
-            }
-            else
-            {
-                cp.MaCoupon = "CP001";
-            }
+            
             _db.Coupons.Add(cp);
             _db.SaveChanges();
             return true;
