@@ -145,7 +145,7 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmKhachHang login = new frmKhachHang();
+                formKhachHang login = new formKhachHang();
                 login.ShowDialog();
             }
             catch (Exception ex)

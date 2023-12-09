@@ -69,11 +69,8 @@
             mnStripDoiMk = new ToolStripMenuItem();
             MnStripDangXuat = new ToolStripMenuItem();
             quảnLýToolStripMenuItem = new ToolStripMenuItem();
-            quảnLýSảnPhẩmToolStripMenuItem = new ToolStripMenuItem();
             quảToolStripMenuItem = new ToolStripMenuItem();
-            quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
-            thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
-            cuoponToolStripMenuItem = new ToolStripMenuItem();
+            menuToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
             txtsearch = new TextBox();
             label13 = new Label();
@@ -89,7 +86,6 @@
             groupBox4 = new GroupBox();
             btnXuatfile = new Button();
             saveFileDialog1 = new SaveFileDialog();
-            menuToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -496,7 +492,7 @@
             mnStripUser.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             mnStripUser.Margin = new Padding(0, 0, 290, 0);
             mnStripUser.Name = "mnStripUser";
-            mnStripUser.Size = new Size(88, 38);
+            mnStripUser.Size = new Size(88, 31);
             mnStripUser.Text = "User :";
             // 
             // mnStripDoiMk
@@ -515,18 +511,11 @@
             // 
             // quảnLýToolStripMenuItem
             // 
-            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýSảnPhẩmToolStripMenuItem, quảToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, thốngKêToolStripMenuItem1, cuoponToolStripMenuItem, menuToolStripMenuItem });
+            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảToolStripMenuItem, menuToolStripMenuItem });
             quảnLýToolStripMenuItem.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            quảnLýToolStripMenuItem.Size = new Size(108, 38);
+            quảnLýToolStripMenuItem.Size = new Size(108, 31);
             quảnLýToolStripMenuItem.Text = "Quản lý";
-            // 
-            // quảnLýSảnPhẩmToolStripMenuItem
-            // 
-            quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(359, 44);
-            quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
-            quảnLýSảnPhẩmToolStripMenuItem.Click += quảnLýSảnPhẩmToolStripMenuItem_Click;
             // 
             // quảToolStripMenuItem
             // 
@@ -535,26 +524,12 @@
             quảToolStripMenuItem.Text = "Quản lý đổi trả";
             quảToolStripMenuItem.Click += quảToolStripMenuItem_Click;
             // 
-            // quảnLýKháchHàngToolStripMenuItem
+            // menuToolStripMenuItem
             // 
-            quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            quảnLýKháchHàngToolStripMenuItem.Size = new Size(359, 44);
-            quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
-            quảnLýKháchHàngToolStripMenuItem.Click += quảnLýKháchHàngToolStripMenuItem_Click;
-            // 
-            // thốngKêToolStripMenuItem1
-            // 
-            thốngKêToolStripMenuItem1.Name = "thốngKêToolStripMenuItem1";
-            thốngKêToolStripMenuItem1.Size = new Size(359, 44);
-            thốngKêToolStripMenuItem1.Text = "Thống kê";
-            thốngKêToolStripMenuItem1.Click += thốngKêToolStripMenuItem1_Click;
-            // 
-            // cuoponToolStripMenuItem
-            // 
-            cuoponToolStripMenuItem.Name = "cuoponToolStripMenuItem";
-            cuoponToolStripMenuItem.Size = new Size(359, 44);
-            cuoponToolStripMenuItem.Text = "Cuopon";
-            cuoponToolStripMenuItem.Click += cuoponToolStripMenuItem_Click;
+            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            menuToolStripMenuItem.Size = new Size(359, 44);
+            menuToolStripMenuItem.Text = "Menu";
+            menuToolStripMenuItem.Click += menuToolStripMenuItem_Click;
             // 
             // menuStrip1
             // 
@@ -563,7 +538,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 3, 0, 3);
-            menuStrip1.Size = new Size(2444, 44);
+            menuStrip1.Size = new Size(2444, 37);
             menuStrip1.TabIndex = 9;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -715,13 +690,6 @@
             btnXuatfile.UseVisualStyleBackColor = true;
             btnXuatfile.Click += btnXuatfile_Click;
             // 
-            // menuToolStripMenuItem
-            // 
-            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(359, 44);
-            menuToolStripMenuItem.Text = "Menu";
-            menuToolStripMenuItem.Click += menuToolStripMenuItem_Click;
-            // 
             // frmHoaDon
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -803,14 +771,10 @@
         private ToolStripMenuItem mnStripDoiMk;
         private ToolStripMenuItem MnStripDangXuat;
         private ToolStripMenuItem quảnLýToolStripMenuItem;
-        private ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
         private ToolStripMenuItem quảToolStripMenuItem;
-        private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
-        private ToolStripMenuItem thốngKêToolStripMenuItem1;
         private MenuStrip menuStrip1;
         private TextBox txtTienSauVC;
         private ComboBox cbbMaNhanVien;
-        private ToolStripMenuItem cuoponToolStripMenuItem;
         private ComboBox cbbMaKH;
         private DataGridView dtgviewHD;
         private Button ClearCode;
