@@ -35,7 +35,6 @@
             groupBox1 = new GroupBox();
             btnDoiTra = new Button();
             btnHoaDon = new Button();
-            btnSanPham = new Button();
             pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -81,7 +80,6 @@
             // 
             groupBox1.Controls.Add(btnDoiTra);
             groupBox1.Controls.Add(btnHoaDon);
-            groupBox1.Controls.Add(btnSanPham);
             groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(20, 50);
             groupBox1.Margin = new Padding(5);
@@ -96,7 +94,7 @@
             // 
             btnDoiTra.Image = Properties.Resources.Task_list;
             btnDoiTra.ImageAlign = ContentAlignment.MiddleRight;
-            btnDoiTra.Location = new Point(10, 422);
+            btnDoiTra.Location = new Point(10, 252);
             btnDoiTra.Margin = new Padding(5);
             btnDoiTra.Name = "btnDoiTra";
             btnDoiTra.Size = new Size(289, 85);
@@ -109,7 +107,7 @@
             // 
             btnHoaDon.Image = Properties.Resources.Price_list;
             btnHoaDon.ImageAlign = ContentAlignment.MiddleRight;
-            btnHoaDon.Location = new Point(10, 232);
+            btnHoaDon.Location = new Point(10, 89);
             btnHoaDon.Margin = new Padding(5);
             btnHoaDon.Name = "btnHoaDon";
             btnHoaDon.Size = new Size(289, 85);
@@ -117,19 +115,6 @@
             btnHoaDon.Text = "Hóa Đơn";
             btnHoaDon.UseVisualStyleBackColor = true;
             btnHoaDon.Click += btnHoaDon_Click;
-            // 
-            // btnSanPham
-            // 
-            btnSanPham.Image = Properties.Resources.Numbered_list;
-            btnSanPham.ImageAlign = ContentAlignment.MiddleRight;
-            btnSanPham.Location = new Point(10, 42);
-            btnSanPham.Margin = new Padding(5);
-            btnSanPham.Name = "btnSanPham";
-            btnSanPham.Size = new Size(289, 85);
-            btnSanPham.TabIndex = 0;
-            btnSanPham.Text = "Sản Phẩm";
-            btnSanPham.UseVisualStyleBackColor = true;
-            btnSanPham.Click += btnSanPham_Click;
             // 
             // pictureBox1
             // 
@@ -171,7 +156,6 @@
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private GroupBox groupBox1;
         private Button btnHoaDon;
-        private Button btnSanPham;
         private PictureBox pictureBox1;
         private Button btnDoiTra;
     }

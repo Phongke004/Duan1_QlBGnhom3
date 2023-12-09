@@ -330,6 +330,8 @@ namespace PRL.View
         }
         private void cbbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            // hiển thị combobox khi tích chọn dữ liệu tương ungws
             txtMaSP.Text = "";
             txtDonGia.Text = "";
             if (cbbTenSanPham.SelectedItem != null)
@@ -551,6 +553,7 @@ namespace PRL.View
             //try
             //{
             // hoa don chi tiet
+            // khi thanh toán sez trừ số lượng vào db
 
             if (txtSoSanPham.Text != string.Empty && cbbMaHD.Text != string.Empty)
             {

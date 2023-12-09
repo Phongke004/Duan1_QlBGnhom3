@@ -1,4 +1,5 @@
 using DAL.DomainClass;
+using Microsoft.VisualBasic.Logging;
 using PRL.View;
 
 namespace PRL
@@ -17,7 +18,7 @@ namespace PRL
 
 
 
-            Application.Run(new frmKhachHang());
+            Application.Run(new frmLogin());
 
 
 

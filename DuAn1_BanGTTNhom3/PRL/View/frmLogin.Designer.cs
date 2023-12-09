@@ -36,7 +36,6 @@
             label3 = new Label();
             txtUser = new TextBox();
             txtPassWord = new TextBox();
-            lbQuenMk = new Label();
             ckbShowPass = new CheckBox();
             SuspendLayout();
             // 
@@ -112,16 +111,6 @@
             txtPassWord.TabIndex = 6;
             txtPassWord.UseSystemPasswordChar = true;
             // 
-            // lbQuenMk
-            // 
-            lbQuenMk.AutoSize = true;
-            lbQuenMk.Font = new Font("Times New Roman", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            lbQuenMk.Location = new Point(611, 396);
-            lbQuenMk.Name = "lbQuenMk";
-            lbQuenMk.Size = new Size(136, 23);
-            lbQuenMk.TabIndex = 7;
-            lbQuenMk.Text = "Quên mật khẩu";
-            // 
             // ckbShowPass
             // 
             ckbShowPass.AutoSize = true;
@@ -141,7 +130,6 @@
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(800, 450);
             Controls.Add(ckbShowPass);
-            Controls.Add(lbQuenMk);
             Controls.Add(txtPassWord);
             Controls.Add(txtUser);
             Controls.Add(label3);
@@ -165,7 +153,6 @@
         private Label label3;
         private TextBox txtUser;
         private TextBox txtPassWord;
-        private Label lbQuenMk;
         private CheckBox ckbShowPass;
     }
 }
