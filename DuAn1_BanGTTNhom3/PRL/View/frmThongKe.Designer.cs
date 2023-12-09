@@ -35,6 +35,8 @@
             quảnLýToolStripMenuItem = new ToolStripMenuItem();
             quảnLýHóaĐơnToolStripMenuItem = new ToolStripMenuItem();
             couponToolStripMenuItem = new ToolStripMenuItem();
+            menuToolStripMenuItem = new ToolStripMenuItem();
+            menuDànhChoNhânViênToolStripMenuItem = new ToolStripMenuItem();
             groupBox4 = new GroupBox();
             dataGridView1 = new DataGridView();
             dateTimeTKEnd = new DateTimePicker();
@@ -48,6 +50,7 @@
             userToolStripMenuItem = new ToolStripMenuItem();
             đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
+            hóaĐơnThanhToánToolStripMenuItem = new ToolStripMenuItem();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -57,60 +60,74 @@
             // quảnLýKhuyếnMạiToolStripMenuItem
             // 
             quảnLýKhuyếnMạiToolStripMenuItem.Name = "quảnLýKhuyếnMạiToolStripMenuItem";
-            quảnLýKhuyếnMạiToolStripMenuItem.Size = new Size(345, 44);
+            quảnLýKhuyếnMạiToolStripMenuItem.Size = new Size(404, 44);
             quảnLýKhuyếnMạiToolStripMenuItem.Text = "Quản lý Voucher";
             quảnLýKhuyếnMạiToolStripMenuItem.Click += quảnLýKhuyếnMạiToolStripMenuItem_Click;
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            quảnLýKháchHàngToolStripMenuItem.Size = new Size(345, 44);
+            quảnLýKháchHàngToolStripMenuItem.Size = new Size(404, 44);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             quảnLýKháchHàngToolStripMenuItem.Click += quảnLýKháchHàngToolStripMenuItem_Click;
             // 
             // quảnLýNhânViênToolStripMenuItem
             // 
             quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            quảnLýNhânViênToolStripMenuItem.Size = new Size(345, 44);
+            quảnLýNhânViênToolStripMenuItem.Size = new Size(404, 44);
             quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
             quảnLýNhânViênToolStripMenuItem.Click += quảnLýNhânViênToolStripMenuItem_Click;
             // 
             // tHêToolStripMenuItem
             // 
             tHêToolStripMenuItem.Name = "tHêToolStripMenuItem";
-            tHêToolStripMenuItem.Size = new Size(345, 44);
+            tHêToolStripMenuItem.Size = new Size(404, 44);
             tHêToolStripMenuItem.Text = "Quản lý sản phẩm";
             tHêToolStripMenuItem.Click += tHêToolStripMenuItem_Click;
             // 
             // quảnLýToolStripMenuItem
             // 
-            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tHêToolStripMenuItem, quảnLýNhânViênToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, quảnLýKhuyếnMạiToolStripMenuItem, quảnLýHóaĐơnToolStripMenuItem, couponToolStripMenuItem });
+            quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tHêToolStripMenuItem, quảnLýNhânViênToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, quảnLýKhuyếnMạiToolStripMenuItem, quảnLýHóaĐơnToolStripMenuItem, couponToolStripMenuItem, menuToolStripMenuItem, menuDànhChoNhânViênToolStripMenuItem, hóaĐơnThanhToánToolStripMenuItem });
             quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            quảnLýToolStripMenuItem.Size = new Size(170, 32);
+            quảnLýToolStripMenuItem.Size = new Size(170, 38);
             quảnLýToolStripMenuItem.Text = "Menu quản lý";
             // 
             // quảnLýHóaĐơnToolStripMenuItem
             // 
             quảnLýHóaĐơnToolStripMenuItem.Name = "quảnLýHóaĐơnToolStripMenuItem";
-            quảnLýHóaĐơnToolStripMenuItem.Size = new Size(345, 44);
+            quảnLýHóaĐơnToolStripMenuItem.Size = new Size(404, 44);
             quảnLýHóaĐơnToolStripMenuItem.Text = "Quản lý hóa đơn";
             quảnLýHóaĐơnToolStripMenuItem.Click += quảnLýHóaĐơnToolStripMenuItem_Click;
             // 
             // couponToolStripMenuItem
             // 
             couponToolStripMenuItem.Name = "couponToolStripMenuItem";
-            couponToolStripMenuItem.Size = new Size(345, 44);
+            couponToolStripMenuItem.Size = new Size(404, 44);
             couponToolStripMenuItem.Text = "Coupon";
             couponToolStripMenuItem.Click += couponToolStripMenuItem_Click;
+            // 
+            // menuToolStripMenuItem
+            // 
+            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            menuToolStripMenuItem.Size = new Size(404, 44);
+            menuToolStripMenuItem.Text = "Menu dành cho quản lý";
+            menuToolStripMenuItem.Click += menuToolStripMenuItem_Click;
+            // 
+            // menuDànhChoNhânViênToolStripMenuItem
+            // 
+            menuDànhChoNhânViênToolStripMenuItem.Name = "menuDànhChoNhânViênToolStripMenuItem";
+            menuDànhChoNhânViênToolStripMenuItem.Size = new Size(404, 44);
+            menuDànhChoNhânViênToolStripMenuItem.Text = "Menu dành cho nhân viên";
+            menuDànhChoNhânViênToolStripMenuItem.Click += menuDànhChoNhânViênToolStripMenuItem_Click;
             // 
             // groupBox4
             // 
             groupBox4.Controls.Add(dataGridView1);
             groupBox4.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox4.Location = new Point(31, 571);
-            groupBox4.Margin = new Padding(5, 5, 5, 5);
+            groupBox4.Margin = new Padding(5);
             groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(5, 5, 5, 5);
+            groupBox4.Padding = new Padding(5);
             groupBox4.Size = new Size(1428, 378);
             groupBox4.TabIndex = 60;
             groupBox4.TabStop = false;
@@ -120,7 +137,7 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(42, 42);
-            dataGridView1.Margin = new Padding(5, 5, 5, 5);
+            dataGridView1.Margin = new Padding(5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
@@ -131,7 +148,7 @@
             // 
             dateTimeTKEnd.Format = DateTimePickerFormat.Custom;
             dateTimeTKEnd.Location = new Point(278, 182);
-            dateTimeTKEnd.Margin = new Padding(5, 5, 5, 5);
+            dateTimeTKEnd.Margin = new Padding(5);
             dateTimeTKEnd.Name = "dateTimeTKEnd";
             dateTimeTKEnd.Size = new Size(311, 35);
             dateTimeTKEnd.TabIndex = 40;
@@ -140,7 +157,7 @@
             // button1
             // 
             button1.Location = new Point(390, 286);
-            button1.Margin = new Padding(5, 5, 5, 5);
+            button1.Margin = new Padding(5);
             button1.Name = "button1";
             button1.Size = new Size(202, 72);
             button1.TabIndex = 39;
@@ -152,7 +169,7 @@
             // 
             dateTimeTKStart.Format = DateTimePickerFormat.Custom;
             dateTimeTKStart.Location = new Point(278, 85);
-            dateTimeTKStart.Margin = new Padding(5, 5, 5, 5);
+            dateTimeTKStart.Margin = new Padding(5);
             dateTimeTKStart.Name = "dateTimeTKStart";
             dateTimeTKStart.Size = new Size(311, 35);
             dateTimeTKStart.TabIndex = 25;
@@ -177,9 +194,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox1.Location = new Point(383, 148);
-            groupBox1.Margin = new Padding(5, 5, 5, 5);
+            groupBox1.Margin = new Padding(5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(5, 5, 5, 5);
+            groupBox1.Padding = new Padding(5);
             groupBox1.Size = new Size(704, 400);
             groupBox1.TabIndex = 59;
             groupBox1.TabStop = false;
@@ -215,7 +232,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 3, 0, 3);
-            menuStrip1.Size = new Size(1583, 38);
+            menuStrip1.Size = new Size(1583, 44);
             menuStrip1.TabIndex = 57;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -225,7 +242,7 @@
             userToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đổiMậtKhẩuToolStripMenuItem, đăngXuấtToolStripMenuItem });
             userToolStripMenuItem.Margin = new Padding(0, 0, 170, 0);
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(98, 32);
+            userToolStripMenuItem.Size = new Size(98, 38);
             userToolStripMenuItem.Text = "User : ";
             // 
             // đổiMậtKhẩuToolStripMenuItem
@@ -242,6 +259,13 @@
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
+            // hóaĐơnThanhToánToolStripMenuItem
+            // 
+            hóaĐơnThanhToánToolStripMenuItem.Name = "hóaĐơnThanhToánToolStripMenuItem";
+            hóaĐơnThanhToánToolStripMenuItem.Size = new Size(404, 44);
+            hóaĐơnThanhToánToolStripMenuItem.Text = "Hóa đơn thanh toán";
+            hóaĐơnThanhToánToolStripMenuItem.Click += hóaĐơnThanhToánToolStripMenuItem_Click;
+            // 
             // frmThongKe
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -251,7 +275,7 @@
             Controls.Add(groupBox1);
             Controls.Add(btnDoiTra);
             Controls.Add(menuStrip1);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "frmThongKe";
             Text = "frmThongKe";
             groupBox4.ResumeLayout(false);
@@ -285,5 +309,8 @@
         private ToolStripMenuItem userToolStripMenuItem;
         private ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem menuDànhChoNhânViênToolStripMenuItem;
+        private ToolStripMenuItem hóaĐơnThanhToánToolStripMenuItem;
     }
 }

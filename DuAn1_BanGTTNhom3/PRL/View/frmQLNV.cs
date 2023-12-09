@@ -261,7 +261,7 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmHoaDon hoaDon = new frmHoaDon();
+                frmQuanLyHD hoaDon = new frmQuanLyHD();
                 hoaDon.ShowDialog();
             }
             catch (Exception ex)
@@ -286,7 +286,16 @@ namespace PRL.View
 
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                this.Hide();
+                frmKhachHang thongKe = new frmKhachHang();
+                thongKe.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
 
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -324,7 +333,7 @@ namespace PRL.View
                 e.Handled = true; // Ngăn không cho ký tự này được nhập vào
             }
             // Kiểm tra xem có tối đa 10 chữ số được nhập vào
-            
+
             if (txtSDT.Text.Length >= 10 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Ngăn chặn thêm ký tự khi đã đạt đến giới hạn 10 chữ số
@@ -343,6 +352,34 @@ namespace PRL.View
             {
                 MessageBox.Show("Vui lòng nhập số 0 đầu tiên.");
                 txtSDT.Text = ""; // Xoá nội dung nếu ký tự đầu tiên không phải là số 0
+            }
+        }
+
+        private void couponToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmCoupon thongKe = new frmCoupon();
+                thongKe.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmMenuAd menu = new frmMenuAd(null);
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
     }
