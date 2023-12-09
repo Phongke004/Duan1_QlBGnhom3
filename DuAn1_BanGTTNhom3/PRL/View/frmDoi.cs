@@ -64,7 +64,7 @@ namespace PRL
             try
             {
                 this.Hide();
-                frmDoiTra doiTra = new frmDoiTra();
+                frmMenuNV doiTra = new frmMenuNV(null);
                 doiTra.ShowDialog();
             }
             catch (Exception ex)

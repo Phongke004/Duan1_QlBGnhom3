@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -109,10 +110,20 @@ namespace PRL.View
         {
             try
             {
-                if (txtTen.Text != string.Empty && txtDiaChi.Text != string.Empty && txtEmail.Text != string.Empty && txtSDT.Text != string.Empty
-                    && radioButtonNam.Text != string.Empty && radioButtonHD.Text != string.Empty && dtpNgaySinh.Text != string.Empty
-                    && cboChucVu.Text != string.Empty && cboCaLam.Text != string.Empty && txtPasswork.Text != string.Empty)
+                if (!string.IsNullOrEmpty(txtTen.Text) && !string.IsNullOrEmpty(txtDiaChi.Text) &&
+                    !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtSDT.Text) &&
+                    (radioButtonNam.Checked || radioButtonNu.Checked) &&
+                    (radioButtonHD.Checked || radioButtonKHD.Checked) &&
+                    !string.IsNullOrEmpty(dtpNgaySinh.Text) && !string.IsNullOrEmpty(cboChucVu.Text) &&
+                    !string.IsNullOrEmpty(cboCaLam.Text) && !string.IsNullOrEmpty(txtPasswork.Text))
                 {
+                    // Kiểm tra địa chỉ email có đúng định dạng không
+                    if (!IsEmailValid(txtEmail.Text))
+                    {
+                        MessageBox.Show("Địa chỉ email không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     NhanVien nv = new NhanVien();
                     nv.TenNhanVien = txtTen.Text;
                     nv.DiaChi = txtDiaChi.Text;
@@ -124,7 +135,10 @@ namespace PRL.View
                     nv.MaChucVu = cboChucVu.Text;
                     nv.MaCa = cboCaLam.Text;
                     nv.MatKhau = txtPasswork.Text;
+
+                    // Thêm nhân viên vào danh sách
                     sevice.Add(nv);
+
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
                     txtMa.ReadOnly = true;
@@ -137,10 +151,17 @@ namespace PRL.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private bool IsEmailValid(string email)
+        {
+            // Biểu thức chính quy kiểm tra email có đúng định dạng hay không
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
+            // Kiểm tra sự khớp của email với biểu thức chính quy
+            return Regex.IsMatch(email, pattern);
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             var nv = new NhanVien();
@@ -293,6 +314,35 @@ namespace PRL.View
             catch (Exception ex)
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự này được nhập vào
+            }
+            // Kiểm tra xem có tối đa 10 chữ số được nhập vào
+            
+            if (txtSDT.Text.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn chặn thêm ký tự khi đã đạt đến giới hạn 10 chữ số
+            }
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSDT.Text))
+            {
+                return;
+            }
+
+            // Kiểm tra xem ký tự đầu tiên có phải là số không (0) không
+            if (txtSDT.Text[0] != '0')
+            {
+                MessageBox.Show("Vui lòng nhập số 0 đầu tiên.");
+                txtSDT.Text = ""; // Xoá nội dung nếu ký tự đầu tiên không phải là số 0
             }
         }
     }

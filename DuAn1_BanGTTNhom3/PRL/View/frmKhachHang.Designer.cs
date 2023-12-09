@@ -46,10 +46,13 @@
             label4 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
+            cbbMotaRanks = new ComboBox();
+            label3 = new Label();
             label1 = new Label();
             userToolStripMenuItem = new ToolStripMenuItem();
             quảnLýToolStripMenuItem = new ToolStripMenuItem();
             groupBox2 = new GroupBox();
+            btnHienthi = new Button();
             menuStrip1 = new MenuStrip();
             ((System.ComponentModel.ISupportInitialize)dgvKhachHang).BeginInit();
             groupBox3.SuspendLayout();
@@ -61,24 +64,29 @@
             // cbbSearchRank
             // 
             cbbSearchRank.FormattingEnabled = true;
-            cbbSearchRank.Location = new Point(502, 68);
+            cbbSearchRank.Location = new Point(879, 89);
+            cbbSearchRank.Margin = new Padding(5, 4, 5, 4);
             cbbSearchRank.Name = "cbbSearchRank";
-            cbbSearchRank.Size = new Size(275, 28);
+            cbbSearchRank.Size = new Size(478, 35);
             cbbSearchRank.TabIndex = 6;
+            cbbSearchRank.SelectedIndexChanged += cbbSearchRank_SelectedIndexChanged;
             // 
             // txtboxSearchSDT
             // 
-            txtboxSearchSDT.Location = new Point(42, 69);
+            txtboxSearchSDT.Location = new Point(73, 89);
+            txtboxSearchSDT.Margin = new Padding(5, 4, 5, 4);
             txtboxSearchSDT.Name = "txtboxSearchSDT";
-            txtboxSearchSDT.Size = new Size(275, 27);
+            txtboxSearchSDT.Size = new Size(478, 35);
             txtboxSearchSDT.TabIndex = 5;
+            txtboxSearchSDT.TextChanged += txtboxSearchSDT_TextChanged;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(502, 37);
+            label9.Location = new Point(879, 48);
+            label9.Margin = new Padding(5, 0, 5, 0);
             label9.Name = "label9";
-            label9.Size = new Size(141, 20);
+            label9.Size = new Size(206, 27);
             label9.TabIndex = 3;
             label9.Text = "Tìm Theo Xếp Hạng";
             // 
@@ -87,13 +95,15 @@
             dgvKhachHang.AllowUserToAddRows = false;
             dgvKhachHang.AllowUserToDeleteRows = false;
             dgvKhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKhachHang.Location = new Point(6, 109);
+            dgvKhachHang.Location = new Point(11, 141);
+            dgvKhachHang.Margin = new Padding(5, 4, 5, 4);
             dgvKhachHang.Name = "dgvKhachHang";
             dgvKhachHang.ReadOnly = true;
             dgvKhachHang.RowHeadersWidth = 51;
             dgvKhachHang.RowTemplate.Height = 29;
-            dgvKhachHang.Size = new Size(1001, 226);
+            dgvKhachHang.Size = new Size(1370, 294);
             dgvKhachHang.TabIndex = 0;
+            dgvKhachHang.CellClick += dgvKhachHang_CellClick;
             // 
             // groupBox3
             // 
@@ -102,9 +112,12 @@
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(dgvKhachHang);
-            groupBox3.Location = new Point(12, 315);
+            groupBox3.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            groupBox3.Location = new Point(22, 410);
+            groupBox3.Margin = new Padding(5, 4, 5, 4);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1013, 340);
+            groupBox3.Padding = new Padding(5, 4, 5, 4);
+            groupBox3.Size = new Size(1381, 442);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Dữ Liệu Khách Hàng";
@@ -112,106 +125,125 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(42, 37);
+            label8.Location = new Point(73, 48);
+            label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(101, 20);
+            label8.Size = new Size(151, 27);
             label8.TabIndex = 2;
             label8.Text = "Tìm Theo SDT";
             // 
             // txtboxRank
             // 
-            txtboxRank.Location = new Point(149, 149);
+            txtboxRank.Location = new Point(261, 130);
+            txtboxRank.Margin = new Padding(5, 4, 5, 4);
             txtboxRank.Name = "txtboxRank";
-            txtboxRank.Size = new Size(247, 27);
+            txtboxRank.ReadOnly = true;
+            txtboxRank.Size = new Size(429, 35);
             txtboxRank.TabIndex = 9;
             // 
             // txtboxDiem
             // 
-            txtboxDiem.Location = new Point(553, 149);
+            txtboxDiem.Location = new Point(928, 194);
+            txtboxDiem.Margin = new Padding(5, 4, 5, 4);
             txtboxDiem.Name = "txtboxDiem";
-            txtboxDiem.Size = new Size(247, 27);
+            txtboxDiem.Size = new Size(429, 35);
             txtboxDiem.TabIndex = 8;
             // 
             // txtboxSDT
             // 
-            txtboxSDT.Location = new Point(553, 51);
+            txtboxSDT.Location = new Point(928, 69);
+            txtboxSDT.Margin = new Padding(5, 4, 5, 4);
             txtboxSDT.Name = "txtboxSDT";
-            txtboxSDT.Size = new Size(247, 27);
+            txtboxSDT.Size = new Size(429, 35);
             txtboxSDT.TabIndex = 7;
+            txtboxSDT.KeyPress += txtboxSDT_KeyPress;
             // 
             // txtboxMaKH
             // 
-            txtboxMaKH.Location = new Point(149, 51);
+            txtboxMaKH.Location = new Point(261, 67);
+            txtboxMaKH.Margin = new Padding(5, 4, 5, 4);
             txtboxMaKH.Name = "txtboxMaKH";
             txtboxMaKH.ReadOnly = true;
-            txtboxMaKH.Size = new Size(247, 27);
+            txtboxMaKH.Size = new Size(429, 35);
             txtboxMaKH.TabIndex = 5;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(68, 152);
+            label6.Location = new Point(110, 200);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(75, 20);
+            label6.Size = new Size(109, 27);
             label6.TabIndex = 4;
             label6.Text = "Xếp Hạng";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(502, 152);
+            label5.Location = new Point(839, 199);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(45, 20);
+            label5.Size = new Size(64, 27);
             label5.TabIndex = 3;
             label5.Text = "Điểm";
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(6, 192);
+            btnDelete.Location = new Point(11, 358);
+            btnDelete.Margin = new Padding(5, 4, 5, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(189, 48);
+            btnDelete.Size = new Size(213, 63);
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Clear";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(6, 111);
+            btnUpdate.Location = new Point(11, 145);
+            btnUpdate.Margin = new Padding(5, 4, 5, 4);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(189, 48);
+            btnUpdate.Size = new Size(213, 63);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(6, 30);
+            btnAdd.Location = new Point(11, 39);
+            btnAdd.Margin = new Padding(5, 4, 5, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(189, 48);
+            btnAdd.Size = new Size(213, 63);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(445, 55);
+            label4.Location = new Point(739, 74);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(102, 20);
+            label4.Size = new Size(151, 27);
             label4.TabIndex = 2;
             label4.Text = "Số Điện Thoại";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 55);
+            label2.Location = new Point(51, 72);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(114, 20);
+            label2.Size = new Size(172, 27);
             label2.TabIndex = 0;
             label2.Text = "Mã Khách Hàng";
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cbbMotaRanks);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtboxRank);
             groupBox1.Controls.Add(txtboxDiem);
             groupBox1.Controls.Add(txtboxSDT);
@@ -220,48 +252,86 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(12, 63);
+            groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            groupBox1.Location = new Point(22, 82);
+            groupBox1.Margin = new Padding(5, 4, 5, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(806, 246);
+            groupBox1.Padding = new Padding(5, 4, 5, 4);
+            groupBox1.Size = new Size(1381, 320);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin";
             // 
+            // cbbMotaRanks
+            // 
+            cbbMotaRanks.FormattingEnabled = true;
+            cbbMotaRanks.Location = new Point(259, 201);
+            cbbMotaRanks.Name = "cbbMotaRanks";
+            cbbMotaRanks.Size = new Size(431, 35);
+            cbbMotaRanks.TabIndex = 11;
+            cbbMotaRanks.SelectedIndexChanged += cbbMotaRanks_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(113, 133);
+            label3.Name = "label3";
+            label3.Size = new Size(109, 27);
+            label3.TabIndex = 10;
+            label3.Text = "Mã Ranks";
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(336, 10);
+            label1.Font = new Font("Times New Roman", 22.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(588, 13);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(361, 50);
+            label1.Size = new Size(591, 67);
             label1.TabIndex = 6;
             label1.Text = "Quản Lý Khách Hàng";
             // 
             // userToolStripMenuItem
             // 
             userToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            userToolStripMenuItem.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             userToolStripMenuItem.Margin = new Padding(0, 0, 170, 0);
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(55, 24);
+            userToolStripMenuItem.Size = new Size(88, 32);
             userToolStripMenuItem.Text = "User:";
             // 
             // quảnLýToolStripMenuItem
             // 
+            quảnLýToolStripMenuItem.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            quảnLýToolStripMenuItem.Size = new Size(75, 24);
+            quảnLýToolStripMenuItem.Size = new Size(119, 32);
             quảnLýToolStripMenuItem.Text = "Quản Lý";
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnHienthi);
             groupBox2.Controls.Add(btnDelete);
             groupBox2.Controls.Add(btnUpdate);
             groupBox2.Controls.Add(btnAdd);
-            groupBox2.Location = new Point(824, 63);
+            groupBox2.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            groupBox2.Location = new Point(1442, 82);
+            groupBox2.Margin = new Padding(5, 4, 5, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(201, 246);
+            groupBox2.Padding = new Padding(5, 4, 5, 4);
+            groupBox2.Size = new Size(262, 452);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
+            // 
+            // btnHienthi
+            // 
+            btnHienthi.Location = new Point(11, 267);
+            btnHienthi.Name = "btnHienthi";
+            btnHienthi.Size = new Size(213, 65);
+            btnHienthi.TabIndex = 3;
+            btnHienthi.Text = "Hiển thị";
+            btnHienthi.UseVisualStyleBackColor = true;
+            btnHienthi.Click += btnHienthi_Click;
             // 
             // menuStrip1
             // 
@@ -269,22 +339,27 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { quảnLýToolStripMenuItem, userToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1094, 28);
+            menuStrip1.Padding = new Padding(11, 2, 0, 2);
+            menuStrip1.Size = new Size(1815, 36);
             menuStrip1.TabIndex = 5;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // frmKhachHang
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(14F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1094, 661);
+            ClientSize = new Size(1815, 963);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Controls.Add(groupBox2);
             Controls.Add(menuStrip1);
+            Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "frmKhachHang";
-            Text = "frmKhachHang";
+            Text = "Quản lý khách hàng";
+            Load += frmKhachHang_Load;
             ((System.ComponentModel.ISupportInitialize)dgvKhachHang).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
@@ -322,5 +397,8 @@
         private ToolStripMenuItem quảnLýToolStripMenuItem;
         private GroupBox groupBox2;
         private MenuStrip menuStrip1;
+        private ComboBox cbbMotaRanks;
+        private Label label3;
+        private Button btnHienthi;
     }
 }

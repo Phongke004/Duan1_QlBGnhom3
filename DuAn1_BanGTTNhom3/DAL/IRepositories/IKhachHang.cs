@@ -10,7 +10,7 @@ namespace DAL.IRepositories
     public interface IKhachHang
     {
         public bool Add(KhachHang kh);
-        public bool Update(KhachHang kh);
+        public bool UpdateKHs(KhachHang kh);
         public List<KhachHang> GetKH();
         public List<Rank> GetRanks();
     }

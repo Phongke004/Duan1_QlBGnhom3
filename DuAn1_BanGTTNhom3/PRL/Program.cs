@@ -1,3 +1,4 @@
+using DAL.DomainClass;
 using PRL.View;
 
 namespace PRL
@@ -16,7 +17,7 @@ namespace PRL
 
 
 
-            Application.Run(new frmQuanLyHD());
+            Application.Run(new frmLogin());
 
 
 

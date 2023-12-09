@@ -48,7 +48,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { userToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(654, 28);
+            menuStrip1.Padding = new Padding(10, 3, 0, 3);
+            menuStrip1.Size = new Size(1063, 44);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -56,22 +57,23 @@
             // 
             userToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
             userToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đổiMậtKhẩuToolStripMenuItem, đăngXuấtToolStripMenuItem });
+            userToolStripMenuItem.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             userToolStripMenuItem.Margin = new Padding(0, 0, 170, 0);
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(55, 24);
+            userToolStripMenuItem.Size = new Size(88, 38);
             userToolStripMenuItem.Text = "User:";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            đổiMậtKhẩuToolStripMenuItem.Size = new Size(183, 26);
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(359, 44);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi Mật Khẩu";
             đổiMậtKhẩuToolStripMenuItem.Click += đổiMậtKhẩuToolStripMenuItem_Click;
             // 
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(183, 26);
+            đăngXuấtToolStripMenuItem.Size = new Size(359, 44);
             đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
@@ -80,9 +82,12 @@
             groupBox1.Controls.Add(btnDoiTra);
             groupBox1.Controls.Add(btnHoaDon);
             groupBox1.Controls.Add(btnSanPham);
-            groupBox1.Location = new Point(12, 31);
+            groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.Location = new Point(20, 50);
+            groupBox1.Margin = new Padding(5, 5, 5, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(190, 327);
+            groupBox1.Padding = new Padding(5, 5, 5, 5);
+            groupBox1.Size = new Size(309, 523);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Chức Năng";
@@ -91,9 +96,10 @@
             // 
             btnDoiTra.Image = Properties.Resources.Task_list;
             btnDoiTra.ImageAlign = ContentAlignment.MiddleRight;
-            btnDoiTra.Location = new Point(6, 264);
+            btnDoiTra.Location = new Point(10, 422);
+            btnDoiTra.Margin = new Padding(5, 5, 5, 5);
             btnDoiTra.Name = "btnDoiTra";
-            btnDoiTra.Size = new Size(178, 53);
+            btnDoiTra.Size = new Size(289, 85);
             btnDoiTra.TabIndex = 2;
             btnDoiTra.Text = "Đổi Trả";
             btnDoiTra.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@
             // 
             btnHoaDon.Image = Properties.Resources.Price_list;
             btnHoaDon.ImageAlign = ContentAlignment.MiddleRight;
-            btnHoaDon.Location = new Point(6, 145);
+            btnHoaDon.Location = new Point(10, 232);
+            btnHoaDon.Margin = new Padding(5, 5, 5, 5);
             btnHoaDon.Name = "btnHoaDon";
-            btnHoaDon.Size = new Size(178, 53);
+            btnHoaDon.Size = new Size(289, 85);
             btnHoaDon.TabIndex = 1;
             btnHoaDon.Text = "Hóa Đơn";
             btnHoaDon.UseVisualStyleBackColor = true;
@@ -115,9 +122,10 @@
             // 
             btnSanPham.Image = Properties.Resources.Numbered_list;
             btnSanPham.ImageAlign = ContentAlignment.MiddleRight;
-            btnSanPham.Location = new Point(6, 26);
+            btnSanPham.Location = new Point(10, 42);
+            btnSanPham.Margin = new Padding(5, 5, 5, 5);
             btnSanPham.Name = "btnSanPham";
-            btnSanPham.Size = new Size(178, 53);
+            btnSanPham.Size = new Size(289, 85);
             btnSanPham.TabIndex = 0;
             btnSanPham.Text = "Sản Phẩm";
             btnSanPham.UseVisualStyleBackColor = true;
@@ -126,22 +134,24 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.ronaldocamgiay;
-            pictureBox1.Location = new Point(208, 37);
+            pictureBox1.Location = new Point(338, 59);
+            pictureBox1.Margin = new Padding(5, 5, 5, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(434, 321);
+            pictureBox1.Size = new Size(705, 514);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // frmMenuNV
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(654, 370);
+            ClientSize = new Size(1063, 592);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(5, 5, 5, 5);
             Name = "frmMenuNV";
             Text = "frmMenuNV";
             Load += frmMenuNV_Load;

@@ -128,6 +128,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(dgvCoupon);
+            groupBox3.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox3.Location = new Point(20, 766);
             groupBox3.Margin = new Padding(5);
             groupBox3.Name = "groupBox3";
@@ -142,6 +143,7 @@
             groupBox2.Controls.Add(btnClear);
             groupBox2.Controls.Add(btnUpdate);
             groupBox2.Controls.Add(btnAdd);
+            groupBox2.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox2.Location = new Point(1394, 142);
             groupBox2.Margin = new Padding(5);
             groupBox2.Name = "groupBox2";
@@ -154,11 +156,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Times New Roman", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(642, 54);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(518, 73);
+            label1.Size = new Size(414, 61);
             label1.TabIndex = 7;
             label1.Text = "Quản Lý Coupon";
             // 
@@ -168,7 +170,7 @@
             dtpNgayKetThucCoupon.Location = new Point(918, 512);
             dtpNgayKetThucCoupon.Margin = new Padding(5);
             dtpNgayKetThucCoupon.Name = "dtpNgayKetThucCoupon";
-            dtpNgayKetThucCoupon.Size = new Size(435, 39);
+            dtpNgayKetThucCoupon.Size = new Size(435, 35);
             dtpNgayKetThucCoupon.TabIndex = 12;
             // 
             // dtpNgayBatDauCoupon
@@ -177,7 +179,7 @@
             dtpNgayBatDauCoupon.Location = new Point(213, 512);
             dtpNgayBatDauCoupon.Margin = new Padding(5);
             dtpNgayBatDauCoupon.Name = "dtpNgayBatDauCoupon";
-            dtpNgayBatDauCoupon.Size = new Size(435, 39);
+            dtpNgayBatDauCoupon.Size = new Size(435, 35);
             dtpNgayBatDauCoupon.TabIndex = 11;
             // 
             // groupBox1
@@ -196,6 +198,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox1.Location = new Point(20, 142);
             groupBox1.Margin = new Padding(5);
             groupBox1.Name = "groupBox1";
@@ -210,7 +213,7 @@
             txtboxDKCoupon.Location = new Point(213, 382);
             txtboxDKCoupon.Margin = new Padding(5);
             txtboxDKCoupon.Name = "txtboxDKCoupon";
-            txtboxDKCoupon.Size = new Size(435, 39);
+            txtboxDKCoupon.Size = new Size(435, 35);
             txtboxDKCoupon.TabIndex = 15;
             // 
             // txtboxGiaTriCoupon
@@ -218,8 +221,9 @@
             txtboxGiaTriCoupon.Location = new Point(213, 250);
             txtboxGiaTriCoupon.Margin = new Padding(5);
             txtboxGiaTriCoupon.Name = "txtboxGiaTriCoupon";
-            txtboxGiaTriCoupon.Size = new Size(435, 39);
+            txtboxGiaTriCoupon.Size = new Size(435, 35);
             txtboxGiaTriCoupon.TabIndex = 14;
+            txtboxGiaTriCoupon.KeyPress += txtboxGiaTriCoupon_KeyPress;
             // 
             // label8
             // 
@@ -227,7 +231,7 @@
             label8.Location = new Point(83, 387);
             label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(118, 32);
+            label8.Size = new Size(113, 28);
             label8.TabIndex = 13;
             label8.Text = "Điều Kiện";
             // 
@@ -236,7 +240,7 @@
             txtboxMoTaCoupon.Location = new Point(918, 318);
             txtboxMoTaCoupon.Margin = new Padding(5);
             txtboxMoTaCoupon.Name = "txtboxMoTaCoupon";
-            txtboxMoTaCoupon.Size = new Size(435, 39);
+            txtboxMoTaCoupon.Size = new Size(435, 35);
             txtboxMoTaCoupon.TabIndex = 8;
             // 
             // txtboxTenCoupon
@@ -244,7 +248,7 @@
             txtboxTenCoupon.Location = new Point(918, 117);
             txtboxTenCoupon.Margin = new Padding(5);
             txtboxTenCoupon.Name = "txtboxTenCoupon";
-            txtboxTenCoupon.Size = new Size(435, 39);
+            txtboxTenCoupon.Size = new Size(435, 35);
             txtboxTenCoupon.TabIndex = 7;
             // 
             // txtboxMaCoupon
@@ -252,7 +256,7 @@
             txtboxMaCoupon.Location = new Point(213, 117);
             txtboxMaCoupon.Margin = new Padding(5);
             txtboxMaCoupon.Name = "txtboxMaCoupon";
-            txtboxMaCoupon.Size = new Size(435, 39);
+            txtboxMaCoupon.Size = new Size(435, 35);
             txtboxMaCoupon.TabIndex = 6;
             // 
             // label7
@@ -261,7 +265,7 @@
             label7.Location = new Point(736, 520);
             label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(171, 32);
+            label7.Size = new Size(162, 28);
             label7.TabIndex = 5;
             label7.Text = "Ngày Kết Thúc";
             // 
@@ -271,7 +275,7 @@
             label6.Location = new Point(37, 520);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(161, 32);
+            label6.Size = new Size(153, 28);
             label6.TabIndex = 4;
             label6.Text = "Ngày Bắt Đầu";
             // 
@@ -281,7 +285,7 @@
             label5.Location = new Point(88, 254);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(80, 32);
+            label5.Size = new Size(84, 28);
             label5.TabIndex = 3;
             label5.Text = "Giá Trị";
             // 
@@ -291,7 +295,7 @@
             label4.Location = new Point(826, 323);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(82, 32);
+            label4.Size = new Size(78, 28);
             label4.TabIndex = 2;
             label4.Text = "Mô Tả";
             // 
@@ -301,7 +305,7 @@
             label3.Location = new Point(764, 128);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(144, 32);
+            label3.Size = new Size(135, 28);
             label3.TabIndex = 1;
             label3.Text = "Tên Coupon";
             // 
@@ -311,7 +315,7 @@
             label2.Location = new Point(62, 122);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(140, 32);
+            label2.Size = new Size(129, 28);
             label2.TabIndex = 0;
             label2.Text = "Mã Coupon";
             // 
@@ -413,6 +417,7 @@
             // 
             // btnThoat
             // 
+            btnThoat.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnThoat.ImageAlign = ContentAlignment.MiddleRight;
             btnThoat.Location = new Point(1451, 1286);
             btnThoat.Margin = new Padding(5);

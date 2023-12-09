@@ -48,10 +48,7 @@ namespace PRL.View
             }
         }
 
-        private void btnQLKH_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnQLHD_Click(object sender, EventArgs e)
         {
@@ -140,6 +137,20 @@ namespace PRL.View
         private void frmMenuAd_Load(object sender, EventArgs e)
         {
             userToolStripMenuItem.Text = "User: " + Username;
+        }
+
+        private void btnQLKH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmKhachHang kh = new frmKhachHang();
+                kh.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi sảy ra" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
     }
 }
