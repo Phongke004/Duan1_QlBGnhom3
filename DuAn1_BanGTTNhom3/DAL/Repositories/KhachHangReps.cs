@@ -43,24 +43,12 @@ namespace DAL.Repositories
             return _db.Ranks.ToList();
         }
 
-        public bool Update(KhachHang kh)
+        public bool UpdateKHs(KhachHang kh)
         {
-            try
-            {
-                if (kh == null) return false;
-                var e = _db.KhachHangs.FirstOrDefault(x => x.MaKh == kh.MaKh);
-                if (e == null) return false;
-                e.Sdt = kh.Sdt;
-                e.Diem = kh.Diem;
-                e.MaRank = kh.MaRank;
-                _db.KhachHangs.Update(e);
+                _db.KhachHangs.Update(kh);
                 _db.SaveChanges();
                 return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+           
         }
     }
 }

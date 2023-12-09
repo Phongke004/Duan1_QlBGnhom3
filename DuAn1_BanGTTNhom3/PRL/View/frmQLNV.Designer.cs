@@ -110,6 +110,7 @@
             groupBox1.Controls.Add(btnXoa);
             groupBox1.Controls.Add(btnSua);
             groupBox1.Controls.Add(btnThem);
+            groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox1.Location = new Point(114, 168);
             groupBox1.Margin = new Padding(5);
             groupBox1.Name = "groupBox1";
@@ -153,7 +154,7 @@
             radioButtonHD.Location = new Point(5, 10);
             radioButtonHD.Margin = new Padding(5);
             radioButtonHD.Name = "radioButtonHD";
-            radioButtonHD.Size = new Size(159, 36);
+            radioButtonHD.Size = new Size(148, 32);
             radioButtonHD.TabIndex = 25;
             radioButtonHD.TabStop = true;
             radioButtonHD.Text = "Hoạt động";
@@ -165,7 +166,7 @@
             radioButtonKHD.Location = new Point(278, 10);
             radioButtonKHD.Margin = new Padding(5);
             radioButtonKHD.Name = "radioButtonKHD";
-            radioButtonKHD.Size = new Size(233, 36);
+            radioButtonKHD.Size = new Size(214, 32);
             radioButtonKHD.TabIndex = 26;
             radioButtonKHD.TabStop = true;
             radioButtonKHD.Text = "Không hoạt động";
@@ -187,7 +188,7 @@
             radioButtonNam.Location = new Point(32, 11);
             radioButtonNam.Margin = new Padding(5);
             radioButtonNam.Name = "radioButtonNam";
-            radioButtonNam.Size = new Size(96, 36);
+            radioButtonNam.Size = new Size(90, 32);
             radioButtonNam.TabIndex = 23;
             radioButtonNam.TabStop = true;
             radioButtonNam.Text = "Nam";
@@ -199,7 +200,7 @@
             radioButtonNu.Location = new Point(315, 11);
             radioButtonNu.Margin = new Padding(5);
             radioButtonNu.Name = "radioButtonNu";
-            radioButtonNu.Size = new Size(77, 36);
+            radioButtonNu.Size = new Size(74, 32);
             radioButtonNu.TabIndex = 24;
             radioButtonNu.TabStop = true;
             radioButtonNu.Text = "Nữ";
@@ -211,7 +212,7 @@
             dtpNgaySinh.Location = new Point(942, 309);
             dtpNgaySinh.Margin = new Padding(5);
             dtpNgaySinh.Name = "dtpNgaySinh";
-            dtpNgaySinh.Size = new Size(518, 39);
+            dtpNgaySinh.Size = new Size(518, 35);
             dtpNgaySinh.TabIndex = 27;
             // 
             // txtPasswork
@@ -219,7 +220,7 @@
             txtPasswork.Location = new Point(939, 243);
             txtPasswork.Margin = new Padding(5);
             txtPasswork.Name = "txtPasswork";
-            txtPasswork.Size = new Size(521, 39);
+            txtPasswork.Size = new Size(521, 35);
             txtPasswork.TabIndex = 22;
             // 
             // txtDiaChi
@@ -227,7 +228,7 @@
             txtDiaChi.Location = new Point(143, 317);
             txtDiaChi.Margin = new Padding(5);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(524, 39);
+            txtDiaChi.Size = new Size(524, 35);
             txtDiaChi.TabIndex = 19;
             // 
             // txtEmail
@@ -235,7 +236,7 @@
             txtEmail.Location = new Point(143, 251);
             txtEmail.Margin = new Padding(5);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(524, 39);
+            txtEmail.Size = new Size(524, 35);
             txtEmail.TabIndex = 18;
             // 
             // txtSDT
@@ -243,15 +244,17 @@
             txtSDT.Location = new Point(143, 181);
             txtSDT.Margin = new Padding(5);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(524, 39);
+            txtSDT.Size = new Size(524, 35);
             txtSDT.TabIndex = 17;
+            txtSDT.TextChanged += txtSDT_TextChanged;
+            txtSDT.KeyPress += txtSDT_KeyPress;
             // 
             // txtTen
             // 
             txtTen.Location = new Point(143, 112);
             txtTen.Margin = new Padding(5);
             txtTen.Name = "txtTen";
-            txtTen.Size = new Size(524, 39);
+            txtTen.Size = new Size(524, 35);
             txtTen.TabIndex = 16;
             // 
             // txtMa
@@ -259,7 +262,7 @@
             txtMa.Location = new Point(143, 51);
             txtMa.Margin = new Padding(5);
             txtMa.Name = "txtMa";
-            txtMa.Size = new Size(524, 39);
+            txtMa.Size = new Size(524, 35);
             txtMa.TabIndex = 15;
             // 
             // label12
@@ -268,7 +271,7 @@
             label12.Location = new Point(803, 109);
             label12.Margin = new Padding(5, 0, 5, 0);
             label12.Name = "label12";
-            label12.Size = new Size(92, 32);
+            label12.Size = new Size(91, 28);
             label12.TabIndex = 14;
             label12.Text = "Ca Làm";
             // 
@@ -278,7 +281,7 @@
             label11.Location = new Point(806, 48);
             label11.Margin = new Padding(5, 0, 5, 0);
             label11.Name = "label11";
-            label11.Size = new Size(104, 32);
+            label11.Size = new Size(100, 28);
             label11.TabIndex = 13;
             label11.Text = "Chức Vụ";
             // 
@@ -288,7 +291,7 @@
             label10.Location = new Point(803, 178);
             label10.Margin = new Padding(5, 0, 5, 0);
             label10.Name = "label10";
-            label10.Size = new Size(125, 32);
+            label10.Size = new Size(125, 28);
             label10.TabIndex = 12;
             label10.Text = "Trạng Thái";
             // 
@@ -298,7 +301,7 @@
             label9.Location = new Point(803, 248);
             label9.Margin = new Padding(5, 0, 5, 0);
             label9.Name = "label9";
-            label9.Size = new Size(117, 32);
+            label9.Size = new Size(112, 28);
             label9.TabIndex = 11;
             label9.Text = "Mật Khẩu";
             // 
@@ -308,7 +311,7 @@
             label8.Location = new Point(41, 322);
             label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(87, 32);
+            label8.Size = new Size(85, 28);
             label8.TabIndex = 10;
             label8.Text = "Địa chỉ";
             // 
@@ -318,7 +321,7 @@
             label7.Location = new Point(803, 314);
             label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(124, 32);
+            label7.Size = new Size(116, 28);
             label7.TabIndex = 9;
             label7.Text = "Ngày Sinh";
             // 
@@ -328,7 +331,7 @@
             label6.Location = new Point(20, 392);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(110, 32);
+            label6.Size = new Size(110, 28);
             label6.TabIndex = 8;
             label6.Text = "Giới Tính";
             // 
@@ -338,7 +341,7 @@
             label5.Location = new Point(41, 256);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(71, 32);
+            label5.Size = new Size(72, 28);
             label5.TabIndex = 7;
             label5.Text = "Email";
             // 
@@ -348,7 +351,7 @@
             label4.Location = new Point(41, 186);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(57, 32);
+            label4.Size = new Size(57, 28);
             label4.TabIndex = 6;
             label4.Text = "SĐT";
             // 
@@ -358,7 +361,7 @@
             label3.Location = new Point(41, 117);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(52, 32);
+            label3.Size = new Size(51, 28);
             label3.TabIndex = 5;
             label3.Text = "Tên";
             // 
@@ -368,7 +371,7 @@
             label2.Location = new Point(41, 56);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(48, 32);
+            label2.Size = new Size(45, 28);
             label2.TabIndex = 4;
             label2.Text = "Mã";
             // 
@@ -419,6 +422,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(dgvNhanVien);
+            groupBox2.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox2.Location = new Point(20, 680);
             groupBox2.Margin = new Padding(5);
             groupBox2.Name = "groupBox2";
@@ -538,6 +542,7 @@
             // 
             // btnThoat
             // 
+            btnThoat.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnThoat.Location = new Point(1648, 1082);
             btnThoat.Margin = new Padding(5);
             btnThoat.Name = "btnThoat";

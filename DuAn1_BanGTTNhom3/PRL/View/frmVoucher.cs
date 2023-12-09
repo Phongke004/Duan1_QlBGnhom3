@@ -235,5 +235,13 @@ namespace PRL.View
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
+
+        private void txtboxGiaTriVoucher_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự này được nhập vào
+            }
+        }
     }
 }

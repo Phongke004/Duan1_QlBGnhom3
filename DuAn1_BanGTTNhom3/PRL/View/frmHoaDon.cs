@@ -403,7 +403,7 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmDoiTra doiTra = new frmDoiTra();
+                frmDoi doiTra = new frmDoi();
                 doiTra.ShowDialog();
             }
             catch (Exception ex)
@@ -439,7 +439,19 @@ namespace PRL.View
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
-
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmKhachHang nhanVien = new frmKhachHang();
+                nhanVien.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
 
 
         private void txtDonGia_TextChanged(object sender, EventArgs e)
@@ -454,7 +466,7 @@ namespace PRL.View
 
         private void txtTienSauVC_TextChanged(object sender, EventArgs e)
         {
-            TinhTongTien();
+            // TinhTongTien();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -605,7 +617,7 @@ namespace PRL.View
             saveFileDialog.Title = "Save Word Document";
             saveFileDialog.DefaultExt = "docx";
             saveFileDialog.AddExtension = true;
-            if(saveFileDialog.ShowDialog()== DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string path = saveFileDialog.FileName;
                 using (DocX doucument = DocX.Create(path))
@@ -625,8 +637,16 @@ namespace PRL.View
                 }
                 MessageBox.Show("In thành công");
             }
-          
 
+
+        }
+
+        private void txtSoSanPham_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự này được nhập vào
+            }
         }
     }
 }

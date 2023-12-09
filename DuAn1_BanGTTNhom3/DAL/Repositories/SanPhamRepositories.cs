@@ -19,7 +19,16 @@ namespace DAL.Repositories
         }
         public bool AddsSP(SanPham sp)
         {
-            
+            if (GetAll().Count != 0)
+            {
+                var maxid = _db.SanPhams.Max(x => x.MaSp);
+                int nextid = Convert.ToInt32(maxid.Substring(2)) + 1;
+                sp.MaSp = "SP" + nextid.ToString("D3");
+            }
+            else
+            {
+                sp.MaSp = "SP001";
+            }
             _db.SanPhams.Add(sp);
             _db.SaveChanges();
             return true;

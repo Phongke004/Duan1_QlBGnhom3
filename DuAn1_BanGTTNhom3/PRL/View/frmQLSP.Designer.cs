@@ -71,6 +71,7 @@
             label2 = new Label();
             dtpNgayNhap = new DateTimePicker();
             groupBox2 = new GroupBox();
+            btnback = new Button();
             btnClear = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
@@ -333,6 +334,7 @@
             txtboxGiaTien.Name = "txtboxGiaTien";
             txtboxGiaTien.Size = new Size(429, 35);
             txtboxGiaTien.TabIndex = 20;
+            txtboxGiaTien.KeyPress += txtboxGiaTien_KeyPress;
             // 
             // label11
             // 
@@ -415,6 +417,7 @@
             txtboxSoLuong.Name = "txtboxSoLuong";
             txtboxSoLuong.Size = new Size(430, 35);
             txtboxSoLuong.TabIndex = 8;
+            txtboxSoLuong.KeyPress += txtboxSoLuong_KeyPress;
             // 
             // txtboxNameSP
             // 
@@ -429,6 +432,7 @@
             txtboxIDSP.Location = new Point(236, 62);
             txtboxIDSP.Margin = new Padding(5);
             txtboxIDSP.Name = "txtboxIDSP";
+            txtboxIDSP.ReadOnly = true;
             txtboxIDSP.Size = new Size(429, 35);
             txtboxIDSP.TabIndex = 6;
             // 
@@ -493,6 +497,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnback);
             groupBox2.Controls.Add(btnClear);
             groupBox2.Controls.Add(btnUpdate);
             groupBox2.Controls.Add(btnAdd);
@@ -506,11 +511,21 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
             // 
+            // btnback
+            // 
+            btnback.Location = new Point(10, 486);
+            btnback.Name = "btnback";
+            btnback.Size = new Size(280, 95);
+            btnback.TabIndex = 4;
+            btnback.Text = "Quay lại";
+            btnback.UseVisualStyleBackColor = true;
+            btnback.Click += btnback_Click;
+            // 
             // btnClear
             // 
             btnClear.Image = Properties.Resources.Delete;
             btnClear.ImageAlign = ContentAlignment.MiddleRight;
-            btnClear.Location = new Point(10, 480);
+            btnClear.Location = new Point(10, 365);
             btnClear.Margin = new Padding(5);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(280, 85);
@@ -523,7 +538,7 @@
             // 
             btnUpdate.Image = Properties.Resources.Refresh;
             btnUpdate.ImageAlign = ContentAlignment.MiddleRight;
-            btnUpdate.Location = new Point(10, 261);
+            btnUpdate.Location = new Point(10, 193);
             btnUpdate.Margin = new Padding(5);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(280, 85);
@@ -548,6 +563,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(dgvSanPham);
+            groupBox3.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox3.Location = new Point(10, 757);
             groupBox3.Margin = new Padding(5);
             groupBox3.Name = "groupBox3";
@@ -647,5 +663,6 @@
         private TextBox txtMaSize;
         private TextBox txtMaCL;
         private Label label13;
+        private Button btnback;
     }
 }

@@ -73,8 +73,8 @@ namespace PRL.View
                     cp.GiaTri = Convert.ToInt32(txtboxGiaTriCoupon.Text);
                     cp.MoTa = txtboxMoTaCoupon.Text;
                     cp.DieuKien = txtboxDKCoupon.Text;
-                    cp.NgayBatDau = Convert.ToDateTime( dtpNgayBatDauCoupon.Text);
-                    cp.NgayKetThuc =Convert.ToDateTime( dtpNgayKetThucCoupon.Text);
+                    cp.NgayBatDau = Convert.ToDateTime(dtpNgayBatDauCoupon.Text);
+                    cp.NgayKetThuc = Convert.ToDateTime(dtpNgayKetThucCoupon.Text);
                     _service.AddCPs(cp);
                     MessageBox.Show("Thêm thành công");
                     LoadData(null);
@@ -256,6 +256,14 @@ namespace PRL.View
         private void quảnLýCouponToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtboxGiaTriCoupon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự này được nhập vào
+            }
         }
     }
 }

@@ -101,8 +101,9 @@ namespace PRL.View
             }
             else
             {
-                LoadDataHD(txtsearch.Text);
+                LoadDataHDCT();
             }
+
         }
 
         private void btndel_Click(object sender, EventArgs e)
@@ -120,6 +121,21 @@ namespace PRL.View
             hoaDonChiTiet.MaHd = _idWhenclick;
             _hoaDonServices.DeletesHD(hoaDonChiTiet);
             LoadDataHD(null);
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                this.Hide();
+                frmMenuAd kh = new frmMenuAd(null);
+                kh.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi sảy ra" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
         }
     }
 }

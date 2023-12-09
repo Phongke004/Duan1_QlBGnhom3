@@ -86,7 +86,7 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmDoiTra doiTra = new frmDoiTra();
+                frmDoi doiTra = new frmDoi();
                 doiTra.ShowDialog();
             }
             catch (Exception ex)
