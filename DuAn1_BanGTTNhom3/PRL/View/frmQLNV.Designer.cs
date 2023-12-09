@@ -74,6 +74,7 @@
             đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             btnThoat = new Button();
+            menuToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -465,15 +466,15 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 3, 0, 3);
-            menuStrip1.Size = new Size(1908, 42);
+            menuStrip1.Size = new Size(1908, 44);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
             // mENUQuảnLýToolStripMenuItem
             // 
-            mENUQuảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýSảnPhẩmToolStripMenuItem, quảnLýKhuyếnMãiToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, quảnLýHóaĐơnToolStripMenuItem, quảnLýThốngKêToolStripMenuItem, couponToolStripMenuItem });
+            mENUQuảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýSảnPhẩmToolStripMenuItem, quảnLýKhuyếnMãiToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, quảnLýHóaĐơnToolStripMenuItem, quảnLýThốngKêToolStripMenuItem, couponToolStripMenuItem, menuToolStripMenuItem });
             mENUQuảnLýToolStripMenuItem.Name = "mENUQuảnLýToolStripMenuItem";
-            mENUQuảnLýToolStripMenuItem.Size = new Size(149, 36);
+            mENUQuảnLýToolStripMenuItem.Size = new Size(149, 38);
             mENUQuảnLýToolStripMenuItem.Text = "Chức năng";
             // 
             // quảnLýSảnPhẩmToolStripMenuItem
@@ -516,6 +517,7 @@
             couponToolStripMenuItem.Name = "couponToolStripMenuItem";
             couponToolStripMenuItem.Size = new Size(361, 44);
             couponToolStripMenuItem.Text = "Coupon";
+            couponToolStripMenuItem.Click += couponToolStripMenuItem_Click;
             // 
             // userToolStripMenuItem
             // 
@@ -523,7 +525,7 @@
             userToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đổiMậtKhẩuToolStripMenuItem, đăngXuấtToolStripMenuItem });
             userToolStripMenuItem.Margin = new Padding(0, 0, 170, 0);
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(100, 36);
+            userToolStripMenuItem.Size = new Size(100, 38);
             userToolStripMenuItem.Text = "User : ";
             // 
             // đổiMậtKhẩuToolStripMenuItem
@@ -551,6 +553,13 @@
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
             btnThoat.Click += btnThoat_Click;
+            // 
+            // menuToolStripMenuItem
+            // 
+            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            menuToolStripMenuItem.Size = new Size(361, 44);
+            menuToolStripMenuItem.Text = "Menu";
+            menuToolStripMenuItem.Click += menuToolStripMenuItem_Click;
             // 
             // frmQLNV
             // 
@@ -628,5 +637,6 @@
         private Button btnThoat;
         private ToolStripMenuItem couponToolStripMenuItem;
         private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
+        private ToolStripMenuItem menuToolStripMenuItem;
     }
 }

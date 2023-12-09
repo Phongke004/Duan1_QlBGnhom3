@@ -141,15 +141,16 @@ namespace PRL.View
 
         private void btnQLKH_Click(object sender, EventArgs e)
         {
+
             try
             {
                 this.Hide();
-                frmKhachHang kh = new frmKhachHang();
-                kh.ShowDialog();
+                frmKhachHang login = new frmKhachHang();
+                login.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi sảy ra" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
     }

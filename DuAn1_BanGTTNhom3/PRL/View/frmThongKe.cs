@@ -98,7 +98,7 @@ namespace PRL.View
             try
             {
                 this.Hide();
-                frmHoaDon hoaDon = new frmHoaDon();
+                frmQuanLyHD hoaDon = new frmQuanLyHD();
                 hoaDon.ShowDialog();
             }
             catch (Exception ex)
@@ -147,6 +147,41 @@ namespace PRL.View
             {
                 MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmMenuAd menu = new frmMenuAd(null);
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void menuDànhChoNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmMenuNV menu = new frmMenuNV(null);
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void hóaĐơnThanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmHoaDon nhanVien = new frmHoaDon();
+            nhanVien.ShowDialog();
         }
     }
 }

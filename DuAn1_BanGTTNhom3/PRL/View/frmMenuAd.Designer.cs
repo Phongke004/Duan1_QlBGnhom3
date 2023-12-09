@@ -65,7 +65,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 3, 0, 3);
-            menuStrip1.Size = new Size(1622, 44);
+            menuStrip1.Size = new Size(1622, 42);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +75,7 @@
             userToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đổiMậtKhẩuToolStripMenuItem, đăngXuấtToolStripMenuItem });
             userToolStripMenuItem.Margin = new Padding(0, 0, 170, 0);
             userToolStripMenuItem.Name = "userToolStripMenuItem";
-            userToolStripMenuItem.Size = new Size(86, 38);
+            userToolStripMenuItem.Size = new Size(86, 36);
             userToolStripMenuItem.Text = "User:";
             // 
             // đổiMậtKhẩuToolStripMenuItem
@@ -220,7 +220,7 @@
             MainMenuStrip = menuStrip1;
             Margin = new Padding(5);
             Name = "frmMenuAd";
-            Text = "frmMenuAd";
+            Text = "Menu cho quản lý";
             Load += frmMenuAd_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menuStrip1.ResumeLayout(false);

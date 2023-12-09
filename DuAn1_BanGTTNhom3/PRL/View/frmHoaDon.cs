@@ -441,16 +441,9 @@ namespace PRL.View
         }
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.Hide();
-                frmKhachHang nhanVien = new frmKhachHang();
-                nhanVien.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-            }
+            this.Hide();
+            frmKhachHang nhanVien = new frmKhachHang();
+            nhanVien.ShowDialog();
         }
 
 
@@ -646,6 +639,20 @@ namespace PRL.View
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Ngăn không cho ký tự này được nhập vào
+            }
+        }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmMenuNV thongKe = new frmMenuNV(null);
+                thongKe.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
         }
     }

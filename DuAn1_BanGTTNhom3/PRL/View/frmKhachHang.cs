@@ -18,8 +18,9 @@ namespace PRL.View
         string _idWhenclick;
         public frmKhachHang()
         {
-            _service = new KhachHangService();
             InitializeComponent();
+            _service = new KhachHangService();
+           
             LoadCombobox();
             loadSearkRanks();
         }
@@ -200,6 +201,111 @@ namespace PRL.View
             {
                 e.Handled = true; // Ngăn không cho ký tự này được nhập vào
             }
+        }
+
+        private void quanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmQLNV menu = new frmQLNV();
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void menustripMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmMenuAd menu = new frmMenuAd(null);
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mnstripQLCP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmCoupon menu = new frmCoupon();
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mnstripQLVC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmVoucher menu = new frmVoucher();
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mnstripQLHD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmQuanLyHD menu = new frmQuanLyHD();
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mnStripQLTK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmThongKe menu = new frmThongKe();
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MNSTripQLSP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                frmQLSP menu = new frmQLSP();
+                menu.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi" + ex, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void hóaĐơnThanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmHoaDon nhanVien = new frmHoaDon();
+            nhanVien.ShowDialog();
         }
     }
 }
