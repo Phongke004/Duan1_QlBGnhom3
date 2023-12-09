@@ -14,7 +14,7 @@ public partial class Doi
     [Unicode(false)]
     public string MaDoi { get; set; } = null!;
 
-    [StringLength(10)]
+    [StringLength(50)]
     public string? TrangThai { get; set; }
 
     [Column(TypeName = "date")]

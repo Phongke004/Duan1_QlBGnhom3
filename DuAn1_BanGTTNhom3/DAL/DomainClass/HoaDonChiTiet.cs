@@ -15,15 +15,15 @@ public partial class HoaDonChiTiet
     [Unicode(false)]
     public string MaHdct { get; set; } = null!;
 
-    [StringLength(10)]
-    [Unicode(false)]
-    public string? MaSp { get; set; }
-
     public int? SoLuong { get; set; }
 
     public double? DonGia { get; set; }
 
     public double? TongTienSauVoucher { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? MaSp { get; set; }
 
     [StringLength(10)]
     [Unicode(false)]

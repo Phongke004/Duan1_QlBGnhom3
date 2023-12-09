@@ -89,7 +89,8 @@
             btnXoaHDCT = new Button();
             groupBox3 = new GroupBox();
             groupBox4 = new GroupBox();
-            button1 = new Button();
+            btnXuatfile = new Button();
+            saveFileDialog1 = new SaveFileDialog();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgView).BeginInit();
@@ -438,7 +439,7 @@
             dtgView.RowHeadersWidth = 82;
             dtgView.RowTemplate.Height = 41;
             dtgView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgView.Size = new Size(1219, 155);
+            dtgView.Size = new Size(1156, 145);
             dtgView.TabIndex = 3;
             dtgView.CellClick += dtgView_CellClick;
             // 
@@ -639,6 +640,7 @@
             cbbTrangthai.Name = "cbbTrangthai";
             cbbTrangthai.Size = new Size(318, 28);
             cbbTrangthai.TabIndex = 14;
+            cbbTrangthai.SelectedIndexChanged += cbbTrangthai_SelectedIndexChanged;
             // 
             // label15
             // 
@@ -661,7 +663,7 @@
             dtgviewHD.RowHeadersWidth = 82;
             dtgviewHD.RowTemplate.Height = 41;
             dtgviewHD.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgviewHD.Size = new Size(1219, 182);
+            dtgviewHD.Size = new Size(1156, 182);
             dtgviewHD.TabIndex = 13;
             dtgviewHD.CellClick += dtgviewHD_CellClick;
             dtgviewHD.CellContentClick += dtgviewHD_CellContentClick;
@@ -745,7 +747,7 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(button1);
+            groupBox4.Controls.Add(btnXuatfile);
             groupBox4.Controls.Add(btnAddHD);
             groupBox4.Controls.Add(ClearCode);
             groupBox4.Controls.Add(btnSuaHoaDon);
@@ -760,16 +762,17 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Chức năng";
             // 
-            // button1
+            // btnXuatfile
             // 
-            button1.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(9, 236);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(110, 29);
-            button1.TabIndex = 19;
-            button1.Text = "In Hóa đơn";
-            button1.UseVisualStyleBackColor = true;
+            btnXuatfile.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnXuatfile.Location = new Point(9, 236);
+            btnXuatfile.Margin = new Padding(2);
+            btnXuatfile.Name = "btnXuatfile";
+            btnXuatfile.Size = new Size(110, 29);
+            btnXuatfile.TabIndex = 19;
+            btnXuatfile.Text = "In Hóa đơn";
+            btnXuatfile.UseVisualStyleBackColor = true;
+            btnXuatfile.Click += btnXuatfile_Click;
             // 
             // frmHoaDon
             // 
@@ -794,6 +797,7 @@
             Margin = new Padding(2);
             Name = "frmHoaDon";
             Text = "Hóa đơn";
+            Load += frmHoaDon_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -873,8 +877,9 @@
         private Label label16;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
-        private Button button1;
+        private Button btnXuatfile;
         private TextBox txtMaHDCT;
         private Label label17;
+        private SaveFileDialog saveFileDialog1;
     }
 }
